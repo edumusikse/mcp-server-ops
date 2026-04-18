@@ -23,6 +23,7 @@ def init_db():
             CREATE TABLE IF NOT EXISTS tool_calls (
                 id          INTEGER PRIMARY KEY AUTOINCREMENT,
                 ts          TEXT NOT NULL,
+                host        TEXT,
                 tool        TEXT NOT NULL,
                 args_json   TEXT,
                 result_json TEXT,
@@ -37,12 +38,15 @@ def init_db():
         """)
 
 
-def log_call(tool: str, args: dict, result, duration_ms: int = 0, allowed: bool = True):
+def log_call(tool: str, args: dict, result, duration_ms: int = 0,
+             allowed: bool = True, host: str = None):
     ts = datetime.now(timezone.utc).isoformat()
     with _connect() as conn:
         conn.execute(
-            "INSERT INTO tool_calls (ts, tool, args_json, result_json, duration_ms, allowed) VALUES (?,?,?,?,?,?)",
-            (ts, tool, json.dumps(args), json.dumps(result if isinstance(result, (dict, list)) else str(result)),
+            "INSERT INTO tool_calls (ts, host, tool, args_json, result_json, duration_ms, allowed)"
+            " VALUES (?,?,?,?,?,?,?)",
+            (ts, host, tool, json.dumps(args),
+             json.dumps(result if isinstance(result, (dict, list)) else str(result)),
              duration_ms, 1 if allowed else 0)
         )
 
@@ -55,8 +59,8 @@ def save_snapshot(data: dict):
             (ts, json.dumps(data))
         )
         conn.execute(
-            "DELETE FROM server_snapshots WHERE id NOT IN "
-            "(SELECT id FROM server_snapshots ORDER BY id DESC LIMIT 100)"
+            "DELETE FROM server_snapshots WHERE id NOT IN"
+            " (SELECT id FROM server_snapshots ORDER BY id DESC LIMIT 100)"
         )
 
 

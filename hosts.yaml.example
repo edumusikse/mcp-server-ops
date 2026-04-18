@@ -1,0 +1,24 @@
+# ops-mcp fleet configuration
+# Deploy to: /opt/ops-mcp/hosts.yaml on the control server
+# This file contains no secrets — IPs and usernames only.
+
+fleet:
+  # The control server itself: ssh is null, commands run locally (no SSH hop)
+  control:
+    ssh: null
+    user: ops
+    restart_allowlist:
+      - monitoring-agent
+
+  # Managed servers: reached via private LAN IPs from the control server
+  web-01:
+    ssh: "10.0.0.10"
+    user: ops
+    restart_allowlist:
+      - nginx
+      - app
+
+  db-01:
+    ssh: "10.0.0.20"
+    user: ops
+    restart_allowlist: []  # no restarts allowed

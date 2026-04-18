@@ -1,25 +1,58 @@
 # ops-agent
 
-Dedicated Claude Code project for AI-assisted server monitoring of the EduMusik servers.
-All server interaction is through the ops-mcp MCP server — no direct SSH or Bash commands.
-The SSH-blocking hook in `.claude/settings.json` enforces this.
+Dedicated Claude Code project for AI-assisted fleet management via MCP.
+All server interaction goes through the `ops` MCP server — no direct SSH or Bash.
 
-## Servers
+## Architecture
 
-| Server | SSH alias | IP | MCP prefix |
-|--------|-----------|-----|------------|
-| onyx | `ssh onyx` | 46.225.176.163 | `mcp__onyx-ops__` |
-| main (edumusik-1) | `ssh edumusik-net` | 178.104.32.37 | `mcp__main-ops__` |
+One MCP server runs on the control server (onyx). It manages the whole fleet via SSH
+over the private LAN — zero egress cost, sub-millisecond latency between servers.
+Any MCP client connects via a single SSH hop to onyx.
 
-## What this project is for
+```
+Client (any device)
+  └── ssh onyx → MCP server (Python)
+                    ├── local commands     (onyx tools)
+                    └── ssh main-private   (main server, 192.168.50.3)
+```
 
-This project exists to demonstrate and operate a token-efficient server monitoring pattern:
+## Fleet
 
-1. **MCP server** (`ops-mcp`) runs on onyx and digests raw server output locally before returning it
-2. **Structured output** — Claude is prompted for JSON responses, not prose
-3. Together these reduce per-call token cost by ~59% vs a full dev session with raw SSH
+| Host | Role | SSH from control |
+|------|------|-----------------|
+| `onyx` | Control server / Onyx AI Search | local (no hop) |
+| `main` | Main server — WordPress, Traefik | `main-private` (192.168.50.3) |
 
-The benchmark script (`benchmark.py`) proved this with real API calls:
+## MCP tools
+
+All per-host tools take a `host` parameter matching a key in `/opt/ops-mcp/hosts.yaml`.
+
+| Tool | Description |
+|------|-------------|
+| `fleet_status()` | All hosts in parallel — one call for a full overview |
+| `server_status(host)` | Containers, disk %, RAM %, uptime |
+| `list_containers(host)` | All containers with status and age |
+| `tail_logs(host, container)` | Log digest — level counts, errors, samples |
+| `safe_restart(host, container)` | Restart allowlisted containers only |
+| `describe_server(host)` | Topology: containers, ports, allowlist |
+| `read_doc(name)` | Read ops docs: ops-map, rules, guard-rules |
+| `hetzner_firewall(server)` | Live firewall rules via Hetzner API |
+| `cloudflare_dns(zone)` | Live DNS records via Cloudflare API |
+
+`safe_restart` is not in allowedTools — it requires manual approval each time.
+
+## First thing in a new session
+
+1. `fleet_status()` — current state of all hosts
+2. `read_doc("ops-map")` — load service topology
+
+## Rules
+
+- Never use Bash or SSH — the hook blocks it. Use MCP tools.
+- State intent before any mutation (restart). Ask before acting.
+- JSON responses only — no prose summaries unless asked.
+
+## Token benchmark (real API calls, 2026-04-18)
 
 | Approach | Input tokens | Output tokens | Cost/call | Monthly (5-min) |
 |----------|-------------|---------------|-----------|-----------------|
@@ -27,69 +60,11 @@ The benchmark script (`benchmark.py`) proved this with real API calls:
 | ops-agent (MCP digest + JSON) | 1,182 | 118 | $0.0018 | $15.31 |
 | **Saving** | **52% fewer** | **68% fewer** | **59% cheaper** | **$21.70/month** |
 
-## MCP tools available
+## On-server paths (onyx)
 
-Same tools on both servers — swap the prefix (`onyx-ops` or `main-ops`):
-
-- `server_status` — containers, disk %, RAM %, uptime (pre-digested)
-- `list_containers` — all containers with status and age
-- `tail_logs` — log digest (not raw lines) — args: container, lines (max 200)
-- `safe_restart` — restart allowlisted containers only
-- `describe_server` — topology summary with ports
-- `read_doc` — read server docs: ops-map, rules, or guard-rules
-- `hetzner_firewall` — live firewall rules (uses HETZNER_API_TOKEN from env)
-- `cloudflare_dns` — live DNS records (uses CLOUDFLARE_API_TOKEN from env)
-
-## First thing to do in a new session
-
-Call `read_doc` (`name="ops-map"`) on both servers to load topology. Then `server_status`
-on both for current state.
-
-## Rules
-
-- Never use Bash or SSH. The hook will block it. Use MCP tools for everything.
-- For server mutations (restart), state what you intend to do and ask before acting.
-- Structured JSON responses only — no prose health summaries unless explicitly asked.
-
-## Server docs (on-server at /opt/ops-mcp/docs/, readable via read_doc)
-
-- `ops-map` — container names, ports, compose file paths for all services
-- `rules` — operational guardrails and behavioural rules
-- `guard-rules` — guard rule patterns (YAML)
-
-## Current project — what we're building and why
-
-The EduMusik server setup grew a complex hook system (guard-ops-harness.py, guard-ssh-writes.sh,
-guard-bash.sh, guard-validate.py, etc.) to enforce guardrails on Claude's server access. These
-hooks fire on every tool call, add latency, cause permission friction, burn tokens describing
-what they blocked, and create constant maintenance overhead. The monthly API cost is ~$200 when
-it should be ~$20.
-
-This project is the replacement architecture. The principle: **guardrails belong in the MCP
-server, not in hooks**. If `safe_restart` only accepts an allowlist, it's structurally impossible
-to restart the wrong container — no hook needed. If `tail_logs` returns a digest, it's
-structurally impossible to flood context with raw logs.
-
-**What's been proven** (benchmarked with real API calls, 2026-04-18):
-- MCP digest + structured JSON output = 59% cost reduction vs full dev session with raw SSH
-- Input tokens: 2,458 → 1,182 (52% fewer)
-- Output tokens: 365 → 118 (68% fewer)
-- Monthly cost at 5-min health-check cadence: $37 → $15
-
-**What's next:**
-1. Extend MCP tools to cover Hetzner API (firewall rules) and Cloudflare DNS — replacing the
-   need for hooks that guard those operations
-2. Pass credentials (Hetzner API token, Cloudflare token) as env vars in the MCP server launch
-   config in `~/.claude.json` — never in context, never on the server in a readable file
-3. Add a `run_health_check` tool that returns a single structured JSON verdict — the foundation
-   for an always-on monitoring agent callable from anywhere, not just from the Mac
-
-The existing vs-code project and its hooks are untouched — this project is the clean successor.
-
-## MCP server internals (for debugging)
-
-- Source: `/opt/ops-mcp/server.py` and `state.py` on both servers
-- onyx: runs as `stephan`, logs at `/home/stephan/.ops-mcp/`
-- main: runs as `claude-ops`, logs at `/home/claude-ops/.ops-mcp/`
-- Spawned fresh per Claude Code session via stdio transport
-- Registration: `~/.claude.json` → projects → `/Users/stephan/Documents/ops-agent` → mcpServers
+- MCP server: `/opt/ops-mcp/server.py`
+- Fleet config: `/opt/ops-mcp/hosts.yaml`
+- Secrets: `/opt/ops-mcp/.env` (chmod 600)
+- Docs: `/opt/ops-mcp/docs/`
+- Audit log: `~/.ops-mcp/state.db`
+- Process log: `~/.ops-mcp/ops-mcp.log`
