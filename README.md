@@ -43,15 +43,17 @@ Prompting for `{"ok": bool, "alerts": [...], "action_required": bool}` instead o
 
 ## Benchmark (real API calls, claude-haiku-4-5, 2026-04-18)
 
+Log analysis across 5 containers (50 lines each):
+
 | | Naive (raw SSH + prose) | This project (MCP digest + JSON) |
 |--|--|--|
-| Input tokens | 2,458 | 1,182 |
-| Output tokens | 365 | 118 |
-| Cost/call | $0.0043 | $0.0018 |
-| Monthly @ 5-min cadence | $37.00 | $15.31 |
-| **Total saving** | — | **59% cheaper** |
+| Input tokens | 9,171 | 1,418 |
+| Output tokens | 600 | 150 |
+| Cost/call | $0.012171 | $0.002168 |
+| Monthly @ 1h cadence | $8.76 | $1.56 |
+| **Total saving** | — | **82% cheaper** |
 
-For log analysis specifically, the input reduction is ~97%.
+Input token reduction: 85%. Output token reduction: 75%.
 
 ---
 

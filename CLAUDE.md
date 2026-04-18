@@ -52,13 +52,13 @@ All per-host tools take a `host` parameter matching a key in `/opt/ops-mcp/hosts
 - State intent before any mutation (restart). Ask before acting.
 - JSON responses only — no prose summaries unless asked.
 
-## Token benchmark (real API calls, 2026-04-18)
+## Token benchmark — log analysis, 5 containers (real API calls, 2026-04-18)
 
-| Approach | Input tokens | Output tokens | Cost/call | Monthly (5-min) |
-|----------|-------------|---------------|-----------|-----------------|
-| Full dev session (raw SSH + prose) | 2,458 | 365 | $0.0043 | $37.00 |
-| ops-agent (MCP digest + JSON) | 1,182 | 118 | $0.0018 | $15.31 |
-| **Saving** | **52% fewer** | **68% fewer** | **59% cheaper** | **$21.70/month** |
+| Approach | Input tokens | Output tokens | Cost/call | Monthly (1h) |
+|----------|-------------|---------------|-----------|--------------|
+| Naive (raw SSH + prose) | 9,171 | 600 | $0.012171 | $8.76 |
+| ops-agent (MCP digest + JSON) | 1,418 | 150 | $0.002168 | $1.56 |
+| **Saving** | **85% fewer** | **75% fewer** | **82% cheaper** | **$7.20/month** |
 
 ## On-server paths (onyx)
 
