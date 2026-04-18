@@ -4,24 +4,32 @@
   "description": "Multi-model AI chat with server fleet MCP tools",
   "version": "0.1.0",
   "publisher": "edumusik",
-  "engines": { "vscode": "^1.85.0" },
-  "categories": ["Other"],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
     "viewsContainers": {
-      "activitybar": [{
-        "id": "ops-panel-container",
-        "title": "Ops Panel",
-        "icon": "media/ops-icon.svg"
-      }]
+      "activitybar": [
+        {
+          "id": "ops-panel-container",
+          "title": "Ops Panel",
+          "icon": "media/ops-icon.svg"
+        }
+      ]
     },
     "views": {
-      "ops-panel-container": [{
-        "type": "webview",
-        "id": "ops-panel.chat",
-        "name": "Chat"
-      }]
+      "ops-panel-container": [
+        {
+          "type": "webview",
+          "id": "ops-panel.chat",
+          "name": "Chat"
+        }
+      ]
     },
     "configuration": {
       "title": "Ops Panel",
@@ -37,6 +45,14 @@
         "ops-panel.openaiApiKey": {
           "type": "string",
           "markdownDescription": "OpenAI API key (or set `OPENAI_API_KEY` env var)"
+        },
+        "ops-panel.mistralApiKey": {
+          "type": "string",
+          "markdownDescription": "Mistral API key (or set `MISTRAL_API_KEY` env var)"
+        },
+        "ops-panel.deepseekApiKey": {
+          "type": "string",
+          "markdownDescription": "DeepSeek API key (or set `DEEPSEEK_API_KEY` env var)"
         },
         "ops-panel.sshHost": {
           "type": "string",
@@ -71,6 +87,7 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
     "@google/generative-ai": "^0.21.0",
+    "@mistralai/mistralai": "^2.2.0",
     "openai": "^4.77.0"
   }
 }

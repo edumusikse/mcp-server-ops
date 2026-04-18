@@ -8,9 +8,18 @@ const MODELS = [
     { id: 'claude-haiku-4-5-20251001', label: 'Claude Haiku (fast)' },
     { id: 'claude-sonnet-4-6',         label: 'Claude Sonnet (balanced)' },
     { id: 'claude-opus-4-7',           label: 'Claude Opus (best)' },
-    { id: 'gemini-2.5-pro',            label: 'Gemini 2.5 Pro' },
-    { id: 'gpt-4o',                    label: 'GPT-4o' },
-    { id: 'gpt-4o-mini',               label: 'GPT-4o mini' },
+    { id: 'gemini-2.5-pro',             label: 'Gemini 2.5 Pro' },
+    { id: 'gemini-2.5-flash',           label: 'Gemini 2.5 Flash (free tier)' },
+    { id: 'gpt-5.4',                   label: 'GPT-5.4' },
+    { id: 'gpt-5.4-mini',              label: 'GPT-5.4 mini (fast)' },
+    { id: 'gpt-4.1',                   label: 'GPT-4.1' },
+    { id: 'o3',                        label: 'o3 (reasoning)' },
+    { id: 'o4-mini',                   label: 'o4-mini (reasoning, fast)' },
+    { id: 'mistral-large-latest',      label: 'Mistral Large (best)' },
+    { id: 'mistral-small-latest',      label: 'Mistral Small (fast)' },
+    { id: 'codestral-latest',          label: 'Codestral (code)' },
+    { id: 'deepseek-chat',             label: 'DeepSeek V3 (chat)' },
+    { id: 'deepseek-reasoner',         label: 'DeepSeek R1 (reasoning)' },
 ];
 
 export class OpsPanel implements vscode.WebviewViewProvider {
@@ -74,6 +83,8 @@ export class OpsPanel implements vscode.WebviewViewProvider {
             anthropic: cfg.get<string>('anthropicApiKey') || process.env.ANTHROPIC_API_KEY,
             gemini:    cfg.get<string>('geminiApiKey')    || process.env.GEMINI_API_KEY,
             openai:    cfg.get<string>('openaiApiKey')    || process.env.OPENAI_API_KEY,
+            mistral:   cfg.get<string>('mistralApiKey')   || process.env.MISTRAL_API_KEY,
+            deepseek:  cfg.get<string>('deepseekApiKey')  || process.env.DEEPSEEK_API_KEY,
         };
 
         this.send({ type: 'startAssistant' });
@@ -81,9 +92,10 @@ export class OpsPanel implements vscode.WebviewViewProvider {
         try {
             let fullText = '';
             const result = await chat(model, apiKeys, this.history, this.mcp!, {
-                onText: (chunk) => { fullText += chunk; this.send({ type: 'chunk', text: chunk }); },
+                onText:      (chunk)      => { fullText += chunk; this.send({ type: 'chunk', text: chunk }); },
                 onToolStart: (name, args) => this.send({ type: 'toolStart', name, args }),
                 onToolEnd:   (name, res)  => this.send({ type: 'toolEnd',   name, result: res }),
+                onTokens:    (input, output) => this.send({ type: 'tokens', input, output }),
             });
             this.history.push({ role: 'assistant', content: result });
         } catch (e) {
@@ -116,6 +128,7 @@ export class OpsPanel implements vscode.WebviewViewProvider {
 <body>
   <div id="header">
     <select id="model-select"></select>
+    <button id="clear-btn" title="New session">↺</button>
     <div id="status-dot" class="dot disconnected" title="MCP disconnected"></div>
   </div>
   <div id="messages"></div>

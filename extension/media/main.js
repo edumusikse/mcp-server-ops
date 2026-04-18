@@ -4,10 +4,13 @@
     const messages    = document.getElementById('messages');
     const input       = document.getElementById('input');
     const sendBtn     = document.getElementById('send-btn');
+    const clearBtn    = document.getElementById('clear-btn');
     const statusDot   = document.getElementById('status-dot');
 
     let currentAssistantEl = null;
     let currentBodyEl = null;
+
+    clearBtn.addEventListener('click', () => vscode.postMessage({ type: 'clear' }));
 
     // ── Send ──────────────────────────────────────────────────────────────────
 
@@ -24,6 +27,19 @@
     input.addEventListener('keydown', e => {
         if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) send();
     });
+
+    // ── Helpers ───────────────────────────────────────────────────────────────
+
+    function fmtArgs(args) {
+        const entries = Object.entries(args || {});
+        if (!entries.length) return '';
+        const s = entries.map(([k, v]) => `${k}=${JSON.stringify(v)}`).join(', ');
+        return '(' + (s.length > 60 ? s.slice(0, 57) + '…' : s) + ')';
+    }
+
+    function fmtNum(n) {
+        return n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n);
+    }
 
     // ── Messages ──────────────────────────────────────────────────────────────
 
@@ -88,16 +104,27 @@
             case 'toolStart': {
                 const chip = document.createElement('div');
                 chip.className = 'tool-chip running';
-                chip.id = 'tool-' + msg.name;
-                chip.textContent = msg.name;
+                chip.dataset.name = msg.name;
+                chip.textContent = msg.name + fmtArgs(msg.args);
                 currentAssistantEl?.appendChild(chip);
                 scrollBottom();
                 break;
             }
 
             case 'toolEnd': {
-                const chip = document.getElementById('tool-' + msg.name);
+                const chip = [...(currentAssistantEl?.querySelectorAll('.tool-chip') ?? [])]
+                    .find(c => c.dataset.name === msg.name && c.classList.contains('running'));
                 if (chip) { chip.className = 'tool-chip done'; }
+                break;
+            }
+
+            case 'tokens': {
+                if (currentAssistantEl) {
+                    const tok = document.createElement('div');
+                    tok.className = 'token-count';
+                    tok.textContent = `↑${fmtNum(msg.input)} ↓${fmtNum(msg.output)}`;
+                    currentAssistantEl.appendChild(tok);
+                }
                 break;
             }
 

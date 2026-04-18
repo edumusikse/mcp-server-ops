@@ -30,6 +30,18 @@ body {
     font-size: 12px;
 }
 
+#clear-btn {
+    background: none;
+    border: none;
+    color: var(--vscode-descriptionForeground);
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0 2px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+#clear-btn:hover { color: var(--vscode-foreground); }
+
 .dot {
     width: 8px; height: 8px;
     border-radius: 50%;
@@ -127,6 +139,13 @@ body {
 }
 #send-btn:hover   { background: var(--vscode-button-hoverBackground); }
 #send-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.token-count {
+    font-size: 10px;
+    color: var(--vscode-descriptionForeground);
+    margin-top: 4px;
+    font-family: var(--vscode-editor-font-family);
+}
 
 .cursor::after { content: '▋'; animation: blink 1s step-end infinite; }
 @keyframes blink { 50% { opacity: 0; } }
