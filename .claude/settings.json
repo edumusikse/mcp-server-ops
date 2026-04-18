@@ -1,0 +1,24 @@
+{
+  "allowedTools": [
+    "mcp__onyx-ops__server_status",
+    "mcp__onyx-ops__list_containers",
+    "mcp__onyx-ops__tail_logs",
+    "mcp__onyx-ops__describe_server",
+    "mcp__onyx-ops__read_doc",
+    "mcp__onyx-ops__hetzner_firewall",
+    "mcp__onyx-ops__cloudflare_dns"
+  ],
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /Users/stephan/Documents/ops-agent/.claude/hooks/block-ssh.py"
+          }
+        ]
+      }
+    ]
+  }
+}
