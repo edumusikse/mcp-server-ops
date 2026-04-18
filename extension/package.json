@@ -1,0 +1,76 @@
+{
+  "name": "ops-panel",
+  "displayName": "Ops Panel",
+  "description": "Multi-model AI chat with server fleet MCP tools",
+  "version": "0.1.0",
+  "publisher": "edumusik",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other"],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [{
+        "id": "ops-panel-container",
+        "title": "Ops Panel",
+        "icon": "media/ops-icon.svg"
+      }]
+    },
+    "views": {
+      "ops-panel-container": [{
+        "type": "webview",
+        "id": "ops-panel.chat",
+        "name": "Chat"
+      }]
+    },
+    "configuration": {
+      "title": "Ops Panel",
+      "properties": {
+        "ops-panel.anthropicApiKey": {
+          "type": "string",
+          "markdownDescription": "Anthropic API key (or set `ANTHROPIC_API_KEY` env var)"
+        },
+        "ops-panel.geminiApiKey": {
+          "type": "string",
+          "markdownDescription": "Google Gemini API key (or set `GEMINI_API_KEY` env var)"
+        },
+        "ops-panel.openaiApiKey": {
+          "type": "string",
+          "markdownDescription": "OpenAI API key (or set `OPENAI_API_KEY` env var)"
+        },
+        "ops-panel.sshHost": {
+          "type": "string",
+          "default": "onyx",
+          "description": "SSH host alias for the MCP control server"
+        },
+        "ops-panel.mcpServerPath": {
+          "type": "string",
+          "default": "/opt/ops-mcp/server.py",
+          "description": "Path to server.py on the SSH host"
+        },
+        "ops-panel.pythonPath": {
+          "type": "string",
+          "default": "/opt/ops-mcp/.venv/bin/python3",
+          "description": "Python interpreter on the SSH host"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node esbuild.js",
+    "watch": "node esbuild.js --watch",
+    "package": "npm run build && vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^2.24.0",
+    "esbuild": "^0.20.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@google/generative-ai": "^0.21.0",
+    "openai": "^4.77.0"
+  }
+}

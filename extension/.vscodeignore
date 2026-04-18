@@ -1,0 +1,6 @@
+node_modules/**
+src/**
+dist/**/*.map
+*.vsix
+tsconfig.json
+esbuild.js
