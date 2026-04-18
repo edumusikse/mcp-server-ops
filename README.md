@@ -1,121 +1,158 @@
-# ops-agent
+# mcp-server-ops
 
-A token-efficient Claude Code project for AI-assisted server management via MCP.
+A token-efficient MCP server for AI-assisted Linux server management.
+
+The MCP server runs on your target server and pre-digests raw command output
+before it reaches your LLM. Instead of flooding context with raw `docker ps`,
+`free -m`, and log files, it returns compact structured summaries. Guardrails
+live in the tool definitions — not in prompt engineering.
+
+Works with any MCP-compatible client: Claude Code, Claude Desktop, Cursor,
+or any application built on the MCP protocol.
+
+---
 
 ## The problem
 
-Using Claude Code for server management in a full development project is expensive:
-- The entire project context (CLAUDE.md, skills, memory files) loads into every message
-- Raw SSH output — `docker ps`, `free -m`, `df -h` — floods the conversation unprocessed
-- Hooks fire on every tool call, adding latency and token overhead
-- Result: ~2,500 input tokens and ~400 output tokens per health check interaction
+Asking an LLM to manage a server via raw SSH output is expensive and slow:
+
+- `docker ps` + `df -h` + `free -m` + `uptime` = ~400 tokens of raw text
+- 100 lines of container logs = ~3,200 tokens
+- The LLM then writes a verbose prose response explaining what it found
+
+Multiply by every health check, every log review, every firewall inspection —
+costs compound fast.
 
 ## The solution
 
-Two levers, independently valuable, compounding together:
+Two levers that stack:
 
-**1. MCP server-side digestion**
-An MCP server runs on the target server and processes raw command output locally before returning it to Claude. Instead of 100 lines of raw logs, Claude receives a structured digest: error count, warning count, 3 unique sample lines. The guardrails live in the tool definitions — `safe_restart` only accepts an allowlist, structurally preventing restarts of unintended containers.
+**1. Server-side digestion (the MCP server)**
+Raw command output is processed on the server before it reaches the LLM.
+`tail_logs` returns `{"errors": 2, "warnings": 5, "sample_info": [...]}` —
+not 100 raw log lines. The LLM gets signal, not noise.
 
-**2. Minimal project context + structured output**
-This project has a slim CLAUDE.md (no infrastructure docs, no skills, no memory files) and instructs Claude to respond in structured JSON rather than prose.
+**2. Structured output**
+Prompting for `{"ok": bool, "alerts": [...], "action_required": bool}`
+instead of prose cuts output tokens by ~80% and makes responses machine-readable.
 
-## Benchmark results (measured 2026-04-18, claude-haiku-4-5, real API calls)
+## Benchmark (real API calls, claude-haiku-4-5, measured 2026-04-18)
 
-| | Full dev session | ops-agent |
+| | Naive (raw SSH + prose) | Optimized (MCP digest + JSON) |
 |--|--|--|
-| System prompt | 6,981 chars | 2,845 chars |
 | Input tokens | 2,458 | 1,182 |
 | Output tokens | 365 | 118 |
 | Cost/call | $0.0043 | $0.0018 |
 | Monthly @ 5-min cadence | $37.00 | $15.31 |
-| **Saving** | — | **59% cheaper** |
+| **Total saving** | — | **59% cheaper** |
 
-For log analysis (`tail_logs`), input token reduction alone is ~97% — 100 raw log lines digest to a handful of structured fields.
+For log analysis specifically, the input reduction is ~97% — 100 raw log lines
+become a handful of structured fields.
 
-## Architecture
+---
 
-```
-Claude Code (ops-agent project)
-    │
-    ├── CLAUDE.md          minimal context, instructs MCP-first
-    ├── .claude/
-    │   ├── settings.json  allowedTools list, SSH-blocking hook
-    │   └── hooks/
-    │       └── block-ssh.py   blocks direct SSH/Docker Bash commands
-    │
-    └── MCP: onyx-ops (stdio over SSH)
-            │
-            └── /opt/ops-mcp/server.py  (runs on target server)
-                    ├── server_status       containers, disk, RAM, uptime
-                    ├── list_containers     all containers with age
-                    ├── tail_logs           log digest (not raw lines)
-                    ├── safe_restart        allowlisted restarts only
-                    ├── describe_server     topology with ports
-                    ├── read_doc            ops-map, rules, guard-rules
-                    ├── hetzner_firewall    live firewall rules via API
-                    └── cloudflare_dns      live DNS records via API
-```
+## MCP tools
 
-Credentials for external APIs (Hetzner, Cloudflare) are passed as environment variables in the MCP server launch config — never in Claude's context, never stored on the server.
+| Tool | Description |
+|------|-------------|
+| `server_status` | Containers, disk %, RAM %, uptime — pre-digested |
+| `list_containers` | All containers with status and age |
+| `tail_logs` | Log digest: level counts, errors, sample lines |
+| `safe_restart` | Restart allowlisted containers only |
+| `describe_server` | Topology summary with ports |
+| `read_doc` | Read ops docs stored on the server |
+| `hetzner_firewall` | Live Hetzner firewall rules via API |
+| `cloudflare_dns` | Live Cloudflare DNS records via API |
+
+Guardrails are structural: `safe_restart` accepts only an explicit allowlist.
+There is no tool for arbitrary shell execution. What the server can't do,
+the LLM can't do — no prompt-level enforcement needed.
+
+---
 
 ## Setup
 
 ### 1. Deploy the MCP server
 
-Copy `server/` to your target server at `/opt/ops-mcp/`. Create a virtualenv and install dependencies:
-
 ```bash
+# On your server
+mkdir -p /opt/ops-mcp
 python3 -m venv /opt/ops-mcp/.venv
 /opt/ops-mcp/.venv/bin/pip install mcp fastmcp
+
+# Copy server files
+scp server/server.py server/state.py your-server:/opt/ops-mcp/
 ```
 
-### 2. Register the MCP server in Claude Code
+### 2. Connect your MCP client
 
+**Claude Code:**
 ```bash
-claude mcp add onyx-ops --transport stdio -- ssh your-server /opt/ops-mcp/.venv/bin/python3 /opt/ops-mcp/server.py
+claude mcp add server-ops --transport stdio -- \
+  ssh your-server /opt/ops-mcp/.venv/bin/python3 /opt/ops-mcp/server.py
 ```
 
-Or add to `~/.claude.json` under `projects` → your project path → `mcpServers`:
-
+**Any MCP client** — add to your client's MCP config:
 ```json
 {
-  "onyx-ops": {
+  "server-ops": {
     "type": "stdio",
     "command": "ssh",
     "args": ["your-server", "/opt/ops-mcp/.venv/bin/python3", "/opt/ops-mcp/server.py"],
     "env": {
-      "HETZNER_API_TOKEN": "your-token",
-      "CLOUDFLARE_API_TOKEN": "your-token"
+      "HETZNER_API_TOKEN": "optional — for hetzner_firewall tool",
+      "CLOUDFLARE_API_TOKEN": "optional — for cloudflare_dns tool"
     }
   }
 }
 ```
 
-### 3. Open the project
+API credentials are passed as env vars at spawn time — never stored on the
+server, never appear in LLM context.
 
-```bash
-claude /path/to/ops-agent
-```
+### 3. Optional: Claude Code project
 
-Use the kickoff prompt in `CLAUDE.md` to orient the session.
+The `.claude/` directory contains a ready-made Claude Code project:
+- `settings.json` — allowlists read-only MCP tools, blocks direct SSH/Docker Bash commands
+- `hooks/block-ssh.py` — enforces MCP-only server access
+- Copy `CLAUDE.md` and adjust for your server
+
+---
 
 ## Benchmark
 
-Run the benchmark yourself:
-
 ```bash
 export ANTHROPIC_API_KEY=your-key
-export SSH_HOST=your-server   # default: onyx
+export SSH_HOST=your-server
 python3 benchmark.py
 ```
 
+Runs two real API calls and prints a full token/cost comparison.
+
+---
+
+## Extending
+
+Add tools to `server/server.py` by decorating functions with `@mcp.tool()`.
+Each new tool is a guardrail: the LLM can only do what the tools expose.
+
+```python
+@mcp.tool()
+def nginx_config_check() -> dict:
+    """Validate nginx config. Returns ok/errors — not raw nginx output."""
+    rc, out = _run(["nginx", "-t"])
+    return {"ok": rc == 0, "output": out[:500]}
+```
+
+---
+
 ## File map
 
-| File | Purpose |
+| Path | Purpose |
 |------|---------|
-| `CLAUDE.md` | Project instructions and current work context |
-| `benchmark.py` | Token/cost comparison: full dev session vs ops-agent |
-| `.claude/settings.json` | Tool allowlist and SSH-blocking hook |
-| `.claude/hooks/block-ssh.py` | Blocks direct SSH/Docker Bash commands |
-| `server/` | MCP server source (deploy to target server) |
+| `server/server.py` | MCP server — deploy to target server |
+| `server/state.py` | SQLite audit log and snapshot store |
+| `benchmark.py` | Token/cost comparison script |
+| `CLAUDE.md` | Claude Code project instructions |
+| `.claude/settings.json` | Claude Code tool allowlist + hooks |
+| `.claude/hooks/block-ssh.py` | Blocks raw SSH in Claude Code sessions |

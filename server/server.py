@@ -20,7 +20,7 @@ import urllib.error
 from pathlib import Path
 
 # All logging goes to file, never stdout (stdout = MCP transport)
-_LOG_DIR = Path("/home/stephan/.ops-mcp")
+_LOG_DIR = Path(os.environ.get("OPS_STATE_DIR", str(Path.home() / ".ops-mcp")))
 _LOG_DIR.mkdir(parents=True, exist_ok=True)
 logging.basicConfig(
     filename=str(_LOG_DIR / "ops-mcp.log"),
@@ -33,10 +33,13 @@ from state import init_db, log_call, save_snapshot  # noqa: E402
 
 from mcp.server.fastmcp import FastMCP  # noqa: E402
 
-mcp = FastMCP("onyx-ops")
+_SERVER_NAME = os.environ.get("OPS_SERVER_NAME", "onyx")
+mcp = FastMCP(f"{_SERVER_NAME}-ops")
 
-# Containers that may be restarted — expand as trust is established
-RESTART_ALLOWLIST: set[str] = {"beszel-agent"}
+# Containers that may be restarted — expand per-server via OPS_RESTART_ALLOWLIST env var
+# Format: comma-separated container names, e.g. "beszel-agent,nginx"
+_allowlist_env = os.environ.get("OPS_RESTART_ALLOWLIST", "beszel-agent")
+RESTART_ALLOWLIST: set[str] = {s.strip() for s in _allowlist_env.split(",") if s.strip()}
 
 DOCS_DIR = Path("/opt/ops-mcp/docs")
 
@@ -224,7 +227,9 @@ def describe_server() -> str:
     """Topology summary: what services exist on this server and their purpose."""
     t0 = time.monotonic()
     rc, out = _run(["docker", "ps", "--format", "{{.Names}}\t{{.Ports}}\t{{.Status}}"])
-    lines = ["Server: onyx (46.225.176.163)", "", "Running containers:"]
+    _server_ip = os.environ.get("OPS_SERVER_IP", "")
+    _label = f"{_SERVER_NAME} ({_server_ip})" if _server_ip else _SERVER_NAME
+    lines = [f"Server: {_label}", "", "Running containers:"]
     if rc == 0:
         for line in out.splitlines():
             lines.append("  " + line)

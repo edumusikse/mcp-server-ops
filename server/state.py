@@ -2,11 +2,12 @@
 """Shared SQLite state for ops-mcp: audit log and server snapshots."""
 
 import json
+import os
 import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
 
-DB_PATH = Path("/home/stephan/.ops-mcp/state.db")
+DB_PATH = Path(os.environ.get("OPS_STATE_DIR", str(Path.home() / ".ops-mcp"))) / "state.db"
 
 
 def _connect():

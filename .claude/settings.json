@@ -6,7 +6,14 @@
     "mcp__onyx-ops__describe_server",
     "mcp__onyx-ops__read_doc",
     "mcp__onyx-ops__hetzner_firewall",
-    "mcp__onyx-ops__cloudflare_dns"
+    "mcp__onyx-ops__cloudflare_dns",
+    "mcp__main-ops__server_status",
+    "mcp__main-ops__list_containers",
+    "mcp__main-ops__tail_logs",
+    "mcp__main-ops__describe_server",
+    "mcp__main-ops__read_doc",
+    "mcp__main-ops__hetzner_firewall",
+    "mcp__main-ops__cloudflare_dns"
   ],
   "hooks": {
     "PreToolUse": [

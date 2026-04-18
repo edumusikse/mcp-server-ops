@@ -1,8 +1,15 @@
 # ops-agent
 
-Dedicated Claude Code project for AI-assisted server monitoring of the EduMusik onyx server
-(46.225.176.163). All server interaction is through the ops-mcp MCP server — no direct SSH or
-Bash commands. The SSH-blocking hook in `.claude/settings.json` enforces this.
+Dedicated Claude Code project for AI-assisted server monitoring of the EduMusik servers.
+All server interaction is through the ops-mcp MCP server — no direct SSH or Bash commands.
+The SSH-blocking hook in `.claude/settings.json` enforces this.
+
+## Servers
+
+| Server | SSH alias | IP | MCP prefix |
+|--------|-----------|-----|------------|
+| onyx | `ssh onyx` | 46.225.176.163 | `mcp__onyx-ops__` |
+| main (edumusik-1) | `ssh edumusik-net` | 178.104.32.37 | `mcp__main-ops__` |
 
 ## What this project is for
 
@@ -22,17 +29,21 @@ The benchmark script (`benchmark.py`) proved this with real API calls:
 
 ## MCP tools available
 
-- `mcp__onyx-ops__server_status` — containers, disk %, RAM %, uptime (pre-digested)
-- `mcp__onyx-ops__list_containers` — all containers with status and age
-- `mcp__onyx-ops__tail_logs` — log digest (not raw lines) — args: container, lines (max 200)
-- `mcp__onyx-ops__safe_restart` — restart allowlisted containers only (currently: beszel-agent)
-- `mcp__onyx-ops__describe_server` — topology summary with ports
-- `mcp__onyx-ops__read_doc` — read server docs: ops-map, rules, or guard-rules
+Same tools on both servers — swap the prefix (`onyx-ops` or `main-ops`):
+
+- `server_status` — containers, disk %, RAM %, uptime (pre-digested)
+- `list_containers` — all containers with status and age
+- `tail_logs` — log digest (not raw lines) — args: container, lines (max 200)
+- `safe_restart` — restart allowlisted containers only
+- `describe_server` — topology summary with ports
+- `read_doc` — read server docs: ops-map, rules, or guard-rules
+- `hetzner_firewall` — live firewall rules (uses HETZNER_API_TOKEN from env)
+- `cloudflare_dns` — live DNS records (uses CLOUDFLARE_API_TOKEN from env)
 
 ## First thing to do in a new session
 
-Call `mcp__onyx-ops__read_doc` with `name="ops-map"` to load the full service topology
-(container names, ports, compose paths). Then `server_status` for current state.
+Call `read_doc` (`name="ops-map"`) on both servers to load topology. Then `server_status`
+on both for current state.
 
 ## Rules
 
@@ -77,8 +88,8 @@ The existing vs-code project and its hooks are untouched — this project is the
 
 ## MCP server internals (for debugging)
 
-- Source: `/opt/ops-mcp/server.py` and `state.py` on onyx
-- Audit log: `/home/stephan/.ops-mcp/state.db` (SQLite)
-- Process log: `/home/stephan/.ops-mcp/ops-mcp.log`
-- Runtime: stephan user, spawned fresh per Claude Code session via stdio transport
+- Source: `/opt/ops-mcp/server.py` and `state.py` on both servers
+- onyx: runs as `stephan`, logs at `/home/stephan/.ops-mcp/`
+- main: runs as `claude-ops`, logs at `/home/claude-ops/.ops-mcp/`
+- Spawned fresh per Claude Code session via stdio transport
 - Registration: `~/.claude.json` → projects → `/Users/stephan/Documents/ops-agent` → mcpServers
