@@ -26,10 +26,11 @@ if _ENV_FILE.exists():
             os.environ.setdefault(_k.strip(), _v.strip())
 
 import yaml
+import sqlite3
 from flask import Flask, Response, jsonify
 
 sys.path.insert(0, "/opt/ops-mcp")
-from state import init_db, recent_calls  # noqa: E402
+from state import init_db, recent_calls, review_queue, update_runbook_outcome  # noqa: E402
 
 app = Flask(__name__)
 
@@ -182,6 +183,30 @@ tr.blocked td { background: #fff5f5; }
 .badge-ok      { background: #dcfce7; color: #15803d; }
 .badge-blocked { background: #fee2e2; color: #b91c1c; }
 .empty { padding: 32px; text-align: center; color: #94a3b8; font-size: 13px; }
+
+/* Review queue */
+.review-card { background: white; border: 1px solid #fcd34d; border-radius: 10px;
+               overflow: hidden; margin-bottom: 16px; }
+.review-card .card-header { background: #fffbeb; border-bottom-color: #fcd34d; color: #92400e; }
+.review-item { padding: 12px 16px; border-bottom: 1px solid #fef3c7; display: grid;
+               grid-template-columns: 1fr auto; gap: 12px; align-items: start; }
+.review-item:last-child { border-bottom: none; }
+.review-meta { font-size: 11px; color: #92400e; font-weight: 600; margin-bottom: 4px; }
+.review-desc { font-size: 12px; color: #1e293b; font-family: 'SF Mono', Consolas, monospace; }
+.review-outcome { display: inline-block; border-radius: 4px; padding: 2px 7px;
+                  font-size: 10px; font-weight: 700; margin-top: 4px; }
+.review-outcome.success { background: #dcfce7; color: #15803d; }
+.review-outcome.failure { background: #fee2e2; color: #b91c1c; }
+.review-outcome.novel   { background: #ede9fe; color: #6d28d9; }
+.review-actions { display: flex; gap: 6px; flex-shrink: 0; }
+.btn { border: none; border-radius: 6px; padding: 5px 12px; font-size: 11px;
+       font-weight: 700; cursor: pointer; }
+.btn-approve { background: #22c55e; color: white; }
+.btn-approve:hover { background: #16a34a; }
+.btn-dismiss { background: #e2e8f0; color: #475569; }
+.btn-dismiss:hover { background: #cbd5e1; }
+#review-badge { background: #f59e0b; color: white; border-radius: 9999px;
+                padding: 1px 7px; font-size: 10px; font-weight: 800; margin-left: 6px; }
 </style>
 </head>
 <body>
@@ -191,6 +216,16 @@ tr.blocked td { background: #fff5f5; }
 </header>
 <div class="page">
   <div id="fleet-strip"></div>
+
+  <div class="review-card" id="review-section" style="display:none">
+    <div class="card-header">
+      <span>&#9888; Review Queue<span id="review-badge"></span></span>
+      <span style="font-size:11px;color:#92400e;font-weight:400;text-transform:none;letter-spacing:0">
+        Failed actions and novel fixes awaiting your approval
+      </span>
+    </div>
+    <div id="review-body"></div>
+  </div>
 
   <div class="card-full">
     <div class="card-header">
@@ -204,14 +239,11 @@ tr.blocked td { background: #fff5f5; }
             <th>Time (UTC)</th>
             <th>Host</th>
             <th>Tool</th>
-            <th>Args</th>
-            <th>Result</th>
             <th style="text-align:right">ms</th>
-            <th>Status</th>
           </tr>
         </thead>
         <tbody id="log-body">
-          <tr><td colspan="7" class="empty">No tool calls yet — connect Claude Code to the ops MCP server</td></tr>
+          <tr><td colspan="4" class="empty">No tool calls yet — connect Claude Code to the ops MCP server</td></tr>
         </tbody>
       </table>
     </div>
@@ -302,25 +334,12 @@ async function loadCalls() {
       return;
     }
     tbody.innerHTML = calls.map(c => {
-      let args = '';
-      try {
-        const a = JSON.parse(c.args_json||'{}');
-        args = Object.entries(a).map(([k,v]) => `${k}=${JSON.stringify(v)}`).join(' ');
-      } catch(_) {}
-      const result = String(c.result_json||'').substring(0,120);
       const ts = (c.ts||'').replace('T',' ').substring(0,19);
-      const allowed = c.allowed !== 0;
-      const badge = allowed
-        ? '<span class="badge badge-ok">ok</span>'
-        : '<span class="badge badge-blocked">blocked</span>';
-      return `<tr class="${allowed?'':'blocked'}">
+      return `<tr>
         <td class="ts-cell">${esc(ts)}</td>
         <td class="host-cell mono">${esc(c.host||'—')}</td>
         <td><span class="tool-name mono">${esc(c.tool)}</span></td>
-        <td><span class="args-cell mono" title="${esc(args)}">${esc(args)}</span></td>
-        <td><span class="result-cell" title="${esc(result)}">${esc(result)}</span></td>
         <td class="dur-cell">${c.duration_ms||0}</td>
-        <td>${badge}</td>
       </tr>`;
     }).join('');
   } catch(e) { console.error('calls error', e); }
@@ -332,10 +351,78 @@ function setConn(ok) {
     ? 'live · ' + new Date().toLocaleTimeString() : 'error';
 }
 
+async function loadReview() {
+  try {
+    const r = await fetch('/api/review');
+    if (!r.ok) throw new Error(r.status);
+    const data = await r.json();
+    const calls = data.tool_calls || [];
+    const books = data.runbooks || [];
+    const total = calls.length + books.length;
+    const section = document.getElementById('review-section');
+    const badge = document.getElementById('review-badge');
+    const body = document.getElementById('review-body');
+    if (total === 0) { section.style.display = 'none'; return; }
+    section.style.display = '';
+    badge.textContent = total;
+
+    const callItems = calls.map(c => {
+      const outcome = c.verified_outcome || 'novel';
+      const tool = c.tool || '';
+      const args = JSON.parse(c.args_json || '{}');
+      const desc = Object.entries(args).map(([k,v]) => `${k}=${v}`).join(' ');
+      const ts = (c.ts||'').replace('T',' ').substring(0,19);
+      return `<div class="review-item">
+        <div>
+          <div class="review-meta">tool call #${c.id} · ${esc(ts)} · ${esc(c.host||'—')}</div>
+          <div class="review-desc">${esc(tool)} ${esc(desc)}</div>
+          <span class="review-outcome ${outcome}">${outcome}</span>
+        </div>
+        <div class="review-actions">
+          <button class="btn btn-dismiss" onclick="dismissCall(${c.id})">Dismiss</button>
+        </div>
+      </div>`;
+    });
+
+    const bookItems = books.map(b => {
+      return `<div class="review-item">
+        <div>
+          <div class="review-meta">runbook · ${esc(b.id)} · ✓${b.success_count} ✗${b.failure_count}</div>
+          <div class="review-desc">${esc(b.tool)} → ${esc(b.target)}</div>
+          <span class="review-outcome novel">pending approval</span>
+        </div>
+        <div class="review-actions">
+          <button class="btn btn-approve" onclick="approveRunbook('${esc(b.id)}')">Approve</button>
+          <button class="btn btn-dismiss" onclick="dismissRunbook('${esc(b.id)}')">Dismiss</button>
+        </div>
+      </div>`;
+    });
+
+    body.innerHTML = [...callItems, ...bookItems].join('');
+  } catch(e) { console.error('review error', e); }
+}
+
+async function dismissCall(id) {
+  await fetch(`/api/review/call/${id}/dismiss`, {method:'POST'});
+  loadReview();
+}
+
+async function approveRunbook(id) {
+  await fetch(`/api/review/runbook/${encodeURIComponent(id)}/approve`, {method:'POST'});
+  loadReview();
+}
+
+async function dismissRunbook(id) {
+  await fetch(`/api/review/runbook/${encodeURIComponent(id)}/dismiss`, {method:'POST'});
+  loadReview();
+}
+
 loadFleet();
 loadCalls();
+loadReview();
 setInterval(loadFleet, 15000);
 setInterval(loadCalls, 5000);
+setInterval(loadReview, 10000);
 </script>
 </body>
 </html>"""
@@ -360,6 +447,36 @@ def api_fleet():
 @app.route("/api/calls")
 def api_calls():
     return jsonify(recent_calls(50))
+
+
+@app.route("/api/review")
+def api_review():
+    return jsonify(review_queue(20))
+
+
+@app.route("/api/review/call/<int:call_id>/dismiss", methods=["POST"])
+def api_dismiss_call(call_id):
+    from state import DB_PATH
+    with sqlite3.connect(str(DB_PATH), timeout=5) as conn:
+        conn.execute("UPDATE tool_calls SET needs_review=0 WHERE id=?", (call_id,))
+    return jsonify({"ok": True})
+
+
+@app.route("/api/review/runbook/<rb_id>/approve", methods=["POST"])
+def api_approve_runbook(rb_id):
+    update_runbook_outcome(rb_id, success=True)
+    from state import DB_PATH
+    with sqlite3.connect(str(DB_PATH), timeout=5) as conn:
+        conn.execute("UPDATE runbooks SET needs_review=0 WHERE id=?", (rb_id,))
+    return jsonify({"ok": True})
+
+
+@app.route("/api/review/runbook/<rb_id>/dismiss", methods=["POST"])
+def api_dismiss_runbook(rb_id):
+    from state import DB_PATH
+    with sqlite3.connect(str(DB_PATH), timeout=5) as conn:
+        conn.execute("UPDATE runbooks SET needs_review=0 WHERE id=?", (rb_id,))
+    return jsonify({"ok": True})
 
 
 if __name__ == "__main__":
