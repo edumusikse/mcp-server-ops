@@ -146,7 +146,12 @@ def server_status(host: str) -> dict:
                 ram = {"total_mb": total, "used_mb": used, "pct": round(used / total * 100)}
 
     rc, out = _run_on(host, ["uptime", "-p"])
-    uptime = out if rc == 0 else "?"
+    uptime = "?"
+    if rc == 0:
+        for line in out.splitlines():
+            if line.strip().startswith("up "):
+                uptime = line.strip()
+                break
 
     result = {
         "host": host,

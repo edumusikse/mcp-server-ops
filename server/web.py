@@ -91,6 +91,12 @@ def _query_host(hostname: str) -> tuple[str, dict]:
                     ram = {"total_mb": total, "used_mb": used, "pct": round(used / total * 100)}
 
         rc4, up_out = _run_on(hostname, ["uptime", "-p"])
+        uptime = "?"
+        if rc4 == 0:
+            for line in up_out.splitlines():
+                if line.strip().startswith("up "):
+                    uptime = line.strip()
+                    break
 
         return hostname, {
             "ok": True,
@@ -99,7 +105,7 @@ def _query_host(hostname: str) -> tuple[str, dict]:
             "up_count": sum(1 for c in containers if c["status"].startswith("Up")),
             "disk_pct": disk_pct,
             "ram": ram,
-            "uptime": up_out if rc4 == 0 else "?",
+            "uptime": uptime,
         }
     except Exception as e:
         return hostname, {"ok": False, "error": str(e), "containers": []}
@@ -115,50 +121,46 @@ HTML = r"""<!DOCTYPE html>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
        font-size: 14px; background: #f1f5f9; color: #1e293b; }
-header { background: #0f172a; color: #f8fafc; padding: 14px 24px;
+header { background: #0f172a; color: #f8fafc; padding: 12px 24px;
          display: flex; align-items: center; justify-content: space-between;
          position: sticky; top: 0; z-index: 10; }
-header h1 { font-size: 15px; font-weight: 700; letter-spacing: 0.3px; }
+header h1 { font-size: 15px; font-weight: 700; }
 #conn { font-size: 12px; display: flex; align-items: center; gap: 6px; color: #94a3b8; }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; display: inline-block; }
 .dot.stale { background: #f59e0b; }
-.page { padding: 20px 24px; max-width: 1600px; margin: 0 auto; }
+.page { padding: 16px 24px; max-width: 1600px; margin: 0 auto; }
 
-/* Fleet grid: one column per host */
-#fleet-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-              gap: 16px; margin-bottom: 16px; }
-
-.host-card { background: white; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; }
-.host-card.error { border-color: #fca5a5; }
-.host-header { padding: 10px 16px; border-bottom: 1px solid #e2e8f0;
-               background: #f8fafc; display: flex; align-items: center; justify-content: space-between; }
+/* Fleet strip — compact, one row per host */
+#fleet-strip { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+.host-pill { background: white; border: 1px solid #e2e8f0; border-radius: 10px;
+             flex: 1; min-width: 220px; overflow: hidden; }
+.host-pill.error { border-color: #fca5a5; }
+.pill-header { padding: 8px 14px; background: #f8fafc; border-bottom: 1px solid #e2e8f0;
+               display: flex; align-items: center; justify-content: space-between; cursor: pointer;
+               user-select: none; }
+.pill-header:hover { background: #f1f5f9; }
 .host-name { font-size: 13px; font-weight: 700; color: #0f172a; }
-.host-meta { font-size: 11px; color: #94a3b8; }
-.host-metrics { display: grid; grid-template-columns: repeat(4, 1fr);
-                gap: 0; border-bottom: 1px solid #e2e8f0; }
-.metric { padding: 10px 14px; border-right: 1px solid #e2e8f0; }
-.metric:last-child { border-right: none; }
-.metric-label { font-size: 10px; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.4px; }
-.metric-value { font-size: 18px; font-weight: 800; color: #0f172a; margin-top: 2px; line-height: 1.1; }
-.metric-sub { font-size: 10px; color: #94a3b8; margin-top: 2px; }
-
-.container-section { padding: 12px 14px; }
-.section-label { font-size: 10px; font-weight: 700; color: #64748b; text-transform: uppercase;
-                 letter-spacing: 0.5px; margin-bottom: 8px; }
-.container-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; }
-.ccard { border-radius: 6px; padding: 7px 10px; border: 1px solid; }
+.pill-stats { display: flex; gap: 14px; font-size: 11px; color: #64748b; }
+.pill-stat { display: flex; flex-direction: column; align-items: center; }
+.pill-stat-val { font-size: 15px; font-weight: 800; color: #0f172a; line-height: 1; }
+.pill-stat-lbl { font-size: 9px; text-transform: uppercase; letter-spacing: 0.4px; color: #94a3b8; margin-top: 2px; }
+.toggle-btn { font-size: 11px; color: #6366f1; font-weight: 600; white-space: nowrap; padding-left: 10px; }
+.container-panel { display: none; padding: 10px 14px; border-top: 1px solid #f1f5f9; }
+.container-panel.open { display: block; }
+.container-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 5px; }
+.ccard { border-radius: 5px; padding: 5px 9px; border: 1px solid; }
 .ccard.up   { background: #f0fdf4; border-color: #86efac; }
 .ccard.down { background: #fef2f2; border-color: #fca5a5; }
 .ccard.other{ background: #fefce8; border-color: #fde047; }
 .cname { font-weight: 600; font-size: 11px; word-break: break-all; color: #0f172a; }
-.cstatus { font-size: 10px; color: #64748b; margin-top: 2px; }
+.cstatus { font-size: 10px; color: #64748b; margin-top: 1px; }
 
 /* Audit log */
 .card-full { background: white; border: 1px solid #e2e8f0; border-radius: 10px;
              overflow: hidden; margin-bottom: 16px; }
 .card-header { padding: 11px 16px; border-bottom: 1px solid #e2e8f0; font-size: 11px;
                font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.6px;
-               background: #f8fafc; }
+               background: #f8fafc; display: flex; align-items: center; justify-content: space-between; }
 table { width: 100%; border-collapse: collapse; }
 th { padding: 9px 12px; background: #f8fafc; border-bottom: 2px solid #e2e8f0;
      font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
@@ -168,13 +170,15 @@ tr:last-child td { border-bottom: none; }
 tr.blocked td { background: #fff5f5; }
 .mono { font-family: 'SF Mono', Consolas, Monaco, monospace; }
 .tool-name { font-weight: 700; font-size: 12px; }
-.args-cell { font-size: 11px; color: #475569; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.result-cell { font-size: 11px; color: #64748b; max-width: 240px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.args-cell { font-size: 11px; color: #475569; max-width: 220px; overflow: hidden;
+             text-overflow: ellipsis; white-space: nowrap; }
+.result-cell { font-size: 11px; color: #64748b; max-width: 260px; overflow: hidden;
+               text-overflow: ellipsis; white-space: nowrap; }
 .ts-cell { font-size: 11px; color: #94a3b8; white-space: nowrap; }
 .dur-cell { font-size: 11px; color: #94a3b8; white-space: nowrap; text-align: right; }
 .host-cell { font-size: 11px; color: #6366f1; font-weight: 600; }
 .badge { display: inline-block; border-radius: 9999px; padding: 2px 8px;
-         font-size: 10px; font-weight: 700; letter-spacing: 0.3px; }
+         font-size: 10px; font-weight: 700; }
 .badge-ok      { background: #dcfce7; color: #15803d; }
 .badge-blocked { background: #fee2e2; color: #b91c1c; }
 .empty { padding: 32px; text-align: center; color: #94a3b8; font-size: 13px; }
@@ -186,10 +190,13 @@ tr.blocked td { background: #fff5f5; }
   <span id="conn"><span class="dot" id="dot"></span><span id="conn-text">connecting...</span></span>
 </header>
 <div class="page">
-  <div id="fleet-grid"></div>
+  <div id="fleet-strip"></div>
 
   <div class="card-full">
-    <div class="card-header">Tool Call Audit Log</div>
+    <div class="card-header">
+      <span>Tool Call Audit Log</span>
+      <span id="call-count" style="font-size:11px;color:#94a3b8;font-weight:400;text-transform:none;letter-spacing:0"></span>
+    </div>
     <div style="overflow-x: auto;">
       <table>
         <thead>
@@ -204,7 +211,7 @@ tr.blocked td { background: #fff5f5; }
           </tr>
         </thead>
         <tbody id="log-body">
-          <tr><td colspan="7" class="empty">No tool calls yet</td></tr>
+          <tr><td colspan="7" class="empty">No tool calls yet — connect Claude Code to the ops MCP server</td></tr>
         </tbody>
       </table>
     </div>
@@ -217,15 +224,16 @@ function esc(s) {
 
 function renderHost(name, d) {
   if (!d.ok) {
-    return `<div class="host-card error">
-      <div class="host-header"><span class="host-name">${esc(name)}</span></div>
-      <div style="padding:20px;color:#b91c1c;font-size:13px;">Error: ${esc(d.error||'unreachable')}</div>
+    return `<div class="host-pill error">
+      <div class="pill-header"><span class="host-name">${esc(name)}</span>
+      <span style="color:#b91c1c;font-size:11px;">${esc(d.error||'unreachable')}</span></div>
     </div>`;
   }
   const ram = d.ram || {};
   const uptime = (d.uptime||'—').replace('up ','');
   const running = d.up_count || 0;
   const total = d.container_count || 0;
+  const id = 'panel-' + name.replace(/[^a-z0-9]/gi,'_');
 
   const containers = (d.containers||[]).map(c => {
     const st = c.status||'';
@@ -233,38 +241,30 @@ function renderHost(name, d) {
     return `<div class="ccard ${cls}"><div class="cname">${esc(c.name)}</div><div class="cstatus">${esc(st)}</div></div>`;
   }).join('');
 
-  return `<div class="host-card">
-    <div class="host-header">
+  return `<div class="host-pill">
+    <div class="pill-header" onclick="togglePanel('${id}')">
       <span class="host-name">${esc(name)}</span>
-      <span class="host-meta">${running}/${total} up</span>
-    </div>
-    <div class="host-metrics">
-      <div class="metric">
-        <div class="metric-label">Disk</div>
-        <div class="metric-value">${esc(d.disk_pct||'?')}%</div>
-        <div class="metric-sub">used</div>
-      </div>
-      <div class="metric">
-        <div class="metric-label">RAM</div>
-        <div class="metric-value">${ram.pct != null ? ram.pct + '%' : '—'}</div>
-        <div class="metric-sub">${ram.used_mb != null ? ram.used_mb + '/' + ram.total_mb + ' MB' : ''}</div>
-      </div>
-      <div class="metric">
-        <div class="metric-label">Containers</div>
-        <div class="metric-value">${running} / ${total}</div>
-        <div class="metric-sub">running</div>
-      </div>
-      <div class="metric">
-        <div class="metric-label">Uptime</div>
-        <div class="metric-value" style="font-size:12px;padding-top:4px;">${esc(uptime)}</div>
-        <div class="metric-sub">&nbsp;</div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div class="pill-stats">
+          <div class="pill-stat"><span class="pill-stat-val">${esc(d.disk_pct||'?')}%</span><span class="pill-stat-lbl">disk</span></div>
+          <div class="pill-stat"><span class="pill-stat-val">${ram.pct != null ? ram.pct+'%' : '—'}</span><span class="pill-stat-lbl">ram</span></div>
+          <div class="pill-stat"><span class="pill-stat-val">${running}/${total}</span><span class="pill-stat-lbl">containers</span></div>
+          <div class="pill-stat"><span class="pill-stat-val" style="font-size:11px;">${esc(uptime)}</span><span class="pill-stat-lbl">uptime</span></div>
+        </div>
+        <span class="toggle-btn" id="btn-${id}">▸ show</span>
       </div>
     </div>
-    <div class="container-section">
-      <div class="section-label">Containers</div>
-      <div class="container-grid">${containers || '<div class="empty">No containers</div>'}</div>
+    <div class="container-panel" id="${id}">
+      <div class="container-grid">${containers||'<div class="empty">No containers</div>'}</div>
     </div>
   </div>`;
+}
+
+function togglePanel(id) {
+  const panel = document.getElementById(id);
+  const btn = document.getElementById('btn-' + id);
+  const open = panel.classList.toggle('open');
+  btn.textContent = open ? '▾ hide' : '▸ show';
 }
 
 async function loadFleet() {
@@ -272,13 +272,22 @@ async function loadFleet() {
     const r = await fetch('/api/fleet');
     if (!r.ok) throw new Error(r.status);
     const fleet = await r.json();
-    document.getElementById('fleet-grid').innerHTML =
+    // Preserve open/closed state across refreshes
+    const openPanels = new Set(
+      [...document.querySelectorAll('.container-panel.open')].map(el => el.id)
+    );
+    document.getElementById('fleet-strip').innerHTML =
       Object.entries(fleet).map(([name, data]) => renderHost(name, data)).join('');
+    openPanels.forEach(id => {
+      const panel = document.getElementById(id);
+      if (panel) {
+        panel.classList.add('open');
+        const btn = document.getElementById('btn-' + id);
+        if (btn) btn.textContent = '▾ hide';
+      }
+    });
     setConn(true);
-  } catch(e) {
-    setConn(false);
-    console.error('fleet error', e);
-  }
+  } catch(e) { setConn(false); }
 }
 
 async function loadCalls() {
@@ -286,15 +295,19 @@ async function loadCalls() {
     const r = await fetch('/api/calls');
     if (!r.ok) throw new Error(r.status);
     const calls = await r.json();
+    document.getElementById('call-count').textContent = calls.length ? `${calls.length} recent` : '';
     const tbody = document.getElementById('log-body');
     if (!calls.length) {
-      tbody.innerHTML = '<tr><td colspan="7" class="empty">No tool calls yet</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="7" class="empty">No tool calls yet — connect Claude Code to the ops MCP server</td></tr>';
       return;
     }
     tbody.innerHTML = calls.map(c => {
-      let args = '{}';
-      try { args = JSON.stringify(JSON.parse(c.args_json||'{}')); } catch(_) {}
-      const result = String(c.result_json||'').substring(0,100);
+      let args = '';
+      try {
+        const a = JSON.parse(c.args_json||'{}');
+        args = Object.entries(a).map(([k,v]) => `${k}=${JSON.stringify(v)}`).join(' ');
+      } catch(_) {}
+      const result = String(c.result_json||'').substring(0,120);
       const ts = (c.ts||'').replace('T',' ').substring(0,19);
       const allowed = c.allowed !== 0;
       const badge = allowed
@@ -321,7 +334,7 @@ function setConn(ok) {
 
 loadFleet();
 loadCalls();
-setInterval(loadFleet, 10000);
+setInterval(loadFleet, 15000);
 setInterval(loadCalls, 5000);
 </script>
 </body>
