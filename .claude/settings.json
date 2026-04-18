@@ -1,13 +1,20 @@
 {
   "allowedTools": [
-    "mcp__ops__server_status",
-    "mcp__ops__fleet_status",
-    "mcp__ops__list_containers",
-    "mcp__ops__tail_logs",
-    "mcp__ops__describe_server",
-    "mcp__ops__read_doc",
-    "mcp__ops__hetzner_firewall",
-    "mcp__ops__cloudflare_dns"
+    "mcp__onyx-ops__server_status",
+    "mcp__onyx-ops__fleet_status",
+    "mcp__onyx-ops__list_containers",
+    "mcp__onyx-ops__tail_logs",
+    "mcp__onyx-ops__describe_server",
+    "mcp__onyx-ops__read_doc",
+    "mcp__onyx-ops__hetzner_firewall",
+    "mcp__onyx-ops__cloudflare_dns",
+    "mcp__onyx-ops__safe_restart",
+    "mcp__onyx-ops__wp_cli",
+    "mcp__onyx-ops__compose_up",
+    "mcp__onyx-ops__systemctl_restart",
+    "mcp__onyx-ops__read_file",
+    "mcp__onyx-ops__lookup_runbook",
+    "mcp__onyx-ops__ai_cost_summary"
   ],
   "hooks": {
     "PreToolUse": [
