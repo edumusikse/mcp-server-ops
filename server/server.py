@@ -95,10 +95,10 @@ def _run_on(host: str, cmd: list[str], timeout: int = 10) -> tuple[int, str]:
 
     user = cfg.get("user", "")
     target = f"{user}@{ssh_addr}" if user else ssh_addr
-    ssh_cmd = [
-        "ssh", "-o", "ConnectTimeout=5", "-o", "BatchMode=yes",
-        target, shlex.join(cmd),
-    ]
+    ssh_cmd = ["ssh", "-o", "ConnectTimeout=5", "-o", "BatchMode=yes", "-o", "StrictHostKeyChecking=no"]
+    if cfg.get("identity_file"):
+        ssh_cmd += ["-i", cfg["identity_file"]]
+    ssh_cmd += [target, shlex.join(cmd)]
     return _run(ssh_cmd, timeout=timeout + 6)
 
 
@@ -128,7 +128,13 @@ def server_status(host: str) -> dict:
                 containers.append({"name": parts[0], "status": parts[1]})
 
     rc, out = _run_on(host, ["df", "-h", "/", "--output=pcent"])
-    disk_pct = out.splitlines()[-1].strip().rstrip("%") if rc == 0 else "?"
+    disk_pct = "?"
+    if rc == 0:
+        for line in out.splitlines():
+            val = line.strip().rstrip("%")
+            if val.isdigit():
+                disk_pct = val
+                break
 
     rc, out = _run_on(host, ["free", "-m"])
     ram: dict = {}
