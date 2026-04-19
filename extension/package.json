@@ -28,6 +28,11 @@
           "type": "webview",
           "id": "ops-panel.chat",
           "name": "Chat"
+        },
+        {
+          "type": "webview",
+          "id": "ops-panel.fleet",
+          "name": "Fleet"
         }
       ]
     },

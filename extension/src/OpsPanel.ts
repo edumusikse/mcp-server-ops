@@ -30,7 +30,10 @@ export class OpsPanel implements vscode.WebviewViewProvider {
     private history: Message[] = [];
     private busy = false;
 
-    constructor(private readonly ctx: vscode.ExtensionContext) {}
+    constructor(
+        private readonly ctx: vscode.ExtensionContext,
+        private readonly getMcp: () => Promise<McpClient>,
+    ) {}
 
     resolveWebviewView(view: vscode.WebviewView) {
         this.view = view;
@@ -54,14 +57,8 @@ export class OpsPanel implements vscode.WebviewViewProvider {
     }
 
     private async connectMcp() {
-        const cfg = vscode.workspace.getConfiguration('ops-panel');
-        const host       = cfg.get<string>('sshHost', 'onyx');
-        const python     = cfg.get<string>('pythonPath', '/opt/ops-mcp/.venv/bin/python3');
-        const serverPath = cfg.get<string>('mcpServerPath', '/opt/ops-mcp/server.py');
-
-        this.mcp = new McpClient(host, python, serverPath);
         try {
-            await this.mcp.connect();
+            this.mcp = await this.getMcp();
             this.send({ type: 'status', connected: true, toolCount: this.mcp.tools.length });
         } catch (e) {
             this.send({ type: 'status', connected: false, error: String(e) });
