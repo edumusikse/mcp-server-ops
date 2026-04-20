@@ -15,6 +15,15 @@
             "command": "python3 /Users/stephan/Documents/ops-agent/.claude/hooks/block-ssh.py"
           }
         ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /Users/stephan/Documents/ops-agent/.claude/hooks/budget_guard.py"
+          }
+        ]
       }
     ]
   }
