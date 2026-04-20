@@ -3,5 +3,7 @@ __pycache__/
 .env
 .env.*
 *.log
+hosts.yaml
+*.bak.*
 .DS_Store
 .claude/.DS_Store

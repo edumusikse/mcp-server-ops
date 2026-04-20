@@ -71,6 +71,42 @@ Each probe self-discovers (skips WP sites without the plugin). Runs every 15 min
 - State intent before any mutation (restart). Ask before acting.
 - JSON responses only — no prose summaries unless asked.
 
+## Server layout
+
+`server/` is split into topic modules — `server.py` is a thin entry point that imports each tool module so `@mcp.tool()` decorators register against the shared `mcp` instance from `transport.py`.
+
+| Module | Tools |
+|--------|-------|
+| `transport.py` | shared `mcp` + FLEET + `run_on` + env bootstrap (no tools) |
+| `fleet.py` | `server_status`, `fleet_status`, `list_containers`, `tail_logs`, `safe_restart`, `describe_server`, `systemctl_restart` |
+| `wp.py` | `wp_cli` |
+| `compose.py` | `compose_up` |
+| `files.py` | `read_file`, `write_file` |
+| `runbook.py` | `lookup_runbook`, `record_runbook_outcome`, `read_doc`, `ai_cost_summary` |
+| `cloud.py` | `hetzner_firewall`, `cloudflare_dns` |
+| `deploy.py` | `git_sync`, `bootstrap_git` |
+| `guards.py` | `thrash_guard`, `payload_similarity_guard`, runbook hygiene |
+
+## Guards
+
+- **thrash_guard** — 5+ consecutive calls to same `(tool, target)` → stop. Wired into `tail_logs`, `wp_cli`, `read_file`. Test: `python3 tests/test_thrash_guard.py` (6 cases).
+- **payload_similarity_guard** — same >=8KB blob through 3 distinct tools (Bash→Read→write_file shuttle) → stop, nudge toward `git_sync`. Wired into `read_file`, `write_file`. Test: `python3 tests/test_payload_guard.py` (6 cases).
+- **runbook hygiene** — `filter_weak_matches` drops match_score<2 when stronger exists; `flag_runbook_conflicts` clears `auto_executable` on tied-but-disagreeing entries. Test: `python3 tests/test_runbook_hygiene.py` (8 cases).
+
+## Deploy path
+
+No more paste-thrash. Edit locally → commit + push → `git_sync(host)` pulls.
+First-time conversion of a non-git `/opt/ops-mcp` uses `bootstrap_git(host)`.
+Untracked secrets (`.env`, `hosts.yaml`) survive both flows.
+
+## Compliance harness
+
+`tests/runbook_compliance.py` — static analyzer over Claude transcripts. Detects three anti-patterns per session: `runbook_missed`, `runbook_late` (>3 diagnostics before `lookup_runbook`), `thrash` (5+ consecutive same tool+target).
+
+- Summarise last 10 sessions: `python3 tests/runbook_compliance.py --pretty`
+- CI gate (latest session): `python3 tests/runbook_compliance.py --ci`
+- Drift detector (regress = exit 1): `python3 tests/self_audit.py --window 5`
+
 ## Token benchmark — log analysis, 5 containers (real API calls, 2026-04-18)
 
 | Approach | Input tokens | Output tokens | Cost/call | Monthly (1h) |
