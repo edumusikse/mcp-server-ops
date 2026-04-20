@@ -33,11 +33,23 @@ from transport import mcp, run_on
 DEFAULT_REPO = "https://github.com/edumusikse/mcp-server-ops.git"
 REPO_DIR = "/opt/ops-mcp-repo"
 DEPLOY_DIR = "/opt/ops-mcp"
+VENV_PYTHON = "/opt/ops-mcp/.venv/bin/python3"
 # Files in repo's server/ dir that must end up in DEPLOY_DIR.
 SYNC_FILES = (
     "server.py", "transport.py", "fleet.py", "wp.py", "compose.py",
     "files.py", "runbook.py", "cloud.py", "deploy.py",
     "guards.py", "state.py",
+)
+
+# Post-sync smoke test: import the just-installed server.py and report tool
+# count. A broken split (missing module, bad import, dropped @mcp.tool())
+# trips this immediately rather than waiting for the next session to fail.
+_VERIFY_PY = (
+    "import sys; sys.path.insert(0, '/opt/ops-mcp'); "
+    "import server as _s; "
+    "tm = getattr(_s.mcp, '_tool_manager', None); "
+    "n = len((tm._tools if tm else _s.mcp._tools)); "
+    "print(f'IMPORT_OK tools={n}')"
 )
 
 
@@ -110,6 +122,7 @@ def git_sync(host: str, branch: str = "main", sudo: bool = True) -> dict:
     args = {"host": host, "branch": branch, "sudo": sudo}
     sudo_prefix = "sudo -n " if sudo else ""
 
+    verify_cmd = f"{shlex.quote(VENV_PYTHON)} -c {shlex.quote(_VERIFY_PY)}"
     shell = (
         f"set -e; "
         f"if [ ! -d {shlex.quote(REPO_DIR)}/.git ]; then echo NOT_CLONED; exit 2; fi; "
@@ -119,14 +132,31 @@ def git_sync(host: str, branch: str = "main", sudo: bool = True) -> dict:
         f"after=$({sudo_prefix}git rev-parse origin/{shlex.quote(branch)}); "
         f"{sudo_prefix}git reset -q --hard origin/{shlex.quote(branch)}; "
         f"{_sync_shell(sudo_prefix)}; "
-        f"echo SYNCED before=$before after=$after"
+        f"echo SYNCED before=$before after=$after; "
+        f"echo --- VERIFY ---; "
+        f"{verify_cmd} || {{ echo VERIFY_FAIL; exit 3; }}"
     )
     rc, out = run_on(host, ["sh", "-c", shell], timeout=60)
-    ok = rc == 0 and "SYNCED" in out
-    result = {"ok": ok, "output": out[:2000], "files_synced": list(SYNC_FILES)}
+    synced = "SYNCED" in out
+    verified = "IMPORT_OK" in out
+    ok = rc == 0 and synced and verified
+    result = {
+        "ok": ok,
+        "output": out[:2000],
+        "files_synced": list(SYNC_FILES),
+        "synced": synced,
+        "verified": verified,
+    }
     if rc == 2 and "NOT_CLONED" in out:
         result = {"ok": False, "error": "not_cloned",
                   "message": f"{REPO_DIR} not found. Run bootstrap_git first."}
+    elif rc == 3 or (synced and not verified):
+        result["error"] = "post_sync_import_failed"
+        result["message"] = (
+            "Files synced but `import server` failed on the host. "
+            "The live MCP is now broken; revert with the .bak.<ts> backup or "
+            "fix the offending module and re-sync."
+        )
     ms = round((time.monotonic() - t0) * 1000)
     log_call("git_sync", args, result, ms, host=host, needs_review=True)
     logging.info("git_sync %s rc=%d (%dms)", host, rc, ms)

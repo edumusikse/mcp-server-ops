@@ -93,6 +93,11 @@ Each probe self-discovers (skips WP sites without the plugin). Runs every 15 min
 - **payload_similarity_guard** — same >=8KB blob through 3 distinct tools (Bash→Read→write_file shuttle) → stop, nudge toward `git_sync`. Wired into `read_file`, `write_file`. Test: `python3 tests/test_payload_guard.py` (6 cases).
 - **runbook hygiene** — `filter_weak_matches` drops match_score<2 when stronger exists; `flag_runbook_conflicts` clears `auto_executable` on tied-but-disagreeing entries. Test: `python3 tests/test_runbook_hygiene.py` (8 cases).
 
+## Test harness
+
+- `tests/test_server_imports.py` — pin EXPECTED_TOOLS; fails on dropped `@mcp.tool()`, missing docstring, accidental new tool, or split that doesn't import (4 cases).
+- `git_sync` runs a post-sync `import server` against `/opt/ops-mcp/.venv/bin/python3` on the target. If imports break, the call returns `ok: False` with `error: "post_sync_import_failed"` instead of silently leaving the live MCP unimportable. Backup at `<file>.bak.<ts>` is the rollback path.
+
 ## Deploy path
 
 No more paste-thrash. Edit locally → commit + push → `git_sync(host)` pulls.
