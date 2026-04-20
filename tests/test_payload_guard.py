@@ -26,19 +26,20 @@ SMALL = "A" * 1024
 
 # Case 1: small payload — never tracked or tripped.
 reset_payload_window()
-for tool in ("Bash", "Read", "write_file", "extra1", "extra2"):
+for tool in ("read_file", "write_file", "extra1", "extra2"):
     stop = payload_similarity_guard(tool, SMALL)
 assert_eq(stop, None, "small payloads never trip")
 
 # Case 2: same big blob through PAYLOAD_SIM_LIMIT distinct tools → trip.
+# The real MCP shuttle is read_file → write_file (the two tools that move
+# significant content). PAYLOAD_SIM_LIMIT=2 catches exactly that.
 reset_payload_window()
-stop = None
-for tool in ("Bash", "Read", "write_file"):
-    stop = payload_similarity_guard(tool, BIG)
-assert_eq(stop is not None, True, "3 distinct tools with same big blob → trip")
+payload_similarity_guard("read_file", BIG)
+stop = payload_similarity_guard("write_file", BIG)
+assert_eq(stop is not None, True, "read_file → write_file with same blob → trip")
 assert_eq(stop["error"], "payload_thrash_stop", "error code is payload_thrash_stop")
-assert_eq(len(stop["distinct_tools"]) >= PAYLOAD_SIM_LIMIT, True,
-          "distinct_tools >= limit")
+assert_eq(sorted(stop["distinct_tools"]), ["read_file", "write_file"],
+          "distinct_tools is the read+write pair")
 
 # Case 3: same tool repeatedly with same blob → does NOT trip payload guard
 # (that's thrash_guard's job, not this guard's job).
@@ -50,16 +51,15 @@ assert_eq(stop, None, "same-tool repeats do not trip payload guard")
 
 # Case 4: different blobs through different tools → no trip.
 reset_payload_window()
-payload_similarity_guard("Bash", BIG)
-payload_similarity_guard("Read", BIG_ALT)
+payload_similarity_guard("read_file", BIG)
 stop = payload_similarity_guard("write_file", BIG_ALT)
-assert_eq(stop, None, "different blobs do not trip")
+assert_eq(stop, None, "different blobs across read→write do not trip")
 
 # Case 5: bytes payload works same as str.
 reset_payload_window()
 big_bytes = b"C" * (PAYLOAD_MIN_BYTES + 100)
-for tool in ("Bash", "Read", "write_file"):
-    stop = payload_similarity_guard(tool, big_bytes)
+payload_similarity_guard("read_file", big_bytes)
+stop = payload_similarity_guard("write_file", big_bytes)
 assert_eq(stop is not None, True, "bytes payload also trips")
 
 # Case 6: non-str/bytes payload (e.g. dict) is a no-op, not an error.

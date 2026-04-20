@@ -24,6 +24,7 @@ First-time setup uses bootstrap_git to create /opt/ops-mcp-repo.
 from __future__ import annotations
 
 import logging
+import re
 import shlex
 import time
 
@@ -41,6 +42,11 @@ SYNC_FILES = (
     "guards.py", "state.py",
 )
 
+# Kept in lockstep with tests/test_server_imports.py::EXPECTED_TOOLS. A
+# silently-dropped @mcp.tool() decorator would still import cleanly, so the
+# remote verification checks the registered tool count, not just importability.
+EXPECTED_TOOL_COUNT = 19
+
 # Post-sync smoke test: import the just-installed server.py and report tool
 # count. A broken split (missing module, bad import, dropped @mcp.tool())
 # trips this immediately rather than waiting for the next session to fail.
@@ -53,13 +59,25 @@ _VERIFY_PY = (
 )
 
 
-def _sync_shell(sudo: str) -> str:
-    """Shell fragment: copy SYNC_FILES from REPO_DIR/server/ to DEPLOY_DIR/."""
+def _sync_shell(sudo: str, backup_ts: str) -> str:
+    """Shell fragment: copy changed SYNC_FILES from REPO_DIR/server/ to DEPLOY_DIR/.
+
+    For each file: skip if identical; otherwise back up the existing dst to
+    <dst>.bak.<backup_ts> (only if dst exists), then install, then emit a
+    machine-readable "UPDATED:<file>" marker for the caller to parse.
+    Unchanged files are silent — the absence of a marker means no change.
+    """
     lines = []
     for f in SYNC_FILES:
         src = shlex.quote(f"{REPO_DIR}/server/{f}")
         dst = shlex.quote(f"{DEPLOY_DIR}/{f}")
-        lines.append(f"{sudo}install -m 0644 -C {src} {dst}")
+        lines.append(
+            f"if cmp -s {src} {dst} 2>/dev/null; then :; else "
+            f"if [ -e {dst} ]; then {sudo}cp -p {dst} {dst}.bak.{backup_ts}; fi; "
+            f"{sudo}install -m 0644 {src} {dst}; "
+            f"echo UPDATED:{f}; "
+            f"fi"
+        )
     return "; ".join(lines)
 
 
@@ -111,7 +129,16 @@ def git_sync(host: str, branch: str = "main", sudo: bool = True) -> dict:
     .venv/, docs/ are never touched. The running MCP holds its code in
     memory; new invocations pick up the new files via stdio per-session spawn.
 
-    Returns before/after HEAD and the list of files actually updated.
+    For each file that actually differs on the target, the previous version
+    is preserved at <path>.bak.<backup_ts> before being overwritten. Files
+    that already match the repo are left alone (no copy, no backup).
+
+    Post-sync verification imports the installed server and checks the
+    registered tool count against EXPECTED_TOOL_COUNT — so a silently-dropped
+    @mcp.tool() decorator fails the sync even though import succeeds.
+
+    Returns before/after HEAD, the list of files actually updated, the
+    backup timestamp (if any file was replaced), and the observed tool count.
 
     Args:
         host: Host name from hosts.yaml
@@ -121,6 +148,7 @@ def git_sync(host: str, branch: str = "main", sudo: bool = True) -> dict:
     t0 = time.monotonic()
     args = {"host": host, "branch": branch, "sudo": sudo}
     sudo_prefix = "sudo -n " if sudo else ""
+    backup_ts = time.strftime("%Y%m%d_%H%M%S", time.gmtime())
 
     verify_cmd = f"{shlex.quote(VENV_PYTHON)} -c {shlex.quote(_VERIFY_PY)}"
     shell = (
@@ -131,21 +159,32 @@ def git_sync(host: str, branch: str = "main", sudo: bool = True) -> dict:
         f"{sudo_prefix}git fetch -q origin {shlex.quote(branch)}; "
         f"after=$({sudo_prefix}git rev-parse origin/{shlex.quote(branch)}); "
         f"{sudo_prefix}git reset -q --hard origin/{shlex.quote(branch)}; "
-        f"{_sync_shell(sudo_prefix)}; "
+        f"{_sync_shell(sudo_prefix, backup_ts)}; "
         f"echo SYNCED before=$before after=$after; "
         f"echo --- VERIFY ---; "
         f"{verify_cmd} || {{ echo VERIFY_FAIL; exit 3; }}"
     )
     rc, out = run_on(host, ["sh", "-c", shell], timeout=60)
+
     synced = "SYNCED" in out
-    verified = "IMPORT_OK" in out
-    ok = rc == 0 and synced and verified
+    import_match = re.search(r"IMPORT_OK tools=(\d+)", out)
+    verified = bool(import_match)
+    tool_count = int(import_match.group(1)) if import_match else None
+    tool_count_ok = tool_count == EXPECTED_TOOL_COUNT
+    files_updated = [
+        line[len("UPDATED:"):] for line in out.splitlines()
+        if line.startswith("UPDATED:")
+    ]
+    ok = rc == 0 and synced and verified and tool_count_ok
     result = {
         "ok": ok,
         "output": out[:2000],
-        "files_synced": list(SYNC_FILES),
+        "files_updated": files_updated,
+        "backup_ts": backup_ts if files_updated else None,
         "synced": synced,
         "verified": verified,
+        "tool_count": tool_count,
+        "expected_tool_count": EXPECTED_TOOL_COUNT,
     }
     if rc == 2 and "NOT_CLONED" in out:
         result = {"ok": False, "error": "not_cloned",
@@ -153,9 +192,19 @@ def git_sync(host: str, branch: str = "main", sudo: bool = True) -> dict:
     elif rc == 3 or (synced and not verified):
         result["error"] = "post_sync_import_failed"
         result["message"] = (
-            "Files synced but `import server` failed on the host. "
-            "The live MCP is now broken; revert with the .bak.<ts> backup or "
-            "fix the offending module and re-sync."
+            f"Files synced but `import server` failed on the host. "
+            f"The live MCP is now broken. Revert with: "
+            f"for f in {' '.join(files_updated) or '<files>'}; do "
+            f"sudo mv /opt/ops-mcp/$f.bak.{backup_ts} /opt/ops-mcp/$f; done  "
+            f"(or fix the offending module and re-sync)."
+        )
+    elif verified and not tool_count_ok:
+        result["error"] = "post_sync_tool_count_mismatch"
+        result["message"] = (
+            f"Import succeeded but registered {tool_count} tools — expected "
+            f"{EXPECTED_TOOL_COUNT}. A @mcp.tool() decorator may have been "
+            f"dropped. Revert with the .bak.{backup_ts} backups or fix the "
+            f"offending module and re-sync."
         )
     ms = round((time.monotonic() - t0) * 1000)
     log_call("git_sync", args, result, ms, host=host, needs_review=True)

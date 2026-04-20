@@ -109,18 +109,19 @@ def flag_runbook_conflicts(results: list[dict]) -> list[dict]:
 
 # ── Payload similarity guard ──────────────────────────────────────────────────
 #
-# Catches the token-waste thrash mode observed on 2026-04-20: shuttling the
-# same large blob through multiple distinct tools (e.g. Bash cat → Read →
-# write_file). thrash_guard missed it because each tool was different.
+# Catches the token-waste thrash mode observed on 2026-04-20: the same large
+# blob coming back out of read_file and going straight into write_file — a
+# remote→remote paste that git_sync solves in one call.
 #
-# Hashes a prefix of significant payloads; if the same hash appears across
-# PAYLOAD_SIM_LIMIT distinct tools in the recent window, return a stop.
-# The proper fix is a direct-transfer tool (git_sync), which this guard
-# nudges the caller toward.
+# The MCP server's surface includes read_file and write_file (the two tools
+# that can shuttle significant content); client-side Bash never reaches this
+# guard. So PAYLOAD_SIM_LIMIT=2 is the honest threshold: a >=8KB blob that
+# appears in both read_file and write_file within the recent window is the
+# pattern we want to stop. thrash_guard covers the single-tool repeat case.
 
 _PAYLOAD_WINDOW: list[tuple[str, str]] = []
 _PAYLOAD_WINDOW_MAX = 10
-PAYLOAD_SIM_LIMIT = 3
+PAYLOAD_SIM_LIMIT = 2
 PAYLOAD_MIN_BYTES = 8 * 1024
 
 
