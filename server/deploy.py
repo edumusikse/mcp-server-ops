@@ -72,12 +72,11 @@ def bootstrap_git(host: str, repo_url: str = DEFAULT_REPO, branch: str = "main",
     shell = (
         f"set -e; "
         f"if [ -d {shlex.quote(REPO_DIR)}/.git ]; then "
-        f"  echo ALREADY_CLONED $(cd {shlex.quote(REPO_DIR)} && git rev-parse HEAD); "
+        f"  echo ALREADY_CLONED $({sudo_prefix}git -C {shlex.quote(REPO_DIR)} rev-parse HEAD); "
         f"  exit 0; "
         f"fi; "
         f"{sudo_prefix}git clone -q -b {shlex.quote(branch)} {shlex.quote(repo_url)} {shlex.quote(REPO_DIR)}; "
-        f"cd {shlex.quote(REPO_DIR)}; "
-        f"echo CLONED $(git rev-parse HEAD)"
+        f"echo CLONED $({sudo_prefix}git -C {shlex.quote(REPO_DIR)} rev-parse HEAD)"
     )
     rc, out = run_on(host, ["sh", "-c", shell], timeout=60)
     ok = rc == 0 and ("CLONED" in out or "ALREADY_CLONED" in out)
@@ -115,9 +114,9 @@ def git_sync(host: str, branch: str = "main", sudo: bool = True) -> dict:
         f"set -e; "
         f"if [ ! -d {shlex.quote(REPO_DIR)}/.git ]; then echo NOT_CLONED; exit 2; fi; "
         f"cd {shlex.quote(REPO_DIR)}; "
-        f"before=$(git rev-parse HEAD); "
+        f"before=$({sudo_prefix}git rev-parse HEAD); "
         f"{sudo_prefix}git fetch -q origin {shlex.quote(branch)}; "
-        f"after=$(git rev-parse origin/{shlex.quote(branch)}); "
+        f"after=$({sudo_prefix}git rev-parse origin/{shlex.quote(branch)}); "
         f"{sudo_prefix}git reset -q --hard origin/{shlex.quote(branch)}; "
         f"{_sync_shell(sudo_prefix)}; "
         f"echo SYNCED before=$before after=$after"
