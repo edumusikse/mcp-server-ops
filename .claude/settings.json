@@ -17,6 +17,15 @@
         ]
       },
       {
+        "matcher": "mcp__ops__.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /Users/stephan/Documents/ops-agent/.claude/hooks/runbook_guard.py"
+          }
+        ]
+      },
+      {
         "matcher": "*",
         "hooks": [
           {

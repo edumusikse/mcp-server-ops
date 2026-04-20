@@ -4,8 +4,8 @@
 Reads Claude Code JSONL transcripts from ~/.claude/projects/<project>/*.jsonl and
 reports three anti-patterns for each session:
 
-    A. runbook_missed   — lookup_runbook never called in a session that hit warn/fail
-    B. runbook_late     — lookup_runbook called, but >3 MCP diagnostic tools ran before it
+    A. runbook_missed   — an operational mcp__ops__ tool ran without lookup_runbook
+    B. runbook_late     — lookup_runbook called, but only after an operational tool
     C. thrash           — same MCP tool called 5+ times consecutively on the same target
 
 Usage:
@@ -30,22 +30,13 @@ from typing import Iterable
 DEFAULT_PROJECT = "-Users-stephan-Documents-ops-agent"
 PROJECTS_DIR = Path.home() / ".claude" / "projects"
 
-# Tools whose output reveals warn/fail state that should trigger the §0 runbook-first rule.
-TRIAGE_TRIGGER_TOOLS = {"mcp__ops__fleet_status", "mcp__ops__health_summary"}
-
-# Diagnostic tools. Calling one of these before lookup_runbook (after a triage trigger) is "late".
-DIAGNOSTIC_TOOLS = {
-    "mcp__ops__tail_logs",
-    "mcp__ops__read_file",
-    "mcp__ops__list_containers",
-    "mcp__ops__server_status",
-    "mcp__ops__describe_server",
-    "mcp__ops__wp_cli",
-    "mcp__ops__hetzner_firewall",
-    "mcp__ops__cloudflare_dns",
-}
-
 RUNBOOK_TOOL = "mcp__ops__lookup_runbook"
+RUNBOOK_EXEMPT_TOOLS = {
+    RUNBOOK_TOOL,
+    "mcp__ops__read_doc",
+    "mcp__ops__record_runbook_outcome",
+    "mcp__ops__ai_cost_summary",
+}
 
 # Thrash: same tool + same primary target this many consecutive times.
 THRASH_CONSECUTIVE = 5
@@ -160,24 +151,27 @@ def _find_thrash_runs(calls: list[ToolCall]) -> list[dict]:
     return runs
 
 
+def _is_operational_ops_tool(call: ToolCall) -> bool:
+    return call.name.startswith("mcp__ops__") and call.name not in RUNBOOK_EXEMPT_TOOLS
+
+
 def analyze(path: Path) -> SessionReport:
     calls, first_prompt = _extract_tool_calls(_iter_jsonl(path))
     mcp_ops_calls = sum(1 for c in calls if c.name.startswith("mcp__ops__"))
 
-    triage_indexes = [c.index for c in calls if c.name in TRIAGE_TRIGGER_TOOLS]
+    triage_indexes = [c.index for c in calls if _is_operational_ops_tool(c)]
     runbook_indexes = [c.index for c in calls if c.name == RUNBOOK_TOOL]
     triage_triggered = bool(triage_indexes)
     runbook_called = bool(runbook_indexes)
     runbook_call_position = runbook_indexes[0] if runbook_indexes else None
 
-    # diagnostic_before_runbook: how many diagnostic MCP tools ran between the first triage trigger
-    # and the first lookup_runbook (or end of session if runbook never called).
+    # diagnostic_before_runbook: how many operational MCP tools ran before the first
+    # lookup_runbook (or end of session if runbook never called).
     diagnostic_before_runbook = 0
     if triage_triggered:
-        start = triage_indexes[0] + 1
         end = runbook_call_position if runbook_called else len(calls)
-        for c in calls[start:end]:
-            if c.name in DIAGNOSTIC_TOOLS:
+        for c in calls[:end]:
+            if _is_operational_ops_tool(c):
                 diagnostic_before_runbook += 1
 
     thrash_runs = _find_thrash_runs(calls)
@@ -185,7 +179,7 @@ def analyze(path: Path) -> SessionReport:
     anti_patterns: list[str] = []
     if triage_triggered and not runbook_called:
         anti_patterns.append("runbook_missed")
-    elif triage_triggered and diagnostic_before_runbook > 3:
+    elif triage_triggered and diagnostic_before_runbook > 0:
         anti_patterns.append("runbook_late")
     if thrash_runs:
         anti_patterns.append("thrash")

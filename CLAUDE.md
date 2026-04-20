@@ -27,6 +27,8 @@ Client (any device)
 
 All per-host tools take a `host` parameter matching a key in `/opt/ops-mcp/hosts.yaml`.
 
+Headline tools (illustrative — **authoritative list is `EXPECTED_TOOLS` in [tests/test_server_imports.py](tests/test_server_imports.py); 19 tools pinned**):
+
 | Tool | Description |
 |------|-------------|
 | `fleet_status()` | All hosts in parallel — one call for a full overview |
@@ -36,12 +38,17 @@ All per-host tools take a `host` parameter matching a key in `/opt/ops-mcp/hosts
 | `safe_restart(host, container)` | Restart allowlisted containers only |
 | `describe_server(host)` | Topology: containers, ports, allowlist |
 | `read_doc(name)` | Read ops docs: ops-map, rules, guard-rules |
+| `lookup_runbook(problem)` | Prior-incident match + suggested fix |
 | `hetzner_firewall(server)` | Live firewall rules via Hetzner API |
 | `cloudflare_dns(zone)` | Live DNS records via Cloudflare API |
-| `health_summary(max_age_minutes?)` | Latest synthetic-probe results per host/container/probe |
-| `run_health_probes()` | Run all probes now (bypass 15m timer) |
+| `wp_cli(host, site, verb, ...)` | WordPress CLI — destructive verbs blocked |
+| `compose_up(host, stack)` | Docker compose up — shared-infra/traefik blocked |
+| `read_file` / `write_file` | Guarded file I/O on any fleet host |
+| `git_sync(host)` / `bootstrap_git(host)` | Deploy path — no more paste-thrash |
 
-All tools are in `allowedTools` — no per-call permission prompts. Safety is structural: `safe_restart` only accepts containers in the per-host `restart_allowlist`, `compose_up` rejects shared-infra/traefik/monitoring, `systemctl_restart` excludes docker/nftables/ssh, `wp_cli` blocks destructive verbs. All mutations are logged to `~/.ops-mcp/state.db` and surface in the review queue.
+Health probes run server-side via `ops-health-probe.timer`; results land in `state.db:health_probes` and surface in `fleet_status.health.worst`. No dedicated MCP read-tool today.
+
+Permissions: tools are in `permissions.allow` (wildcard `mcp__ops__*`) in `.claude/settings.json` — no per-call prompts. **Do not use the legacy `allowedTools` key — it is silently ignored.** Safety is structural: `safe_restart` only accepts containers in the per-host `restart_allowlist`, `compose_up` rejects shared-infra/traefik/monitoring, `systemctl_restart` excludes docker/nftables/ssh, `wp_cli` blocks destructive verbs. All mutations are logged to `~/.ops-mcp/state.db` and surface in the review queue.
 
 ## Health probes — business-outcome monitoring
 
@@ -64,12 +71,16 @@ Each probe self-discovers (skips WP sites without the plugin). Runs every 15 min
 
 1. `fleet_status()` — current state of all hosts
 2. `read_doc("ops-map")` — load service topology
+3. `lookup_runbook("<intended action or symptom>")` — consult prior fixes before changing or diagnosing anything operational
 
 ## Rules
 
+- **Consult the runbook before any operational action.** Before diagnosis, restart, file read/write, deploy, WP-CLI, DNS/firewall inspection, or other server-facing step, call `lookup_runbook(problem_or_intent)` first. `runbook_compliance.py --ci` flags sessions that skipped it or called it after an operational `mcp__ops__*` tool.
+- **Verify before declaring done.** Every claim in a summary, docstring, or commit message must point at the lines that implement it. Covered in `memory/feedback_verify_claims_against_code.md`.
 - Never use Bash or SSH — the hook blocks it. Use MCP tools.
 - State intent before any mutation (restart). Ask before acting.
 - JSON responses only — no prose summaries unless asked.
+- Health check: `bash tests/audit.sh` is the single-command workspace health gate — unit tests plus cross-file workspace checks cover hook wiring, guard coverage, docs coherence, deploy invariants, and the runbook mechanism.
 
 ## Server layout
 
@@ -90,8 +101,10 @@ Each probe self-discovers (skips WP sites without the plugin). Runs every 15 min
 ## Guards
 
 - **thrash_guard** — 5+ consecutive calls to same `(tool, target)` → stop. Wired into `tail_logs`, `wp_cli`, `read_file`. Test: `python3 tests/test_thrash_guard.py` (6 cases).
-- **payload_similarity_guard** — same >=8KB blob through 3 distinct tools (Bash→Read→write_file shuttle) → stop, nudge toward `git_sync`. Wired into `read_file`, `write_file`. Test: `python3 tests/test_payload_guard.py` (6 cases).
+- **payload_similarity_guard** — same >=8KB blob through 2 distinct tools (Read→write_file shuttle) → stop, nudge toward `git_sync`. Wired into `read_file`, `write_file`. Test: `python3 tests/test_payload_guard.py` (6 cases).
 - **runbook hygiene** — `filter_weak_matches` drops match_score<2 when stronger exists; `flag_runbook_conflicts` clears `auto_executable` on tied-but-disagreeing entries. Test: `python3 tests/test_runbook_hygiene.py` (8 cases).
+- **budget_guard** — Claude Code PreToolUse hook (matcher `*`). Session-wide cap: 100k output tokens OR 30 min elapsed (env-override `BUDGET_TOKEN_OUTPUT`, `BUDGET_TIME_MIN`). Warn at 50% via `hookSpecificOutput.additionalContext`, hard-deny at 100% via exit 2. Escape hatches in precedence order: `~/.ops-mcp/budget-off` (presence kill switch, no TTL) > `/tmp/claude-hook-bypass` containing `CONFIRMED` (300s TTL). Lives at `.claude/hooks/budget_guard.py`, wired in `.claude/settings.json`. Test: `python3 tests/test_budget_guard.py` (28 cases).
+- **runbook_guard** — Claude Code PreToolUse hook (matcher `mcp__ops__.*`). Pre-enforces what `tests/runbook_compliance.py` detects post-hoc: blocks any operational `mcp__ops__*` tool call if `lookup_runbook` has not yet appeared in the transcript. Exempt tools (callable before lookup): `lookup_runbook`, `read_doc`, `record_runbook_outcome`, `ai_cost_summary` — kept in sync with `RUNBOOK_EXEMPT_TOOLS` in `runbook_compliance.py` and verified by `tests/test_workspace_health.py`. Escape hatches mirror budget_guard: `~/.ops-mcp/runbook-guard-off` (presence kill switch) > `/tmp/claude-hook-bypass` containing `CONFIRMED` (300s TTL). Fail-open on malformed stdin / missing transcript / unhandled exception — never locks a session. Lives at `.claude/hooks/runbook_guard.py`. Test: `python3 tests/test_runbook_guard.py` (38 cases).
 
 ## Test harness
 
@@ -106,11 +119,13 @@ Untracked secrets (`.env`, `hosts.yaml`) survive both flows.
 
 ## Compliance harness
 
-`tests/runbook_compliance.py` — static analyzer over Claude transcripts. Detects three anti-patterns per session: `runbook_missed`, `runbook_late` (>3 diagnostics before `lookup_runbook`), `thrash` (5+ consecutive same tool+target).
+`tests/runbook_compliance.py` — static analyzer over Claude transcripts. Detects three anti-patterns per session: `runbook_missed`, `runbook_late` (any operational `mcp__ops__*` tool before `lookup_runbook`), `thrash` (5+ consecutive same tool+target).
 
 - Summarise last 10 sessions: `python3 tests/runbook_compliance.py --pretty`
 - CI gate (latest session): `python3 tests/runbook_compliance.py --ci`
 - Drift detector (regress = exit 1): `python3 tests/self_audit.py --window 5`
+- Deploy parity (static, no network): `python3 tests/live_ops_parity.py --pretty`
+- Deploy parity (live, onyx-bash alias): `python3 tests/live_ops_parity.py --live --pretty` — compares tool count, SYNC_FILES, git HEAD, docs on the host; non-strict skip if ssh fails unless `--strict-live`.
 
 ## Token benchmark — log analysis, 5 containers (real API calls, 2026-04-18)
 

@@ -13,6 +13,7 @@ This workspace talks to servers exclusively through the `ops` MCP on onyx. Direc
 2. `read_doc("ops-map")` — topology, container names, ports, restart commands
 3. `read_doc("rules")` — behavioural rules (the MCP-served copy; authoritative here)
 4. `read_doc("guard-rules")` — destructive-command patterns still relevant as a mental model
+5. `lookup_runbook("<intended action or symptom>")` — required before any operational tool use
 
 That's it. No local memory file reads — the MCP-served docs are synced from onyx and canonical for this workspace.
 
@@ -48,6 +49,7 @@ After the session-start parallel load:
 ## Rules (ops-agent-specific)
 
 - Never use Bash or SSH. The `block-ssh.py` hook enforces it.
+- Before any operational `mcp__ops__*` tool call, consult `lookup_runbook(problem_or_intent)`. `read_doc`, `ai_cost_summary`, and `record_runbook_outcome` are meta-tools and can run before lookup.
 - State intent before any mutation.
 - JSON responses only, unless prose is explicitly asked for.
 - Don't answer from memory about server state — call the MCP tool.
