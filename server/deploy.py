@@ -293,13 +293,16 @@ def bootstrap_server_config(host: str = "onyx", repo_url: str = SERVER_CONFIG_RE
         f"if ! {sudo_prefix}test -d {shlex.quote(ONYX_BARE_REPO_DIR)}; then "
         f"  {sudo_prefix}mkdir -p /opt/git; "
         f"  {sudo_prefix}git clone --mirror -q {shlex.quote(auth_url)} {bare_q}; "
-        f"  {sudo_prefix}chmod -R 755 {bare_q}; "
         f"fi; "
+        # Ensure stephan owns /opt/git so git push works without dubious-ownership error
+        f"{sudo_prefix}chown -R stephan:stephan /opt/git; "
+        f"{sudo_prefix}chmod -R 755 /opt/git; "
         # Working copy: clone from bare repo (local, fast)
         f"if ! {sudo_prefix}test -d {shlex.quote(SERVER_CONFIG_REPO_DIR + '/.git')}; then "
         f"  {sudo_prefix}git clone -q -b {branch_q} {bare_q} {work_q}; "
-        f"  {sudo_prefix}chmod -R o+rX {work_q}; "
         f"fi; "
+        f"{sudo_prefix}chown -R stephan:stephan {work_q}; "
+        f"{sudo_prefix}chmod -R o+rX {work_q}; "
         f"echo READY $({sudo_prefix}git -C {work_q} rev-parse HEAD)"
     )
     rc, out = run_on("onyx", ["sh", "-c", shell], timeout=60)
