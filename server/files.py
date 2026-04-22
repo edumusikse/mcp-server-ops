@@ -26,6 +26,8 @@ _WRITE_FILE_PREFIXES = (
     "/opt/ops-mcp/",           # MCP self-mutation (probes, hosts.yaml, server.py)
     "/opt/validator/",         # validator checks yaml
     "/opt/inspec/",            # inspec profiles + runner
+    "/opt/security-audit/",    # security audit dashboard + backend
+    "/opt/wp-panel/",          # wp-panel Flask app
     "/usr/local/bin/checks/",  # alt validator checks location
     "/usr/local/bin/probes/",  # alt probes location
     "/usr/local/bin/",         # ops scripts (inspec wrapper, etc.)
@@ -99,7 +101,7 @@ def write_file(host: str, path: str, content: str, sudo: bool = False) -> dict:
     and surface in the review queue.
 
     Allowed prefixes: /opt/ops-mcp/, /opt/validator/, /opt/inspec/,
-    /usr/local/bin/, /etc/cron.d/.
+    /opt/security-audit/, /opt/wp-panel/, /usr/local/bin/, /etc/cron.d/.
     Blocked: /etc/ssh/, /root/, /etc/sudoers, /etc/passwd, /etc/shadow,
     /etc/nftables.conf, /etc/systemd/system/ssh*.
 
