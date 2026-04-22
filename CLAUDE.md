@@ -130,7 +130,7 @@ First-time: `bootstrap_git(host="onyx")`. Secrets (`.env`, `hosts.yaml`) are nev
 Edit locally → commit + push → `server_config_sync(host="main")`.
 First-time: `bootstrap_server_config(host="main")`. No write_file, no allowlist concerns.
 
-**MCP code changes take effect on next session start** — the MCP process is a per-session stdio spawn that loads Python modules once at startup. git_sync updates files on disk; the new code is live from the next Claude Code session onwards.
+**MCP code changes take effect after restarting Claude Code** — the MCP process is spawned once when the Claude Code app opens and reused across all conversations. git_sync updates files on disk; starting a new conversation does NOT restart the process. Quit and reopen Claude Code to pick up deployed changes.
 
 ## Compliance harness
 
