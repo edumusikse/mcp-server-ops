@@ -273,12 +273,13 @@ def bootstrap_server_config(host: str, repo_url: str = SERVER_CONFIG_REPO,
 
     shell = (
         f"set -e; "
-        f"if [ -d {shlex.quote(SERVER_CONFIG_REPO_DIR)}/.git ]; then "
+        f"if {sudo_prefix}test -d {shlex.quote(SERVER_CONFIG_REPO_DIR + '/.git')}; then "
         f"  echo ALREADY_CLONED $({sudo_prefix}git -C {shlex.quote(SERVER_CONFIG_REPO_DIR)} rev-parse HEAD); "
         f"  exit 0; "
         f"fi; "
         f"{sudo_prefix}git clone -q -b {shlex.quote(branch)} {shlex.quote(auth_url)} "
         f"{shlex.quote(SERVER_CONFIG_REPO_DIR)}; "
+        f"{sudo_prefix}chmod -R o+rX {shlex.quote(SERVER_CONFIG_REPO_DIR)}; "
         f"echo CLONED $({sudo_prefix}git -C {shlex.quote(SERVER_CONFIG_REPO_DIR)} rev-parse HEAD)"
     )
     rc, out = run_on(host, ["sh", "-c", shell], timeout=60)
@@ -319,7 +320,7 @@ def server_config_sync(host: str, branch: str = "main", sudo: bool = True) -> di
 
     shell = (
         f"set -e; "
-        f"if [ ! -d {shlex.quote(SERVER_CONFIG_REPO_DIR)}/.git ]; then "
+        f"if ! {sudo_prefix}test -d {shlex.quote(SERVER_CONFIG_REPO_DIR + '/.git')}; then "
         f"  echo NOT_CLONED; exit 2; "
         f"fi; "
         f"cd {shlex.quote(SERVER_CONFIG_REPO_DIR)}; "
