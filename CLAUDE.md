@@ -104,6 +104,7 @@ Each probe self-discovers (skips WP sites without the plugin). Runs every 15 min
 | `cloud.py` | `hetzner_firewall`, `cloudflare_dns` |
 | `deploy.py` | `git_sync`, `bootstrap_git` |
 | `guards.py` | `thrash_guard`, `payload_similarity_guard`, runbook hygiene |
+| `web.py` | standalone Flask fleet dashboard (not in MCP sync — deployed manually, stays on server) |
 
 ## Guards
 
