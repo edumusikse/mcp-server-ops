@@ -24,6 +24,7 @@ First-time setup uses bootstrap_git to create /opt/ops-mcp-repo.
 from __future__ import annotations
 
 import logging
+import os
 import re
 import shlex
 import time
@@ -218,6 +219,14 @@ def git_sync(host: str, branch: str = "main", sudo: bool = True) -> dict:
 SERVER_CONFIG_REPO = "https://github.com/edumusikse/server-config.git"
 SERVER_CONFIG_REPO_DIR = "/opt/server-config-repo"
 
+
+def _authenticated_repo_url(repo_url: str) -> str:
+    """Inject GITHUB_PAT from env into HTTPS github.com URL if set."""
+    pat = os.environ.get("GITHUB_PAT", "")
+    if pat and repo_url.startswith("https://github.com/"):
+        return repo_url.replace("https://github.com/", f"https://{pat}@github.com/", 1)
+    return repo_url
+
 # (repo-relative source, absolute destination on the host)
 SERVER_CONFIG_DEPLOY_MAP = [
     ("security-audit/dashboard.html",            "/opt/security-audit/dashboard.html"),
@@ -260,6 +269,7 @@ def bootstrap_server_config(host: str, repo_url: str = SERVER_CONFIG_REPO,
     t0 = time.monotonic()
     args = {"host": host, "repo_url": repo_url, "branch": branch, "sudo": sudo}
     sudo_prefix = "sudo -n " if sudo else ""
+    auth_url = _authenticated_repo_url(repo_url)
 
     shell = (
         f"set -e; "
@@ -267,7 +277,7 @@ def bootstrap_server_config(host: str, repo_url: str = SERVER_CONFIG_REPO,
         f"  echo ALREADY_CLONED $({sudo_prefix}git -C {shlex.quote(SERVER_CONFIG_REPO_DIR)} rev-parse HEAD); "
         f"  exit 0; "
         f"fi; "
-        f"{sudo_prefix}git clone -q -b {shlex.quote(branch)} {shlex.quote(repo_url)} "
+        f"{sudo_prefix}git clone -q -b {shlex.quote(branch)} {shlex.quote(auth_url)} "
         f"{shlex.quote(SERVER_CONFIG_REPO_DIR)}; "
         f"echo CLONED $({sudo_prefix}git -C {shlex.quote(SERVER_CONFIG_REPO_DIR)} rev-parse HEAD)"
     )
