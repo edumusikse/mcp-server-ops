@@ -87,7 +87,7 @@ def wp_cli(host: str, container: str, cmd: str, write: bool = False) -> dict:
         log_call("wp_cli", {"host": host, "container": container, "cmd": cmd}, result, 0, allowed=False, host=host)
         return result
 
-    full_cmd = ["sudo", "docker", "exec"] + (["-u", "www-data"] if not write else []) + [container, "wp", "--allow-root"] + cmd_parts
+    full_cmd = ["sudo", "docker", "exec"] + (["-u", "www-data"] if not write else []) + ["-e", "WP_CLI_PHP_ARGS=-d memory_limit=512M"] + [container, "wp", "--allow-root"] + cmd_parts
     rc, out = run_on(host, full_cmd, timeout=30)
     result = {"ok": rc == 0, "output": out[:4000]}
     ms = round((time.monotonic() - t0) * 1000)
