@@ -217,7 +217,18 @@ def git_sync(host: str, branch: str = "main", sudo: bool = True) -> dict:
 # ── server-config deploy ──────────────────────────────────────────────────────
 
 SERVER_CONFIG_REPO = "https://github.com/edumusikse/server-config.git"
+# Bare repo on onyx (local push target — no GitHub fetch on every sync)
+ONYX_BARE_REPO_DIR = "/opt/git/server-config.git"
+# Working copy lives on ONYX (fetches from bare repo, not internet)
 SERVER_CONFIG_REPO_DIR = "/opt/server-config-repo"
+
+# (repo-relative source, absolute destination on the deploy host)
+SERVER_CONFIG_DEPLOY_MAP = [
+    ("security-audit/dashboard.html",            "/opt/security-audit/dashboard.html"),
+    ("security-audit/dashboard.py",              "/opt/security-audit/dashboard.py"),
+    ("security-audit/security-audit-report.py",  "/opt/security-audit/security-audit-report.py"),
+    ("wp-panel/app.py",                          "/opt/wp-panel/app.py"),
+]
 
 
 def _authenticated_repo_url(repo_url: str) -> str:
@@ -227,24 +238,25 @@ def _authenticated_repo_url(repo_url: str) -> str:
         return repo_url.replace("https://github.com/", f"https://{pat}@github.com/", 1)
     return repo_url
 
-# (repo-relative source, absolute destination on the host)
-SERVER_CONFIG_DEPLOY_MAP = [
-    ("security-audit/dashboard.html",            "/opt/security-audit/dashboard.html"),
-    ("security-audit/dashboard.py",              "/opt/security-audit/dashboard.py"),
-    ("security-audit/security-audit-report.py",  "/opt/security-audit/security-audit-report.py"),
-    ("wp-panel/app.py",                          "/opt/wp-panel/app.py"),
-]
 
+def _server_config_install_shell(sudo: str, backup_ts: str) -> str:
+    """Shell fragment that runs on the deploy host.
 
-def _server_config_sync_shell(sudo: str, backup_ts: str) -> str:
+    Compares each /tmp/<basename> (scp'd from onyx) against the live dst.
+    Skips unchanged files. Backs up and installs changed ones.
+    """
     lines = []
-    for src_rel, dst in SERVER_CONFIG_DEPLOY_MAP:
-        src = shlex.quote(f"{SERVER_CONFIG_REPO_DIR}/{src_rel}")
+    for _, dst in SERVER_CONFIG_DEPLOY_MAP:
+        basename = os.path.basename(dst)
+        tmp_q = shlex.quote(f"/tmp/{basename}")
         dst_q = shlex.quote(dst)
         lines.append(
-            f"if cmp -s {src} {dst_q} 2>/dev/null; then :; else "
-            f"if [ -e {dst_q} ]; then {sudo}cp -p {dst_q} {dst_q}.bak.{backup_ts}; fi; "
-            f"{sudo}install -m 0644 {src} {dst_q}; "
+            f"if cmp -s {tmp_q} {dst_q} 2>/dev/null; then "
+            f"rm -f {tmp_q}; "
+            f"else "
+            f"{{ {sudo}test -e {dst_q} && {sudo}cp -p {dst_q} {dst_q}.bak.{backup_ts} || true; }}; "
+            f"{sudo}install -m 0644 {tmp_q} {dst_q}; "
+            f"rm -f {tmp_q}; "
             f"echo UPDATED:{dst}; "
             f"fi"
         )
@@ -252,17 +264,18 @@ def _server_config_sync_shell(sudo: str, backup_ts: str) -> str:
 
 
 @mcp.tool()
-def bootstrap_server_config(host: str, repo_url: str = SERVER_CONFIG_REPO,
+def bootstrap_server_config(host: str = "onyx", repo_url: str = SERVER_CONFIG_REPO,
                              branch: str = "main", sudo: bool = True) -> dict:
-    """First-time setup: clone server-config repo to /opt/server-config-repo on `host`.
+    """First-time setup: create bare repo + working copy on onyx for server-config.
 
-    Run once per host before calling server_config_sync. Leaves live service
-    directories (/opt/security-audit, /opt/wp-panel) untouched — call
-    server_config_sync to copy files into place.
+    Creates /opt/git/server-config.git (bare mirror from GitHub, one-time) and
+    /opt/server-config-repo (working copy) on onyx. After bootstrap, change your
+    local server-config remote to git@onyx:/opt/git/server-config.git and push —
+    all future syncs are LAN-local with no GitHub fetch.
 
     Args:
-        host: Host name from hosts.yaml
-        repo_url: Repo URL (default: edumusikse/server-config)
+        host: Ignored — always runs on onyx. Kept for call-site compat.
+        repo_url: GitHub URL for initial mirror clone (default: edumusikse/server-config)
         branch: Branch to track (default: main)
         sudo: Use sudo -n (default True)
     """
@@ -270,33 +283,45 @@ def bootstrap_server_config(host: str, repo_url: str = SERVER_CONFIG_REPO,
     args = {"host": host, "repo_url": repo_url, "branch": branch, "sudo": sudo}
     sudo_prefix = "sudo -n " if sudo else ""
     auth_url = _authenticated_repo_url(repo_url)
+    bare_q = shlex.quote(ONYX_BARE_REPO_DIR)
+    work_q = shlex.quote(SERVER_CONFIG_REPO_DIR)
+    branch_q = shlex.quote(branch)
 
     shell = (
         f"set -e; "
-        f"if {sudo_prefix}test -d {shlex.quote(SERVER_CONFIG_REPO_DIR + '/.git')}; then "
-        f"  echo ALREADY_CLONED $({sudo_prefix}git -C {shlex.quote(SERVER_CONFIG_REPO_DIR)} rev-parse HEAD); "
-        f"  exit 0; "
+        # Bare repo: mirror from GitHub once to seed history
+        f"if ! {sudo_prefix}test -d {shlex.quote(ONYX_BARE_REPO_DIR)}; then "
+        f"  {sudo_prefix}mkdir -p /opt/git; "
+        f"  {sudo_prefix}git clone --mirror -q {shlex.quote(auth_url)} {bare_q}; "
+        f"  {sudo_prefix}chmod -R 755 {bare_q}; "
         f"fi; "
-        f"{sudo_prefix}git clone -q -b {shlex.quote(branch)} {shlex.quote(auth_url)} "
-        f"{shlex.quote(SERVER_CONFIG_REPO_DIR)}; "
-        f"{sudo_prefix}chmod -R o+rX {shlex.quote(SERVER_CONFIG_REPO_DIR)}; "
-        f"echo CLONED $({sudo_prefix}git -C {shlex.quote(SERVER_CONFIG_REPO_DIR)} rev-parse HEAD)"
+        # Working copy: clone from bare repo (local, fast)
+        f"if ! {sudo_prefix}test -d {shlex.quote(SERVER_CONFIG_REPO_DIR + '/.git')}; then "
+        f"  {sudo_prefix}git clone -q -b {branch_q} {bare_q} {work_q}; "
+        f"  {sudo_prefix}chmod -R o+rX {work_q}; "
+        f"fi; "
+        f"echo READY $({sudo_prefix}git -C {work_q} rev-parse HEAD)"
     )
-    rc, out = run_on(host, ["sh", "-c", shell], timeout=60)
-    ok = rc == 0 and ("CLONED" in out or "ALREADY_CLONED" in out)
-    result = {"ok": ok, "output": out[:2000], "repo_dir": SERVER_CONFIG_REPO_DIR}
+    rc, out = run_on("onyx", ["sh", "-c", shell], timeout=60)
+    ok = rc == 0 and "READY" in out
+    result = {"ok": ok, "output": out[:2000],
+              "bare_dir": ONYX_BARE_REPO_DIR, "repo_dir": SERVER_CONFIG_REPO_DIR}
     ms = round((time.monotonic() - t0) * 1000)
-    log_call("bootstrap_server_config", args, result, ms, host=host, needs_review=True)
-    logging.info("bootstrap_server_config %s rc=%d (%dms)", host, rc, ms)
+    log_call("bootstrap_server_config", args, result, ms, host="onyx", needs_review=True)
+    logging.info("bootstrap_server_config rc=%d (%dms)", rc, ms)
     return result
 
 
 @mcp.tool()
-def server_config_sync(host: str, branch: str = "main", sudo: bool = True) -> dict:
+def server_config_sync(host: str = "main", branch: str = "main", sudo: bool = True) -> dict:
     """Pull latest server-config and deploy to live service directories on `host`.
 
     Deploy path for server-config files (security-audit dashboard, wp-panel):
-    edit locally → commit + push → server_config_sync(host="main").
+    edit locally → commit + push (to git@onyx:/opt/git/server-config.git) →
+    server_config_sync(host="main").
+
+    Git fetch runs on onyx against the local bare repo — no GitHub, no internet.
+    Files are then scp'd to the deploy host and installed in one batch.
 
     Files deployed (SERVER_CONFIG_DEPLOY_MAP):
       security-audit/dashboard.html  → /opt/security-audit/dashboard.html
@@ -306,10 +331,10 @@ def server_config_sync(host: str, branch: str = "main", sudo: bool = True) -> di
 
     Each changed file is backed up to <dst>.bak.<ts> before overwriting.
     Unchanged files are left alone. Run bootstrap_server_config first if
-    /opt/server-config-repo does not exist.
+    /opt/server-config-repo does not exist on onyx.
 
     Args:
-        host: Host name from hosts.yaml
+        host: Deploy target (default main)
         branch: Branch to sync to (default main)
         sudo: Use sudo -n for git + install (default True)
     """
@@ -318,47 +343,68 @@ def server_config_sync(host: str, branch: str = "main", sudo: bool = True) -> di
     sudo_prefix = "sudo -n " if sudo else ""
     backup_ts = time.strftime("%Y%m%d_%H%M%S", time.gmtime())
 
-    d = shlex.quote(SERVER_CONFIG_REPO_DIR)
-    shell = (
+    work_q = shlex.quote(SERVER_CONFIG_REPO_DIR)
+    bare_q = shlex.quote(ONYX_BARE_REPO_DIR)
+    branch_q = shlex.quote(branch)
+
+    # Step 1: fetch from local bare repo on onyx — no internet hop
+    git_shell = (
         f"set -e; "
         f"if ! {sudo_prefix}test -d {shlex.quote(SERVER_CONFIG_REPO_DIR + '/.git')}; then "
         f"  echo NOT_CLONED; exit 2; "
         f"fi; "
-        f"{sudo_prefix}chmod -R o+rX {d}; "
-        f"before=$({sudo_prefix}git -C {d} rev-parse HEAD); "
-        f"{sudo_prefix}git -C {d} fetch -q origin {shlex.quote(branch)}; "
-        f"after=$({sudo_prefix}git -C {d} rev-parse origin/{shlex.quote(branch)}); "
-        f"{sudo_prefix}git -C {d} reset -q --hard origin/{shlex.quote(branch)}; "
-        f"{_server_config_sync_shell(sudo_prefix, backup_ts)}; "
-        f"echo SYNCED before=$before after=$after"
+        f"{sudo_prefix}chmod -R o+rX {work_q}; "
+        f"before=$({sudo_prefix}git -C {work_q} rev-parse HEAD); "
+        f"{sudo_prefix}git -C {work_q} fetch -q {bare_q} {branch_q}; "
+        f"{sudo_prefix}git -C {work_q} reset -q --hard FETCH_HEAD; "
+        f"after=$({sudo_prefix}git -C {work_q} rev-parse HEAD); "
+        f"echo GITDONE before=$before after=$after"
     )
-    rc, out = run_on(host, ["sh", "-c", shell], timeout=60)
+    rc1, out1 = run_on("onyx", ["sh", "-c", git_shell], timeout=30)
 
-    if rc == 2 and "NOT_CLONED" in out:
+    if rc1 == 2 and "NOT_CLONED" in out1:
         result = {"ok": False, "error": "not_cloned",
-                  "message": f"{SERVER_CONFIG_REPO_DIR} not found. Run bootstrap_server_config first."}
+                  "message": f"{SERVER_CONFIG_REPO_DIR} not found on onyx. Run bootstrap_server_config first."}
+        log_call("server_config_sync", args, result, 0, host=host)
+        return result
+    if rc1 != 0:
+        result = {"ok": False, "error": out1[:1000]}
         log_call("server_config_sync", args, result, 0, host=host)
         return result
 
-    synced = "SYNCED" in out
-    before_match = re.search(r"before=([0-9a-f]+)", out)
-    after_match = re.search(r"after=([0-9a-f]+)", out)
+    # Step 2: scp all deploy-map files to host:/tmp/ in one batch from onyx
+    srcs = " ".join(shlex.quote(f"{SERVER_CONFIG_REPO_DIR}/{src_rel}")
+                    for src_rel, _ in SERVER_CONFIG_DEPLOY_MAP)
+    scp_shell = f"scp -q {srcs} main-private:/tmp/"
+    rc2, out2 = run_on("onyx", ["sh", "-c", scp_shell], timeout=30)
+    if rc2 != 0:
+        result = {"ok": False, "error": f"scp_failed: {out2[:500]}"}
+        log_call("server_config_sync", args, result, 0, host=host)
+        return result
+
+    # Step 3: compare + backup + install on deploy host
+    install_shell = f"set -e; {_server_config_install_shell(sudo_prefix, backup_ts)}"
+    rc3, out3 = run_on(host, ["sh", "-c", install_shell], timeout=30)
+    if rc3 != 0:
+        result = {"ok": False, "error": f"install_failed: {out3[:500]}"}
+        log_call("server_config_sync", args, result, 0, host=host)
+        return result
+
+    before_match = re.search(r"before=([0-9a-f]+)", out1)
+    after_match = re.search(r"after=([0-9a-f]+)", out1)
     files_updated = [
-        line[len("UPDATED:"):] for line in out.splitlines()
+        line[len("UPDATED:"):] for line in out3.splitlines()
         if line.startswith("UPDATED:")
     ]
-    ok = rc == 0 and synced
     result = {
-        "ok": ok,
+        "ok": True,
         "files_updated": files_updated,
         "before": before_match.group(1) if before_match else None,
         "after": after_match.group(1) if after_match else None,
         "backup_ts": backup_ts if files_updated else None,
-        "synced": synced,
+        "synced": True,
     }
-    if not ok:
-        result["error"] = out[:1000] or f"rc={rc}"
     ms = round((time.monotonic() - t0) * 1000)
     log_call("server_config_sync", args, result, ms, host=host, needs_review=True)
-    logging.info("server_config_sync %s rc=%d files=%s (%dms)", host, rc, files_updated, ms)
+    logging.info("server_config_sync host=%s rc3=%d files=%s (%dms)", host, rc3, files_updated, ms)
     return result

@@ -127,8 +127,10 @@ Edit locally → commit + push → `git_sync(host="onyx")`.
 First-time: `bootstrap_git(host="onyx")`. Secrets (`.env`, `hosts.yaml`) are never touched.
 
 **server-config files** (dashboard.html, wp-panel/app.py, etc. → /opt/security-audit/, /opt/wp-panel/):
-Edit locally → commit + push → `server_config_sync(host="main")`.
-First-time: `bootstrap_server_config(host="main")`. No write_file, no allowlist concerns.
+Edit locally → commit + push (to `git@onyx:/opt/git/server-config.git`) → `server_config_sync(host="main")`.
+Git fetch runs on onyx against the local bare repo — no GitHub, no internet latency (~2s total).
+First-time: `bootstrap_server_config()` (creates bare repo + working copy on onyx from GitHub mirror),
+then `cd server-config && git remote set-url origin git@onyx:/opt/git/server-config.git && git push origin main`.
 
 **MCP code changes take effect after restarting Claude Code** — the MCP process is spawned once when the Claude Code app opens and reused across all conversations. git_sync updates files on disk; starting a new conversation does NOT restart the process. Quit and reopen Claude Code to pick up deployed changes.
 
