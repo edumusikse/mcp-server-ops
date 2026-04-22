@@ -8,8 +8,9 @@ individual tool call is reasonable but the session as a whole has burned too
 much time or too many output tokens. It also covers tools the MCP guards
 cannot see (Read, Edit, Write, Bash, WebFetch, etc.).
 
-Wired as PreToolUse with matcher "*". Coexists with block-ssh.py (Bash matcher)
-— PreToolUse hooks run in declaration order; both are advisory until exit 2.
+Wired as PreToolUse with matcher "mcp__ops__.*|Agent|Bash|WebFetch|WebSearch".
+Skips cheap local ops (Read/Edit/Write/Glob/Grep) to reduce subprocess overhead.
+Coexists with block-ssh.py (Bash matcher) — PreToolUse hooks run in declaration order.
 
 Caps:
     BUDGET_TIME_MIN      env override, default 30      (minutes from first event)

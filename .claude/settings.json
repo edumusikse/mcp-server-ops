@@ -35,7 +35,7 @@
         ]
       },
       {
-        "matcher": "*",
+        "matcher": "mcp__ops__.*|Agent|Bash|WebFetch|WebSearch",
         "hooks": [
           {
             "type": "command",
