@@ -318,16 +318,17 @@ def server_config_sync(host: str, branch: str = "main", sudo: bool = True) -> di
     sudo_prefix = "sudo -n " if sudo else ""
     backup_ts = time.strftime("%Y%m%d_%H%M%S", time.gmtime())
 
+    d = shlex.quote(SERVER_CONFIG_REPO_DIR)
     shell = (
         f"set -e; "
         f"if ! {sudo_prefix}test -d {shlex.quote(SERVER_CONFIG_REPO_DIR + '/.git')}; then "
         f"  echo NOT_CLONED; exit 2; "
         f"fi; "
-        f"cd {shlex.quote(SERVER_CONFIG_REPO_DIR)}; "
-        f"before=$({sudo_prefix}git rev-parse HEAD); "
-        f"{sudo_prefix}git fetch -q origin {shlex.quote(branch)}; "
-        f"after=$({sudo_prefix}git rev-parse origin/{shlex.quote(branch)}); "
-        f"{sudo_prefix}git reset -q --hard origin/{shlex.quote(branch)}; "
+        f"{sudo_prefix}chmod -R o+rX {d}; "
+        f"before=$({sudo_prefix}git -C {d} rev-parse HEAD); "
+        f"{sudo_prefix}git -C {d} fetch -q origin {shlex.quote(branch)}; "
+        f"after=$({sudo_prefix}git -C {d} rev-parse origin/{shlex.quote(branch)}); "
+        f"{sudo_prefix}git -C {d} reset -q --hard origin/{shlex.quote(branch)}; "
         f"{_server_config_sync_shell(sudo_prefix, backup_ts)}; "
         f"echo SYNCED before=$before after=$after"
     )
