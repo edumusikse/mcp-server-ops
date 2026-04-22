@@ -73,9 +73,27 @@ for hook in (
     check(hook.exists(), f"{hook.name} exists")
     check(os.access(hook, os.X_OK), f"{hook.name} executable")
 
+find_guard_group = find_hook_group(pre, "find-guard.py")
+check(find_guard_group is not None, "find-guard.py is wired in PreToolUse")
+check(find_guard_group is not None and find_guard_group.get("matcher") == "Bash", "find-guard Bash matcher")
+if find_guard_group and block_group and find_guard_group is block_group:
+    bash_hooks = block_group.get("hooks", [])
+    block_idx = next((i for i, h in enumerate(bash_hooks) if "block-ssh.py" in h.get("command", "")), None)
+    find_idx  = next((i for i, h in enumerate(bash_hooks) if "find-guard.py" in h.get("command", "")), None)
+    check(block_idx is not None and find_idx is not None and block_idx < find_idx,
+          "block-ssh.py runs before find-guard.py in Bash hooks")
+
+for hook in (
+    REPO / ".claude/hooks/find-guard.py",
+    REPO / ".claude/known-paths.md",
+):
+    check(hook.exists(), f"{hook.name} exists")
+check(os.access(REPO / ".claude/hooks/find-guard.py", os.X_OK), "find-guard.py executable")
+
 block_ssh = load_module("block_ssh_health", REPO / ".claude/hooks/block-ssh.py")
 budget = load_module("budget_guard_health", REPO / ".claude/hooks/budget_guard.py")
 runbook_guard = load_module("runbook_guard_health", REPO / ".claude/hooks/runbook_guard.py")
+find_guard = load_module("find_guard_health", REPO / ".claude/hooks/find-guard.py")
 
 check(
     block_ssh.BYPASS_FILE == budget.BYPASS_FILE == runbook_guard.BYPASS_FILE,
@@ -91,6 +109,11 @@ check(
 )
 kill_switches = {block_ssh.KILL_SWITCH, budget.KILL_SWITCH, runbook_guard.KILL_SWITCH}
 check(len(kill_switches) == 3, "hooks have three distinct permanent kill switches")
+
+for cmd in ("find . -name '*.py'", "grep -rl foo src/", "grep -rn bar ."):
+    check(find_guard.is_search_command(cmd), f"find-guard intercepts: {cmd!r}")
+for cmd in ("ls -la", "cat file.txt", "python3 test.py"):
+    check(not find_guard.is_search_command(cmd), f"find-guard ignores: {cmd!r}")
 
 compliance = load_module("runbook_compliance_health", REPO / "tests/runbook_compliance.py")
 check(
