@@ -312,3 +312,47 @@ def systemctl_restart(host: str, unit: str) -> dict:
     log_call("systemctl_restart", {"host": host, "unit": unit}, result, ms, host=host)
     logging.info("systemctl_restart %s:%s active=%s (%dms)", host, unit, active, ms)
     return result
+
+
+@mcp.tool()
+def apt_upgrade(host: str, dry_run: bool = True) -> dict:
+    """Apply OS package security upgrades via apt-get.
+
+    dry_run=True (default) shows what would be upgraded without applying.
+    dry_run=False runs the upgrade. Safe to run; does not dist-upgrade or
+    remove packages.
+
+    Args:
+        host: Host name from hosts.yaml
+        dry_run: Simulate only when True (default True for safety)
+    """
+    t0 = time.monotonic()
+
+    rc_upd, upd_out = run_on(host, ["sudo", "apt-get", "update", "-qq"], timeout=60)
+    if rc_upd != 0:
+        result = {"ok": False, "stage": "apt-get update", "error": upd_out}
+        log_call("apt_upgrade", {"host": host, "dry_run": dry_run}, result, 0, host=host)
+        return result
+
+    if dry_run:
+        rc, out = run_on(host, ["apt-get", "--simulate", "upgrade"], timeout=60)
+        upgradable = [l for l in out.splitlines() if l.startswith("Inst ")]
+        result = {
+            "ok": True,
+            "dry_run": True,
+            "packages_to_upgrade": len(upgradable),
+            "packages": upgradable[:50],
+        }
+    else:
+        rc, out = run_on(
+            host,
+            ["sudo", "env", "DEBIAN_FRONTEND=noninteractive", "apt-get", "upgrade", "-y"],
+            timeout=300,
+        )
+        tail = out[-3000:] if len(out) > 3000 else out
+        result = {"ok": rc == 0, "dry_run": False, "output": tail}
+
+    ms = round((time.monotonic() - t0) * 1000)
+    log_call("apt_upgrade", {"host": host, "dry_run": dry_run}, result, ms, host=host)
+    logging.info("apt_upgrade %s dry_run=%s ok=%s (%dms)", host, dry_run, result["ok"], ms)
+    return result

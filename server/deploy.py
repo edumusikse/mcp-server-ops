@@ -45,7 +45,7 @@ SYNC_FILES = (
 # Kept in lockstep with tests/test_server_imports.py::EXPECTED_TOOLS. A
 # silently-dropped @mcp.tool() decorator would still import cleanly, so the
 # remote verification checks the registered tool count, not just importability.
-EXPECTED_TOOL_COUNT = 19
+EXPECTED_TOOL_COUNT = 20
 
 # Post-sync smoke test: import the just-installed server.py and report tool
 # count. A broken split (missing module, bad import, dropped @mcp.tool())
