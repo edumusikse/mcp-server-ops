@@ -52,10 +52,10 @@ EXPECTED_TOOL_COUNT = 21
 # trips this immediately rather than waiting for the next session to fail.
 _VERIFY_PY = (
     "import sys; sys.path.insert(0, '/opt/ops-mcp'); "
-    "import server as _s; "
+    "import server as _s, deploy as _d; "
     "tm = getattr(_s.mcp, '_tool_manager', None); "
     "n = len((tm._tools if tm else _s.mcp._tools)); "
-    "print(f'IMPORT_OK tools={n}')"
+    "print(f'IMPORT_OK tools={n} expected={_d.EXPECTED_TOOL_COUNT}')"
 )
 
 
@@ -167,10 +167,11 @@ def git_sync(host: str, branch: str = "main", sudo: bool = True) -> dict:
     rc, out = run_on(host, ["sh", "-c", shell], timeout=60)
 
     synced = "SYNCED" in out
-    import_match = re.search(r"IMPORT_OK tools=(\d+)", out)
+    import_match = re.search(r"IMPORT_OK tools=(\d+) expected=(\d+)", out)
     verified = bool(import_match)
     tool_count = int(import_match.group(1)) if import_match else None
-    tool_count_ok = tool_count == EXPECTED_TOOL_COUNT
+    deployed_expected = int(import_match.group(2)) if import_match else EXPECTED_TOOL_COUNT
+    tool_count_ok = tool_count == deployed_expected
     files_updated = [
         line[len("UPDATED:"):] for line in out.splitlines()
         if line.startswith("UPDATED:")
@@ -184,7 +185,7 @@ def git_sync(host: str, branch: str = "main", sudo: bool = True) -> dict:
         "synced": synced,
         "verified": verified,
         "tool_count": tool_count,
-        "expected_tool_count": EXPECTED_TOOL_COUNT,
+        "expected_tool_count": deployed_expected,
     }
     if rc == 2 and "NOT_CLONED" in out:
         result = {"ok": False, "error": "not_cloned",
