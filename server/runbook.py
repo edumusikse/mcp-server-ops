@@ -24,7 +24,7 @@ _AGENT_RUNBOOK = Path("/var/lib/ai-agent/runbook.json")
 def read_doc(name: str) -> str:
     """Read an ops context document stored on the control server.
 
-    Available: ops-map, rules, guard-rules, runbook-index
+    Available: ops-map, rules, guard-rules, ai-remediation-agent, runbook-index
 
     Args:
         name: Document name
@@ -54,6 +54,7 @@ def read_doc(name: str) -> str:
         "ops-map": "ops-map.md",
         "rules": "rules.md",
         "guard-rules": "guard-rules.yaml",
+        "ai-remediation-agent": "ai-remediation-agent.md",
     }
     if name not in allowed:
         return f"Unknown doc '{name}'. Available: {', '.join(allowed)}, runbook-index"
