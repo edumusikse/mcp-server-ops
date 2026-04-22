@@ -36,6 +36,7 @@ RUNBOOK_EXEMPT_TOOLS = {
     "mcp__ops__read_doc",
     "mcp__ops__record_runbook_outcome",
     "mcp__ops__ai_cost_summary",
+    "mcp__ops__list_known_paths",
 }
 
 # Thrash: same tool + same primary target this many consecutive times.

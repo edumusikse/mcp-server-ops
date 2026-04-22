@@ -46,7 +46,7 @@ os.environ["OPS_STATE_DIR"] = tempfile.mkdtemp(prefix="ops-state-test-")
 EXPECTED_TOOLS = {
     # fleet.py
     "server_status", "fleet_status", "list_containers", "tail_logs",
-    "safe_restart", "describe_server", "systemctl_restart", "apt_upgrade",
+    "safe_restart", "describe_server", "systemctl_restart", "apt_upgrade", "list_known_paths",
     # wp.py
     "wp_cli",
     # compose.py

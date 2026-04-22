@@ -356,3 +356,46 @@ def apt_upgrade(host: str, dry_run: bool = True) -> dict:
     log_call("apt_upgrade", {"host": host, "dry_run": dry_run}, result, ms, host=host)
     logging.info("apt_upgrade %s dry_run=%s ok=%s (%dms)", host, dry_run, result["ok"], ms)
     return result
+
+
+@mcp.tool()
+def list_known_paths(host: str) -> dict:
+    """Authoritative manifest of log/report/state paths on a fleet host.
+
+    Call this BEFORE any read_file call to get the correct path — never guess.
+    Returns each named path with an exists flag (single batch SSH check).
+
+    Args:
+        host: Host name from hosts.yaml
+    """
+    import datetime as _dt
+    today = _dt.datetime.utcnow().strftime("%Y-%m-%d")
+    manifest = {
+        "security_audit_today":      f"/var/log/security-audit/{today}.json",
+        "security_audit_aide":       "/var/log/security-audit/aide-latest.json",
+        "security_audit_inspec":     "/var/log/security-audit/inspec-latest.json",
+        "security_audit_inspec_raw": "/var/log/security-audit/inspec-raw-latest.json",
+        "server_events":             "/var/log/server-events.log",
+        "server_audit":              "/var/log/server-audit.json",
+        "backup_log":                "/var/log/backup.log",
+        "mariadb_dump_log":          "/var/log/mariadb-dump.log",
+        "config_snapshot_log":       "/var/log/config-snapshot.log",
+        "functional_tests_result":   "/var/lib/functional-tests/last-result.json",
+    }
+    check = "; ".join(
+        f'[ -f "{p}" ] && echo "{p}:yes" || echo "{p}:no"'
+        for p in manifest.values()
+    )
+    rc, out = run_on(host, ["bash", "-c", check], timeout=10)
+    exists_map: dict[str, bool] = {}
+    if rc == 0:
+        for line in out.strip().splitlines():
+            line = line.strip()
+            if line.endswith(":yes"):
+                exists_map[line[:-4]] = True
+            elif line.endswith(":no"):
+                exists_map[line[:-3]] = False
+    return {
+        name: {"path": path, "exists": exists_map.get(path)}
+        for name, path in manifest.items()
+    }

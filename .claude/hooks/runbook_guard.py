@@ -62,6 +62,7 @@ RUNBOOK_EXEMPT_TOOLS = frozenset({
     "mcp__ops__read_doc",
     "mcp__ops__record_runbook_outcome",
     "mcp__ops__ai_cost_summary",
+    "mcp__ops__list_known_paths",
 })
 OPS_PREFIX = "mcp__ops__"
 
