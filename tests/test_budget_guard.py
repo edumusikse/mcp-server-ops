@@ -56,6 +56,13 @@ def ts_at(mins_ago: float) -> str:
     return (NOW - timedelta(minutes=mins_ago)).strftime("%Y-%m-%dT%H:%M:%S.000Z")
 
 
+def live_ts_at(mins_ago: float) -> str:
+    """Real-time variant for subprocess tests — main() uses time.time() as now."""
+    return datetime.fromtimestamp(_time.time() - mins_ago * 60, tz=timezone.utc).strftime(
+        "%Y-%m-%dT%H:%M:%S.000Z"
+    )
+
+
 def assistant(out_tokens, ts: str, **extra) -> dict:
     usage = {"output_tokens": out_tokens, **extra}
     return {"type": "assistant", "timestamp": ts, "message": {"usage": usage}}
@@ -227,14 +234,14 @@ try:
         )
 
     # C16: under cap → exit 0, no stderr, no stdout
-    under_path = write_transcript([assistant(100, ts_at(1))])
+    under_path = write_transcript([assistant(100, live_ts_at(1))])
     proc = run_hook({"transcript_path": under_path, "tool_name": "Read"})
     assert_eq(proc.returncode, 0, "C16: under cap exit 0")
     assert_eq(proc.stderr, "", "C16: no stderr under cap")
     assert_eq(proc.stdout, "", "C16: no stdout under cap (silent ok)")
 
     # C17: over cap → exit 2, stop directive in stderr
-    over_path = write_transcript([assistant(200_000, ts_at(1))])
+    over_path = write_transcript([assistant(200_000, live_ts_at(1))])
     proc = run_hook({"transcript_path": over_path, "tool_name": "Read"})
     assert_eq(proc.returncode, 2, "C17: over cap exit 2")
     assert_in("BUDGET EXCEEDED", proc.stderr, "C17: stderr contains stop directive")
@@ -245,7 +252,7 @@ try:
     assert_eq(proc.returncode, 0, "C18: env override lifts deny")
 
     # C19: Bug #3 — BUDGET_TOKEN_OUTPUT=0 falls back to default, no insta-deny
-    small_path = write_transcript([assistant(100, ts_at(1))])
+    small_path = write_transcript([assistant(100, live_ts_at(1))])
     proc = run_hook({"transcript_path": small_path, "tool_name": "Read"},
                     env_overrides={"BUDGET_TOKEN_OUTPUT": "0"})
     assert_eq(proc.returncode, 0, "C19: zero cap falls back to default → allow")
@@ -268,7 +275,7 @@ try:
     assert_eq(proc.returncode, 0, "C22: malformed payload → no-op allow")
 
     # C23: Bug #1 — warn emits hookSpecificOutput envelope
-    warn_path = write_transcript([assistant(60_000, ts_at(5))])
+    warn_path = write_transcript([assistant(60_000, live_ts_at(5))])
     proc = run_hook({"transcript_path": warn_path, "tool_name": "Read"})
     assert_eq(proc.returncode, 0, "C23: warn exit 0")
     out = json.loads(proc.stdout)

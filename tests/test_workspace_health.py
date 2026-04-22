@@ -41,12 +41,29 @@ def load_module(name: str, path: Path):
 settings = json.loads((REPO / ".claude" / "settings.json").read_text())
 pre = settings.get("hooks", {}).get("PreToolUse", [])
 check(len(pre) >= 3, "PreToolUse has block, runbook_guard, and budget hook groups")
-check(pre[0].get("matcher") == "Bash", "block-ssh Bash matcher runs first")
-check("block-ssh.py" in pre[0]["hooks"][0]["command"], "first hook is block-ssh.py")
-check(pre[1].get("matcher") == "mcp__ops__.*", "runbook_guard matcher scopes to mcp__ops__*")
-check("runbook_guard.py" in pre[1]["hooks"][0]["command"], "second hook is runbook_guard.py")
-check(pre[2].get("matcher") == "*", "budget_guard matcher covers all tools")
-check("budget_guard.py" in pre[2]["hooks"][0]["command"], "third hook is budget_guard.py")
+
+
+def find_hook_group(hooks_list: list, name_fragment: str) -> dict | None:
+    for h in hooks_list:
+        if any(name_fragment in hk.get("command", "") for hk in h.get("hooks", [])):
+            return h
+    return None
+
+
+block_group = find_hook_group(pre, "block-ssh.py")
+runbook_group = find_hook_group(pre, "runbook_guard.py")
+budget_group = find_hook_group(pre, "budget_guard.py")
+
+check(block_group is not None and block_group.get("matcher") == "Bash", "block-ssh Bash matcher runs first")
+check(block_group is not None and "block-ssh.py" in block_group["hooks"][0]["command"], "first hook is block-ssh.py")
+check(runbook_group is not None and runbook_group.get("matcher") == "mcp__ops__.*", "runbook_guard matcher scopes to mcp__ops__*")
+check(runbook_group is not None and "runbook_guard.py" in runbook_group["hooks"][0]["command"], "second hook is runbook_guard.py")
+budget_matcher = budget_group.get("matcher", "") if budget_group else ""
+check("mcp__ops__" in budget_matcher, "budget_guard matcher covers all tools")
+check(budget_group is not None and "budget_guard.py" in budget_group["hooks"][0]["command"], "third hook is budget_guard.py")
+if block_group and runbook_group and budget_group:
+    check(pre.index(block_group) < pre.index(runbook_group), "block-ssh runs before runbook_guard")
+    check(pre.index(runbook_group) < pre.index(budget_group), "runbook_guard runs before budget_guard")
 
 for hook in (
     REPO / ".claude/hooks/block-ssh.py",
