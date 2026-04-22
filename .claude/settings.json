@@ -44,6 +44,16 @@
         ]
       }
     ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /Users/stephan/Documents/ops-agent/.claude/hooks/session_autocommit.py"
+          }
+        ]
+      }
+    ],
     "SessionStart": [
       {
         "hooks": [
