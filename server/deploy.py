@@ -45,7 +45,7 @@ SYNC_FILES = (
 # Kept in lockstep with tests/test_server_imports.py::EXPECTED_TOOLS. A
 # silently-dropped @mcp.tool() decorator would still import cleanly, so the
 # remote verification checks the registered tool count, not just importability.
-EXPECTED_TOOL_COUNT = 21
+EXPECTED_TOOL_COUNT = 23
 
 # Post-sync smoke test: import the just-installed server.py and report tool
 # count. A broken split (missing module, bad import, dropped @mcp.tool())
@@ -210,4 +210,143 @@ def git_sync(host: str, branch: str = "main", sudo: bool = True) -> dict:
     ms = round((time.monotonic() - t0) * 1000)
     log_call("git_sync", args, result, ms, host=host, needs_review=True)
     logging.info("git_sync %s rc=%d (%dms)", host, rc, ms)
+    return result
+
+
+# ── server-config deploy ──────────────────────────────────────────────────────
+
+SERVER_CONFIG_REPO = "https://github.com/edumusikse/server-config.git"
+SERVER_CONFIG_REPO_DIR = "/opt/server-config-repo"
+
+# (repo-relative source, absolute destination on the host)
+SERVER_CONFIG_DEPLOY_MAP = [
+    ("security-audit/dashboard.html",            "/opt/security-audit/dashboard.html"),
+    ("security-audit/dashboard.py",              "/opt/security-audit/dashboard.py"),
+    ("security-audit/security-audit-report.py",  "/opt/security-audit/security-audit-report.py"),
+    ("wp-panel/app.py",                          "/opt/wp-panel/app.py"),
+]
+
+
+def _server_config_sync_shell(sudo: str, backup_ts: str) -> str:
+    lines = []
+    for src_rel, dst in SERVER_CONFIG_DEPLOY_MAP:
+        src = shlex.quote(f"{SERVER_CONFIG_REPO_DIR}/{src_rel}")
+        dst_q = shlex.quote(dst)
+        lines.append(
+            f"if cmp -s {src} {dst_q} 2>/dev/null; then :; else "
+            f"if [ -e {dst_q} ]; then {sudo}cp -p {dst_q} {dst_q}.bak.{backup_ts}; fi; "
+            f"{sudo}install -m 0644 {src} {dst_q}; "
+            f"echo UPDATED:{dst}; "
+            f"fi"
+        )
+    return "; ".join(lines)
+
+
+@mcp.tool()
+def bootstrap_server_config(host: str, repo_url: str = SERVER_CONFIG_REPO,
+                             branch: str = "main", sudo: bool = True) -> dict:
+    """First-time setup: clone server-config repo to /opt/server-config-repo on `host`.
+
+    Run once per host before calling server_config_sync. Leaves live service
+    directories (/opt/security-audit, /opt/wp-panel) untouched — call
+    server_config_sync to copy files into place.
+
+    Args:
+        host: Host name from hosts.yaml
+        repo_url: Repo URL (default: edumusikse/server-config)
+        branch: Branch to track (default: main)
+        sudo: Use sudo -n (default True)
+    """
+    t0 = time.monotonic()
+    args = {"host": host, "repo_url": repo_url, "branch": branch, "sudo": sudo}
+    sudo_prefix = "sudo -n " if sudo else ""
+
+    shell = (
+        f"set -e; "
+        f"if [ -d {shlex.quote(SERVER_CONFIG_REPO_DIR)}/.git ]; then "
+        f"  echo ALREADY_CLONED $({sudo_prefix}git -C {shlex.quote(SERVER_CONFIG_REPO_DIR)} rev-parse HEAD); "
+        f"  exit 0; "
+        f"fi; "
+        f"{sudo_prefix}git clone -q -b {shlex.quote(branch)} {shlex.quote(repo_url)} "
+        f"{shlex.quote(SERVER_CONFIG_REPO_DIR)}; "
+        f"echo CLONED $({sudo_prefix}git -C {shlex.quote(SERVER_CONFIG_REPO_DIR)} rev-parse HEAD)"
+    )
+    rc, out = run_on(host, ["sh", "-c", shell], timeout=60)
+    ok = rc == 0 and ("CLONED" in out or "ALREADY_CLONED" in out)
+    result = {"ok": ok, "output": out[:2000], "repo_dir": SERVER_CONFIG_REPO_DIR}
+    ms = round((time.monotonic() - t0) * 1000)
+    log_call("bootstrap_server_config", args, result, ms, host=host, needs_review=True)
+    logging.info("bootstrap_server_config %s rc=%d (%dms)", host, rc, ms)
+    return result
+
+
+@mcp.tool()
+def server_config_sync(host: str, branch: str = "main", sudo: bool = True) -> dict:
+    """Pull latest server-config and deploy to live service directories on `host`.
+
+    Deploy path for server-config files (security-audit dashboard, wp-panel):
+    edit locally → commit + push → server_config_sync(host="main").
+
+    Files deployed (SERVER_CONFIG_DEPLOY_MAP):
+      security-audit/dashboard.html  → /opt/security-audit/dashboard.html
+      security-audit/dashboard.py    → /opt/security-audit/dashboard.py
+      security-audit/security-audit-report.py → /opt/security-audit/security-audit-report.py
+      wp-panel/app.py                → /opt/wp-panel/app.py
+
+    Each changed file is backed up to <dst>.bak.<ts> before overwriting.
+    Unchanged files are left alone. Run bootstrap_server_config first if
+    /opt/server-config-repo does not exist.
+
+    Args:
+        host: Host name from hosts.yaml
+        branch: Branch to sync to (default main)
+        sudo: Use sudo -n for git + install (default True)
+    """
+    t0 = time.monotonic()
+    args = {"host": host, "branch": branch, "sudo": sudo}
+    sudo_prefix = "sudo -n " if sudo else ""
+    backup_ts = time.strftime("%Y%m%d_%H%M%S", time.gmtime())
+
+    shell = (
+        f"set -e; "
+        f"if [ ! -d {shlex.quote(SERVER_CONFIG_REPO_DIR)}/.git ]; then "
+        f"  echo NOT_CLONED; exit 2; "
+        f"fi; "
+        f"cd {shlex.quote(SERVER_CONFIG_REPO_DIR)}; "
+        f"before=$({sudo_prefix}git rev-parse HEAD); "
+        f"{sudo_prefix}git fetch -q origin {shlex.quote(branch)}; "
+        f"after=$({sudo_prefix}git rev-parse origin/{shlex.quote(branch)}); "
+        f"{sudo_prefix}git reset -q --hard origin/{shlex.quote(branch)}; "
+        f"{_server_config_sync_shell(sudo_prefix, backup_ts)}; "
+        f"echo SYNCED before=$before after=$after"
+    )
+    rc, out = run_on(host, ["sh", "-c", shell], timeout=60)
+
+    if rc == 2 and "NOT_CLONED" in out:
+        result = {"ok": False, "error": "not_cloned",
+                  "message": f"{SERVER_CONFIG_REPO_DIR} not found. Run bootstrap_server_config first."}
+        log_call("server_config_sync", args, result, 0, host=host)
+        return result
+
+    synced = "SYNCED" in out
+    before_match = re.search(r"before=([0-9a-f]+)", out)
+    after_match = re.search(r"after=([0-9a-f]+)", out)
+    files_updated = [
+        line[len("UPDATED:"):] for line in out.splitlines()
+        if line.startswith("UPDATED:")
+    ]
+    ok = rc == 0 and synced
+    result = {
+        "ok": ok,
+        "files_updated": files_updated,
+        "before": before_match.group(1) if before_match else None,
+        "after": after_match.group(1) if after_match else None,
+        "backup_ts": backup_ts if files_updated else None,
+        "synced": synced,
+    }
+    if not ok:
+        result["error"] = out[:1000] or f"rc={rc}"
+    ms = round((time.monotonic() - t0) * 1000)
+    log_call("server_config_sync", args, result, ms, host=host, needs_review=True)
+    logging.info("server_config_sync %s rc=%d files=%s (%dms)", host, rc, files_updated, ms)
     return result

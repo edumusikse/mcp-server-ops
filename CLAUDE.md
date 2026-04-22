@@ -34,7 +34,7 @@ Client (any device)
 
 All per-host tools take a `host` parameter matching a key in `/opt/ops-mcp/hosts.yaml`.
 
-Headline tools (illustrative — **authoritative list is `EXPECTED_TOOLS` in [tests/test_server_imports.py](tests/test_server_imports.py); 19 tools pinned**):
+Headline tools (illustrative — **authoritative list is `EXPECTED_TOOLS` in [tests/test_server_imports.py](tests/test_server_imports.py); 23 tools pinned**):
 
 | Tool | Description |
 |------|-------------|
@@ -51,7 +51,8 @@ Headline tools (illustrative — **authoritative list is `EXPECTED_TOOLS` in [te
 | `wp_cli(host, site, verb, ...)` | WordPress CLI — destructive verbs blocked |
 | `compose_up(host, stack)` | Docker compose up — shared-infra/traefik blocked |
 | `read_file` / `write_file` | Guarded file I/O on any fleet host |
-| `git_sync(host)` / `bootstrap_git(host)` | Deploy path — no more paste-thrash |
+| `git_sync(host)` / `bootstrap_git(host)` | Deploy MCP server code (ops-mcp Python modules) |
+| `server_config_sync(host)` / `bootstrap_server_config(host)` | Deploy server-config files (dashboard.html, wp-panel/app.py) |
 
 Health probes run server-side via `ops-health-probe.timer`; results land in `state.db:health_probes` and surface in `fleet_status.health.worst`. No dedicated MCP read-tool today.
 
@@ -102,7 +103,7 @@ Each probe self-discovers (skips WP sites without the plugin). Runs every 15 min
 | `files.py` | `read_file`, `write_file` |
 | `runbook.py` | `lookup_runbook`, `record_runbook_outcome`, `read_doc`, `ai_cost_summary` |
 | `cloud.py` | `hetzner_firewall`, `cloudflare_dns` |
-| `deploy.py` | `git_sync`, `bootstrap_git` |
+| `deploy.py` | `git_sync`, `bootstrap_git`, `server_config_sync`, `bootstrap_server_config` |
 | `guards.py` | `thrash_guard`, `payload_similarity_guard`, runbook hygiene |
 | `web.py` | standalone Flask fleet dashboard (not in MCP sync — deployed manually, stays on server) |
 
@@ -121,9 +122,15 @@ Each probe self-discovers (skips WP sites without the plugin). Runs every 15 min
 
 ## Deploy path
 
-No more paste-thrash. Edit locally → commit + push → `git_sync(host)` pulls.
-First-time conversion of a non-git `/opt/ops-mcp` uses `bootstrap_git(host)`.
-Untracked secrets (`.env`, `hosts.yaml`) survive both flows.
+**MCP server code** (server/*.py → /opt/ops-mcp/):
+Edit locally → commit + push → `git_sync(host="onyx")`.
+First-time: `bootstrap_git(host="onyx")`. Secrets (`.env`, `hosts.yaml`) are never touched.
+
+**server-config files** (dashboard.html, wp-panel/app.py, etc. → /opt/security-audit/, /opt/wp-panel/):
+Edit locally → commit + push → `server_config_sync(host="main")`.
+First-time: `bootstrap_server_config(host="main")`. No write_file, no allowlist concerns.
+
+**MCP code changes take effect on next session start** — the MCP process is a per-session stdio spawn that loads Python modules once at startup. git_sync updates files on disk; the new code is live from the next Claude Code session onwards.
 
 ## Compliance harness
 

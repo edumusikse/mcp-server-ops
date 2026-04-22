@@ -58,7 +58,7 @@ EXPECTED_TOOLS = {
     # cloud.py
     "hetzner_firewall", "cloudflare_dns",
     # deploy.py
-    "git_sync", "bootstrap_git",
+    "git_sync", "bootstrap_git", "server_config_sync", "bootstrap_server_config",
 }
 
 failures: list[str] = []
