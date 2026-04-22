@@ -1,0 +1,43 @@
+name: kimai-local
+
+services:
+  kimai:
+    image: kimai/kimai2:apache
+    restart: unless-stopped
+    ports:
+      - "8082:8001"
+    volumes:
+      - kimai-data:/opt/kimai/var/data
+      - kimai-plugins:/opt/kimai/var/plugins
+    environment:
+      APP_SECRET: localdev123secretkey
+      DATABASE_URL: mysql://kimai:localdev123@kimai-db/kimai?charset=utf8mb4&serverVersion=8.3.0
+      ADMINMAIL: admin@kimai.local
+      ADMINPASS: localdev123
+      TRUSTED_HOSTS: "kimai.local|localhost|127.0.0.1|kimai"
+      TRUSTED_PROXIES: 127.0.0.1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
+    depends_on:
+      kimai-db:
+        condition: service_healthy
+
+  kimai-db:
+    image: mysql:8
+    restart: unless-stopped
+    volumes:
+      - kimai-db:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: kimai
+      MYSQL_USER: kimai
+      MYSQL_PASSWORD: localdev123
+      MYSQL_ROOT_PASSWORD: localdev123
+    command: --default-storage-engine innodb
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1"]
+      interval: 5s
+      timeout: 20s
+      retries: 10
+
+volumes:
+  kimai-data:
+  kimai-plugins:
+  kimai-db:
