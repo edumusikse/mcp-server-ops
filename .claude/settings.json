@@ -17,6 +17,15 @@
         ]
       },
       {
+        "matcher": "WebFetch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /Users/stephan/Documents/ops-agent/.claude/hooks/youtube_guard.py"
+          }
+        ]
+      },
+      {
         "matcher": "mcp__ops__.*",
         "hooks": [
           {
@@ -31,6 +40,16 @@
           {
             "type": "command",
             "command": "python3 /Users/stephan/Documents/ops-agent/.claude/hooks/budget_guard.py"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /Users/stephan/Documents/ops-agent/.claude/hooks/session_handoff_inject.py"
           }
         ]
       }

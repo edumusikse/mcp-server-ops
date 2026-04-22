@@ -17,6 +17,36 @@ This workspace talks to servers exclusively through the `ops` MCP on onyx. Direc
 
 That's it. No local memory file reads — the MCP-served docs are synced from onyx and canonical for this workspace.
 
+## Credentials — API keys, passwords, tokens
+
+**Source of truth:** 1Password vault `Edumusik`. Always add/update there first.
+
+**Working copy (canonical, lives in this project):** `~/.claude/projects/-Users-stephan-Documents-ops-agent/memory/reference_all_api_keys.md` — every Cloudflare, Hetzner, Mailgun, Stripe, Gamma, DB, SSH, and third-party credential. Rebuilt from 1Password 2026-04-18.
+
+Do NOT store credentials in the edumusik-net (course) workspace, or in `/opt/ops-mcp/.env` — that file only holds the ops-MCP's own runtime creds (Hetzner, Cloudflare, Anthropic) and the canonical list here is the source clients should read.
+
+## External reference files (load on demand)
+
+These live outside the ops-agent memory dir and are not auto-loaded. Read them when the task calls for them — do not copy them here (source-of-truth drift).
+
+**Behavioural / rules:**
+- `~/.claude/projects/-Users-stephan/memory/feedback_consolidated.md` — global behavioural rules (pipeline, safety, WP ops, workflow). Ops-agent memory has its own feedback files that layer on top of these.
+
+**Infrastructure reference:**
+- `~/.claude/projects/-Users-stephan/memory/reference_operations_map.md` — containers, ports, compose paths, cron, restart cmds. Stale by design — always verify live via MCP. `read_doc("ops-map")` is the MCP-served equivalent and is preferred when available.
+- `~/.claude/projects/-Users-stephan/memory/reference_cloudflare_zones.md` — DNS zone IDs, WAF rules, SSL state. Load before any `cloudflare_dns(...)` work.
+- `~/.claude/projects/-Users-stephan/memory/reference_alert_inventory.md` — alert functions, HC pings, credential sources. Load before touching alerting.
+
+**Cross-project state (ecswe):**
+- `~/.claude/projects/-Users-stephan-Documents-ecswe/memory/project_open_tasks.md` — open server tasks across projects.
+- `~/.claude/projects/-Users-stephan-Documents-ecswe/memory/project_tiered_access.md` — `claude-ops` restricted SSH + server-ops-gate modes.
+- `~/.claude/projects/-Users-stephan-Documents-ecswe/memory/reference_local_dev.md` — LocalWP, wp-local wrapper, sync workflow.
+
+**Product / strategy context:**
+- `~/.claude/projects/-Users-stephan/memory/project_edumusik.md` — LearnDash toolkit, strategic docs.
+
+Out of scope for ops-agent (ignore unless the task explicitly requires them): Obsidian vault/search, course catalogue/backlog, Bricks docs, Figma MCP/API rules, YubiKey setup, weekly cron heartbeats.
+
 ## Access model — read
 
 | Need | Tool |

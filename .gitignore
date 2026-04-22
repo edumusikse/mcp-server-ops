@@ -7,3 +7,13 @@ hosts.yaml
 *.bak.*
 .DS_Store
 .claude/.DS_Store
+.claude/handoffs/
+
+# Nested repos — each has its own git history
+server-config/
+wp-edumusik-net/
+wp-edumusik-com/
+wp-ksm/
+wp-frid/
+wp-schafliebe/
+wp-evabiallas/

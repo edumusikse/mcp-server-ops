@@ -1,7 +1,14 @@
 # ops-agent
 
-Dedicated Claude Code project for AI-assisted fleet management via MCP.
-All server interaction goes through the `ops` MCP server — no direct SSH or Bash.
+**Canonical server management workspace** for the Edumusik fleet. Owns:
+- MCP fleet-management tooling (the Python `server/` module — this is what clients connect to via `ops` MCP on onyx)
+- `server-config/` — all server configuration, deployed via the pipeline
+- Per-WP-site deploy folders: `wp-edumusik-net/`, `wp-edumusik-com/`, `wp-frid/`, `wp-ksm/`, `wp-schafliebe/`, `wp-evabiallas/`
+- Canonical credentials: `memory/reference_all_api_keys.md` (source of truth: 1Password vault "Edumusik")
+
+Per-site content/design/LearnDash work lives under `~/Documents/WP Sites/<site>/` (one project per WordPress site: edumusik-net, edumusik-com, frid, ksm, schafliebe, evabiallas). LocalWP copies live under `~/Local Sites/`. **Do not mix site content with server/infra work.**
+
+All server interaction from Claude Code sessions goes through the `ops` MCP server — no direct SSH or Bash.
 
 ## Architecture
 
