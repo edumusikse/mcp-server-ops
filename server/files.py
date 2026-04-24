@@ -49,7 +49,7 @@ _WRITE_FILE_MAX_BYTES = 256 * 1024
 
 
 @mcp.tool()
-def read_file(host: str, path: str, tail_lines: int = 200) -> dict:
+def read_file(host: str, path: str, tail_lines: int = 200, sudo: bool = False) -> dict:
     """Read a file from a fleet host. Restricted to safe path prefixes.
 
     Returns last tail_lines lines for large files (max 200). Max 50KB total.
@@ -59,6 +59,7 @@ def read_file(host: str, path: str, tail_lines: int = 200) -> dict:
         path: Absolute file path (must be under /var/log/, /srv/, /opt/,
               /usr/local/bin/, /home/stephan/.ops-mcp/, or /var/lib/ai-agent/)
         tail_lines: Number of lines to return if file is large (default 200, max 200)
+        sudo: Use sudo -n for read (required for root-owned log files)
     """
     t0 = time.monotonic()
     tail_lines = min(max(1, tail_lines), 200)
@@ -82,7 +83,9 @@ def read_file(host: str, path: str, tail_lines: int = 200) -> dict:
         log_call("read_file", {"host": host, "path": path}, result, 0, allowed=False, host=host)
         return result
 
-    rc, out = run_on(host, ["tail", f"-{tail_lines}", path], timeout=10)
+    cmd = (["sudo", "-n", "tail", f"-{tail_lines}", path] if sudo
+           else ["tail", f"-{tail_lines}", path])
+    rc, out = run_on(host, cmd, timeout=10)
     if rc != 0:
         result = {"ok": False, "error": out}
         log_call("read_file", {"host": host, "path": path}, result, 0, host=host)
