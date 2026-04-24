@@ -1,0 +1,440 @@
+- generic [ref=e2]:
+  - navigation "Hauptmenü":
+    - link "Zum Hauptinhalt springen" [ref=e3] [cursor=pointer]:
+      - /url: "#wpbody-content"
+    - link "Zur Werkzeugleiste springen" [ref=e4] [cursor=pointer]:
+      - /url: "#wp-toolbar"
+    - list [ref=e7]:
+      - listitem [ref=e8]:
+        - link "Dashboard" [ref=e9] [cursor=pointer]:
+          - /url: index.php
+          - generic [ref=e10]: 
+          - generic [ref=e11]: Dashboard
+      - listitem [ref=e12]:
+        - link "Blog" [ref=e13] [cursor=pointer]:
+          - /url: admin.php?page=ksm-blog-menu
+          - generic [ref=e14]: 
+          - generic [ref=e15]: Blog
+        - list [ref=e16]:
+          - listitem [ref=e17]:
+            - link "Blog" [ref=e18] [cursor=pointer]:
+              - /url: admin.php?page=ksm-blog-menu
+          - listitem [ref=e19]:
+            - link "Alle Beiträge" [ref=e20] [cursor=pointer]:
+              - /url: admin.php?page=ksm-blog-list
+          - listitem [ref=e21]:
+            - link "Neuer Beitrag" [ref=e22] [cursor=pointer]:
+              - /url: admin.php?page=ksm-blog-add
+          - listitem [ref=e23]:
+            - link "Kategorien" [ref=e24] [cursor=pointer]:
+              - /url: edit-tags.php?taxonomy=category
+      - listitem [ref=e25]:
+        - link "Produkte" [ref=e26] [cursor=pointer]:
+          - /url: edit.php?post_type=product
+          - generic [ref=e27]: 
+          - generic [ref=e28]: Produkte
+        - list [ref=e29]:
+          - listitem [ref=e30]:
+            - link "Alle Produkte" [ref=e31] [cursor=pointer]:
+              - /url: edit.php?post_type=product
+          - listitem [ref=e32]:
+            - link "Neues Produkt hinzufügen" [ref=e33] [cursor=pointer]:
+              - /url: post-new.php?post_type=product
+      - listitem [ref=e34]:
+        - link "Dozenten" [ref=e35] [cursor=pointer]:
+          - /url: admin.php?page=ksm-dozenten-list
+          - generic [ref=e36]: 
+          - generic [ref=e37]: Dozenten
+        - list [ref=e38]:
+          - listitem [ref=e39]:
+            - link "Alle Dozenten" [ref=e40] [cursor=pointer]:
+              - /url: admin.php?page=ksm-dozenten-list
+          - listitem [ref=e41]:
+            - link "Dozenten hinzufügen" [ref=e42] [cursor=pointer]:
+              - /url: admin.php?page=ksm-dozent-add
+      - listitem [ref=e43]:
+        - link "Newsletter" [ref=e44] [cursor=pointer]:
+          - /url: admin.php?page=fluentcrm-admin
+          - generic [ref=e46]: Newsletter
+        - list [ref=e47]:
+          - listitem [ref=e48]:
+            - link "Dashboard" [ref=e49] [cursor=pointer]:
+              - /url: admin.php?page=fluentcrm-admin
+          - listitem [ref=e50]:
+            - link "Kontakte" [ref=e51] [cursor=pointer]:
+              - /url: admin.php?page=fluentcrm-admin#/subscribers
+          - listitem [ref=e52]:
+            - link "Companies" [ref=e53] [cursor=pointer]:
+              - /url: admin.php?page=fluentcrm-admin#/contact-groups/companies
+          - listitem [ref=e54]:
+            - link "Listen" [ref=e55] [cursor=pointer]:
+              - /url: admin.php?page=fluentcrm-admin#/contact-groups/lists
+          - listitem [ref=e56]:
+            - link "Kampagnen" [ref=e57] [cursor=pointer]:
+              - /url: admin.php?page=fluentcrm-admin#/email/campaigns
+          - listitem [ref=e58]:
+            - link "E-Mail-Sequenzen" [ref=e59] [cursor=pointer]:
+              - /url: admin.php?page=fluentcrm-admin#/email/sequences
+          - listitem [ref=e60]:
+            - link "E-Mail-Vorlagen" [ref=e61] [cursor=pointer]:
+              - /url: admin.php?page=fluentcrm-admin#/email/templates
+          - listitem [ref=e62]:
+            - link "Formulare" [ref=e63] [cursor=pointer]:
+              - /url: admin.php?page=fluentcrm-admin#/forms
+      - listitem [ref=e64]:
+        - link "FooEvents" [ref=e65] [cursor=pointer]:
+          - /url: edit.php?post_type=event_magic_tickets
+          - generic [ref=e66]: 
+          - generic [ref=e67]: FooEvents
+        - list [ref=e68]:
+          - listitem [ref=e69]:
+            - link "Tickets" [ref=e70] [cursor=pointer]:
+              - /url: edit.php?post_type=event_magic_tickets
+          - listitem [ref=e71]:
+            - link "Erste Schritte" [ref=e72] [cursor=pointer]:
+              - /url: admin.php?page=fooevents-introduction
+          - listitem [ref=e73]:
+            - link "Check-ins importieren" [ref=e74] [cursor=pointer]:
+              - /url: admin.php?page=fooevents-checkins-import
+          - listitem [ref=e75]:
+            - link "Tickets importieren" [ref=e76] [cursor=pointer]:
+              - /url: admin.php?page=fooevents-import-tickets
+          - listitem [ref=e77]:
+            - link "Ticket-Themen" [ref=e78] [cursor=pointer]:
+              - /url: admin.php?page=fooevents-ticket-themes
+          - listitem [ref=e79]:
+            - link "Berichte" [ref=e80] [cursor=pointer]:
+              - /url: admin.php?page=fooevents-reports
+      - listitem [ref=e81]:
+        - link "Boards" [ref=e82] [cursor=pointer]:
+          - /url: admin.php?page=fluent-boards
+          - generic [ref=e84]: Boards
+        - list [ref=e85]:
+          - listitem [ref=e86]:
+            - link "Dashboard" [ref=e87] [cursor=pointer]:
+              - /url: admin.php?page=fluent-boards
+          - listitem [ref=e88]:
+            - link "Boards" [ref=e89] [cursor=pointer]:
+              - /url: admin.php?page=fluent-boards#/boards
+          - listitem [ref=e90]:
+            - link "Berichte" [ref=e91] [cursor=pointer]:
+              - /url: admin.php?page=fluent-boards#/reports
+          - listitem [ref=e92]:
+            - link "Einstellungen" [ref=e93] [cursor=pointer]:
+              - /url: admin.php?page=fluent-boards#/settings/members-role
+      - listitem [ref=e94]:
+        - link "Elementor" [ref=e95] [cursor=pointer]:
+          - /url: admin.php?page=elementor-home
+          - generic [ref=e97]: Elementor
+        - list [ref=e98]:
+          - listitem [ref=e99]:
+            - link "Home" [ref=e100] [cursor=pointer]:
+              - /url: admin.php?page=elementor-home
+          - listitem [ref=e101]:
+            - link "Editor" [ref=e102] [cursor=pointer]:
+              - /url: admin.php?page=elementor
+          - listitem [ref=e103]:
+            - link "Theme-Builder" [ref=e104] [cursor=pointer]:
+              - /url: https://kita-seminar-manufaktur.de/wp-admin/admin.php?page=elementor-app&ver=4.0.3&return_to=/wp-admin/admin.php?page=rank-math-analytics#/site-editor
+      - listitem [ref=e105]:
+        - link "Traffic Analytics" [ref=e106] [cursor=pointer]:
+          - /url: admin.php?page=traffic-analytics
+          - generic [ref=e107]: 
+          - generic [ref=e108]: Traffic Analytics
+      - listitem [ref=e109]:
+        - link "Forms" [ref=e110] [cursor=pointer]:
+          - /url: admin.php?page=fluent_forms
+          - generic [ref=e112]: Forms
+        - list [ref=e113]:
+          - listitem [ref=e114]:
+            - link "Formulare" [ref=e115] [cursor=pointer]:
+              - /url: admin.php?page=fluent_forms
+          - listitem [ref=e116]:
+            - link "Neues Formular" [ref=e117] [cursor=pointer]:
+              - /url: admin.php?page=fluent_forms#add=1
+          - listitem [ref=e118]:
+            - link "Einträge" [ref=e119] [cursor=pointer]:
+              - /url: admin.php?page=fluent_forms_all_entries
+          - listitem [ref=e120]:
+            - link "Werkzeuge" [ref=e121] [cursor=pointer]:
+              - /url: admin.php?page=fluent_forms_transfer
+      - listitem [ref=e122]:
+        - link "Medien" [ref=e123] [cursor=pointer]:
+          - /url: upload.php
+          - generic [ref=e124]: 
+          - generic [ref=e125]: Medien
+        - list [ref=e126]:
+          - listitem [ref=e127]:
+            - link "Mediathek" [ref=e128] [cursor=pointer]:
+              - /url: upload.php
+          - listitem [ref=e129]:
+            - link "Mediendatei hinzufügen" [ref=e130] [cursor=pointer]:
+              - /url: media-new.php
+          - listitem [ref=e131]:
+            - link "Massenoptimierung" [ref=e132] [cursor=pointer]:
+              - /url: upload.php?page=ewww-image-optimizer-bulk
+      - listitem [ref=e133]:
+        - link "Databases" [ref=e134] [cursor=pointer]:
+          - /url: /wp-admin/edit-tags.php?taxonomy=zielgruppe
+          - generic [ref=e135]: 
+          - generic [ref=e136]: Databases
+        - list [ref=e137]:
+          - listitem [ref=e138]:
+            - link " Zielgruppe" [ref=e139] [cursor=pointer]:
+              - /url: /wp-admin/edit-tags.php?taxonomy=zielgruppe
+              - generic [ref=e141]: 
+              - text: Zielgruppe
+          - listitem [ref=e142]:
+            - link " Seminartyp" [ref=e143] [cursor=pointer]:
+              - /url: /wp-admin/edit-tags.php?taxonomy=seminar-type
+              - generic [ref=e145]: 
+              - text: Seminartyp
+      - listitem [ref=e146]:
+        - link "Benutzer" [ref=e147] [cursor=pointer]:
+          - /url: users.php
+          - generic [ref=e148]: 
+          - generic [ref=e149]: Benutzer
+        - list [ref=e150]:
+          - listitem [ref=e151]:
+            - link "Alle Benutzer" [ref=e152] [cursor=pointer]:
+              - /url: users.php
+          - listitem [ref=e153]:
+            - link "Benutzer hinzufügen" [ref=e154] [cursor=pointer]:
+              - /url: user-new.php
+          - listitem [ref=e155]:
+            - link "Profil" [ref=e156] [cursor=pointer]:
+              - /url: profile.php
+      - listitem [ref=e157]:
+        - link "Seiten" [ref=e158] [cursor=pointer]:
+          - /url: edit.php?post_type=page
+          - generic [ref=e159]: 
+          - generic [ref=e160]: Seiten
+        - list [ref=e161]:
+          - listitem [ref=e162]:
+            - link "Alle Seiten" [ref=e163] [cursor=pointer]:
+              - /url: edit.php?post_type=page
+          - listitem [ref=e164]:
+            - link "Seite hinzufügen" [ref=e165] [cursor=pointer]:
+              - /url: post-new.php?post_type=page
+      - text: 
+      - listitem [ref=e166]:
+        - link "Design" [ref=e167] [cursor=pointer]:
+          - /url: customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Drank-math-analytics
+          - generic [ref=e168]: 
+          - generic [ref=e169]: Design
+        - list [ref=e170]:
+          - listitem [ref=e171]:
+            - link "Customizer" [ref=e172] [cursor=pointer]:
+              - /url: customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Drank-math-analytics
+          - listitem [ref=e173]:
+            - link "Menüs" [ref=e174] [cursor=pointer]:
+              - /url: nav-menus.php
+      - listitem [ref=e175]:
+        - link "Plugins" [ref=e176] [cursor=pointer]:
+          - /url: plugins.php
+          - generic [ref=e177]: 
+          - generic [ref=e178]: Plugins
+        - list [ref=e179]:
+          - listitem [ref=e180]:
+            - link "Installierte Plugins" [ref=e181] [cursor=pointer]:
+              - /url: plugins.php
+          - listitem [ref=e182]:
+            - link "Plugin hinzufügen" [ref=e183] [cursor=pointer]:
+              - /url: plugin-install.php
+      - text: 
+      - listitem [ref=e184]:
+        - link "Einstellungen" [ref=e185] [cursor=pointer]:
+          - /url: admin.php?page=duplicate_page_settings
+          - generic [ref=e186]: 
+          - generic [ref=e187]: Einstellungen
+        - list [ref=e188]:
+          - listitem [ref=e189]:
+            - link "Duplicate Page" [ref=e190] [cursor=pointer]:
+              - /url: options-general.php?page=duplicate_page_settings
+          - listitem [ref=e191]:
+            - link "KI-Sichtbarkeit" [ref=e192] [cursor=pointer]:
+              - /url: options-general.php?page=ksm-ai-visibility
+          - listitem [ref=e193]:
+            - link "Two-Factor" [ref=e194] [cursor=pointer]:
+              - /url: options-general.php?page=two-factor-settings
+          - listitem [ref=e195]:
+            - link "EWWW Image Optimizer" [ref=e196] [cursor=pointer]:
+              - /url: options-general.php?page=ewww-image-optimizer-options
+          - listitem [ref=e197]:
+            - link "Object Cache" [ref=e198] [cursor=pointer]:
+              - /url: options-general.php?page=objectcache
+          - listitem [ref=e199]:
+            - link "Perfmatters" [ref=e200] [cursor=pointer]:
+              - /url: options-general.php?page=perfmatters
+          - listitem [ref=e201]:
+            - link "Security" [ref=e202] [cursor=pointer]:
+              - /url: options-general.php?page=patchstack
+      - listitem [ref=e203]:
+        - link "Rank Math SEO" [ref=e204] [cursor=pointer]:
+          - /url: admin.php?page=rank-math
+          - generic [ref=e206]: Rank Math SEO
+        - list [ref=e207]:
+          - listitem [ref=e208]:
+            - link "Dashboard" [ref=e209] [cursor=pointer]:
+              - /url: admin.php?page=rank-math
+          - listitem [ref=e210]:
+            - link "Analysen" [ref=e211] [cursor=pointer]:
+              - /url: admin.php?page=rank-math-analytics
+              - text: Analysen
+          - listitem [ref=e213]:
+            - link "Allgemeine Einstellungen" [ref=e214] [cursor=pointer]:
+              - /url: admin.php?page=rank-math-options-general
+          - listitem [ref=e215]:
+            - link "Titel & Meta" [ref=e216] [cursor=pointer]:
+              - /url: admin.php?page=rank-math-options-titles
+          - listitem [ref=e217]:
+            - link "Sitemap-Einstellungen" [ref=e218] [cursor=pointer]:
+              - /url: admin.php?page=rank-math-options-sitemap
+          - listitem [ref=e219]:
+            - link "Schema-Templates" [ref=e220] [cursor=pointer]:
+              - /url: edit.php?post_type=rank_math_schema
+          - listitem [ref=e221]:
+            - link "Sofortige Indexierung" [ref=e222] [cursor=pointer]:
+              - /url: admin.php?page=rank-math-options-instant-indexing
+          - listitem [ref=e223]:
+            - link "Rollenverwaltung" [ref=e224] [cursor=pointer]:
+              - /url: admin.php?page=rank-math-role-manager
+          - listitem [ref=e225]:
+            - link "SEO-Analysator" [ref=e226] [cursor=pointer]:
+              - /url: admin.php?page=rank-math-seo-analysis
+          - listitem [ref=e227]:
+            - link "Status & Werkzeuge" [ref=e228] [cursor=pointer]:
+              - /url: admin.php?page=rank-math-status
+      - listitem [ref=e229]:
+        - link "Statistiken" [ref=e230] [cursor=pointer]:
+          - /url: admin.php?page=wc-admin&path=/analytics/overview
+          - generic [ref=e231]: 
+          - generic [ref=e232]: Statistiken
+        - list [ref=e233]:
+          - listitem [ref=e234]:
+            - link "Übersicht" [ref=e235] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/overview
+          - listitem [ref=e236]:
+            - link "Produkte" [ref=e237] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/products
+          - listitem [ref=e238]:
+            - link "Umsatz" [ref=e239] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/revenue
+          - listitem [ref=e240]:
+            - link "Bestellungen" [ref=e241] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/orders
+          - listitem [ref=e242]:
+            - link "Varianten" [ref=e243] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/variations
+          - listitem [ref=e244]:
+            - link "Kategorien" [ref=e245] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/categories
+          - listitem [ref=e246]:
+            - link "Gutscheine" [ref=e247] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/coupons
+          - listitem [ref=e248]:
+            - link "Steuern" [ref=e249] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/taxes
+          - listitem [ref=e250]:
+            - link "Downloads" [ref=e251] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/downloads
+          - listitem [ref=e252]:
+            - link "Bestand" [ref=e253] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/stock
+          - listitem [ref=e254]:
+            - link "Einstellungen" [ref=e255] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/settings
+      - listitem [ref=e256]:
+        - link "Optionsseiten" [ref=e257] [cursor=pointer]:
+          - /url: edit.php?post_type=acf-ui-options-page
+          - generic [ref=e258]: 
+          - generic [ref=e259]: Optionsseiten
+      - listitem [ref=e260]:
+        - link "Aktualisierungen" [ref=e261] [cursor=pointer]:
+          - /url: edit.php?post_type=acf-field-group&page=acf-settings-updates
+          - generic [ref=e262]: 
+          - generic [ref=e263]: Aktualisierungen
+      - listitem [ref=e264]:
+        - link "Wordfence" [ref=e265] [cursor=pointer]:
+          - /url: admin.php?page=Wordfence
+          - generic [ref=e267]: Wordfence
+        - list [ref=e268]:
+          - listitem [ref=e269]:
+            - link "Dashboard" [ref=e270] [cursor=pointer]:
+              - /url: admin.php?page=Wordfence
+          - listitem [ref=e271]:
+            - link "Firewall" [ref=e272] [cursor=pointer]:
+              - /url: admin.php?page=WordfenceWAF
+          - listitem [ref=e273]:
+            - link "Scan" [ref=e274] [cursor=pointer]:
+              - /url: admin.php?page=WordfenceScan
+          - listitem [ref=e275]:
+            - link "Tools" [ref=e276] [cursor=pointer]:
+              - /url: admin.php?page=WordfenceTools
+          - listitem [ref=e277]:
+            - link "Audit Log" [ref=e278] [cursor=pointer]:
+              - /url: admin.php?page=WordfenceAuditLog
+          - listitem [ref=e279]:
+            - link "Login Security" [ref=e280] [cursor=pointer]:
+              - /url: admin.php?page=WFLS
+          - listitem [ref=e281]:
+            - link "All Options" [ref=e282] [cursor=pointer]:
+              - /url: admin.php?page=WordfenceOptions
+      - listitem [ref=e283]:
+        - button "Hauptmenü reduzieren" [expanded] [ref=e284] [cursor=pointer]:
+          - generic [ref=e286]: Menü reduzieren
+  - generic [ref=e287]:
+    - generic [ref=e288]:
+      - navigation "Werkzeugleiste":
+        - menu:
+          - group [ref=e289]:
+            - menuitem "Über WordPress" [ref=e290] [cursor=pointer]:
+              - generic [ref=e292]: Über WordPress
+          - group [ref=e293]:
+            - menuitem "Kita Seminar Manufaktur" [ref=e294] [cursor=pointer]
+          - group [ref=e295]:
+            - menuitem "Neu" [ref=e296] [cursor=pointer]:
+              - generic [ref=e298]: Neu
+          - group [ref=e299]:
+            - menuitem "Rank Math SEO" [ref=e300] [cursor=pointer]:
+              - img [ref=e302]
+              - text: Rank Math SEO
+          - group [ref=e306]:
+            - menuitem "Nginx Cache" [ref=e307] [cursor=pointer]:
+              - img [ref=e308]
+              - text: Nginx Cache
+          - group [ref=e309]:
+            - menuitem "Perfmatters" [ref=e310] [cursor=pointer]
+        - menu [ref=e311]:
+          - group [ref=e312]:
+            - menuitem "Kontakte durchsuchen" [ref=e313] [cursor=pointer]
+          - group [ref=e314]:
+            - menuitem "Willkommen, Claude Ops" [ref=e315] [cursor=pointer]
+    - main [ref=e316]:
+      - generic [ref=e318]:
+        - link "Google-Dienste verbinden" [ref=e320] [cursor=pointer]:
+          - /url: https://oauth.rankmath.com?version=pro&api_version=2.1&redirect_uri=https%3A%2F%2Fkita-seminar-manufaktur.de%2Fwp-admin%2Fadmin.php%3Fpage%3Drank-math-analytics&security=56a25ea589
+        - generic [ref=e322]:
+          - heading "Vorteile der Verbindung zu einem Google-Konto" [level=3] [ref=e323]
+          - list [ref=e324]:
+            - listitem [ref=e325]:  Verifiziere für die Google Search Console mit einem Klick, dass die Website dir gehört
+            - listitem [ref=e326]:  Verfolge Seiten- und Schlüsselwort-Rankings mit dem Advanced-Analytics-Modul
+            - listitem [ref=e327]:  Baue Google Analytics ganz einfach ohne zusätzliche Plugins ein
+            - listitem [ref=e328]:  Sitemaps automatisch an die Google Search Console übertragen
+            - listitem [ref=e329]:
+              - text: 
+              - link "Lerne hier mehr über die Vorteile der Verbindung deines Kontos." [ref=e330] [cursor=pointer]:
+                - /url: https://rankmath.com/kb/analytics/?utm_source=Plugin&utm_medium=SW%20Analytics%20Step%20Benefits&utm_campaign=WP
+        - generic [ref=e333]:
+          - generic [ref=e334]: 
+          - paragraph [ref=e335]:
+            - text: Wir speichern keinerlei Daten aus deinem Google-Konto auf unseren Servern, alles wird auf deinem Server verarbeitet und gespeichert. Wir nehmen den Schutz deiner Daten extrem ernst und stellen sich, dass sie nie missbraucht werden.
+            - link "Mehr erfahren." [ref=e336] [cursor=pointer]:
+              - /url: https://rankmath.com/usage-tracking/?utm_source=Plugin&utm_medium=Analytics%20Privacy%20Notice&utm_campaign=WP
+  - contentinfo [ref=e337]:
+    - paragraph [ref=e338]:
+      - text: Vielen Dank, dass du
+      - link "Rank Math" [ref=e339] [cursor=pointer]:
+        - /url: https://rankmath.com/?utm_source=Plugin&utm_medium=Admin%20Footer%20Text&utm_campaign=WP
+      - text: verwendest
+    - paragraph [ref=e340]: Version 6.9.4
