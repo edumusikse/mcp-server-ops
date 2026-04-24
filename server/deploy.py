@@ -229,6 +229,7 @@ SERVER_CONFIG_DEPLOY_MAP = [
     ("security-audit/security-audit-report.py",  "/opt/security-audit/security-audit-report.py"),
     ("wp-panel/app.py",                          "/opt/wp-panel/app.py"),
     ("wp-panel/templates/todo.html",             "/opt/wp-panel/templates/todo.html"),
+    ("wp-panel/templates/events.html",           "/opt/wp-panel/templates/events.html"),
     # admin-panel container (nginx reverse proxy at admin.edumusik.net)
     ("edumusik-1/srv/admin-panel/docker-compose.yml", "/srv/admin-panel/docker-compose.yml"),
     ("edumusik-1/srv/admin-panel/nginx.conf",         "/srv/admin-panel/nginx.conf"),
