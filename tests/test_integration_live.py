@@ -53,7 +53,6 @@ def run():
     # ── fleet_status ────────────────────────────────────────────────────────
     print("fleet_status:")
     r = fleet_status()
-    check("fleet_status returns fleet dict", r, "fleet")
     check("main host present", "main" in r.get("fleet", {}))
     check("onyx host present", "onyx" in r.get("fleet", {}))
 
@@ -100,7 +99,7 @@ def run():
     # ── tail_logs ────────────────────────────────────────────────────────────
     print("\ntail_logs:")
     r = tail_logs(host="main", container="ksm-wp", lines=20)
-    check("tail_logs ksm-wp returns lines_analysed", r, "lines_analysed")
+    check("tail_logs ksm-wp returns lines", isinstance(r.get("lines_analysed"), int) and r["lines_analysed"] > 0)
 
     # ── wp_cli (read-only) ───────────────────────────────────────────────────
     print("\nwp_cli:")
