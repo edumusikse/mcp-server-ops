@@ -83,6 +83,8 @@ Each probe self-discovers (skips WP sites without the plugin). Runs every 15 min
 
 ## Rules
 
+- **Verify state before mutating it.** Before any `compose_up`, restart, deploy, or file write: read the current state of the target and confirm preconditions are met (files exist as files not directories, container is in the expected state, previous step actually succeeded). Before declaring anything done: verify with a live check — curl, `docker ps`, log tail, or equivalent. Never use the word "should" — either verify it works or say it has not been tested.
+
 - **Consult the runbook before any operational action.** Before diagnosis, restart, file read/write, deploy, WP-CLI, DNS/firewall inspection, or other server-facing step, call `lookup_runbook(problem_or_intent)` first. `runbook_compliance.py --ci` flags sessions that skipped it or called it after an operational `mcp__ops__*` tool.
 - **Verify before declaring done.** Every claim in a summary, docstring, or commit message must point at the lines that implement it. Covered in `memory/feedback_verify_claims_against_code.md`.
 - Never use Bash or SSH — the hook blocks it. Use MCP tools.
