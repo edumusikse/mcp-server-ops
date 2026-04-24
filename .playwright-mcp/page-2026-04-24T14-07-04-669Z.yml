@@ -1,0 +1,1043 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - navigation "Hauptmenü":
+      - link "Zum Hauptinhalt springen" [ref=e3] [cursor=pointer]:
+        - /url: "#wpbody-content"
+      - link "Zur Werkzeugleiste springen" [ref=e4] [cursor=pointer]:
+        - /url: "#wp-toolbar"
+      - list [ref=e7]:
+        - listitem [ref=e8]:
+          - link "Dashboard" [ref=e9] [cursor=pointer]:
+            - /url: index.php
+            - generic [ref=e10]: 
+            - generic [ref=e11]: Dashboard
+          - list [ref=e12]:
+            - listitem [ref=e13]:
+              - link "Start" [ref=e14] [cursor=pointer]:
+                - /url: index.php
+            - listitem [ref=e15]:
+              - link "Setup Wizard" [ref=e16] [cursor=pointer]:
+                - /url: broken-link-checker-setup-wizard
+        - listitem [ref=e17]:
+          - link "Blog" [ref=e18] [cursor=pointer]:
+            - /url: admin.php?page=ksm-blog-menu
+            - generic [ref=e19]: 
+            - generic [ref=e20]: Blog
+          - list [ref=e21]:
+            - listitem [ref=e22]:
+              - link "Blog" [ref=e23] [cursor=pointer]:
+                - /url: admin.php?page=ksm-blog-menu
+            - listitem [ref=e24]:
+              - link "Alle Beiträge" [ref=e25] [cursor=pointer]:
+                - /url: admin.php?page=ksm-blog-list
+            - listitem [ref=e26]:
+              - link "Neuer Beitrag" [ref=e27] [cursor=pointer]:
+                - /url: admin.php?page=ksm-blog-add
+            - listitem [ref=e28]:
+              - link "Kategorien" [ref=e29] [cursor=pointer]:
+                - /url: edit-tags.php?taxonomy=category
+        - listitem [ref=e30]:
+          - link "Produkte" [ref=e31] [cursor=pointer]:
+            - /url: edit.php?post_type=product
+            - generic [ref=e32]: 
+            - generic [ref=e33]: Produkte
+          - list [ref=e34]:
+            - listitem [ref=e35]:
+              - link "Alle Produkte" [ref=e36] [cursor=pointer]:
+                - /url: edit.php?post_type=product
+            - listitem [ref=e37]:
+              - link "Neues Produkt hinzufügen" [ref=e38] [cursor=pointer]:
+                - /url: post-new.php?post_type=product
+        - listitem [ref=e39]:
+          - link "Broken Links" [ref=e40] [cursor=pointer]:
+            - /url: admin.php?page=broken-link-checker
+            - generic [ref=e42]: Broken Links
+          - list [ref=e43]:
+            - listitem [ref=e44]:
+              - link "Broken Links" [ref=e45] [cursor=pointer]:
+                - /url: admin.php?page=broken-link-checker
+            - listitem [ref=e46]:
+              - link "SEO Settings" [ref=e47] [cursor=pointer]:
+                - /url: admin.php?page=broken-link-checker-seo-settings
+            - listitem [ref=e48]:
+              - link "About Us" [ref=e49] [cursor=pointer]:
+                - /url: admin.php?page=broken-link-checker-about
+            - listitem [ref=e50]:
+              - link "Connect Now" [ref=e51] [cursor=pointer]:
+                - /url: https://kita-seminar-manufaktur.de/wp-admin/admin.php?page=broken-link-checker#/settings
+        - listitem [ref=e52]:
+          - link "Dozenten" [ref=e53] [cursor=pointer]:
+            - /url: admin.php?page=ksm-dozenten-list
+            - generic [ref=e54]: 
+            - generic [ref=e55]: Dozenten
+          - list [ref=e56]:
+            - listitem [ref=e57]:
+              - link "Alle Dozenten" [ref=e58] [cursor=pointer]:
+                - /url: admin.php?page=ksm-dozenten-list
+            - listitem [ref=e59]:
+              - link "Dozenten hinzufügen" [ref=e60] [cursor=pointer]:
+                - /url: admin.php?page=ksm-dozent-add
+        - listitem [ref=e61]:
+          - link "Newsletter" [ref=e62] [cursor=pointer]:
+            - /url: admin.php?page=fluentcrm-admin
+            - generic [ref=e64]: Newsletter
+          - list [ref=e65]:
+            - listitem [ref=e66]:
+              - link "Dashboard" [ref=e67] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin
+            - listitem [ref=e68]:
+              - link "Kontakte" [ref=e69] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/subscribers
+            - listitem [ref=e70]:
+              - link "Companies" [ref=e71] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/contact-groups/companies
+            - listitem [ref=e72]:
+              - link "Listen" [ref=e73] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/contact-groups/lists
+            - listitem [ref=e74]:
+              - link "Kampagnen" [ref=e75] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/email/campaigns
+            - listitem [ref=e76]:
+              - link "E-Mail-Sequenzen" [ref=e77] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/email/sequences
+            - listitem [ref=e78]:
+              - link "E-Mail-Vorlagen" [ref=e79] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/email/templates
+            - listitem [ref=e80]:
+              - link "Formulare" [ref=e81] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/forms
+        - listitem [ref=e82]:
+          - link "FooEvents" [ref=e83] [cursor=pointer]:
+            - /url: edit.php?post_type=event_magic_tickets
+            - generic [ref=e84]: 
+            - generic [ref=e85]: FooEvents
+          - list [ref=e86]:
+            - listitem [ref=e87]:
+              - link "Tickets" [ref=e88] [cursor=pointer]:
+                - /url: edit.php?post_type=event_magic_tickets
+            - listitem [ref=e89]:
+              - link "Erste Schritte" [ref=e90] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-introduction
+            - listitem [ref=e91]:
+              - link "Check-ins importieren" [ref=e92] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-checkins-import
+            - listitem [ref=e93]:
+              - link "Tickets importieren" [ref=e94] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-import-tickets
+            - listitem [ref=e95]:
+              - link "Ticket-Themen" [ref=e96] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-ticket-themes
+            - listitem [ref=e97]:
+              - link "Berichte" [ref=e98] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-reports
+        - listitem [ref=e99]:
+          - link "Boards" [ref=e100] [cursor=pointer]:
+            - /url: admin.php?page=fluent-boards
+            - generic [ref=e102]: Boards
+          - list [ref=e103]:
+            - listitem [ref=e104]:
+              - link "Dashboard" [ref=e105] [cursor=pointer]:
+                - /url: admin.php?page=fluent-boards
+            - listitem [ref=e106]:
+              - link "Boards" [ref=e107] [cursor=pointer]:
+                - /url: admin.php?page=fluent-boards#/boards
+            - listitem [ref=e108]:
+              - link "Berichte" [ref=e109] [cursor=pointer]:
+                - /url: admin.php?page=fluent-boards#/reports
+            - listitem [ref=e110]:
+              - link "Einstellungen" [ref=e111] [cursor=pointer]:
+                - /url: admin.php?page=fluent-boards#/settings/members-role
+        - listitem [ref=e112]:
+          - link "Elementor" [ref=e113] [cursor=pointer]:
+            - /url: admin.php?page=elementor-home
+            - generic [ref=e115]: Elementor
+          - list [ref=e116]:
+            - listitem [ref=e117]:
+              - link "Home" [ref=e118] [cursor=pointer]:
+                - /url: admin.php?page=elementor-home
+            - listitem [ref=e119]:
+              - link "Editor" [ref=e120] [cursor=pointer]:
+                - /url: admin.php?page=elementor
+            - listitem [ref=e121]:
+              - link "Theme-Builder" [ref=e122] [cursor=pointer]:
+                - /url: https://kita-seminar-manufaktur.de/wp-admin/admin.php?page=elementor-app&ver=4.0.3&return_to=/wp-admin/post.php?post=77405&action=edit&currentTab=learndash_sfwd-courses_dashboard#/site-editor
+        - listitem [ref=e123]:
+          - link "Traffic Analytics" [ref=e124] [cursor=pointer]:
+            - /url: admin.php?page=traffic-analytics
+            - generic [ref=e125]: 
+            - generic [ref=e126]: Traffic Analytics
+        - listitem [ref=e127]:
+          - link "Forms" [ref=e128] [cursor=pointer]:
+            - /url: admin.php?page=fluent_forms
+            - generic [ref=e130]: Forms
+          - list [ref=e131]:
+            - listitem [ref=e132]:
+              - link "Formulare" [ref=e133] [cursor=pointer]:
+                - /url: admin.php?page=fluent_forms
+            - listitem [ref=e134]:
+              - link "Neues Formular" [ref=e135] [cursor=pointer]:
+                - /url: admin.php?page=fluent_forms#add=1
+            - listitem [ref=e136]:
+              - link "Einträge" [ref=e137] [cursor=pointer]:
+                - /url: admin.php?page=fluent_forms_all_entries
+            - listitem [ref=e138]:
+              - link "Werkzeuge" [ref=e139] [cursor=pointer]:
+                - /url: admin.php?page=fluent_forms_transfer
+        - listitem [ref=e140]:
+          - link "Medien" [ref=e141] [cursor=pointer]:
+            - /url: upload.php
+            - generic [ref=e142]: 
+            - generic [ref=e143]: Medien
+          - list [ref=e144]:
+            - listitem [ref=e145]:
+              - link "Mediathek" [ref=e146] [cursor=pointer]:
+                - /url: upload.php
+            - listitem [ref=e147]:
+              - link "Mediendatei hinzufügen" [ref=e148] [cursor=pointer]:
+                - /url: media-new.php
+            - listitem [ref=e149]:
+              - link "Massenoptimierung" [ref=e150] [cursor=pointer]:
+                - /url: upload.php?page=ewww-image-optimizer-bulk
+        - listitem [ref=e151]:
+          - link "Databases" [ref=e152] [cursor=pointer]:
+            - /url: /wp-admin/edit-tags.php?taxonomy=zielgruppe
+            - generic [ref=e153]: 
+            - generic [ref=e154]: Databases
+          - list [ref=e155]:
+            - listitem [ref=e156]:
+              - link " Zielgruppe" [ref=e157] [cursor=pointer]:
+                - /url: /wp-admin/edit-tags.php?taxonomy=zielgruppe
+                - generic [ref=e159]: 
+                - text: Zielgruppe
+            - listitem [ref=e160]:
+              - link " Seminartyp" [ref=e161] [cursor=pointer]:
+                - /url: /wp-admin/edit-tags.php?taxonomy=seminar-type
+                - generic [ref=e163]: 
+                - text: Seminartyp
+        - listitem [ref=e164]:
+          - link "Benutzer" [ref=e165] [cursor=pointer]:
+            - /url: users.php
+            - generic [ref=e166]: 
+            - generic [ref=e167]: Benutzer
+          - list [ref=e168]:
+            - listitem [ref=e169]:
+              - link "Alle Benutzer" [ref=e170] [cursor=pointer]:
+                - /url: users.php
+            - listitem [ref=e171]:
+              - link "Benutzer hinzufügen" [ref=e172] [cursor=pointer]:
+                - /url: user-new.php
+            - listitem [ref=e173]:
+              - link "Profil" [ref=e174] [cursor=pointer]:
+                - /url: profile.php
+        - listitem [ref=e175]:
+          - link "Seiten" [ref=e176] [cursor=pointer]:
+            - /url: edit.php?post_type=page
+            - generic [ref=e177]: 
+            - generic [ref=e178]: Seiten
+          - list [ref=e179]:
+            - listitem [ref=e180]:
+              - link "Alle Seiten" [ref=e181] [cursor=pointer]:
+                - /url: edit.php?post_type=page
+            - listitem [ref=e182]:
+              - link "Seite hinzufügen" [ref=e183] [cursor=pointer]:
+                - /url: post-new.php?post_type=page
+        - text: 
+        - listitem [ref=e184]:
+          - link "Design" [ref=e185] [cursor=pointer]:
+            - /url: customize.php?return=%2Fwp-admin%2Fpost.php%3Fpost%3D77405%26action%3Dedit%26currentTab%3Dlearndash_sfwd-courses_dashboard
+            - generic [ref=e186]: 
+            - generic [ref=e187]: Design
+          - list [ref=e188]:
+            - listitem [ref=e189]:
+              - link "Customizer" [ref=e190] [cursor=pointer]:
+                - /url: customize.php?return=%2Fwp-admin%2Fpost.php%3Fpost%3D77405%26action%3Dedit%26currentTab%3Dlearndash_sfwd-courses_dashboard
+            - listitem [ref=e191]:
+              - link "Menüs" [ref=e192] [cursor=pointer]:
+                - /url: nav-menus.php
+        - listitem [ref=e193]:
+          - link "Plugins" [ref=e194] [cursor=pointer]:
+            - /url: plugins.php
+            - generic [ref=e195]: 
+            - generic [ref=e196]: Plugins
+          - list [ref=e197]:
+            - listitem [ref=e198]:
+              - link "Installierte Plugins" [ref=e199] [cursor=pointer]:
+                - /url: plugins.php
+            - listitem [ref=e200]:
+              - link "Plugin hinzufügen" [ref=e201] [cursor=pointer]:
+                - /url: plugin-install.php
+        - text: 
+        - listitem [ref=e202]:
+          - link "Einstellungen" [ref=e203] [cursor=pointer]:
+            - /url: admin.php?page=duplicate_page_settings
+            - generic [ref=e204]: 
+            - generic [ref=e205]: Einstellungen
+          - list [ref=e206]:
+            - listitem [ref=e207]:
+              - link "Duplicate Page" [ref=e208] [cursor=pointer]:
+                - /url: options-general.php?page=duplicate_page_settings
+            - listitem [ref=e209]:
+              - link "KI-Sichtbarkeit" [ref=e210] [cursor=pointer]:
+                - /url: options-general.php?page=ksm-ai-visibility
+            - listitem [ref=e211]:
+              - link "Two-Factor" [ref=e212] [cursor=pointer]:
+                - /url: options-general.php?page=two-factor-settings
+            - listitem [ref=e213]:
+              - link "EWWW Image Optimizer" [ref=e214] [cursor=pointer]:
+                - /url: options-general.php?page=ewww-image-optimizer-options
+            - listitem [ref=e215]:
+              - link "Object Cache" [ref=e216] [cursor=pointer]:
+                - /url: options-general.php?page=objectcache
+            - listitem [ref=e217]:
+              - link "Perfmatters" [ref=e218] [cursor=pointer]:
+                - /url: options-general.php?page=perfmatters
+            - listitem [ref=e219]:
+              - link "Security" [ref=e220] [cursor=pointer]:
+                - /url: options-general.php?page=patchstack
+        - listitem [ref=e221]:
+          - link "Rank Math SEO" [ref=e222] [cursor=pointer]:
+            - /url: admin.php?page=rank-math
+            - generic [ref=e224]: Rank Math SEO
+          - list [ref=e225]:
+            - listitem [ref=e226]:
+              - link "Dashboard" [ref=e227] [cursor=pointer]:
+                - /url: admin.php?page=rank-math
+            - listitem [ref=e228]:
+              - link "Inhalt-KI" [ref=e229] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-content-ai-page
+            - listitem [ref=e230]:
+              - link "Link Genius Neu!" [ref=e231] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-links-page
+            - listitem [ref=e232]:
+              - link "Allgemeine Einstellungen" [ref=e233] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-options-general
+            - listitem [ref=e234]:
+              - link "Titel & Meta" [ref=e235] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-options-titles
+            - listitem [ref=e236]:
+              - link "Sitemap-Einstellungen" [ref=e237] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-options-sitemap
+            - listitem [ref=e238]:
+              - link "Sofortige Indexierung" [ref=e239] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-options-instant-indexing
+            - listitem [ref=e240]:
+              - link "Rollenverwaltung" [ref=e241] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-role-manager
+            - listitem [ref=e242]:
+              - link "SEO-Analysator" [ref=e243] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-seo-analysis
+            - listitem [ref=e244]:
+              - link "Status & Werkzeuge" [ref=e245] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-status
+            - listitem [ref=e246]:
+              - link "Hilfe und Support " [ref=e247] [cursor=pointer]:
+                - /url: https://rankmath.com/kb/?utm_source=Plugin&utm_medium=Sidebar%20Help%20Link&utm_campaign=WP
+                - text: Hilfe und Support
+                - generic [ref=e248]: 
+        - listitem [ref=e249]:
+          - link "Statistiken" [ref=e250] [cursor=pointer]:
+            - /url: admin.php?page=wc-admin&path=/analytics/overview
+            - generic [ref=e251]: 
+            - generic [ref=e252]: Statistiken
+          - list [ref=e253]:
+            - listitem [ref=e254]:
+              - link "Übersicht" [ref=e255] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/overview
+            - listitem [ref=e256]:
+              - link "Produkte" [ref=e257] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/products
+            - listitem [ref=e258]:
+              - link "Umsatz" [ref=e259] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/revenue
+            - listitem [ref=e260]:
+              - link "Bestellungen" [ref=e261] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/orders
+            - listitem [ref=e262]:
+              - link "Varianten" [ref=e263] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/variations
+            - listitem [ref=e264]:
+              - link "Kategorien" [ref=e265] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/categories
+            - listitem [ref=e266]:
+              - link "Gutscheine" [ref=e267] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/coupons
+            - listitem [ref=e268]:
+              - link "Steuern" [ref=e269] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/taxes
+            - listitem [ref=e270]:
+              - link "Downloads" [ref=e271] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/downloads
+            - listitem [ref=e272]:
+              - link "Bestand" [ref=e273] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/stock
+            - listitem [ref=e274]:
+              - link "Einstellungen" [ref=e275] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/settings
+        - listitem [ref=e276]:
+          - link "Optionsseiten" [ref=e277] [cursor=pointer]:
+            - /url: edit.php?post_type=acf-ui-options-page
+            - generic [ref=e278]: 
+            - generic [ref=e279]: Optionsseiten
+        - listitem [ref=e280]:
+          - link "Aktualisierungen" [ref=e281] [cursor=pointer]:
+            - /url: edit.php?post_type=acf-field-group&page=acf-settings-updates
+            - generic [ref=e282]: 
+            - generic [ref=e283]: Aktualisierungen
+        - listitem [ref=e284]:
+          - link "Wordfence" [ref=e285] [cursor=pointer]:
+            - /url: admin.php?page=Wordfence
+            - generic [ref=e287]: Wordfence
+          - list [ref=e288]:
+            - listitem [ref=e289]:
+              - link "Dashboard" [ref=e290] [cursor=pointer]:
+                - /url: admin.php?page=Wordfence
+            - listitem [ref=e291]:
+              - link "Firewall" [ref=e292] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceWAF
+            - listitem [ref=e293]:
+              - link "Scan" [ref=e294] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceScan
+            - listitem [ref=e295]:
+              - link "Tools" [ref=e296] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceTools
+            - listitem [ref=e297]:
+              - link "Audit Log" [ref=e298] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceAuditLog
+            - listitem [ref=e299]:
+              - link "Login Security" [ref=e300] [cursor=pointer]:
+                - /url: admin.php?page=WFLS
+            - listitem [ref=e301]:
+              - link "All Options" [ref=e302] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceOptions
+        - listitem [ref=e303]:
+          - button "Hauptmenü reduzieren" [expanded] [ref=e304] [cursor=pointer]:
+            - generic [ref=e306]: Menü reduzieren
+    - generic [ref=e307]:
+      - generic [ref=e308]:
+        - navigation "Werkzeugleiste":
+          - menu:
+            - group [ref=e309]:
+              - menuitem "Über WordPress" [ref=e310] [cursor=pointer]:
+                - generic [ref=e312]: Über WordPress
+            - group [ref=e313]:
+              - menuitem "Kita Seminar Manufaktur" [ref=e314] [cursor=pointer]
+            - group [ref=e315]:
+              - menuitem "1 Aktualisierung verfügbar" [ref=e316] [cursor=pointer]:
+                - generic [ref=e318]: "1"
+                - generic [ref=e319]: 1 Aktualisierung verfügbar
+            - group [ref=e320]:
+              - menuitem "Neu" [ref=e321] [cursor=pointer]:
+                - generic [ref=e323]: Neu
+            - group [ref=e324]:
+              - menuitem "View Kurs" [ref=e325] [cursor=pointer]
+            - group [ref=e326]:
+              - menuitem "Rank Math SEO" [ref=e327] [cursor=pointer]:
+                - img [ref=e329]
+                - text: Rank Math SEO
+            - group [ref=e333]:
+              - menuitem "Nginx Cache" [ref=e334] [cursor=pointer]:
+                - img [ref=e335]
+                - text: Nginx Cache
+            - group [ref=e336]:
+              - menuitem "Perfmatters" [ref=e337] [cursor=pointer]
+          - menu [ref=e338]:
+            - group [ref=e339]:
+              - menuitem "Kontakte durchsuchen" [ref=e340] [cursor=pointer]
+            - group [ref=e341]:
+              - menuitem "Willkommen, Claude Ops" [ref=e342] [cursor=pointer]
+      - main [ref=e343]:
+        - generic [ref=e344]:
+          - generic [ref=e346]:
+            - link "Back to Kurse" [ref=e348] [cursor=pointer]:
+              - /url: https://kita-seminar-manufaktur.de/wp-admin/edit.php?post_type=sfwd-courses
+              - img [ref=e349]
+              - text: Back to Kurse
+            - generic [ref=e351]:
+              - button "Dashboard" [ref=e352] [cursor=pointer]
+              - button "Settings" [ref=e353] [cursor=pointer]
+            - link "+ Add New Kurs" [ref=e356] [cursor=pointer]:
+              - /url: https://kita-seminar-manufaktur.de/wp-admin/post-new.php?post_type=sfwd-courses
+              - generic [ref=e357]: + Add New Kurs
+          - generic [ref=e358]:
+            - generic [ref=e359]:
+              - paragraph [ref=e361]:
+                - text: Your site is not connected with
+                - strong [ref=e362]: Broken Link Checker
+                - text: .
+                - link "Connect now" [ref=e363] [cursor=pointer]:
+                  - /url: https://kita-seminar-manufaktur.de/wp-admin/admin.php?page=broken-link-checker#/settings
+                - text: to start scanning for broken links and fix them to improve your SEO.
+              - button "Diesen Hinweis verwerfen" [ref=e364] [cursor=pointer]:
+                - generic [ref=e365]: Diesen Hinweis verwerfen
+            - generic [ref=e366]:
+              - paragraph [ref=e367]:
+                - strong [ref=e368]: Course Grid is now part of LearnDash LMS.
+              - paragraph [ref=e369]:
+                - text: The Course Grid features have been added directly into LearnDash — no separate plugin needed.
+                - text: If the LearnDash LMS - Course Grid add-on was previously installed, it's no longer required and can be safely uninstalled.
+              - button "Diesen Hinweis verwerfen" [ref=e370] [cursor=pointer]:
+                - generic [ref=e371]: Diesen Hinweis verwerfen
+            - generic [ref=e372]:
+              - paragraph [ref=e373]:
+                - strong [ref=e374]: Course Reviews is now part of LearnDash LMS.
+              - paragraph [ref=e375]:
+                - text: The Course Reviews features have been added directly into LearnDash — no separate plugin needed.
+                - text: If the LearnDash Course Reviews add-on was previously installed, it's no longer required and can be safely uninstalled.
+              - button "Diesen Hinweis verwerfen" [ref=e376] [cursor=pointer]:
+                - generic [ref=e377]: Diesen Hinweis verwerfen
+            - generic [ref=e378]:
+              - paragraph [ref=e379]:
+                - text: We've added basic reporting to LearnDash! View your reports in your
+                - link "Admin Dashboard" [ref=e380] [cursor=pointer]:
+                  - /url: https://kita-seminar-manufaktur.de/wp-admin/
+                - text: .
+                - link "Learn more." [ref=e381] [cursor=pointer]:
+                  - /url: https://go.learndash.com/reportsmerge
+              - button "Diesen Hinweis verwerfen" [ref=e382] [cursor=pointer]:
+                - generic [ref=e383]: Diesen Hinweis verwerfen
+            - generic [ref=e384]:
+              - img "Dynamic Visibility for Elementor" [ref=e386]
+              - paragraph [ref=e387]:
+                - strong [ref=e388]: Dynamic Visibility for Elementor
+                - link "Buy now Dynamic.ooo - Dynamic Content for Elementor" [ref=e389] [cursor=pointer]:
+                  - /url: https://www.dynamic.ooo/upgrade/visibility-to-premium?utm_source=wp-plugins&utm_campaign=plugin-uri&utm_medium=wp-dash-promo
+                - text: and save 10% using promo code
+                - strong [ref=e390]: VISIBILITY
+                - text: .
+                - text: We give you
+                - strong [ref=e391]: over 150 features for Elementor
+                - text: that will save you time and money on achieving complex results. We support ACF Free and ACF Pro, JetEngine, Meta Box, WooCommerce, WPML, Search and Filter Pro, Pods and Toolset.
+              - button "Diesen Hinweis verwerfen" [ref=e392] [cursor=pointer]:
+                - generic [ref=e393]: Diesen Hinweis verwerfen
+            - generic [ref=e394]:
+              - paragraph [ref=e395]:
+                - text: WooCommerce appears to be installed, but the Wordfence Login Security WooCommerce integration is not currently enabled. Without this feature, WooCommerce forms will not support all functionality provided by Wordfence Login Security, including CAPTCHA for the login page and user registration.
+                - link "Manage Settings" [ref=e396] [cursor=pointer]:
+                  - /url: https://kita-seminar-manufaktur.de/wp-admin/admin.php?page=WFLS#top#settings
+              - button "Diesen Hinweis verwerfen" [ref=e397] [cursor=pointer]:
+                - generic [ref=e398]: Diesen Hinweis verwerfen
+            - generic [ref=e400]:
+              - generic:
+                - generic [ref=e401]:
+                  - generic [ref=e402]:
+                    - generic [ref=e403]:
+                      - generic: Add Kurs title
+                      - textbox "Add Kurs title" [ref=e404]: Abschied von der Windel
+                      - link "Zum Editor springen" [ref=e405] [cursor=pointer]:
+                        - /url: "#content"
+                    - generic [ref=e407]:
+                      - strong [ref=e408]: "Permalink:"
+                      - link "https://kita-seminar-manufaktur.de/courses/der-abschied-von-der-windel/" [ref=e410] [cursor=pointer]:
+                        - /url: https://kita-seminar-manufaktur.de/courses/der-abschied-von-der-windel/
+                      - text: ‎
+                      - button "Permalink bearbeiten" [ref=e412] [cursor=pointer]: Bearbeiten
+                  - text: 
+                - generic [ref=e414]:
+                  - generic [ref=e415]:
+                    - generic [ref=e416]:
+                      - heading "Veröffentlichen" [level=2] [ref=e417]
+                      - generic [ref=e418]:
+                        - button "Nach oben" [ref=e419] [cursor=pointer]:
+                          - generic [ref=e420]: Nach oben
+                        - button "Nach unten" [ref=e422] [cursor=pointer]:
+                          - generic [ref=e423]: Nach unten
+                        - 'button "Bedienfeld umschalten: Veröffentlichen" [expanded] [ref=e425] [cursor=pointer]':
+                          - generic [ref=e426]: "Bedienfeld umschalten: Veröffentlichen"
+                    - generic [ref=e429]:
+                      - generic [ref=e430]:
+                        - link "Vorschau der Änderungen (öffnet in neuem Tab)" [ref=e432] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/courses/der-abschied-von-der-windel/?preview=true
+                          - text: Vorschau der Änderungen
+                          - generic [ref=e433]: (öffnet in neuem Tab)
+                        - generic [ref=e434]:
+                          - generic [ref=e435]:
+                            - text: "Status: Veröffentlicht"
+                            - button "Status ändern" [ref=e436] [cursor=pointer]:
+                              - text: Bearbeiten
+                              - generic [ref=e437]: Status ändern
+                          - generic [ref=e438]:
+                            - text: "Sichtbarkeit: Öffentlich"
+                            - button "Sichtbarkeit ändern" [ref=e439] [cursor=pointer]:
+                              - text: Bearbeiten
+                              - generic [ref=e440]: Sichtbarkeit ändern
+                          - generic [ref=e441]:
+                            - text: "Revisionen: 5"
+                            - link "Revisionen durchsuchen" [ref=e442] [cursor=pointer]:
+                              - /url: https://kita-seminar-manufaktur.de/wp-admin/revision.php?revision=81510
+                              - text: Durchsuchen
+                              - generic [ref=e443]: Revisionen durchsuchen
+                          - generic [ref=e444]:
+                            - generic [ref=e445]: "Veröffentlicht am: 21. Nov. 2025 um 10:17 Uhr"
+                            - button "Datum und Uhrzeit ändern" [ref=e446] [cursor=pointer]:
+                              - text: Bearbeiten
+                              - generic [ref=e447]: Datum und Uhrzeit ändern
+                          - link "Duplizieren" [ref=e450] [cursor=pointer]:
+                            - /url: admin.php?action=dt_duplicate_post_as_draft&post=77405&nonce=def09fb219
+                          - generic [ref=e455]:
+                            - checkbox "Lock Modified Date" [ref=e457] [cursor=pointer]
+                            - generic [ref=e460] [cursor=pointer]: Lock Modified Date
+                      - generic [ref=e462]:
+                        - link "In den Papierkorb verschieben" [ref=e464] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=77405&action=trash&_wpnonce=3fa1b52624
+                        - button "Aktualisieren" [ref=e466] [cursor=pointer]
+                  - text:   L T T
+                  - generic [ref=e467]:
+                    - generic [ref=e468]:
+                      - heading "Beitragsbild" [level=2] [ref=e469]
+                      - generic [ref=e470]:
+                        - button "Nach oben" [ref=e471] [cursor=pointer]:
+                          - generic [ref=e472]: Nach oben
+                        - button "Nach unten" [ref=e474] [cursor=pointer]:
+                          - generic [ref=e475]: Nach unten
+                        - 'button "Bedienfeld umschalten: Beitragsbild" [expanded] [ref=e477] [cursor=pointer]':
+                          - generic [ref=e478]: "Bedienfeld umschalten: Beitragsbild"
+                    - generic [ref=e480]:
+                      - paragraph [ref=e481]:
+                        - link [ref=e482] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/media-upload.php?post_id=77405&type=image&TB_iframe=1
+                      - paragraph [ref=e483]: Bild zum Bearbeiten oder Ändern anklicken
+                      - paragraph [ref=e484]:
+                        - link "Beitragsbild entfernen" [ref=e485] [cursor=pointer]:
+                          - /url: "#"
+                - generic [ref=e487]:
+                  - generic [ref=e488]:
+                    - text: 
+                    - generic [ref=e489]:
+                      - generic [ref=e490]:
+                        - generic [ref=e492]: Typ
+                        - radiogroup "Typ" [ref=e496]:
+                          - listitem [ref=e497]:
+                            - generic [ref=e498]:
+                              - radio "Inhouse" [ref=e499] [cursor=pointer]
+                              - text: Inhouse
+                          - listitem [ref=e500]:
+                            - generic [ref=e501]:
+                              - radio "Langfristige Projekte" [ref=e502] [cursor=pointer]
+                              - text: Langfristige Projekte
+                          - listitem [ref=e503]:
+                            - generic [ref=e504]:
+                              - radio "Supervision / Coaching / Beratung" [ref=e505] [cursor=pointer]
+                              - text: Supervision / Coaching / Beratung
+                          - listitem [ref=e506]:
+                            - generic [ref=e507]:
+                              - radio "Webinar" [checked] [ref=e508] [cursor=pointer]
+                              - text: Webinar
+                      - generic [ref=e509]:
+                        - generic [ref=e511]: Titel
+                        - textbox "Titel" [ref=e514]: Abschied von der Windel
+                      - generic [ref=e515]:
+                        - generic [ref=e517]: Untertitel
+                        - textbox "Untertitel" [ref=e519]: Kinder bindungs- und bedürfnisorientiert bei der Ausscheidungsautonomie begleiten
+                      - generic [ref=e520]:
+                        - generic [ref=e522]: Das Seminar im Überblick
+                        - generic [ref=e524]:
+                          - button "Medien hinzufügen" [ref=e527] [cursor=pointer]: Medien hinzufügen
+                          - application [ref=e530]:
+                            - generic [ref=e531]:
+                              - group [ref=e534]:
+                                - toolbar [ref=e536]:
+                                  - group [ref=e538]:
+                                    - generic [ref=e539]:
+                                      - button "Absatz" [ref=e540] [cursor=pointer]:
+                                        - button "Absatz" [ref=e541]:
+                                          - generic [ref=e542]: Absatz
+                                      - button "Fett (⌘B)" [ref=e544] [cursor=pointer]:
+                                        - button [ref=e545]
+                                      - button "Kursiv (⌘I)" [ref=e547] [cursor=pointer]:
+                                        - button [ref=e548]
+                                      - button "Aufzählungsliste (⌃⌥U)" [ref=e550] [cursor=pointer]:
+                                        - button [ref=e551]
+                                      - button "Nummerierte Liste (⌃⌥O)" [ref=e553] [cursor=pointer]:
+                                        - button [ref=e554]
+                                      - button "Blockzitat (⌃⌥Q)" [ref=e556] [cursor=pointer]:
+                                        - button [ref=e557]
+                                      - button "Linksbündig (⌃⌥L)" [ref=e559] [cursor=pointer]:
+                                        - button [ref=e560]
+                                      - button "Zentrieren (⌃⌥C)" [ref=e562] [cursor=pointer]:
+                                        - button [ref=e563]
+                                      - button "Rechtsbündig (⌃⌥R)" [ref=e565] [cursor=pointer]:
+                                        - button [ref=e566]
+                                      - button "Link einfügen/ändern (⌘K)" [ref=e568] [cursor=pointer]:
+                                        - button [ref=e569]
+                                      - button "Weiterlesen-Tag einfügen (⌃⌥T)" [ref=e571] [cursor=pointer]:
+                                        - button [ref=e572]
+                                      - button "Vollbild" [ref=e574] [cursor=pointer]:
+                                        - button [ref=e575]
+                                      - button "Werkzeugleiste umschalten (⌃⌥Z)" [ref=e577] [cursor=pointer]:
+                                        - button [ref=e578]
+                                      - button "LearnDash Shortcodes" [ref=e580] [cursor=pointer]:
+                                        - button "" [ref=e581]:
+                                          - generic [ref=e582]: 
+                              - group [ref=e583]:
+                                - iframe [ref=e584]:
+                                  - generic [active] [ref=f60e1]:
+                                    - paragraph [ref=f60e2]:
+                                      - text: In vielen Kitas lässt sich beobachten, dass der Zeitpunkt des Trockenwerdens immer später einsetzt. Das führt zu neuen Anforderungen im pädagogischen Alltag – von organisatorischen Abläufen bis hin zur gemeinsamen Haltung im Team.
+                                      - text: "Der Schritt hin zur selbstständigen Regulation von Blasen- und Darmfunktion ist ein individueller Reifeprozess. Er ist eng mit verschiedenen Entwicklungsbereichen verknüpft und benötigt vor allem eines: ausreichend Zeit."
+                                    - paragraph [ref=f60e3]: "Das Webinar gibt pädagogischen Fachkräften Anregungen, Raum für Austausch und praktische Ideen für die tägliche Arbeit. Zudem liefert es Orientierung in der Frage: Wie können wir Kinder behutsam durch diese sensible Entwicklungsphase begleiten – ohne Druck, aber mit fachlicher Klarheit?"
+                              - group [ref=e585]:
+                                - generic [ref=e590]: 
+                      - generic [ref=e591]:
+                        - generic [ref=e593]: Was euch an diesem Studientag erwartet
+                        - generic [ref=e595]:
+                          - button "Medien hinzufügen" [ref=e598] [cursor=pointer]: Medien hinzufügen
+                          - application [ref=e601]:
+                            - generic [ref=e602]:
+                              - group [ref=e605]:
+                                - toolbar [ref=e607]:
+                                  - group [ref=e609]:
+                                    - generic [ref=e610]:
+                                      - button "Absatz" [ref=e611] [cursor=pointer]:
+                                        - button "Absatz" [ref=e612]:
+                                          - generic [ref=e613]: Absatz
+                                      - button "Fett (⌘B)" [ref=e615] [cursor=pointer]:
+                                        - button [ref=e616]
+                                      - button "Kursiv (⌘I)" [ref=e618] [cursor=pointer]:
+                                        - button [ref=e619]
+                                      - button "Aufzählungsliste (⌃⌥U)" [ref=e621] [cursor=pointer]:
+                                        - button [ref=e622]
+                                      - button "Nummerierte Liste (⌃⌥O)" [ref=e624] [cursor=pointer]:
+                                        - button [ref=e625]
+                                      - button "Blockzitat (⌃⌥Q)" [ref=e627] [cursor=pointer]:
+                                        - button [ref=e628]
+                                      - button "Linksbündig (⌃⌥L)" [ref=e630] [cursor=pointer]:
+                                        - button [ref=e631]
+                                      - button "Zentrieren (⌃⌥C)" [ref=e633] [cursor=pointer]:
+                                        - button [ref=e634]
+                                      - button "Rechtsbündig (⌃⌥R)" [ref=e636] [cursor=pointer]:
+                                        - button [ref=e637]
+                                      - button "Link einfügen/ändern (⌘K)" [ref=e639] [cursor=pointer]:
+                                        - button [ref=e640]
+                                      - button "Weiterlesen-Tag einfügen (⌃⌥T)" [ref=e642] [cursor=pointer]:
+                                        - button [ref=e643]
+                                      - button "Vollbild" [ref=e645] [cursor=pointer]:
+                                        - button [ref=e646]
+                                      - button "Werkzeugleiste umschalten (⌃⌥Z)" [ref=e648] [cursor=pointer]:
+                                        - button [ref=e649]
+                                      - button "LearnDash Shortcodes" [ref=e651] [cursor=pointer]:
+                                        - button "" [ref=e652]:
+                                          - generic [ref=e653]: 
+                              - group [ref=e654]:
+                                - iframe [ref=e655]:
+                                  - paragraph [ref=f61e2]
+                              - group [ref=e656]:
+                                - generic [ref=e661]: 
+                      - generic [ref=e662]:
+                        - generic [ref=e664]: Lernziele
+                        - generic [ref=e666]:
+                          - button "Medien hinzufügen" [ref=e669] [cursor=pointer]: Medien hinzufügen
+                          - application [ref=e672]:
+                            - generic [ref=e673]:
+                              - group [ref=e676]:
+                                - toolbar [ref=e678]:
+                                  - group [ref=e680]:
+                                    - generic [ref=e681]:
+                                      - button "Absatz" [ref=e682] [cursor=pointer]:
+                                        - button "Absatz" [ref=e683]:
+                                          - generic [ref=e684]: Absatz
+                                      - button "Fett (⌘B)" [ref=e686] [cursor=pointer]:
+                                        - button [ref=e687]
+                                      - button "Kursiv (⌘I)" [ref=e689] [cursor=pointer]:
+                                        - button [ref=e690]
+                                      - button "Aufzählungsliste (⌃⌥U)" [ref=e692] [cursor=pointer]:
+                                        - button [ref=e693]
+                                      - button "Nummerierte Liste (⌃⌥O)" [ref=e695] [cursor=pointer]:
+                                        - button [ref=e696]
+                                      - button "Blockzitat (⌃⌥Q)" [ref=e698] [cursor=pointer]:
+                                        - button [ref=e699]
+                                      - button "Linksbündig (⌃⌥L)" [ref=e701] [cursor=pointer]:
+                                        - button [ref=e702]
+                                      - button "Zentrieren (⌃⌥C)" [ref=e704] [cursor=pointer]:
+                                        - button [ref=e705]
+                                      - button "Rechtsbündig (⌃⌥R)" [ref=e707] [cursor=pointer]:
+                                        - button [ref=e708]
+                                      - button "Link einfügen/ändern (⌘K)" [ref=e710] [cursor=pointer]:
+                                        - button [ref=e711]
+                                      - button "Weiterlesen-Tag einfügen (⌃⌥T)" [ref=e713] [cursor=pointer]:
+                                        - button [ref=e714]
+                                      - button "Vollbild" [ref=e716] [cursor=pointer]:
+                                        - button [ref=e717]
+                                      - button "Werkzeugleiste umschalten (⌃⌥Z)" [ref=e719] [cursor=pointer]:
+                                        - button [ref=e720]
+                                      - button "LearnDash Shortcodes" [ref=e722] [cursor=pointer]:
+                                        - button "" [ref=e723]:
+                                          - generic [ref=e724]: 
+                              - group [ref=e725]:
+                                - iframe [ref=e726]:
+                                  - list [ref=f62e2]:
+                                    - listitem [ref=f62e3]: Woran lässt sich erkennen, dass ein Kind bereit ist, den Übergang zu Töpfchen oder Toilette zu wagen?
+                                    - listitem [ref=f62e4]: Wie hängt das Thema mit dem wachsenden Autonomieverhalten von Kindern zusammen?
+                                    - listitem [ref=f62e5]: Welche Faktoren sollten berücksichtigt werden, um diese Phase unterstützend und respektvoll zu gestalten?
+                                    - listitem [ref=f62e6]: Und wie gelingt eine vertrauensvolle Zusammenarbeit zwischen Eltern und pädagogischem Personal?
+                              - group [ref=e727]:
+                                - generic [ref=e732]: 
+                      - generic [ref=e733]:
+                        - generic [ref=e735]: Dauer / Länge
+                        - textbox "Dauer / Länge" [ref=e738]: 5 Stunden
+                      - generic [ref=e739]:
+                        - generic [ref=e741]: Zielgruppe text
+                        - textbox "Zielgruppe text" [ref=e743]: Das Webinar richtet sich an pädagogische Fachkräfte aus Krippe, Kita und Kindertagespflege, die Kinder im Prozess des Trockenwerdens kompetent begleiten möchten und praktische Impulse für den Kita-Alltag suchen.
+                      - generic [ref=e744]:
+                        - generic [ref=e746]: Zielgruppe
+                        - generic [ref=e748]:
+                          - text: 
+                          - listbox [ref=e749] [cursor=pointer]
+                          - combobox [ref=e752]:
+                            - list [ref=e753]:
+                              - listitem "Kitas" [ref=e754]: × Kitas
+                              - listitem "U 3 / Krippe" [ref=e755]: × U 3 / Krippe
+                              - listitem [ref=e756]:
+                                - textbox [ref=e757]
+                      - generic [ref=e758]:
+                        - generic [ref=e760]: Dozent*innen
+                        - generic [ref=e762]:
+                          - textbox "Suchen …" [ref=e765]:
+                            - /placeholder: Suchen …
+                          - generic [ref=e766]:
+                            - list [ref=e768]
+                            - list [ref=e770]:
+                              - listitem [ref=e771]:
+                                - generic [ref=e772]: Julia Beerschneider 
+                      - generic [ref=e773]:
+                        - generic [ref=e775]: Themen
+                        - generic [ref=e777]:
+                          - listbox [ref=e778] [cursor=pointer]
+                          - combobox [ref=e781]:
+                            - list [ref=e782]:
+                              - listitem "U3 / Krippe" [ref=e783]: × U3 / Krippe
+                              - listitem [ref=e784]:
+                                - textbox [ref=e785]
+                      - generic [ref=e786]:
+                        - generic [ref=e788]: So erhältst du dein Zertifikat
+                        - generic [ref=e790]:
+                          - button "Medien hinzufügen" [ref=e793] [cursor=pointer]: Medien hinzufügen
+                          - application [ref=e796]:
+                            - generic [ref=e797]:
+                              - group [ref=e800]:
+                                - toolbar [ref=e802]:
+                                  - group [ref=e804]:
+                                    - generic [ref=e805]:
+                                      - button "Absatz" [ref=e806] [cursor=pointer]:
+                                        - button "Absatz" [ref=e807]:
+                                          - generic [ref=e808]: Absatz
+                                      - button "Fett (⌘B)" [ref=e810] [cursor=pointer]:
+                                        - button [ref=e811]
+                                      - button "Kursiv (⌘I)" [ref=e813] [cursor=pointer]:
+                                        - button [ref=e814]
+                                      - button "Aufzählungsliste (⌃⌥U)" [ref=e816] [cursor=pointer]:
+                                        - button [ref=e817]
+                                      - button "Nummerierte Liste (⌃⌥O)" [ref=e819] [cursor=pointer]:
+                                        - button [ref=e820]
+                                      - button "Blockzitat (⌃⌥Q)" [ref=e822] [cursor=pointer]:
+                                        - button [ref=e823]
+                                      - button "Linksbündig (⌃⌥L)" [ref=e825] [cursor=pointer]:
+                                        - button [ref=e826]
+                                      - button "Zentrieren (⌃⌥C)" [ref=e828] [cursor=pointer]:
+                                        - button [ref=e829]
+                                      - button "Rechtsbündig (⌃⌥R)" [ref=e831] [cursor=pointer]:
+                                        - button [ref=e832]
+                                      - button "Link einfügen/ändern (⌘K)" [ref=e834] [cursor=pointer]:
+                                        - button [ref=e835]
+                                      - button "Weiterlesen-Tag einfügen (⌃⌥T)" [ref=e837] [cursor=pointer]:
+                                        - button [ref=e838]
+                                      - button "Vollbild" [ref=e840] [cursor=pointer]:
+                                        - button [ref=e841]
+                                      - button "Werkzeugleiste umschalten (⌃⌥Z)" [ref=e843] [cursor=pointer]:
+                                        - button [ref=e844]
+                                      - button "LearnDash Shortcodes" [ref=e846] [cursor=pointer]:
+                                        - button "" [ref=e847]:
+                                          - generic [ref=e848]: 
+                              - group [ref=e849]:
+                                - iframe [ref=e850]:
+                                  - paragraph [ref=f63e2]
+                              - group [ref=e851]:
+                                - generic [ref=e856]: 
+                      - generic [ref=e857]:
+                        - generic [ref=e859]: Aufbau der Fortbildungsreihe
+                        - generic [ref=e861]:
+                          - button "Medien hinzufügen" [ref=e864] [cursor=pointer]: Medien hinzufügen
+                          - application [ref=e867]:
+                            - generic [ref=e868]:
+                              - group [ref=e871]:
+                                - toolbar [ref=e873]:
+                                  - group [ref=e875]:
+                                    - generic [ref=e876]:
+                                      - button "Absatz" [ref=e877] [cursor=pointer]:
+                                        - button "Absatz" [ref=e878]:
+                                          - generic [ref=e879]: Absatz
+                                      - button "Fett (⌘B)" [ref=e881] [cursor=pointer]:
+                                        - button [ref=e882]
+                                      - button "Kursiv (⌘I)" [ref=e884] [cursor=pointer]:
+                                        - button [ref=e885]
+                                      - button "Aufzählungsliste (⌃⌥U)" [ref=e887] [cursor=pointer]:
+                                        - button [ref=e888]
+                                      - button "Nummerierte Liste (⌃⌥O)" [ref=e890] [cursor=pointer]:
+                                        - button [ref=e891]
+                                      - button "Blockzitat (⌃⌥Q)" [ref=e893] [cursor=pointer]:
+                                        - button [ref=e894]
+                                      - button "Linksbündig (⌃⌥L)" [ref=e896] [cursor=pointer]:
+                                        - button [ref=e897]
+                                      - button "Zentrieren (⌃⌥C)" [ref=e899] [cursor=pointer]:
+                                        - button [ref=e900]
+                                      - button "Rechtsbündig (⌃⌥R)" [ref=e902] [cursor=pointer]:
+                                        - button [ref=e903]
+                                      - button "Link einfügen/ändern (⌘K)" [ref=e905] [cursor=pointer]:
+                                        - button [ref=e906]
+                                      - button "Weiterlesen-Tag einfügen (⌃⌥T)" [ref=e908] [cursor=pointer]:
+                                        - button [ref=e909]
+                                      - button "Vollbild" [ref=e911] [cursor=pointer]:
+                                        - button [ref=e912]
+                                      - button "Werkzeugleiste umschalten (⌃⌥Z)" [ref=e914] [cursor=pointer]:
+                                        - button [ref=e915]
+                                      - button "LearnDash Shortcodes" [ref=e917] [cursor=pointer]:
+                                        - button "" [ref=e918]:
+                                          - generic [ref=e919]: 
+                              - group [ref=e920]:
+                                - iframe [ref=e921]:
+                                  - paragraph [ref=f64e2]
+                              - group [ref=e922]:
+                                - generic [ref=e927]: 
+                      - generic [ref=e928]:
+                        - generic [ref=e930]: Display Course in Carousel
+                        - checkbox "Display Course in Carousel" [checked] [ref=e934] [cursor=pointer]
+                      - generic [ref=e935]:
+                        - generic [ref=e937]: Carousel Text
+                        - textbox "Carousel Text" [ref=e939]
+                  - generic [ref=e941]:
+                    - heading "Rank Math SEO" [level=2] [ref=e942]
+                    - generic [ref=e943]:
+                      - button "Nach oben" [ref=e944] [cursor=pointer]:
+                        - generic [ref=e945]: Nach oben
+                      - button "Nach unten" [ref=e947] [cursor=pointer]:
+                        - generic [ref=e948]: Nach unten
+                      - 'button "Bedienfeld umschalten: Rank Math SEO" [expanded] [ref=e950] [cursor=pointer]':
+                        - generic [ref=e951]: "Bedienfeld umschalten: Rank Math SEO"
+                  - generic [ref=e953]:
+                    - generic [ref=e954]:
+                      - heading "Revisionen" [level=2] [ref=e955]
+                      - generic [ref=e956]:
+                        - button "Nach oben" [ref=e957] [cursor=pointer]:
+                          - generic [ref=e958]: Nach oben
+                        - button "Nach unten" [ref=e960] [cursor=pointer]:
+                          - generic [ref=e961]: Nach unten
+                        - 'button "Bedienfeld umschalten: Revisionen" [expanded] [ref=e963] [cursor=pointer]':
+                          - generic [ref=e964]: "Bedienfeld umschalten: Revisionen"
+                    - list [ref=e967]:
+                      - listitem [ref=e968]:
+                        - img "Stephan" [ref=e969]
+                        - text: Stephan vor 4 Monaten (
+                        - link "7. Januar 2026, 16:12:25" [ref=e970] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/revision.php?revision=81510
+                        - text: )
+                      - listitem [ref=e971]:
+                        - text: Lisa vor 4 Monaten (
+                        - link "6. Januar 2026, 15:37:00" [ref=e972] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/revision.php?revision=81497
+                        - text: )
+                      - listitem [ref=e973]:
+                        - text: Lisa vor 5 Monaten (
+                        - link "21. November 2025, 10:34:26" [ref=e974] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/revision.php?revision=77410
+                        - text: )
+                      - listitem [ref=e975]:
+                        - text: Lisa vor 5 Monaten (
+                        - link "21. November 2025, 10:21:35" [ref=e976] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/revision.php?revision=77407
+                        - text: )
+                      - listitem [ref=e977]:
+                        - text: Lisa vor 5 Monaten (
+                        - link "21. November 2025, 10:17:07" [ref=e978] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/revision.php?revision=77406
+                        - text: )
+                  - generic [ref=e979]:
+                    - generic [ref=e980]:
+                      - heading "Titelform" [level=2] [ref=e981]
+                      - generic [ref=e982]:
+                        - button "Nach oben" [ref=e983] [cursor=pointer]:
+                          - generic [ref=e984]: Nach oben
+                        - button "Nach unten" [ref=e986] [cursor=pointer]:
+                          - generic [ref=e987]: Nach unten
+                        - 'button "Bedienfeld umschalten: Titelform" [expanded] [ref=e989] [cursor=pointer]':
+                          - generic [ref=e990]: "Bedienfeld umschalten: Titelform"
+                    - generic [ref=e992]:
+                      - generic [ref=e993]: Titelform
+                      - textbox "Titelform" [ref=e994]: der-abschied-von-der-windel
+                  - text:  
+                  - generic [ref=e995]:
+                    - generic [ref=e996]:
+                      - heading "Extend Kurs Access" [level=2] [ref=e997]
+                      - 'button "Bedienfeld umschalten: Extend Kurs Access" [expanded] [ref=e999] [cursor=pointer]':
+                        - generic [ref=e1000]: "Bedienfeld umschalten: Extend Kurs Access"
+                    - generic [ref=e1003]:
+                      - generic [ref=e1004]:
+                        - generic [ref=e1007]: New Expiration Date
+                        - generic [ref=e1010]:
+                          - generic [ref=e1011]: Month
+                          - combobox [ref=e1012] [cursor=pointer]:
+                            - option "MM" [selected]
+                            - option "01-Jan."
+                            - option "02-Feb."
+                            - option "03-März"
+                            - option "04-Apr."
+                            - option "05-Mai"
+                            - option "06-Juni"
+                            - option "07-Juli"
+                            - option "08-Aug."
+                            - option "09-Sep."
+                            - option "10-Okt."
+                            - option "11-Nov."
+                            - option "12-Dez."
+                          - generic [ref=e1013]: Day
+                          - spinbutton [ref=e1014]
+                          - text: ","
+                          - generic [ref=e1015]: Year
+                          - spinbutton [ref=e1016]
+                          - text: "@"
+                          - generic [ref=e1017]: Hour
+                          - spinbutton [ref=e1018]
+                          - text: ":"
+                          - generic [ref=e1019]: Minute
+                          - spinbutton [ref=e1020]
+                        - paragraph
+                      - generic [ref=e1021]:
+                        - generic [ref=e1024]: Extend Access For Users
+                        - generic [ref=e1026]: No enrolled users found.
+                        - paragraph
+    - contentinfo [ref=e1028]:
+      - paragraph [ref=e1029]:
+        - text: Vielen Dank, dass du
+        - link "Rank Math" [ref=e1030] [cursor=pointer]:
+          - /url: https://rankmath.com/?utm_source=Plugin&utm_medium=Admin%20Footer%20Text&utm_campaign=WP
+        - text: verwendest
+      - paragraph [ref=e1031]: Version 6.9.4
+  - text:  
+  - status
+  - status
+  - status
+  - generic [ref=e1035]:
+    - heading "The Editor has a new home" [level=3] [ref=e1036]
+    - paragraph [ref=e1037]:
+      - text: Editor tools are now grouped together for quick access. Build and grow your site with everything you need in one place.
+      - link "Mehr erfahren" [ref=e1038] [cursor=pointer]:
+        - /url: https://go.elementor.com/wp-dash-editor-one-learn-more/
+    - paragraph [ref=e1039]:
+      - button "Verstanden" [ref=e1040] [cursor=pointer]
+    - link "Verwerfen" [ref=e1042] [cursor=pointer]:
+      - /url: "#"
+  - text:          
+  - status
+  - text:            
+  - status
+  - text:            
+  - status
+  - text:            
+  - status
+  - text:            
+  - status
+  - text:            
+  - status
+  - text:            
+  - status
+  - text:            
+  - status
+  - text:  
