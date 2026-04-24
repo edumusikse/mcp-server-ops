@@ -1,0 +1,1128 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - navigation "Hauptmenü":
+      - link "Zum Hauptinhalt springen" [ref=e3] [cursor=pointer]:
+        - /url: "#wpbody-content"
+      - link "Zur Werkzeugleiste springen" [ref=e4] [cursor=pointer]:
+        - /url: "#wp-toolbar"
+      - list [ref=e7]:
+        - listitem [ref=e8]:
+          - link "Dashboard" [ref=e9] [cursor=pointer]:
+            - /url: index.php
+            - generic [ref=e10]: 
+            - generic [ref=e11]: Dashboard
+        - listitem [ref=e12]:
+          - link "Blog" [ref=e13] [cursor=pointer]:
+            - /url: admin.php?page=ksm-blog-menu
+            - generic [ref=e14]: 
+            - generic [ref=e15]: Blog
+          - list [ref=e16]:
+            - listitem [ref=e17]:
+              - link "Blog" [ref=e18] [cursor=pointer]:
+                - /url: admin.php?page=ksm-blog-menu
+            - listitem [ref=e19]:
+              - link "Alle Beiträge" [ref=e20] [cursor=pointer]:
+                - /url: admin.php?page=ksm-blog-list
+            - listitem [ref=e21]:
+              - link "Neuer Beitrag" [ref=e22] [cursor=pointer]:
+                - /url: admin.php?page=ksm-blog-add
+            - listitem [ref=e23]:
+              - link "Kategorien" [ref=e24] [cursor=pointer]:
+                - /url: edit-tags.php?taxonomy=category
+        - listitem [ref=e25]:
+          - link "Produkte" [ref=e26] [cursor=pointer]:
+            - /url: edit.php?post_type=product
+            - generic [ref=e27]: 
+            - generic [ref=e28]: Produkte
+          - list [ref=e29]:
+            - listitem [ref=e30]:
+              - link "Alle Produkte" [ref=e31] [cursor=pointer]:
+                - /url: edit.php?post_type=product
+            - listitem [ref=e32]:
+              - link "Neues Produkt hinzufügen" [ref=e33] [cursor=pointer]:
+                - /url: post-new.php?post_type=product
+        - listitem [ref=e34]:
+          - link "Dozenten" [ref=e35] [cursor=pointer]:
+            - /url: admin.php?page=ksm-dozenten-list
+            - generic [ref=e36]: 
+            - generic [ref=e37]: Dozenten
+          - list [ref=e38]:
+            - listitem [ref=e39]:
+              - link "Alle Dozenten" [ref=e40] [cursor=pointer]:
+                - /url: admin.php?page=ksm-dozenten-list
+            - listitem [ref=e41]:
+              - link "Dozenten hinzufügen" [ref=e42] [cursor=pointer]:
+                - /url: admin.php?page=ksm-dozent-add
+        - listitem [ref=e43]:
+          - link "Newsletter" [ref=e44] [cursor=pointer]:
+            - /url: admin.php?page=fluentcrm-admin
+            - generic [ref=e46]: Newsletter
+          - list [ref=e47]:
+            - listitem [ref=e48]:
+              - link "Dashboard" [ref=e49] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin
+            - listitem [ref=e50]:
+              - link "Kontakte" [ref=e51] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/subscribers
+            - listitem [ref=e52]:
+              - link "Companies" [ref=e53] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/contact-groups/companies
+            - listitem [ref=e54]:
+              - link "Listen" [ref=e55] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/contact-groups/lists
+            - listitem [ref=e56]:
+              - link "Kampagnen" [ref=e57] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/email/campaigns
+            - listitem [ref=e58]:
+              - link "E-Mail-Sequenzen" [ref=e59] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/email/sequences
+            - listitem [ref=e60]:
+              - link "E-Mail-Vorlagen" [ref=e61] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/email/templates
+            - listitem [ref=e62]:
+              - link "Formulare" [ref=e63] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/forms
+        - listitem [ref=e64]:
+          - link "FooEvents" [ref=e65] [cursor=pointer]:
+            - /url: edit.php?post_type=event_magic_tickets
+            - generic [ref=e66]: 
+            - generic [ref=e67]: FooEvents
+          - list [ref=e68]:
+            - listitem [ref=e69]:
+              - link "Tickets" [ref=e70] [cursor=pointer]:
+                - /url: edit.php?post_type=event_magic_tickets
+            - listitem [ref=e71]:
+              - link "Erste Schritte" [ref=e72] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-introduction
+            - listitem [ref=e73]:
+              - link "Check-ins importieren" [ref=e74] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-checkins-import
+            - listitem [ref=e75]:
+              - link "Tickets importieren" [ref=e76] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-import-tickets
+            - listitem [ref=e77]:
+              - link "Ticket-Themen" [ref=e78] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-ticket-themes
+            - listitem [ref=e79]:
+              - link "Berichte" [ref=e80] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-reports
+        - listitem [ref=e81]:
+          - link "Boards" [ref=e82] [cursor=pointer]:
+            - /url: admin.php?page=fluent-boards
+            - generic [ref=e84]: Boards
+          - list [ref=e85]:
+            - listitem [ref=e86]:
+              - link "Dashboard" [ref=e87] [cursor=pointer]:
+                - /url: admin.php?page=fluent-boards
+            - listitem [ref=e88]:
+              - link "Boards" [ref=e89] [cursor=pointer]:
+                - /url: admin.php?page=fluent-boards#/boards
+            - listitem [ref=e90]:
+              - link "Berichte" [ref=e91] [cursor=pointer]:
+                - /url: admin.php?page=fluent-boards#/reports
+            - listitem [ref=e92]:
+              - link "Einstellungen" [ref=e93] [cursor=pointer]:
+                - /url: admin.php?page=fluent-boards#/settings/members-role
+        - listitem [ref=e94]:
+          - link "Elementor" [ref=e95] [cursor=pointer]:
+            - /url: admin.php?page=elementor-home
+            - generic [ref=e97]: Elementor
+          - list [ref=e98]:
+            - listitem [ref=e99]:
+              - link "Home" [ref=e100] [cursor=pointer]:
+                - /url: admin.php?page=elementor-home
+            - listitem [ref=e101]:
+              - link "Editor" [ref=e102] [cursor=pointer]:
+                - /url: admin.php?page=elementor
+            - listitem [ref=e103]:
+              - link "Theme-Builder" [ref=e104] [cursor=pointer]:
+                - /url: https://kita-seminar-manufaktur.de/wp-admin/admin.php?page=elementor-app&ver=4.0.3&return_to=/wp-admin/#/site-editor
+        - listitem [ref=e105]:
+          - link "Traffic Analytics" [ref=e106] [cursor=pointer]:
+            - /url: admin.php?page=traffic-analytics
+            - generic [ref=e107]: 
+            - generic [ref=e108]: Traffic Analytics
+        - listitem [ref=e109]:
+          - link "Forms" [ref=e110] [cursor=pointer]:
+            - /url: admin.php?page=fluent_forms
+            - generic [ref=e112]: Forms
+          - list [ref=e113]:
+            - listitem [ref=e114]:
+              - link "Formulare" [ref=e115] [cursor=pointer]:
+                - /url: admin.php?page=fluent_forms
+            - listitem [ref=e116]:
+              - link "Neues Formular" [ref=e117] [cursor=pointer]:
+                - /url: admin.php?page=fluent_forms#add=1
+            - listitem [ref=e118]:
+              - link "Einträge" [ref=e119] [cursor=pointer]:
+                - /url: admin.php?page=fluent_forms_all_entries
+            - listitem [ref=e120]:
+              - link "Werkzeuge" [ref=e121] [cursor=pointer]:
+                - /url: admin.php?page=fluent_forms_transfer
+        - listitem [ref=e122]:
+          - link "Medien" [ref=e123] [cursor=pointer]:
+            - /url: upload.php
+            - generic [ref=e124]: 
+            - generic [ref=e125]: Medien
+          - list [ref=e126]:
+            - listitem [ref=e127]:
+              - link "Mediathek" [ref=e128] [cursor=pointer]:
+                - /url: upload.php
+            - listitem [ref=e129]:
+              - link "Mediendatei hinzufügen" [ref=e130] [cursor=pointer]:
+                - /url: media-new.php
+            - listitem [ref=e131]:
+              - link "Massenoptimierung" [ref=e132] [cursor=pointer]:
+                - /url: upload.php?page=ewww-image-optimizer-bulk
+        - listitem [ref=e133]:
+          - link "Databases" [ref=e134] [cursor=pointer]:
+            - /url: /wp-admin/edit-tags.php?taxonomy=zielgruppe
+            - generic [ref=e135]: 
+            - generic [ref=e136]: Databases
+          - list [ref=e137]:
+            - listitem [ref=e138]:
+              - link " Zielgruppe" [ref=e139] [cursor=pointer]:
+                - /url: /wp-admin/edit-tags.php?taxonomy=zielgruppe
+                - generic [ref=e141]: 
+                - text: Zielgruppe
+            - listitem [ref=e142]:
+              - link " Seminartyp" [ref=e143] [cursor=pointer]:
+                - /url: /wp-admin/edit-tags.php?taxonomy=seminar-type
+                - generic [ref=e145]: 
+                - text: Seminartyp
+        - listitem [ref=e146]:
+          - link "Benutzer" [ref=e147] [cursor=pointer]:
+            - /url: users.php
+            - generic [ref=e148]: 
+            - generic [ref=e149]: Benutzer
+          - list [ref=e150]:
+            - listitem [ref=e151]:
+              - link "Alle Benutzer" [ref=e152] [cursor=pointer]:
+                - /url: users.php
+            - listitem [ref=e153]:
+              - link "Benutzer hinzufügen" [ref=e154] [cursor=pointer]:
+                - /url: user-new.php
+            - listitem [ref=e155]:
+              - link "Profil" [ref=e156] [cursor=pointer]:
+                - /url: profile.php
+        - listitem [ref=e157]:
+          - link "Seiten" [ref=e158] [cursor=pointer]:
+            - /url: edit.php?post_type=page
+            - generic [ref=e159]: 
+            - generic [ref=e160]: Seiten
+          - list [ref=e161]:
+            - listitem [ref=e162]:
+              - link "Alle Seiten" [ref=e163] [cursor=pointer]:
+                - /url: edit.php?post_type=page
+            - listitem [ref=e164]:
+              - link "Seite hinzufügen" [ref=e165] [cursor=pointer]:
+                - /url: post-new.php?post_type=page
+        - text: 
+        - listitem [ref=e166]:
+          - link "Design" [ref=e167] [cursor=pointer]:
+            - /url: customize.php?return=%2Fwp-admin%2F
+            - generic [ref=e168]: 
+            - generic [ref=e169]: Design
+          - list [ref=e170]:
+            - listitem [ref=e171]:
+              - link "Customizer" [ref=e172] [cursor=pointer]:
+                - /url: customize.php?return=%2Fwp-admin%2F
+            - listitem [ref=e173]:
+              - link "Menüs" [ref=e174] [cursor=pointer]:
+                - /url: nav-menus.php
+        - listitem [ref=e175]:
+          - link "Plugins" [ref=e176] [cursor=pointer]:
+            - /url: plugins.php
+            - generic [ref=e177]: 
+            - generic [ref=e178]: Plugins
+          - list [ref=e179]:
+            - listitem [ref=e180]:
+              - link "Installierte Plugins" [ref=e181] [cursor=pointer]:
+                - /url: plugins.php
+            - listitem [ref=e182]:
+              - link "Plugin hinzufügen" [ref=e183] [cursor=pointer]:
+                - /url: plugin-install.php
+        - text: 
+        - listitem [ref=e184]:
+          - link "Einstellungen" [ref=e185] [cursor=pointer]:
+            - /url: admin.php?page=duplicate_page_settings
+            - generic [ref=e186]: 
+            - generic [ref=e187]: Einstellungen
+          - list [ref=e188]:
+            - listitem [ref=e189]:
+              - link "Duplicate Page" [ref=e190] [cursor=pointer]:
+                - /url: options-general.php?page=duplicate_page_settings
+            - listitem [ref=e191]:
+              - link "KI-Sichtbarkeit" [ref=e192] [cursor=pointer]:
+                - /url: options-general.php?page=ksm-ai-visibility
+            - listitem [ref=e193]:
+              - link "Two-Factor" [ref=e194] [cursor=pointer]:
+                - /url: options-general.php?page=two-factor-settings
+            - listitem [ref=e195]:
+              - link "EWWW Image Optimizer" [ref=e196] [cursor=pointer]:
+                - /url: options-general.php?page=ewww-image-optimizer-options
+            - listitem [ref=e197]:
+              - link "Object Cache" [ref=e198] [cursor=pointer]:
+                - /url: options-general.php?page=objectcache
+            - listitem [ref=e199]:
+              - link "Perfmatters" [ref=e200] [cursor=pointer]:
+                - /url: options-general.php?page=perfmatters
+            - listitem [ref=e201]:
+              - link "Security" [ref=e202] [cursor=pointer]:
+                - /url: options-general.php?page=patchstack
+        - listitem [ref=e203]:
+          - link "Rank Math SEO" [ref=e204] [cursor=pointer]:
+            - /url: admin.php?page=rank-math
+            - generic [ref=e206]: Rank Math SEO
+          - list [ref=e207]:
+            - listitem [ref=e208]:
+              - link "Dashboard" [ref=e209] [cursor=pointer]:
+                - /url: admin.php?page=rank-math
+            - listitem [ref=e210]:
+              - link "Allgemeine Einstellungen" [ref=e211] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-options-general
+            - listitem [ref=e212]:
+              - link "Titel & Meta" [ref=e213] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-options-titles
+            - listitem [ref=e214]:
+              - link "Sitemap-Einstellungen" [ref=e215] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-options-sitemap
+            - listitem [ref=e216]:
+              - link "Schema-Templates" [ref=e217] [cursor=pointer]:
+                - /url: edit.php?post_type=rank_math_schema
+            - listitem [ref=e218]:
+              - link "Sofortige Indexierung" [ref=e219] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-options-instant-indexing
+            - listitem [ref=e220]:
+              - link "Rollenverwaltung" [ref=e221] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-role-manager
+            - listitem [ref=e222]:
+              - link "SEO-Analysator" [ref=e223] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-seo-analysis
+            - listitem [ref=e224]:
+              - link "Status & Werkzeuge" [ref=e225] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-status
+        - listitem [ref=e226]:
+          - link "Statistiken" [ref=e227] [cursor=pointer]:
+            - /url: admin.php?page=wc-admin&path=/analytics/overview
+            - generic [ref=e228]: 
+            - generic [ref=e229]: Statistiken
+          - list [ref=e230]:
+            - listitem [ref=e231]:
+              - link "Übersicht" [ref=e232] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/overview
+            - listitem [ref=e233]:
+              - link "Produkte" [ref=e234] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/products
+            - listitem [ref=e235]:
+              - link "Umsatz" [ref=e236] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/revenue
+            - listitem [ref=e237]:
+              - link "Bestellungen" [ref=e238] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/orders
+            - listitem [ref=e239]:
+              - link "Varianten" [ref=e240] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/variations
+            - listitem [ref=e241]:
+              - link "Kategorien" [ref=e242] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/categories
+            - listitem [ref=e243]:
+              - link "Gutscheine" [ref=e244] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/coupons
+            - listitem [ref=e245]:
+              - link "Steuern" [ref=e246] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/taxes
+            - listitem [ref=e247]:
+              - link "Downloads" [ref=e248] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/downloads
+            - listitem [ref=e249]:
+              - link "Bestand" [ref=e250] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/stock
+            - listitem [ref=e251]:
+              - link "Einstellungen" [ref=e252] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/settings
+        - listitem [ref=e253]:
+          - link "Optionsseiten" [ref=e254] [cursor=pointer]:
+            - /url: edit.php?post_type=acf-ui-options-page
+            - generic [ref=e255]: 
+            - generic [ref=e256]: Optionsseiten
+        - listitem [ref=e257]:
+          - link "Aktualisierungen" [ref=e258] [cursor=pointer]:
+            - /url: edit.php?post_type=acf-field-group&page=acf-settings-updates
+            - generic [ref=e259]: 
+            - generic [ref=e260]: Aktualisierungen
+        - listitem [ref=e261]:
+          - link "Wordfence" [ref=e262] [cursor=pointer]:
+            - /url: admin.php?page=Wordfence
+            - generic [ref=e264]: Wordfence
+          - list [ref=e265]:
+            - listitem [ref=e266]:
+              - link "Dashboard" [ref=e267] [cursor=pointer]:
+                - /url: admin.php?page=Wordfence
+            - listitem [ref=e268]:
+              - link "Firewall" [ref=e269] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceWAF
+            - listitem [ref=e270]:
+              - link "Scan" [ref=e271] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceScan
+            - listitem [ref=e272]:
+              - link "Tools" [ref=e273] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceTools
+            - listitem [ref=e274]:
+              - link "Audit Log" [ref=e275] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceAuditLog
+            - listitem [ref=e276]:
+              - link "Login Security" [ref=e277] [cursor=pointer]:
+                - /url: admin.php?page=WFLS
+            - listitem [ref=e278]:
+              - link "All Options" [ref=e279] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceOptions
+        - listitem [ref=e280]:
+          - button "Hauptmenü reduzieren" [expanded] [ref=e281] [cursor=pointer]:
+            - generic [ref=e283]: Menü reduzieren
+    - generic [ref=e284]:
+      - generic [ref=e285]:
+        - navigation "Werkzeugleiste":
+          - menu:
+            - group [ref=e286]:
+              - menuitem "Über WordPress" [ref=e287] [cursor=pointer]:
+                - generic [ref=e289]: Über WordPress
+            - group [ref=e290]:
+              - menuitem "Kita Seminar Manufaktur" [ref=e291] [cursor=pointer]
+            - group [ref=e292]:
+              - menuitem "Neu" [ref=e293] [cursor=pointer]:
+                - generic [ref=e295]: Neu
+            - group [ref=e296]:
+              - menuitem "Rank Math SEO" [ref=e297] [cursor=pointer]:
+                - img [ref=e299]
+                - text: Rank Math SEO
+            - group [ref=e303]:
+              - menuitem "Nginx Cache" [ref=e304] [cursor=pointer]:
+                - img [ref=e305]
+                - text: Nginx Cache
+            - group [ref=e306]:
+              - menuitem "Perfmatters" [ref=e307] [cursor=pointer]
+          - menu [ref=e308]:
+            - group [ref=e309]:
+              - menuitem "Kontakte durchsuchen" [ref=e310] [cursor=pointer]
+            - group [ref=e311]:
+              - menuitem "Willkommen, Claude Ops" [ref=e312] [cursor=pointer]
+      - main [ref=e313]:
+        - generic [ref=e314]:
+          - button "Ansicht anpassen" [ref=e317] [cursor=pointer]
+          - generic [ref=e318]:
+            - heading "Dashboard" [level=1] [ref=e319]
+            - generic [ref=e320]:
+              - paragraph [ref=e321]:
+                - strong [ref=e322]: Course Grid is now part of LearnDash LMS.
+              - paragraph [ref=e323]:
+                - text: The Course Grid features have been added directly into LearnDash — no separate plugin needed.
+                - text: If the LearnDash LMS - Course Grid add-on was previously installed, it's no longer required and can be safely uninstalled.
+              - button "Diesen Hinweis verwerfen" [ref=e324] [cursor=pointer]:
+                - generic [ref=e325]: Diesen Hinweis verwerfen
+            - generic [ref=e326]:
+              - paragraph [ref=e327]:
+                - strong [ref=e328]: Course Reviews is now part of LearnDash LMS.
+              - paragraph [ref=e329]:
+                - text: The Course Reviews features have been added directly into LearnDash — no separate plugin needed.
+                - text: If the LearnDash Course Reviews add-on was previously installed, it's no longer required and can be safely uninstalled.
+              - button "Diesen Hinweis verwerfen" [ref=e330] [cursor=pointer]:
+                - generic [ref=e331]: Diesen Hinweis verwerfen
+            - generic [ref=e332]:
+              - img "Dynamic Visibility for Elementor" [ref=e334]
+              - paragraph [ref=e335]:
+                - strong [ref=e336]: Dynamic Visibility for Elementor
+                - link "Buy now Dynamic.ooo - Dynamic Content for Elementor" [ref=e337] [cursor=pointer]:
+                  - /url: https://www.dynamic.ooo/upgrade/visibility-to-premium?utm_source=wp-plugins&utm_campaign=plugin-uri&utm_medium=wp-dash-promo
+                - text: and save 10% using promo code
+                - strong [ref=e338]: VISIBILITY
+                - text: .
+                - text: We give you
+                - strong [ref=e339]: over 150 features for Elementor
+                - text: that will save you time and money on achieving complex results. We support ACF Free and ACF Pro, JetEngine, Meta Box, WooCommerce, WPML, Search and Filter Pro, Pods and Toolset.
+              - button "Diesen Hinweis verwerfen" [ref=e340] [cursor=pointer]:
+                - generic [ref=e341]: Diesen Hinweis verwerfen
+            - generic [ref=e342]:
+              - paragraph [ref=e343]:
+                - text: WooCommerce appears to be installed, but the Wordfence Login Security WooCommerce integration is not currently enabled. Without this feature, WooCommerce forms will not support all functionality provided by Wordfence Login Security, including CAPTCHA for the login page and user registration.
+                - link "Manage Settings" [ref=e344] [cursor=pointer]:
+                  - /url: https://kita-seminar-manufaktur.de/wp-admin/admin.php?page=WFLS#top#settings
+              - button "Diesen Hinweis verwerfen" [ref=e345] [cursor=pointer]:
+                - generic [ref=e346]: Diesen Hinweis verwerfen
+            - generic [ref=e347]:
+              - generic [ref=e348]:
+                - img "Modern Cart Icon" [ref=e350]
+                - generic [ref=e351]:
+                  - generic [ref=e352]: Modern Cart is helping your customers enjoy a smoother checkout experience!
+                  - generic [ref=e353]: Love the difference it makes? A 5-star review would mean the world to us and help fellow WooCommerce store owners find us!
+                  - generic [ref=e354]:
+                    - link " Ok, you deserve it" [ref=e355] [cursor=pointer]:
+                      - /url: https://wordpress.org/support/plugin/modern-cart/reviews/?filter=5#new-post
+                      - generic [ref=e356]: 
+                      - text: Ok, you deserve it
+                    - link " Nope, maybe later" [ref=e357] [cursor=pointer]:
+                      - /url: "#"
+                      - generic [ref=e358]: 
+                      - text: Nope, maybe later
+                    - link " I already did" [ref=e359] [cursor=pointer]:
+                      - /url: "#"
+                      - generic [ref=e360]: 
+                      - generic [ref=e361]: I already did
+              - button "Diesen Hinweis verwerfen" [ref=e362] [cursor=pointer]:
+                - generic [ref=e363]: Diesen Hinweis verwerfen
+            - text: 
+            - generic [ref=e365]:
+              - generic [ref=e367]:
+                - generic [ref=e368]:
+                  - generic [ref=e369]:
+                    - heading "Object Cache Pro" [level=2] [ref=e370]
+                    - generic [ref=e371]:
+                      - button "Go to Settings" [ref=e372] [cursor=pointer]:
+                        - generic [ref=e373]: Go to Settings
+                        - generic [ref=e374]: 
+                      - button "Nach oben" [disabled] [ref=e375]:
+                        - generic [ref=e376]: Nach oben
+                      - button "Nach unten" [ref=e378] [cursor=pointer]:
+                        - generic [ref=e379]: Nach unten
+                      - 'button "Bedienfeld umschalten: Object Cache Pro" [expanded] [ref=e381] [cursor=pointer]':
+                        - generic [ref=e382]: "Bedienfeld umschalten: Object Cache Pro"
+                  - generic [ref=e384]:
+                    - generic [ref=e385]:
+                      - list [ref=e386]:
+                        - listitem [ref=e387]:
+                          - generic [ref=e388]: 
+                          - text: "Status: Connected"
+                        - listitem [ref=e389]:
+                          - generic [ref=e390]: 
+                          - text: "Drop-in: Valid"
+                        - listitem "5,354 objects" [ref=e391]:
+                          - generic [ref=e392]: 
+                          - text: "Cache: 15 MB of 200 MB"
+                      - generic [ref=e393]:
+                        - link "Flush Cache" [ref=e394] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/index.php?objectcache-action=flush-cache&_wpnonce=30d2e87b8d
+                        - link "Disable" [ref=e395] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/index.php?objectcache-action=disable-dropin&_wpnonce=dec773be62
+                    - generic [ref=e396]:
+                      - img [ref=e399] [cursor=pointer]:
+                        - generic [ref=e407]: Response Times
+                      - img [ref=e410] [cursor=pointer]:
+                        - generic [ref=e418]: Requests
+                - generic [ref=e419]:
+                  - generic [ref=e420]:
+                    - heading "Elementor Übersicht" [level=2] [ref=e421]
+                    - generic [ref=e422]:
+                      - button "Nach oben" [ref=e423] [cursor=pointer]:
+                        - generic [ref=e424]: Nach oben
+                      - button "Nach unten" [ref=e426] [cursor=pointer]:
+                        - generic [ref=e427]: Nach unten
+                      - 'button "Bedienfeld umschalten: Elementor Übersicht" [expanded] [ref=e429] [cursor=pointer]':
+                        - generic [ref=e430]: "Bedienfeld umschalten: Elementor Übersicht"
+                  - generic [ref=e433]:
+                    - generic [ref=e434]:
+                      - generic [ref=e437]: 
+                      - generic [ref=e438]:
+                        - generic [ref=e439]: Elementor v4.0.3
+                        - generic [ref=e440]: Elementor Pro v4.0.3
+                      - link "Neue Seite erstellen" [ref=e442] [cursor=pointer]:
+                        - /url: https://kita-seminar-manufaktur.de/wp-admin/edit.php?action=elementor_new_post&post_type=page&_wpnonce=70566b1088
+                        - generic [ref=e443]: 
+                        - text: Neue Seite erstellen
+                    - generic [ref=e444]:
+                      - heading "Kürzlich bearbeitet" [level=3] [ref=e445]
+                      - list [ref=e446]:
+                        - listitem [ref=e447]:
+                          - link "Blog " [ref=e448] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=81638&action=elementor
+                            - text: Blog
+                            - generic [ref=e449]: 
+                          - text: 21. Jan., 11:40 a.m.
+                        - listitem [ref=e450]:
+                          - link "Home " [ref=e451] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2&action=elementor
+                            - text: Home
+                            - generic [ref=e452]: 
+                          - text: 14. Jan., 12:47 p.m.
+                        - listitem [ref=e453]:
+                          - link "Search " [ref=e454] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=78206&action=elementor&floating_element=floating-buttons
+                            - text: Search
+                            - generic [ref=e455]: 
+                          - text: 10. Jan., 5:17 p.m.
+                    - generic [ref=e456]:
+                      - heading "Ankündigungen & Aktuelles" [level=3] [ref=e457]
+                      - list [ref=e458]:
+                        - listitem [ref=e459]:
+                          - 'link "NEW Introducing Angie: Agentic AI for WordPress" [ref=e460] [cursor=pointer]':
+                            - /url: https://elementor.com/blog/introducing-angie-agentic-ai-for-wordpress/?utm_source=wp-overview-widget&utm_medium=wp-dash&utm_campaign=news-feed
+                          - paragraph [ref=e461]: Meet Angie, agentic AI purpose-built for WordPress. Angie understands your site, connects to your tools, and takes real actions on your behalf. Its first capability, Angie Code, lets you describe any WordPress feature you can imagine and have it built for you in minutes. Production-ready, fully integrated with your site, and safe to test before it ever goes live.
+                        - listitem [ref=e462]:
+                          - link "NEW The atomic foundation of version 4 is ready for real sites!" [ref=e463] [cursor=pointer]:
+                            - /url: https://elementor.com/blog/editor-4-beta/?utm_source=wp-overview-widget&utm_medium=wp-dash&utm_campaign=news-feed
+                          - paragraph [ref=e464]: The alpha phase is complete. Version 4 is now in beta, and the atomic foundation is ready to be used on real sites! This is the final step before the official release of version 4.0, activating the new features automatically on new sites, and becoming the default editing experience in Elementor.
+                        - listitem [ref=e465]:
+                          - 'link "NEW Introducing Elementor 3.33: Variables Manager, Custom CSS, Blend Modes, & more!" [ref=e466] [cursor=pointer]':
+                            - /url: https://elementor.com/blog/elementor-333-v4-variables-manager-custom-css/?utm_source=wp-overview-widget&utm_medium=wp-dash&utm_campaign=news-feed
+                          - paragraph [ref=e467]: Elementor 3.33 builds on the foundation of Editor V4, continuing our mission to create a faster, more scalable, and more intuitive design experience for Web Creators. With the addition of the Variables Manager, element-level Custom CSS, Background Clipping, and Blend Modes, designers have more creative precision and consistency than ever.
+                    - list [ref=e469]:
+                      - listitem [ref=e470]:
+                        - link "Blog (Öffnet in neuem Fenster)" [ref=e471] [cursor=pointer]:
+                          - /url: https://go.elementor.com/overview-widget-blog/
+                          - text: Blog
+                          - generic [ref=e472]: (Öffnet in neuem Fenster)
+                          - generic [ref=e473]: 
+                      - listitem [ref=e474]:
+                        - link "Hilfe (Öffnet in neuem Fenster)" [ref=e475] [cursor=pointer]:
+                          - /url: https://go.elementor.com/overview-widget-docs/
+                          - text: Hilfe
+                          - generic [ref=e476]: (Öffnet in neuem Fenster)
+                          - generic [ref=e477]: 
+                      - listitem [ref=e478]:
+                        - link "Build Smart with AI (Öffnet in neuem Fenster)" [ref=e479] [cursor=pointer]:
+                          - /url: https://go.elementor.com/overview-widget-ai/
+                          - text: Build Smart with AI
+                          - generic [ref=e480]: (Öffnet in neuem Fenster)
+                          - generic [ref=e481]: 
+                - generic [ref=e482]:
+                  - generic [ref=e483]:
+                    - heading "Zustand der Website" [level=2] [ref=e484]
+                    - generic [ref=e485]:
+                      - button "Nach oben" [ref=e486] [cursor=pointer]:
+                        - generic [ref=e487]: Nach oben
+                      - button "Nach unten" [ref=e489] [cursor=pointer]:
+                        - generic [ref=e490]: Nach unten
+                      - 'button "Bedienfeld umschalten: Zustand der Website" [expanded] [ref=e492] [cursor=pointer]':
+                        - generic [ref=e493]: "Bedienfeld umschalten: Zustand der Website"
+                  - generic [ref=e496]:
+                    - generic [ref=e498]: Noch keine Information …
+                    - paragraph [ref=e500]:
+                      - text: In regelmäßigen Abständen werden automatisch Tests zum Website-Zustand durchgeführt, um Informationen über deine Website zu ermitteln. Du kannst auch die Seite
+                      - link "Website-Zustand" [ref=e501] [cursor=pointer]:
+                        - /url: https://kita-seminar-manufaktur.de/wp-admin/site-health.php
+                      - text: besuchen, um jetzt Informationen über deine Website zu sammeln.
+                - generic [ref=e502]:
+                  - generic [ref=e503]:
+                    - heading "Auf einen Blick" [level=2] [ref=e504]
+                    - generic [ref=e505]:
+                      - button "Nach oben" [ref=e506] [cursor=pointer]:
+                        - generic [ref=e507]: Nach oben
+                      - button "Nach unten" [ref=e509] [cursor=pointer]:
+                        - generic [ref=e510]: Nach unten
+                      - 'button "Bedienfeld umschalten: Auf einen Blick" [expanded] [ref=e512] [cursor=pointer]':
+                        - generic [ref=e513]: "Bedienfeld umschalten: Auf einen Blick"
+                  - generic [ref=e516]:
+                    - list [ref=e517]:
+                      - listitem [ref=e518]:
+                        - link "1 Beitrag" [ref=e519] [cursor=pointer]:
+                          - /url: edit.php?post_type=post
+                      - listitem [ref=e520]:
+                        - link "22 Seiten" [ref=e521] [cursor=pointer]:
+                          - /url: edit.php?post_type=page
+                    - paragraph [ref=e522]:
+                      - generic [ref=e523]:
+                        - text: WordPress 6.9.4 verwendet das Theme
+                        - link "Hello Elementor Child" [ref=e524] [cursor=pointer]:
+                          - /url: themes.php
+                        - text: .
+                - generic [ref=e525]:
+                  - generic [ref=e526]:
+                    - heading "Aktivität" [level=2] [ref=e527]
+                    - generic [ref=e528]:
+                      - button "Nach oben" [ref=e529] [cursor=pointer]:
+                        - generic [ref=e530]: Nach oben
+                      - button "Nach unten" [ref=e532] [cursor=pointer]:
+                        - generic [ref=e533]: Nach unten
+                      - 'button "Bedienfeld umschalten: Aktivität" [expanded] [ref=e535] [cursor=pointer]':
+                        - generic [ref=e536]: "Bedienfeld umschalten: Aktivität"
+                  - generic [ref=e540]:
+                    - heading "Kürzlich veröffentlicht" [level=3] [ref=e541]
+                    - list [ref=e542]:
+                      - listitem [ref=e543]:
+                        - generic [ref=e544]: 11. Feb., 11:40 p.m. Uhr
+                        - link "„Fortbildung, die wirklich passt“ bearbeiten" [ref=e545] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/admin.php?page=ksm-blog-edit&post_id=81716
+                          - text: Fortbildung, die wirklich passt
+                - generic [ref=e546]:
+                  - generic [ref=e547]:
+                    - heading "Neueste Fluent-Forms-Formulareinreichungen" [level=2] [ref=e548]
+                    - generic [ref=e549]:
+                      - button "Nach oben" [ref=e550] [cursor=pointer]:
+                        - generic [ref=e551]: Nach oben
+                      - button "Nach unten" [ref=e553] [cursor=pointer]:
+                        - generic [ref=e554]: Nach unten
+                      - 'button "Bedienfeld umschalten: Neueste Fluent-Forms-Formulareinreichungen" [expanded] [ref=e556] [cursor=pointer]':
+                        - generic [ref=e557]: "Bedienfeld umschalten: Neueste Fluent-Forms-Formulareinreichungen"
+                  - list [ref=e560]:
+                    - listitem [ref=e561] [cursor=pointer]:
+                      - link "Supervision direkt anfragen 1/1" [ref=e562]:
+                        - /url: https://kita-seminar-manufaktur.de/wp-admin/admin.php?page=fluent_forms&route=entries&form_id=4
+                        - text: Supervision direkt anfragen
+                        - generic [ref=e563]: 1/1
+                    - listitem [ref=e564] [cursor=pointer]:
+                      - link "Studientage direkt anfragen 14/17" [ref=e565]:
+                        - /url: https://kita-seminar-manufaktur.de/wp-admin/admin.php?page=fluent_forms&route=entries&form_id=3
+                        - text: Studientage direkt anfragen
+                        - generic [ref=e566]: 14/17
+                    - listitem [ref=e567] [cursor=pointer]:
+                      - link "Contact 10/13" [ref=e568]:
+                        - /url: https://kita-seminar-manufaktur.de/wp-admin/admin.php?page=fluent_forms&route=entries&form_id=1
+                        - text: Contact
+                        - generic [ref=e569]: 10/13
+                - generic [ref=e570]:
+                  - generic [ref=e571]:
+                    - heading "FooEvents" [level=2] [ref=e572]
+                    - generic [ref=e573]:
+                      - button "Nach oben" [ref=e574] [cursor=pointer]:
+                        - generic [ref=e575]: Nach oben
+                      - button "Nach unten" [ref=e577] [cursor=pointer]:
+                        - generic [ref=e578]: Nach unten
+                      - 'button "Bedienfeld umschalten: FooEvents" [expanded] [ref=e580] [cursor=pointer]':
+                        - generic [ref=e581]: "Bedienfeld umschalten: FooEvents"
+                  - generic [ref=e583]:
+                    - paragraph [ref=e584]:
+                      - link "FooEvents" [ref=e585] [cursor=pointer]:
+                        - /url: https://www.fooevents.com/
+                      - text: 2.0.4 running on
+                      - link "WooCommerce" [ref=e586] [cursor=pointer]:
+                        - /url: https://woocommerce.com/de/
+                      - text: 10.7.0
+                    - generic [ref=e587]:
+                      - link "FooEvents PDF tickets" [ref=e588] [cursor=pointer]:
+                        - /url: https://www.fooevents.com/fooevents-pdf-tickets/
+                      - text: ": No"
+                    - generic [ref=e589]:
+                      - link "FooEvents Express Check-in" [ref=e590] [cursor=pointer]:
+                        - /url: https://www.fooevents.com/fooevents-express-check-in/
+                      - text: ": No"
+                    - generic [ref=e591]:
+                      - link "FooEvents Calendar" [ref=e592] [cursor=pointer]:
+                        - /url: https://www.fooevents.com/fooevents-calendar/
+                      - text: ": Yes 1.7.14"
+                    - generic [ref=e593]:
+                      - link "FooEvents Custom Attendee Fields" [ref=e594] [cursor=pointer]:
+                        - /url: https://www.fooevents.com/fooevents-custom-attendee-fields/
+                      - text: ": No"
+                    - generic [ref=e595]:
+                      - link "FooEvents Multi-Day" [ref=e596] [cursor=pointer]:
+                        - /url: https://www.fooevents.com/fooevents-multi-day/
+                      - text: ": Yes 2.0.0"
+                    - generic [ref=e597]:
+                      - link "FooEvents Seating" [ref=e598] [cursor=pointer]:
+                        - /url: https://www.fooevents.com/fooevents-seating/
+                      - text: ": No"
+                - generic [ref=e599]:
+                  - generic [ref=e600]:
+                    - heading "Wordfence activity in the past week" [level=2] [ref=e601]
+                    - generic [ref=e602]:
+                      - button "Nach oben" [ref=e603] [cursor=pointer]:
+                        - generic [ref=e604]: Nach oben
+                      - button "Nach unten" [ref=e606] [cursor=pointer]:
+                        - generic [ref=e607]: Nach unten
+                      - 'button "Bedienfeld umschalten: Wordfence activity in the past week" [expanded] [ref=e609] [cursor=pointer]':
+                        - generic [ref=e610]: "Bedienfeld umschalten: Wordfence activity in the past week"
+                  - generic [ref=e612]:
+                    - link "Wordfence" [ref=e613] [cursor=pointer]:
+                      - /url: //www.wordfence.com/zz8/
+                      - img "Wordfence" [ref=e614]
+                    - heading "Top 5 IPs Blocked" [level=2] [ref=e615]
+                    - table [ref=e616]:
+                      - rowgroup [ref=e617]:
+                        - row "IP Country Block Count" [ref=e618]:
+                          - columnheader "IP" [ref=e619]
+                          - columnheader "Country" [ref=e620]
+                          - columnheader "Block Count" [ref=e621]
+                      - rowgroup [ref=e622]:
+                        - row "213.35.117.14 Singapore Singapore 726" [ref=e623]:
+                          - cell "213.35.117.14" [ref=e624]:
+                            - code [ref=e625]: 213.35.117.14
+                          - cell "Singapore Singapore" [ref=e626]:
+                            - generic "Singapore" [ref=e627]
+                            - text: Singapore
+                          - cell "726" [ref=e628]
+                        - row "91.224.92.35 United Kingdom United Kingdom 448" [ref=e629]:
+                          - cell "91.224.92.35" [ref=e630]:
+                            - code [ref=e631]: 91.224.92.35
+                          - cell "United Kingdom United Kingdom" [ref=e632]:
+                            - generic "United Kingdom" [ref=e633]
+                            - text: United Kingdom
+                          - cell "448" [ref=e634]
+                        - row "161.118.254.192 Singapore Singapore 434" [ref=e635]:
+                          - cell "161.118.254.192" [ref=e636]:
+                            - code [ref=e637]: 161.118.254.192
+                          - cell "Singapore Singapore" [ref=e638]:
+                            - generic "Singapore" [ref=e639]
+                            - text: Singapore
+                          - cell "434" [ref=e640]
+                        - row "170.64.159.39 Australia Australia 41" [ref=e641]:
+                          - cell "170.64.159.39" [ref=e642]:
+                            - code [ref=e643]: 170.64.159.39
+                          - cell "Australia Australia" [ref=e644]:
+                            - generic "Australia" [ref=e645]
+                            - text: Australia
+                          - cell "41" [ref=e646]
+                        - row "134.199.166.76 Australia Australia 14" [ref=e647]:
+                          - cell "134.199.166.76" [ref=e648]:
+                            - code [ref=e649]: 134.199.166.76
+                          - cell "Australia Australia" [ref=e650]:
+                            - generic "Australia" [ref=e651]
+                            - text: Australia
+                          - cell "14" [ref=e652]
+                    - paragraph [ref=e653]:
+                      - link "Update Blocked IPs" [ref=e654] [cursor=pointer]:
+                        - /url: https://kita-seminar-manufaktur.de/wp-admin/admin.php?page=WordfenceWAF#top#blocking
+                    - heading "Top 5 Countries Blocked" [level=2] [ref=e655]
+                    - table [ref=e656]:
+                      - rowgroup [ref=e657]:
+                        - row "Country Total IPs Blocked Block Count" [ref=e658]:
+                          - columnheader "Country" [ref=e659]
+                          - columnheader "Total IPs Blocked" [ref=e660]
+                          - columnheader "Block Count" [ref=e661]
+                      - rowgroup [ref=e662]:
+                        - row "Singapore Singapore 8 1167" [ref=e663]:
+                          - cell "Singapore Singapore" [ref=e664]:
+                            - generic "Singapore" [ref=e665]
+                            - text: Singapore
+                          - cell "8" [ref=e666]
+                          - cell "1167" [ref=e667]
+                        - row "United States United States 286 776" [ref=e668]:
+                          - cell "United States United States" [ref=e669]:
+                            - generic "United States" [ref=e670]
+                            - text: United States
+                          - cell "286" [ref=e671]
+                          - cell "776" [ref=e672]
+                        - row "United Kingdom United Kingdom 4 451" [ref=e673]:
+                          - cell "United Kingdom United Kingdom" [ref=e674]:
+                            - generic "United Kingdom" [ref=e675]
+                            - text: United Kingdom
+                          - cell "4" [ref=e676]
+                          - cell "451" [ref=e677]
+                        - row "Australia Australia 3 61" [ref=e678]:
+                          - cell "Australia Australia" [ref=e679]:
+                            - generic "Australia" [ref=e680]
+                            - text: Australia
+                          - cell "3" [ref=e681]
+                          - cell "61" [ref=e682]
+                        - row "Netherlands Netherlands 12 24" [ref=e683]:
+                          - cell "Netherlands Netherlands" [ref=e684]:
+                            - generic "Netherlands" [ref=e685]
+                            - text: Netherlands
+                          - cell "12" [ref=e686]
+                          - cell "24" [ref=e687]
+                    - paragraph [ref=e688]:
+                      - link "Update Blocked Countries" [ref=e689] [cursor=pointer]:
+                        - /url: https://kita-seminar-manufaktur.de/wp-admin/admin.php?page=WordfenceWAF#top#blocking
+                    - heading "Top 5 Failed Logins" [level=2] [ref=e690]
+                    - table [ref=e691]:
+                      - rowgroup [ref=e692]:
+                        - row "Username Login Attempts Existing User" [ref=e693]:
+                          - columnheader "Username" [ref=e694]
+                          - columnheader "Login Attempts" [ref=e695]
+                          - columnheader "Existing User" [ref=e696]
+                      - rowgroup [ref=e697]:
+                        - row "admin 1 No" [ref=e698]:
+                          - cell "admin" [ref=e699]
+                          - cell "1" [ref=e700]
+                          - cell "No" [ref=e701]
+                        - row "root 1 No" [ref=e702]:
+                          - cell "root" [ref=e703]
+                          - cell "1" [ref=e704]
+                          - cell "No" [ref=e705]
+                    - paragraph [ref=e706]:
+                      - link "Update Login Security Options" [ref=e707] [cursor=pointer]:
+                        - /url: https://kita-seminar-manufaktur.de/wp-admin/admin.php?page=WordfenceWAF&subpage=waf_options#waf-options-bruteforce
+                    - heading "Updates Needed" [level=2] [ref=e708]
+                    - paragraph [ref=e709]: No updates are available at this time.
+                - generic [ref=e710]:
+                  - generic [ref=e711]:
+                    - heading "NPP - Nginx Cache Status" [level=2] [ref=e712]
+                    - generic [ref=e713]:
+                      - button "Nach oben" [ref=e714] [cursor=pointer]:
+                        - generic [ref=e715]: Nach oben
+                      - button "Nach unten" [ref=e717] [cursor=pointer]:
+                        - generic [ref=e718]: Nach unten
+                      - 'button "Bedienfeld umschalten: NPP - Nginx Cache Status" [expanded] [ref=e720] [cursor=pointer]':
+                        - generic [ref=e721]: "Bedienfeld umschalten: NPP - Nginx Cache Status"
+                  - generic [ref=e724]:
+                    - generic [ref=e725]:
+                      - link " Purge All" [ref=e726] [cursor=pointer]:
+                        - /url: https://kita-seminar-manufaktur.de/wp-admin/admin.php?action=nppp_purge_cache&_wpnonce=7314c985eb
+                        - generic [ref=e727]: 
+                        - text: Purge All
+                      - link " Preload All" [ref=e728] [cursor=pointer]:
+                        - /url: https://kita-seminar-manufaktur.de/wp-admin/admin.php?action=nppp_preload_cache&_wpnonce=4bd776657f
+                        - generic [ref=e729]: 
+                        - text: Preload All
+                    - generic [ref=e730]:
+                      - generic "Cache coverage ratio gauge" [ref=e731]:
+                        - img [ref=e732]
+                        - generic: 0.0%
+                        - button "Refresh" [ref=e735] [cursor=pointer]:
+                          - generic [ref=e736]: 
+                      - generic [ref=e737]:
+                        - generic [ref=e738]: CACHE COVERAGE
+                        - generic [ref=e739]:
+                          - generic [ref=e740]:
+                            - generic [ref=e741]: ✔ 0 Cached
+                            - generic [ref=e742]: /
+                            - generic [ref=e743]: ✘ 39 Not Cached
+                          - generic [ref=e744]:
+                            - generic "Last refreshed" [ref=e745]: ⏱ 20 minutes ago
+                            - generic [ref=e746]: ·
+                            - generic [ref=e747]: 39 total
+                    - table [ref=e748]:
+                      - rowgroup [ref=e749]:
+                        - row " Auto Purge " [ref=e750]:
+                          - cell " Auto Purge" [ref=e751]:
+                            - generic [ref=e752]: 
+                            - text: Auto Purge
+                          - cell "" [ref=e753]:
+                            - generic [ref=e754]: 
+                        - row " HTTP Purge " [ref=e755]:
+                          - cell " HTTP Purge" [ref=e756]:
+                            - generic [ref=e757]: 
+                            - text: HTTP Purge
+                          - cell "" [ref=e758]:
+                            - generic [ref=e759]: 
+                        - row " Auto Preload " [ref=e760]:
+                          - cell " Auto Preload" [ref=e761]:
+                            - generic [ref=e762]: 
+                            - text: Auto Preload
+                          - cell "" [ref=e763]:
+                            - generic [ref=e764]: 
+                        - 'row " Last Run: 2026-04-24 15:45:49 " [ref=e765]':
+                          - 'cell " Last Run: 2026-04-24 15:45:49" [ref=e766]':
+                            - generic [ref=e768]:
+                              - generic [ref=e769]: 
+                              - generic [ref=e770]:
+                                - text: "Last Run:"
+                                - strong [ref=e771]: 2026-04-24 15:45:49
+                          - cell "" [ref=e772]:
+                            - generic [ref=e773]: 
+                        - row " Preload Mobile " [ref=e774]:
+                          - cell " Preload Mobile" [ref=e775]:
+                            - generic [ref=e776]: 
+                            - text: Preload Mobile
+                          - cell "" [ref=e777]:
+                            - generic [ref=e778]: 
+                        - row " Preload Watchdog " [ref=e779]:
+                          - cell " Preload Watchdog" [ref=e780]:
+                            - generic [ref=e781]: 
+                            - text: Preload Watchdog
+                          - cell "" [ref=e782]:
+                            - generic [ref=e783]: 
+                        - row " Proxy " [ref=e784]:
+                          - cell " Proxy" [ref=e785]:
+                            - generic [ref=e786]: 
+                            - text: Proxy
+                          - cell "" [ref=e787]:
+                            - generic [ref=e788]: 
+                        - row " URL Normalization " [ref=e789]:
+                          - cell " URL Normalization" [ref=e790]:
+                            - generic [ref=e791]: 
+                            - text: URL Normalization
+                          - cell "" [ref=e792]:
+                            - generic [ref=e793]: 
+                        - row " Cloudflare APO " [ref=e794]:
+                          - cell " Cloudflare APO" [ref=e795]:
+                            - generic [ref=e796]: 
+                            - text: Cloudflare APO
+                          - cell "" [ref=e797]:
+                            - generic [ref=e798]: 
+                        - row " Redis Object Cache " [ref=e799]:
+                          - cell " Redis Object Cache" [ref=e800]:
+                            - generic [ref=e801]: 
+                            - text: Redis Object Cache
+                          - cell "" [ref=e802]:
+                            - generic [ref=e803]: 
+                        - row " Scheduled Cache " [ref=e804]:
+                          - cell " Scheduled Cache" [ref=e805]:
+                            - generic [ref=e806]: 
+                            - text: Scheduled Cache
+                          - cell "" [ref=e807]:
+                            - generic [ref=e808]: 
+                        - row " REST API " [ref=e809]:
+                          - cell " REST API" [ref=e810]:
+                            - generic [ref=e811]: 
+                            - text: REST API
+                          - cell "" [ref=e812]:
+                            - generic [ref=e813]: 
+                        - row " Send Mail " [ref=e814]:
+                          - cell " Send Mail" [ref=e815]:
+                            - generic [ref=e816]: 
+                            - text: Send Mail
+                          - cell "" [ref=e817]:
+                            - generic [ref=e818]: 
+                    - generic [ref=e819]:
+                      - link "   Give Star" [ref=e820] [cursor=pointer]:
+                        - /url: https://wordpress.org/support/plugin/fastcgi-cache-purge-and-preload-nginx/reviews/#new-post
+                        - generic [ref=e821]: 
+                        - generic [ref=e822]: 
+                        - generic [ref=e823]: 
+                        - text: Give Star
+                      - link " Configure Settings" [ref=e824] [cursor=pointer]:
+                        - /url: options-general.php?page=nginx_cache_settings
+                        - generic [ref=e825]: 
+                        - text: Configure Settings
+                - generic [ref=e826]:
+                  - generic [ref=e827]:
+                    - heading "Fluent SMTP" [level=2] [ref=e828]
+                    - generic [ref=e829]:
+                      - button "Nach oben" [ref=e830] [cursor=pointer]:
+                        - generic [ref=e831]: Nach oben
+                      - button "Nach unten" [ref=e833] [cursor=pointer]:
+                        - generic [ref=e834]: Nach unten
+                      - 'button "Bedienfeld umschalten: Fluent SMTP" [expanded] [ref=e836] [cursor=pointer]':
+                        - generic [ref=e837]: "Bedienfeld umschalten: Fluent SMTP"
+                  - generic [ref=e840]:
+                    - table [ref=e841]:
+                      - rowgroup [ref=e842]:
+                        - row "Datum Gesendet Fehlgeschlagen" [ref=e843]:
+                          - columnheader "Datum" [ref=e844]
+                          - columnheader "Gesendet" [ref=e845]
+                          - columnheader "Fehlgeschlagen" [ref=e846]
+                      - rowgroup [ref=e847]:
+                        - row "Heute 5 0" [ref=e848]:
+                          - cell "Heute" [ref=e849]
+                          - cell "5" [ref=e850]
+                          - cell "0" [ref=e851]
+                        - row "Letzte 7 Tage 2460 0" [ref=e852]:
+                          - cell "Letzte 7 Tage" [ref=e853]
+                          - cell "2460" [ref=e854]
+                          - cell "0" [ref=e855]
+                        - row "Alle 2467 0" [ref=e856]:
+                          - cell "Alle" [ref=e857]
+                          - cell "2467" [ref=e858]
+                          - cell "0" [ref=e859]
+                    - link "Alle anzeigen" [ref=e860] [cursor=pointer]:
+                      - /url: https://kita-seminar-manufaktur.de/wp-admin/options-general.php?page=fluent-mail#/
+              - generic [ref=e862]:
+                - generic [ref=e863]:
+                  - generic [ref=e864]:
+                    - heading "Schneller Entwurf" [level=2] [ref=e865]:
+                      - generic [ref=e866]: Schneller Entwurf
+                    - generic [ref=e867]:
+                      - button "Nach oben" [ref=e868] [cursor=pointer]:
+                        - generic [ref=e869]: Nach oben
+                      - button "Nach unten" [ref=e871] [cursor=pointer]:
+                        - generic [ref=e872]: Nach unten
+                      - 'button "Bedienfeld umschalten: Schneller Entwurf" [expanded] [ref=e874] [cursor=pointer]':
+                        - generic [ref=e875]:
+                          - text: "Bedienfeld umschalten:"
+                          - generic [ref=e876]: Schneller Entwurf
+                  - generic [ref=e879]:
+                    - generic [ref=e880]:
+                      - generic [ref=e881]: Titel
+                      - textbox "Titel" [ref=e882]
+                    - generic [ref=e883]:
+                      - generic [ref=e884]: Inhalt
+                      - textbox "Inhalt" [ref=e885]:
+                        - /placeholder: Was beschäftigt dich?
+                    - paragraph [ref=e886]:
+                      - button "Entwurf speichern" [ref=e887] [cursor=pointer]
+                - generic [ref=e888]:
+                  - generic [ref=e889]:
+                    - heading "WordPress-Veranstaltungen und Neuigkeiten" [level=2] [ref=e890]
+                    - generic [ref=e891]:
+                      - button "Nach oben" [ref=e892] [cursor=pointer]:
+                        - generic [ref=e893]: Nach oben
+                      - button "Nach unten" [ref=e895] [cursor=pointer]:
+                        - generic [ref=e896]: Nach unten
+                      - 'button "Bedienfeld umschalten: WordPress-Veranstaltungen und Neuigkeiten" [expanded] [ref=e898] [cursor=pointer]':
+                        - generic [ref=e899]: "Bedienfeld umschalten: WordPress-Veranstaltungen und Neuigkeiten"
+                  - generic [ref=e901]:
+                    - generic [ref=e902]:
+                      - paragraph [ref=e904]:
+                        - text: Besuche eine bevorstehende Veranstaltung in deiner Nähe.
+                        - button "Eine Stadt auswählen" [ref=e905] [cursor=pointer]:
+                          - generic [ref=e906]: 
+                          - text: Eine Stadt auswählen
+                      - list [ref=e907]:
+                        - listitem [ref=e908]:
+                          - generic [ref=e911]:
+                            - link "WordCamp Leipzig 2026" [ref=e912] [cursor=pointer]:
+                              - /url: https://leipzig.wordcamp.org/2026/
+                            - text: WordCamp
+                            - text: Leipzig, Germany
+                          - generic [ref=e915]: Samstag, 9. Mai 2026
+                        - listitem [ref=e916]:
+                          - generic [ref=e919]:
+                            - 'link "WPDUS #99 – WordPress Meetup Düsseldorf – Merke dir den Termin vor!" [ref=e920] [cursor=pointer]':
+                              - /url: https://www.meetup.com/dusseldorf-wordpress-meetup/events/313033730/
+                            - text: Meetup
+                            - text: Düsseldorf, Germany
+                          - generic [ref=e922]:
+                            - generic [ref=e923]: Dienstag, 12. Mai 2026
+                            - generic [ref=e924]: 6:30 p.m. UTC+2
+                        - listitem [ref=e925]:
+                          - generic [ref=e928]:
+                            - 'link "WPDUS #100 – WordPress Meetup Düsseldorf – Merke dir den Termin vor!" [ref=e929] [cursor=pointer]':
+                              - /url: https://www.meetup.com/dusseldorf-wordpress-meetup/events/313033732/
+                            - text: Meetup
+                            - text: Düsseldorf, Germany
+                          - generic [ref=e931]:
+                            - generic [ref=e932]: Dienstag, 9. Juni 2026
+                            - generic [ref=e933]: 6:30 p.m. UTC+2
+                    - generic [ref=e934]:
+                      - list [ref=e936]:
+                        - listitem [ref=e937]:
+                          - link "WordPress 6.9.4" [ref=e938] [cursor=pointer]:
+                            - /url: https://de.wordpress.org/2026/03/wordpress-6-9-4/
+                        - listitem [ref=e939]:
+                          - link "WordPress 6.9.3" [ref=e940] [cursor=pointer]:
+                            - /url: https://de.wordpress.org/2026/03/wordpress-6-9-3/
+                      - list [ref=e942]:
+                        - listitem [ref=e943]:
+                          - 'link "WordPress: Alte Artikel per Bulk auf noindex setzen" [ref=e944] [cursor=pointer]':
+                            - /url: https://www.perun.net/2026/04/20/wordpress-alte-artikel-per-bulk-auf-noindex-setzen/
+                        - listitem [ref=e945]:
+                          - 'link "WordPress News #463 / Eine Axt, WCEU-Programm und der Tod" [ref=e946] [cursor=pointer]':
+                            - /url: https://feed.kraut.press/link/14399/17322110/463
+                        - listitem [ref=e947]:
+                          - 'link "Block Themes: Abstand zwischen Header und Content" [ref=e948] [cursor=pointer]':
+                            - /url: https://haurand.com/block-themes-abstand-zwischen-header-und-content/
+                    - paragraph [ref=e949]:
+                      - link "Meetups (öffnet in neuem Tab)" [ref=e950] [cursor=pointer]:
+                        - /url: https://make.wordpress.org/community/meetups-landing-page
+                        - text: Meetups
+                        - generic [ref=e951]: (öffnet in neuem Tab)
+                        - generic [ref=e952]: 
+                      - text: "|"
+                      - link "WordCamps (öffnet in neuem Tab)" [ref=e953] [cursor=pointer]:
+                        - /url: https://central.wordcamp.org/schedule/
+                        - text: WordCamps
+                        - generic [ref=e954]: (öffnet in neuem Tab)
+                        - generic [ref=e955]: 
+                      - text: "|"
+                      - link "News (öffnet in neuem Tab)" [ref=e956] [cursor=pointer]:
+                        - /url: https://de.wordpress.org/news/
+                        - text: News
+                        - generic [ref=e957]: (öffnet in neuem Tab)
+                        - generic [ref=e958]: 
+    - contentinfo [ref=e959]:
+      - paragraph [ref=e960]:
+        - generic [ref=e962]:
+          - text: Danke für dein Vertrauen in
+          - link "WordPress" [ref=e963] [cursor=pointer]:
+            - /url: https://de.wordpress.org/
+          - text: .
+      - paragraph [ref=e964]: Version 6.9.4
+  - img
+  - generic [ref=e968]:
+    - heading "Object Cache Pro" [level=3] [ref=e969]
+    - paragraph [ref=e970]:
+      - text: You can now access Object Cache Pro more easily. Open
+      - link "Settings > Object Cache" [ref=e971] [cursor=pointer]:
+        - /url: https://kita-seminar-manufaktur.de/wp-admin/options-general.php?page=objectcache
+      - text: to see cache analytics and configure the various features included in the plugin.
+    - link "Verwerfen" [ref=e973] [cursor=pointer]:
+      - /url: "#"
+  - generic [ref=e977]:
+    - heading "The Editor has a new home" [level=3] [ref=e978]
+    - paragraph [ref=e979]:
+      - text: Editor tools are now grouped together for quick access. Build and grow your site with everything you need in one place.
+      - link "Mehr erfahren" [ref=e980] [cursor=pointer]:
+        - /url: https://go.elementor.com/wp-dash-editor-one-learn-more/
+    - paragraph [ref=e981]:
+      - button "Verstanden" [ref=e982] [cursor=pointer]
+    - link "Verwerfen" [ref=e984] [cursor=pointer]:
+      - /url: "#"

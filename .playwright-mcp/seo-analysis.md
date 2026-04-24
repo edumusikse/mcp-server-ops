@@ -1,0 +1,1147 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - navigation "Hauptmenü":
+      - link "Zum Hauptinhalt springen" [ref=e3] [cursor=pointer]:
+        - /url: "#wpbody-content"
+      - link "Zur Werkzeugleiste springen" [ref=e4] [cursor=pointer]:
+        - /url: "#wp-toolbar"
+      - list [ref=e7]:
+        - listitem [ref=e8]:
+          - link "Dashboard" [ref=e9] [cursor=pointer]:
+            - /url: index.php
+            - generic [ref=e10]: 
+            - generic [ref=e11]: Dashboard
+        - listitem [ref=e12]:
+          - link "Blog" [ref=e13] [cursor=pointer]:
+            - /url: admin.php?page=ksm-blog-menu
+            - generic [ref=e14]: 
+            - generic [ref=e15]: Blog
+          - list [ref=e16]:
+            - listitem [ref=e17]:
+              - link "Blog" [ref=e18] [cursor=pointer]:
+                - /url: admin.php?page=ksm-blog-menu
+            - listitem [ref=e19]:
+              - link "Alle Beiträge" [ref=e20] [cursor=pointer]:
+                - /url: admin.php?page=ksm-blog-list
+            - listitem [ref=e21]:
+              - link "Neuer Beitrag" [ref=e22] [cursor=pointer]:
+                - /url: admin.php?page=ksm-blog-add
+            - listitem [ref=e23]:
+              - link "Kategorien" [ref=e24] [cursor=pointer]:
+                - /url: edit-tags.php?taxonomy=category
+        - listitem [ref=e25]:
+          - link "Produkte" [ref=e26] [cursor=pointer]:
+            - /url: edit.php?post_type=product
+            - generic [ref=e27]: 
+            - generic [ref=e28]: Produkte
+          - list [ref=e29]:
+            - listitem [ref=e30]:
+              - link "Alle Produkte" [ref=e31] [cursor=pointer]:
+                - /url: edit.php?post_type=product
+            - listitem [ref=e32]:
+              - link "Neues Produkt hinzufügen" [ref=e33] [cursor=pointer]:
+                - /url: post-new.php?post_type=product
+        - listitem [ref=e34]:
+          - link "Dozenten" [ref=e35] [cursor=pointer]:
+            - /url: admin.php?page=ksm-dozenten-list
+            - generic [ref=e36]: 
+            - generic [ref=e37]: Dozenten
+          - list [ref=e38]:
+            - listitem [ref=e39]:
+              - link "Alle Dozenten" [ref=e40] [cursor=pointer]:
+                - /url: admin.php?page=ksm-dozenten-list
+            - listitem [ref=e41]:
+              - link "Dozenten hinzufügen" [ref=e42] [cursor=pointer]:
+                - /url: admin.php?page=ksm-dozent-add
+        - listitem [ref=e43]:
+          - link "Newsletter" [ref=e44] [cursor=pointer]:
+            - /url: admin.php?page=fluentcrm-admin
+            - generic [ref=e46]: Newsletter
+          - list [ref=e47]:
+            - listitem [ref=e48]:
+              - link "Dashboard" [ref=e49] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin
+            - listitem [ref=e50]:
+              - link "Kontakte" [ref=e51] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/subscribers
+            - listitem [ref=e52]:
+              - link "Companies" [ref=e53] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/contact-groups/companies
+            - listitem [ref=e54]:
+              - link "Listen" [ref=e55] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/contact-groups/lists
+            - listitem [ref=e56]:
+              - link "Kampagnen" [ref=e57] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/email/campaigns
+            - listitem [ref=e58]:
+              - link "E-Mail-Sequenzen" [ref=e59] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/email/sequences
+            - listitem [ref=e60]:
+              - link "E-Mail-Vorlagen" [ref=e61] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/email/templates
+            - listitem [ref=e62]:
+              - link "Formulare" [ref=e63] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/forms
+        - listitem [ref=e64]:
+          - link "FooEvents" [ref=e65] [cursor=pointer]:
+            - /url: edit.php?post_type=event_magic_tickets
+            - generic [ref=e66]: 
+            - generic [ref=e67]: FooEvents
+          - list [ref=e68]:
+            - listitem [ref=e69]:
+              - link "Tickets" [ref=e70] [cursor=pointer]:
+                - /url: edit.php?post_type=event_magic_tickets
+            - listitem [ref=e71]:
+              - link "Erste Schritte" [ref=e72] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-introduction
+            - listitem [ref=e73]:
+              - link "Check-ins importieren" [ref=e74] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-checkins-import
+            - listitem [ref=e75]:
+              - link "Tickets importieren" [ref=e76] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-import-tickets
+            - listitem [ref=e77]:
+              - link "Ticket-Themen" [ref=e78] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-ticket-themes
+            - listitem [ref=e79]:
+              - link "Berichte" [ref=e80] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-reports
+        - listitem [ref=e81]:
+          - link "Boards" [ref=e82] [cursor=pointer]:
+            - /url: admin.php?page=fluent-boards
+            - generic [ref=e84]: Boards
+          - list [ref=e85]:
+            - listitem [ref=e86]:
+              - link "Dashboard" [ref=e87] [cursor=pointer]:
+                - /url: admin.php?page=fluent-boards
+            - listitem [ref=e88]:
+              - link "Boards" [ref=e89] [cursor=pointer]:
+                - /url: admin.php?page=fluent-boards#/boards
+            - listitem [ref=e90]:
+              - link "Berichte" [ref=e91] [cursor=pointer]:
+                - /url: admin.php?page=fluent-boards#/reports
+            - listitem [ref=e92]:
+              - link "Einstellungen" [ref=e93] [cursor=pointer]:
+                - /url: admin.php?page=fluent-boards#/settings/members-role
+        - listitem [ref=e94]:
+          - link "Elementor" [ref=e95] [cursor=pointer]:
+            - /url: admin.php?page=elementor-home
+            - generic [ref=e97]: Elementor
+          - list [ref=e98]:
+            - listitem [ref=e99]:
+              - link "Home" [ref=e100] [cursor=pointer]:
+                - /url: admin.php?page=elementor-home
+            - listitem [ref=e101]:
+              - link "Editor" [ref=e102] [cursor=pointer]:
+                - /url: admin.php?page=elementor
+            - listitem [ref=e103]:
+              - link "Theme-Builder" [ref=e104] [cursor=pointer]:
+                - /url: https://kita-seminar-manufaktur.de/wp-admin/admin.php?page=elementor-app&ver=4.0.3&return_to=/wp-admin/admin.php?page=rank-math-seo-analysis&view=seo_analyzer#/site-editor
+        - listitem [ref=e105]:
+          - link "Traffic Analytics" [ref=e106] [cursor=pointer]:
+            - /url: admin.php?page=traffic-analytics
+            - generic [ref=e107]: 
+            - generic [ref=e108]: Traffic Analytics
+        - listitem [ref=e109]:
+          - link "Forms" [ref=e110] [cursor=pointer]:
+            - /url: admin.php?page=fluent_forms
+            - generic [ref=e112]: Forms
+          - list [ref=e113]:
+            - listitem [ref=e114]:
+              - link "Formulare" [ref=e115] [cursor=pointer]:
+                - /url: admin.php?page=fluent_forms
+            - listitem [ref=e116]:
+              - link "Neues Formular" [ref=e117] [cursor=pointer]:
+                - /url: admin.php?page=fluent_forms#add=1
+            - listitem [ref=e118]:
+              - link "Einträge" [ref=e119] [cursor=pointer]:
+                - /url: admin.php?page=fluent_forms_all_entries
+            - listitem [ref=e120]:
+              - link "Werkzeuge" [ref=e121] [cursor=pointer]:
+                - /url: admin.php?page=fluent_forms_transfer
+        - listitem [ref=e122]:
+          - link "Medien" [ref=e123] [cursor=pointer]:
+            - /url: upload.php
+            - generic [ref=e124]: 
+            - generic [ref=e125]: Medien
+          - list [ref=e126]:
+            - listitem [ref=e127]:
+              - link "Mediathek" [ref=e128] [cursor=pointer]:
+                - /url: upload.php
+            - listitem [ref=e129]:
+              - link "Mediendatei hinzufügen" [ref=e130] [cursor=pointer]:
+                - /url: media-new.php
+            - listitem [ref=e131]:
+              - link "Massenoptimierung" [ref=e132] [cursor=pointer]:
+                - /url: upload.php?page=ewww-image-optimizer-bulk
+        - listitem [ref=e133]:
+          - link "Databases" [ref=e134] [cursor=pointer]:
+            - /url: /wp-admin/edit-tags.php?taxonomy=zielgruppe
+            - generic [ref=e135]: 
+            - generic [ref=e136]: Databases
+          - list [ref=e137]:
+            - listitem [ref=e138]:
+              - link " Zielgruppe" [ref=e139] [cursor=pointer]:
+                - /url: /wp-admin/edit-tags.php?taxonomy=zielgruppe
+                - generic [ref=e141]: 
+                - text: Zielgruppe
+            - listitem [ref=e142]:
+              - link " Seminartyp" [ref=e143] [cursor=pointer]:
+                - /url: /wp-admin/edit-tags.php?taxonomy=seminar-type
+                - generic [ref=e145]: 
+                - text: Seminartyp
+        - listitem [ref=e146]:
+          - link "Benutzer" [ref=e147] [cursor=pointer]:
+            - /url: users.php
+            - generic [ref=e148]: 
+            - generic [ref=e149]: Benutzer
+          - list [ref=e150]:
+            - listitem [ref=e151]:
+              - link "Alle Benutzer" [ref=e152] [cursor=pointer]:
+                - /url: users.php
+            - listitem [ref=e153]:
+              - link "Benutzer hinzufügen" [ref=e154] [cursor=pointer]:
+                - /url: user-new.php
+            - listitem [ref=e155]:
+              - link "Profil" [ref=e156] [cursor=pointer]:
+                - /url: profile.php
+        - listitem [ref=e157]:
+          - link "Seiten" [ref=e158] [cursor=pointer]:
+            - /url: edit.php?post_type=page
+            - generic [ref=e159]: 
+            - generic [ref=e160]: Seiten
+          - list [ref=e161]:
+            - listitem [ref=e162]:
+              - link "Alle Seiten" [ref=e163] [cursor=pointer]:
+                - /url: edit.php?post_type=page
+            - listitem [ref=e164]:
+              - link "Seite hinzufügen" [ref=e165] [cursor=pointer]:
+                - /url: post-new.php?post_type=page
+        - text: 
+        - listitem [ref=e166]:
+          - link "Design" [ref=e167] [cursor=pointer]:
+            - /url: customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Drank-math-seo-analysis%26view%3Dseo_analyzer
+            - generic [ref=e168]: 
+            - generic [ref=e169]: Design
+          - list [ref=e170]:
+            - listitem [ref=e171]:
+              - link "Customizer" [ref=e172] [cursor=pointer]:
+                - /url: customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Drank-math-seo-analysis%26view%3Dseo_analyzer
+            - listitem [ref=e173]:
+              - link "Menüs" [ref=e174] [cursor=pointer]:
+                - /url: nav-menus.php
+        - listitem [ref=e175]:
+          - link "Plugins" [ref=e176] [cursor=pointer]:
+            - /url: plugins.php
+            - generic [ref=e177]: 
+            - generic [ref=e178]: Plugins
+          - list [ref=e179]:
+            - listitem [ref=e180]:
+              - link "Installierte Plugins" [ref=e181] [cursor=pointer]:
+                - /url: plugins.php
+            - listitem [ref=e182]:
+              - link "Plugin hinzufügen" [ref=e183] [cursor=pointer]:
+                - /url: plugin-install.php
+        - text: 
+        - listitem [ref=e184]:
+          - link "Einstellungen" [ref=e185] [cursor=pointer]:
+            - /url: admin.php?page=duplicate_page_settings
+            - generic [ref=e186]: 
+            - generic [ref=e187]: Einstellungen
+          - list [ref=e188]:
+            - listitem [ref=e189]:
+              - link "Duplicate Page" [ref=e190] [cursor=pointer]:
+                - /url: options-general.php?page=duplicate_page_settings
+            - listitem [ref=e191]:
+              - link "KI-Sichtbarkeit" [ref=e192] [cursor=pointer]:
+                - /url: options-general.php?page=ksm-ai-visibility
+            - listitem [ref=e193]:
+              - link "Two-Factor" [ref=e194] [cursor=pointer]:
+                - /url: options-general.php?page=two-factor-settings
+            - listitem [ref=e195]:
+              - link "EWWW Image Optimizer" [ref=e196] [cursor=pointer]:
+                - /url: options-general.php?page=ewww-image-optimizer-options
+            - listitem [ref=e197]:
+              - link "Object Cache" [ref=e198] [cursor=pointer]:
+                - /url: options-general.php?page=objectcache
+            - listitem [ref=e199]:
+              - link "Perfmatters" [ref=e200] [cursor=pointer]:
+                - /url: options-general.php?page=perfmatters
+            - listitem [ref=e201]:
+              - link "Security" [ref=e202] [cursor=pointer]:
+                - /url: options-general.php?page=patchstack
+        - listitem [ref=e203]:
+          - link "Rank Math SEO" [ref=e204] [cursor=pointer]:
+            - /url: admin.php?page=rank-math
+            - generic [ref=e206]: Rank Math SEO
+          - list [ref=e207]:
+            - listitem [ref=e208]:
+              - link "Dashboard" [ref=e209] [cursor=pointer]:
+                - /url: admin.php?page=rank-math
+            - listitem [ref=e210]:
+              - link "Allgemeine Einstellungen" [ref=e211] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-options-general
+            - listitem [ref=e212]:
+              - link "Titel & Meta" [ref=e213] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-options-titles
+            - listitem [ref=e214]:
+              - link "Sitemap-Einstellungen" [ref=e215] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-options-sitemap
+            - listitem [ref=e216]:
+              - link "Schema-Templates" [ref=e217] [cursor=pointer]:
+                - /url: edit.php?post_type=rank_math_schema
+            - listitem [ref=e218]:
+              - link "Sofortige Indexierung" [ref=e219] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-options-instant-indexing
+            - listitem [ref=e220]:
+              - link "Rollenverwaltung" [ref=e221] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-role-manager
+            - listitem [ref=e222]:
+              - link "SEO-Analysator" [ref=e223] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-seo-analysis
+            - listitem [ref=e224]:
+              - link "Status & Werkzeuge" [ref=e225] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-status
+        - listitem [ref=e226]:
+          - link "Statistiken" [ref=e227] [cursor=pointer]:
+            - /url: admin.php?page=wc-admin&path=/analytics/overview
+            - generic [ref=e228]: 
+            - generic [ref=e229]: Statistiken
+          - list [ref=e230]:
+            - listitem [ref=e231]:
+              - link "Übersicht" [ref=e232] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/overview
+            - listitem [ref=e233]:
+              - link "Produkte" [ref=e234] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/products
+            - listitem [ref=e235]:
+              - link "Umsatz" [ref=e236] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/revenue
+            - listitem [ref=e237]:
+              - link "Bestellungen" [ref=e238] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/orders
+            - listitem [ref=e239]:
+              - link "Varianten" [ref=e240] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/variations
+            - listitem [ref=e241]:
+              - link "Kategorien" [ref=e242] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/categories
+            - listitem [ref=e243]:
+              - link "Gutscheine" [ref=e244] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/coupons
+            - listitem [ref=e245]:
+              - link "Steuern" [ref=e246] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/taxes
+            - listitem [ref=e247]:
+              - link "Downloads" [ref=e248] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/downloads
+            - listitem [ref=e249]:
+              - link "Bestand" [ref=e250] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/stock
+            - listitem [ref=e251]:
+              - link "Einstellungen" [ref=e252] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/settings
+        - listitem [ref=e253]:
+          - link "Optionsseiten" [ref=e254] [cursor=pointer]:
+            - /url: edit.php?post_type=acf-ui-options-page
+            - generic [ref=e255]: 
+            - generic [ref=e256]: Optionsseiten
+        - listitem [ref=e257]:
+          - link "Aktualisierungen" [ref=e258] [cursor=pointer]:
+            - /url: edit.php?post_type=acf-field-group&page=acf-settings-updates
+            - generic [ref=e259]: 
+            - generic [ref=e260]: Aktualisierungen
+        - listitem [ref=e261]:
+          - link "Wordfence" [ref=e262] [cursor=pointer]:
+            - /url: admin.php?page=Wordfence
+            - generic [ref=e264]: Wordfence
+          - list [ref=e265]:
+            - listitem [ref=e266]:
+              - link "Dashboard" [ref=e267] [cursor=pointer]:
+                - /url: admin.php?page=Wordfence
+            - listitem [ref=e268]:
+              - link "Firewall" [ref=e269] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceWAF
+            - listitem [ref=e270]:
+              - link "Scan" [ref=e271] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceScan
+            - listitem [ref=e272]:
+              - link "Tools" [ref=e273] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceTools
+            - listitem [ref=e274]:
+              - link "Audit Log" [ref=e275] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceAuditLog
+            - listitem [ref=e276]:
+              - link "Login Security" [ref=e277] [cursor=pointer]:
+                - /url: admin.php?page=WFLS
+            - listitem [ref=e278]:
+              - link "All Options" [ref=e279] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceOptions
+        - listitem [ref=e280]:
+          - button "Hauptmenü reduzieren" [expanded] [ref=e281] [cursor=pointer]:
+            - generic [ref=e283]: Menü reduzieren
+    - generic [ref=e284]:
+      - generic [ref=e285]:
+        - navigation "Werkzeugleiste":
+          - menu:
+            - group [ref=e286]:
+              - menuitem "Über WordPress" [ref=e287] [cursor=pointer]:
+                - generic [ref=e289]: Über WordPress
+            - group [ref=e290]:
+              - menuitem "Kita Seminar Manufaktur" [ref=e291] [cursor=pointer]
+            - group [ref=e292]:
+              - menuitem "Neu" [ref=e293] [cursor=pointer]:
+                - generic [ref=e295]: Neu
+            - group [ref=e296]:
+              - menuitem "Rank Math SEO" [ref=e297] [cursor=pointer]:
+                - img [ref=e299]
+                - text: Rank Math SEO
+            - group [ref=e303]:
+              - menuitem "Nginx Cache" [ref=e304] [cursor=pointer]:
+                - img [ref=e305]
+                - text: Nginx Cache
+            - group [ref=e306]:
+              - menuitem "Perfmatters" [ref=e307] [cursor=pointer]
+          - menu [ref=e308]:
+            - group [ref=e309]:
+              - menuitem "Kontakte durchsuchen" [ref=e310] [cursor=pointer]
+            - group [ref=e311]:
+              - menuitem "Willkommen, Claude Ops" [ref=e312] [cursor=pointer]
+      - main [ref=e313]:
+        - generic [ref=e315]:
+          - generic [ref=e316]:
+            - link "" [ref=e318] [cursor=pointer]:
+              - /url: https://kita-seminar-manufaktur.de/wp-admin/admin.php?page=rank-math
+              - generic [ref=e319]: 
+            - heading "Rank Math SEObusiness" [level=1] [ref=e320]:
+              - text: Rank Math SEO
+              - generic [ref=e321]: business
+            - link "" [ref=e322] [cursor=pointer]:
+              - /url: https://rankmath.com/kb/seo-analysis/?utm_source=Plugin&utm_medium=Admin%20Bar%20Seo%20Analysis&utm_campaign=WP
+              - generic [ref=e323]: 
+          - generic [ref=e325]: Dashboard/SEO Analyzer
+          - generic [ref=e327]:
+            - tablist [ref=e328]:
+              - tab " SEO Analyzer" [selected] [ref=e329] [cursor=pointer]:
+                - generic [ref=e330]: 
+                - text: SEO Analyzer
+              - text: 
+              - tab " Competitor Analyzer" [ref=e331] [cursor=pointer]:
+                - generic [ref=e332]: 
+                - text: Competitor Analyzer
+            - tabpanel " SEO Analyzer" [ref=e333]:
+              - generic [ref=e334]:
+                - generic [ref=e335]:
+                  - heading "SEO Analysis for kita-seminar-manufaktur.de" [level=2] [ref=e336]:
+                    - generic [ref=e337]: SEO Analysis for
+                    - generic [ref=e338]: kita-seminar-manufaktur.de
+                  - generic [ref=e339]:
+                    - button "Restart SEO Analyzer " [ref=e340] [cursor=pointer]:
+                      - text: Restart SEO Analyzer
+                      - generic [ref=e341]: 
+                    - generic [ref=e342]:
+                      - generic:
+                        - img "Rank Math Logo"
+                      - button " Print" [ref=e343] [cursor=pointer]:
+                        - generic [ref=e344]: 
+                        - text: Print
+                      - link "View Issues" [ref=e345] [cursor=pointer]:
+                        - /url: "#analysis-result"
+                - generic [ref=e347]:
+                  - generic [ref=e348]:
+                    - generic [ref=e349]: "Last checked: April 24, 2026 at 4:05 p.m."
+                    - generic [ref=e350]:
+                      - generic [ref=e352]:
+                        - img [ref=e353]
+                        - generic [ref=e356]:
+                          - strong [ref=e357]: 78/100
+                          - generic [ref=e358]: SEO Score
+                      - list [ref=e360]:
+                        - listitem [ref=e361]:
+                          - generic [ref=e362]:
+                            - generic [ref=e363]: Passed Tests
+                            - strong [ref=e364]: 23/34
+                        - listitem [ref=e367]:
+                          - generic [ref=e368]:
+                            - generic [ref=e369]: Warnings
+                            - strong [ref=e370]: 3/34
+                        - listitem [ref=e373]:
+                          - generic [ref=e374]:
+                            - generic [ref=e375]: Failed Tests
+                            - strong [ref=e376]: 8/34
+                      - generic [ref=e380]:
+                        - generic [ref=e381]:
+                          - img "favicon" [ref=e382]
+                          - text: https://kita-seminar-manufaktur.de
+                        - heading "Home - Kita Seminar Manufaktur" [level=5] [ref=e383]
+                        - paragraph [ref=e384]: Handgemacht. Für Menschen, die Zukunft gestalten.
+                  - generic [ref=e386]:
+                    - tablist [ref=e387]:
+                      - tab "All 34" [selected] [ref=e388] [cursor=pointer]:
+                        - text: All
+                        - generic: "34"
+                      - tab "Passed Tests 23" [ref=e389] [cursor=pointer]:
+                        - text: Passed Tests
+                        - generic: "23"
+                      - tab "Warnings 3" [ref=e390] [cursor=pointer]:
+                        - text: Warnings
+                        - generic: "3"
+                      - tab "Failed Tests 8" [ref=e391] [cursor=pointer]:
+                        - text: Failed Tests
+                        - generic: "8"
+                    - tabpanel "All 34" [ref=e392]:
+                      - generic [ref=e393]:
+                        - generic [ref=e394]: Priority
+                        - generic [ref=e395]:
+                          - generic [ref=e396]:
+                            - generic "Warning" [ref=e397]: "!"
+                            - heading "Automatic Updates " [level=3] [ref=e398]:
+                              - text: Automatic Updates
+                              - link "" [ref=e400] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/?#priority
+                                - emphasis [ref=e401]: 
+                          - generic [ref=e405]:
+                            - text: Automatic updates are not enabled on your site.
+                            - link "Enable Auto Updates" [ref=e406] [cursor=pointer]:
+                              - /url: "#"
+                      - generic [ref=e407]:
+                        - generic [ref=e408]: Basic SEO
+                        - generic [ref=e409]:
+                          - generic [ref=e410]:
+                            - generic "Info" [ref=e411]: i
+                            - heading "Common Keywords " [level=3] [ref=e412]:
+                              - text: Common Keywords
+                              - link "" [ref=e414] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#common-keywords-test
+                                - emphasis [ref=e415]: 
+                          - generic [ref=e417]:
+                            - generic [ref=e418]: "Here are the most common keywords we found on the page:"
+                            - generic [ref=e419]:
+                              - generic [ref=e420]: kita
+                              - generic [ref=e421]: kinder
+                              - generic [ref=e422]: arbeit
+                              - generic [ref=e423]: begleiten
+                              - generic [ref=e424]: führen
+                              - generic [ref=e425]: kindern
+                              - generic [ref=e426]: mehr
+                              - generic [ref=e427]: fachkraft
+                              - generic [ref=e428]: gestalten
+                              - generic [ref=e429]: holstein
+                        - generic [ref=e430]:
+                          - generic [ref=e431]:
+                            - generic "Passed" [ref=e432]: 
+                            - heading "SEO Description " [level=3] [ref=e433]:
+                              - text: SEO Description
+                              - link "" [ref=e435] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#seo-description-test
+                                - emphasis [ref=e436]: 
+                          - generic [ref=e438]:
+                            - generic [ref=e439]: The meta description is 49 characters long, which is good.
+                            - code [ref=e440]: Handgemacht. Für Menschen, die Zukunft gestalten.
+                        - generic [ref=e441]:
+                          - generic [ref=e442]:
+                            - generic "Failed" [ref=e443]: 
+                            - heading "H1 Heading " [level=3] [ref=e444]:
+                              - text: H1 Heading
+                              - link "" [ref=e446] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#h1-heading-test
+                                - emphasis [ref=e447]: 
+                          - generic [ref=e449]:
+                            - button "How to fix" [ref=e450] [cursor=pointer]
+                            - generic [ref=e451]: No H1 tag was found. For the best SEO results there should be exactly one H1 tag on each page.
+                        - generic [ref=e452]:
+                          - generic [ref=e453]:
+                            - generic "Passed" [ref=e454]: 
+                            - heading "H2 Headings " [level=3] [ref=e455]:
+                              - text: H2 Headings
+                              - link "" [ref=e457] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#h2-headings-test
+                                - emphasis [ref=e458]: 
+                          - generic [ref=e460]:
+                            - generic [ref=e461]: One or more H2 tags were found on the page.
+                            - list [ref=e462]:
+                              - listitem [ref=e463]: Kita Seminar Manufaktur
+                              - listitem [ref=e464]: Studientag
+                              - listitem [ref=e465]: Online Seminare
+                              - listitem [ref=e466]: Supervision
+                              - listitem [ref=e467]: Langzeit Fortbildungen
+                              - listitem [ref=e468]: Anfrage für euren Studientag in der Kita
+                              - listitem [ref=e469]: "Anfrage für Supervision, Coaching oder Moderation: Wir begleiten euch"
+                        - generic [ref=e470]:
+                          - generic [ref=e471]:
+                            - generic "Failed" [ref=e472]: 
+                            - heading "Image ALT Attributes " [level=3] [ref=e473]:
+                              - text: Image ALT Attributes
+                              - link "" [ref=e475] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#image-alt-attributes-test
+                                - emphasis [ref=e476]: 
+                          - generic [ref=e478]:
+                            - button "How to fix" [ref=e479] [cursor=pointer]
+                            - generic [ref=e480]:
+                              - text: Some images on the page have no
+                              - code [ref=e481]: alt
+                              - text: attribute. (2)
+                            - list [ref=e482]:
+                              - listitem [ref=e483]: "&lt;img fetchpriority=&quot;high&quot; width=&quot;400&quot; height=&quot;150&quot; src=&quot;https://kita-seminar-manufaktur.de/wp-content/uploads/2025/10/kita-logo-2025-text.png&quot; class=&quot;attachment-full size-full wp-image-105&quot; alt=&quot;&quot; srcset=&quot;https://kita-seminar-manufaktur.de/wp-content/uploads/2025/10/kita-logo-2025-text.png 400w, https://kita-seminar-manufaktur.de/wp-content/uploads/2025/10/kita-logo-2025-text-300x113.png 300w&quot; sizes=&quot;(max-width: 400px) 100vw, 400px&quot; data-eio=&quot;l&quot;&gt;"
+                              - listitem [ref=e484]: "&lt;img decoding=&quot;async&quot; width=&quot;800&quot; height=&quot;534&quot; src=&quot;https://kita-seminar-manufaktur.de/wp-content/uploads/2026/01/home-1024x683.png&quot; class=&quot;attachment-large size-large wp-image-81573&quot; alt=&quot;&quot; srcset=&quot;https://kita-seminar-manufaktur.de/wp-content/uploads/2026/01/home-1024x683.png 1024w, https://kita-seminar-manufaktur.de/wp-content/uploads/2026/01/home-300x200.png 300w, https://kita-seminar-manufaktur.de/wp-content/uploads/2026/01/home-768x512.png 768w, https://kita-seminar-manufaktur.de/wp-content/uploads/2026/01/home-600x400.png 600w, https://kita-seminar-manufaktur.de/wp-content/uploads/2026/01/home.png 1536w&quot; sizes=&quot;(max-width: 800px) 100vw, 800px&quot; data-eio=&quot;l&quot;&gt;"
+                        - generic [ref=e485]:
+                          - generic [ref=e486]:
+                            - generic "Passed" [ref=e487]: 
+                            - heading "Keywords in Title & Description " [level=3] [ref=e488]:
+                              - text: Keywords in Title & Description
+                              - link "" [ref=e490] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#keywords-in-title-and-description-test
+                                - emphasis [ref=e491]: 
+                          - generic [ref=e493]:
+                            - generic [ref=e494]: One or more common keywords were found in the title and description of the page.
+                            - list [ref=e495]:
+                              - listitem [ref=e496]:
+                                - strong [ref=e497]: "title:"
+                                - text: kita
+                              - listitem [ref=e498]:
+                                - strong [ref=e499]: "description:"
+                                - text: gestalten
+                        - generic [ref=e500]:
+                          - generic [ref=e501]:
+                            - generic "Passed" [ref=e502]: 
+                            - heading "Links Ratio " [level=3] [ref=e503]:
+                              - text: Links Ratio
+                              - link "" [ref=e505] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#link-ratio-test
+                                - emphasis [ref=e506]: 
+                          - generic [ref=e508]:
+                            - generic [ref=e509]: The page has a correct number of internal and external links.
+                            - list [ref=e510]:
+                              - listitem [ref=e511]:
+                                - strong [ref=e512]: "internal:"
+                                - text: "16"
+                              - listitem [ref=e513]:
+                                - strong [ref=e514]: "external:"
+                                - text: "2"
+                        - generic [ref=e515]:
+                          - generic [ref=e516]:
+                            - generic "Passed" [ref=e517]: 
+                            - heading "SEO Title " [level=3] [ref=e518]:
+                              - text: SEO Title
+                              - link "" [ref=e520] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#seo-title-test
+                                - emphasis [ref=e521]: 
+                          - generic [ref=e523]:
+                            - generic [ref=e524]: The page title has 30 characters, which is good.
+                            - code [ref=e525]: Home - Kita Seminar Manufaktur
+                        - generic [ref=e526]:
+                          - generic [ref=e527]:
+                            - generic "Passed" [ref=e528]: 
+                            - heading "Create a responsive site " [level=3] [ref=e529]:
+                              - text: Create a responsive site
+                              - emphasis [ref=e532]: 
+                          - generic [ref=e535]:
+                            - text: The CSS code contains
+                            - strong [ref=e536]: media queries
+                            - text: .
+                        - generic [ref=e537]:
+                          - generic [ref=e538]:
+                            - generic "Passed" [ref=e539]: 
+                            - heading "Homepage Is Reachable " [level=3] [ref=e540]:
+                              - text: Homepage Is Reachable
+                              - link "" [ref=e542] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#homepage-seo-test
+                                - emphasis [ref=e543]: 
+                          - generic [ref=e546]: Homepage is reachable
+                        - generic [ref=e547]:
+                          - generic [ref=e548]:
+                            - generic "Warning" [ref=e549]: "!"
+                            - heading "Site Tagline " [level=3] [ref=e550]:
+                              - text: Site Tagline
+                              - link "" [ref=e552] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/?#site-tagline-test
+                                - emphasis [ref=e553]: 
+                          - generic [ref=e555]:
+                            - button "How to fix" [ref=e556] [cursor=pointer]
+                            - generic [ref=e557]:
+                              - text: You have not entered a tagline yet. It is a good idea to choose one.
+                              - link "You can fix this in the customiser" [ref=e558] [cursor=pointer]:
+                                - /url: https://kita-seminar-manufaktur.de/wp-admin/customize.php
+                              - text: .
+                        - generic [ref=e559]:
+                          - generic [ref=e560]:
+                            - generic "Passed" [ref=e561]: 
+                            - heading "Public Blog " [level=3] [ref=e562]:
+                              - text: Public Blog
+                              - link "" [ref=e564] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/?#blog-public-test
+                                - emphasis [ref=e565]: 
+                          - generic [ref=e568]: Your site is accessible by search engines.
+                        - generic [ref=e569]:
+                          - generic [ref=e570]:
+                            - generic "Passed" [ref=e571]: 
+                            - heading "Permalink Structure " [level=3] [ref=e572]:
+                              - text: Permalink Structure
+                              - link "" [ref=e574] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/?#permalink-structure-test
+                                - emphasis [ref=e575]: 
+                          - generic [ref=e578]:
+                            - text: The post permalink structure is set to
+                            - code [ref=e579]: /%postname%/
+                            - text: .
+                        - generic [ref=e580]:
+                          - generic [ref=e581]:
+                            - generic "Failed" [ref=e582]: 
+                            - heading "Focus Keywords " [level=3] [ref=e583]:
+                              - text: Focus Keywords
+                              - link "" [ref=e585] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/?#focus-keywords-test
+                                - emphasis [ref=e586]: 
+                          - generic [ref=e588]:
+                            - button "How to fix" [ref=e589] [cursor=pointer]
+                            - generic [ref=e590]:
+                              - text: There are
+                              - link "22 Pages" [ref=e591] [cursor=pointer]:
+                                - /url: https://kita-seminar-manufaktur.de/wp-admin/edit.php?post_type=page&focus_keyword=1
+                              - text: ","
+                              - link "107 Courses" [ref=e592] [cursor=pointer]:
+                                - /url: https://kita-seminar-manufaktur.de/wp-admin/edit.php?post_type=sfwd-courses&focus_keyword=1
+                              - text: ","
+                              - link "82 Products" [ref=e593] [cursor=pointer]:
+                                - /url: https://kita-seminar-manufaktur.de/wp-admin/edit.php?post_type=product&focus_keyword=1
+                              - text: ","
+                              - link "1 Floating Element" [ref=e594] [cursor=pointer]:
+                                - /url: https://kita-seminar-manufaktur.de/wp-admin/edit.php?post_type=e-floating-buttons&focus_keyword=1
+                              - text: ","
+                              - link "1 Post" [ref=e595] [cursor=pointer]:
+                                - /url: https://kita-seminar-manufaktur.de/wp-admin/edit.php?post_type=post&focus_keyword=1
+                              - text: with no focus keyword set.
+                        - generic [ref=e596]:
+                          - generic [ref=e597]:
+                            - generic "Passed" [ref=e598]: 
+                            - heading "Post Titles Missing Focus Keywords " [level=3] [ref=e599]:
+                              - text: Post Titles Missing Focus Keywords
+                              - link "" [ref=e601] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/?#post-titles-missing-focus-keywords-test
+                                - emphasis [ref=e602]: 
+                          - generic [ref=e605]: Focus keywords appear in the titles of published posts where it is set.
+                      - generic [ref=e606]:
+                        - generic [ref=e607]: Advanced SEO
+                        - generic [ref=e608]:
+                          - generic [ref=e609]:
+                            - generic "Passed" [ref=e610]: 
+                            - heading "Canonical Tag " [level=3] [ref=e611]:
+                              - text: Canonical Tag
+                              - link "" [ref=e613] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#canonical-tag-test
+                                - emphasis [ref=e614]: 
+                          - generic [ref=e616]:
+                            - generic [ref=e617]: The page is using the canonical link tag.
+                            - code [ref=e618]: https://kita-seminar-manufaktur.de/
+                        - generic [ref=e619]:
+                          - generic [ref=e620]:
+                            - generic "Passed" [ref=e621]: 
+                            - heading "Noindex Meta " [level=3] [ref=e622]:
+                              - text: Noindex Meta
+                              - link "" [ref=e624] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#noindex-meta-test
+                                - emphasis [ref=e625]: 
+                          - generic [ref=e628]:
+                            - text: The page contains the
+                            - code [ref=e629]: index
+                            - text: meta tag or header.
+                        - generic [ref=e630]:
+                          - generic [ref=e631]:
+                            - generic "Info" [ref=e632]: i
+                            - heading "Mobile Snapshot " [level=3] [ref=e633]:
+                              - text: Mobile Snapshot
+                              - link "" [ref=e635] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/
+                                - emphasis [ref=e636]: 
+                          - img [ref=e640]
+                        - generic [ref=e641]:
+                          - generic [ref=e642]:
+                            - generic "Passed" [ref=e643]: 
+                            - heading "WWW Canonicalization " [level=3] [ref=e644]:
+                              - text: WWW Canonicalization
+                              - link "" [ref=e646] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#www-canonicalization-test
+                                - emphasis [ref=e647]: 
+                          - generic [ref=e650]: Both www and non-www versions of the URL are redirected to the same site.
+                        - generic [ref=e651]:
+                          - generic [ref=e652]:
+                            - generic "Failed" [ref=e653]: 
+                            - heading "OpenGraph Meta " [level=3] [ref=e654]:
+                              - text: OpenGraph Meta
+                              - link "" [ref=e656] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#open-graph-meta-test
+                                - emphasis [ref=e657]: 
+                          - generic [ref=e659]:
+                            - button "How to fix" [ref=e660] [cursor=pointer]
+                            - generic [ref=e661]: Some Opengraph meta tags are missing.
+                        - generic [ref=e662]:
+                          - generic [ref=e663]:
+                            - generic "Passed" [ref=e664]: 
+                            - heading "Schema Meta Data " [level=3] [ref=e665]:
+                              - text: Schema Meta Data
+                              - link "" [ref=e667] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#schema-meta-data-test
+                                - emphasis [ref=e668]: 
+                          - generic [ref=e671]: Schema.org data has been found on the page.
+                        - generic [ref=e672]:
+                          - generic [ref=e673]:
+                            - generic "Passed" [ref=e674]: 
+                            - heading "Sitemaps " [level=3] [ref=e675]:
+                              - text: Sitemaps
+                              - link "" [ref=e677] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/?#sitemaps-test
+                                - emphasis [ref=e678]: 
+                          - generic [ref=e681]: Your site has one or more sitemaps.
+                        - generic [ref=e682]:
+                          - generic [ref=e683]:
+                            - generic "Passed" [ref=e684]: 
+                            - heading "Robots.txt " [level=3] [ref=e685]:
+                              - text: Robots.txt
+                              - link "" [ref=e687] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#robots-txt-test
+                                - emphasis [ref=e688]: 
+                          - generic [ref=e691]:
+                            - text: The site has a robots.txt file which includes one or more
+                            - code [ref=e692]: "Disallow:"
+                            - text: directives. Make sure that you only block parts you don't want to be indexed. Try our
+                            - link "free robots.txt editor tool" [ref=e693] [cursor=pointer]:
+                              - /url: https://rankmath.com/tools/robots-txt/
+                              - strong [ref=e694]: free robots.txt editor tool
+                            - text: to easily test and validate your robots.txt file.
+                        - generic [ref=e695]:
+                          - generic [ref=e696]:
+                            - generic "Passed" [ref=e697]: 
+                            - heading "Keep your content fresh " [level=3] [ref=e698]:
+                              - text: Keep your content fresh
+                              - link "" [ref=e700] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#content-freshness-test
+                                - emphasis [ref=e701]: 
+                          - generic [ref=e704]: The content is fresh. Last updated on 2026-04-24 (0 days ago) via XML Sitemap.
+                        - generic [ref=e705]:
+                          - generic [ref=e706]:
+                            - generic "Failed" [ref=e707]: 
+                            - heading "Broken Links " [level=3] [ref=e708]:
+                              - text: Broken Links
+                              - emphasis [ref=e711]: 
+                          - generic [ref=e713]:
+                            - button "How to fix" [ref=e714] [cursor=pointer]
+                            - generic [ref=e715]: The page has broken link(s).
+                        - generic [ref=e716]:
+                          - generic [ref=e717]:
+                            - generic "Failed" [ref=e718]: 
+                            - heading "Search Console " [level=3] [ref=e719]:
+                              - text: Search Console
+                              - link "" [ref=e721] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/?#search-console-test
+                                - emphasis [ref=e722]: 
+                          - generic [ref=e724]:
+                            - button "How to fix" [ref=e725] [cursor=pointer]
+                            - generic [ref=e726]: You have not linked Google Search Console yet.
+                      - generic [ref=e727]:
+                        - generic [ref=e728]: Performance
+                        - link "Install WP Rocket to get the Performance Boost" [ref=e730] [cursor=pointer]:
+                          - /url: https://wp-rocket.me/rankmath-and-wp-rocket/?utm_campaign=rankmath-benefits&utm_source=rankmath&utm_medium=partners
+                        - generic [ref=e731]:
+                          - generic [ref=e732]:
+                            - generic "Passed" [ref=e733]: 
+                            - heading "Page Size " [level=3] [ref=e734]:
+                              - text: Page Size
+                              - link "" [ref=e736] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#page-size-test
+                                - emphasis [ref=e737]: 
+                          - generic [ref=e740]: The size of the HTML document is 28 Kb, under the average HTML size of 33 Kb.
+                        - generic [ref=e741]:
+                          - generic [ref=e742]:
+                            - generic "Passed" [ref=e743]: 
+                            - heading "Response Time " [level=3] [ref=e744]:
+                              - text: Response Time
+                              - link "" [ref=e746] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#response-time-test
+                                - emphasis [ref=e747]: 
+                          - generic [ref=e750]: The response time is under 0.8 seconds which is great.
+                        - generic [ref=e751]:
+                          - generic [ref=e752]:
+                            - generic "Passed" [ref=e753]: 
+                            - heading "Image Headers Expire " [level=3] [ref=e754]:
+                              - text: Image Headers Expire
+                              - link "" [ref=e756] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#image-headers-expire-test
+                                - emphasis [ref=e757]: 
+                          - generic [ref=e760]: No local images found on the page
+                        - generic [ref=e761]:
+                          - generic [ref=e762]:
+                            - generic "Failed" [ref=e763]: 
+                            - heading "Minify CSS " [level=3] [ref=e764]:
+                              - text: Minify CSS
+                              - link "" [ref=e766] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#minify-css-test
+                                - emphasis [ref=e767]: 
+                          - generic [ref=e769]:
+                            - button "How to fix" [ref=e770] [cursor=pointer]
+                            - generic [ref=e771]: Some CSS files don't seem to be minified.
+                            - list [ref=e772]:
+                              - listitem [ref=e773]: https://kita-seminar-manufaktur.de/wp-content/plugins/dynamic-visibility-for-elementor/assets/css/dynamic-visibility.css?ver=6.0.2
+                              - listitem [ref=e774]: https://kita-seminar-manufaktur.de/wp-content/plugins/modern-cart/assets/css/cart.css?ver=1.0.9
+                        - generic [ref=e775]:
+                          - generic [ref=e776]:
+                            - generic "Warning" [ref=e777]: "!"
+                            - heading "Page Objects " [level=3] [ref=e778]:
+                              - text: Page Objects
+                              - link "" [ref=e780] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#page-objects-test
+                                - emphasis [ref=e781]: 
+                          - generic [ref=e783]:
+                            - button "How to fix" [ref=e784] [cursor=pointer]
+                            - generic [ref=e785]: The page makes 59 requests. A large number of requests can result in slow page loading.
+                            - list [ref=e786]:
+                              - listitem [ref=e787]:
+                                - strong [ref=e788]: "total:"
+                                - text: "59"
+                              - listitem [ref=e789]:
+                                - strong [ref=e790]: "images:"
+                                - text: "2"
+                              - listitem [ref=e791]:
+                                - strong [ref=e792]: "javascript:"
+                                - text: "23"
+                              - listitem [ref=e793]:
+                                - strong [ref=e794]: "stylesheets:"
+                                - text: "34"
+                        - generic [ref=e795]:
+                          - generic [ref=e796]:
+                            - generic "Passed" [ref=e797]: 
+                            - heading "Minify Javascript " [level=3] [ref=e798]:
+                              - text: Minify Javascript
+                              - link "" [ref=e800] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#minify-java-script-test
+                                - emphasis [ref=e801]: 
+                          - generic [ref=e804]: All Javascript files appear to be minified.
+                        - generic [ref=e805]:
+                          - generic [ref=e806]:
+                            - generic "Failed" [ref=e807]: 
+                            - heading "Mobile Speed " [level=3] [ref=e808]:
+                              - text: Mobile Speed
+                              - emphasis [ref=e811]: 
+                          - generic [ref=e813]:
+                            - button "How to fix" [ref=e814] [cursor=pointer]
+                            - generic [ref=e815]: Test execution failed.
+                      - generic [ref=e816]:
+                        - generic [ref=e817]: Security
+                        - generic [ref=e818]:
+                          - generic [ref=e819]:
+                            - generic "Info" [ref=e820]: i
+                            - heading "Theme Visibility " [level=3] [ref=e821]:
+                              - text: Theme Visibility
+                              - link "" [ref=e823] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#theme-visibility-test
+                                - emphasis [ref=e824]: 
+                          - generic [ref=e827]: The theme is not publicly visible, so it is not easily identifiable.
+                        - generic [ref=e828]:
+                          - generic [ref=e829]:
+                            - generic "Info" [ref=e830]: i
+                            - heading "Visible Plugins " [level=3] [ref=e831]:
+                              - text: Visible Plugins
+                              - link "" [ref=e833] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#visible-plugins
+                                - emphasis [ref=e834]: 
+                          - generic [ref=e836]:
+                            - generic [ref=e837]: 11 plugins from the website are publicly visible.
+                            - list [ref=e838]:
+                              - listitem [ref=e839]: Fluentform
+                              - listitem [ref=e840]: Dynamic Visibility For Elementor
+                              - listitem [ref=e841]: Modern Cart
+                              - listitem [ref=e842]: Elementor
+                              - listitem [ref=e843]: Elementor Pro
+                              - listitem [ref=e844]: Woocommerce
+                              - listitem [ref=e845]: "*&quot;,&quot;"
+                              - listitem [ref=e846]: Borlabs Cookie
+                              - listitem [ref=e847]: Ewww Image Optimizer
+                              - listitem [ref=e848]: Fooevents
+                              - listitem [ref=e849]: Perfmatters
+                        - generic [ref=e850]:
+                          - generic [ref=e851]:
+                            - generic "Passed" [ref=e852]: 
+                            - heading "Directory Listing " [level=3] [ref=e853]:
+                              - text: Directory Listing
+                              - link "" [ref=e855] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#directory-listing-test
+                                - emphasis [ref=e856]: 
+                          - generic [ref=e859]: Directory Listing seems to be disabled on the server.
+                        - generic [ref=e860]:
+                          - generic [ref=e861]:
+                            - generic "Passed" [ref=e862]: 
+                            - heading "Secure Connection " [level=3] [ref=e863]:
+                              - text: Secure Connection
+                              - link "" [ref=e865] [cursor=pointer]:
+                                - /url: https://rankmath.com/kb/seo-analysis/#secure-connection-test
+                                - emphasis [ref=e866]: 
+                          - generic [ref=e869]: The site is using a secure transfer protocol (https).
+    - contentinfo [ref=e870]:
+      - paragraph [ref=e871]:
+        - text: Vielen Dank, dass du
+        - link "Rank Math" [ref=e872] [cursor=pointer]:
+          - /url: https://rankmath.com/?utm_source=Plugin&utm_medium=Admin%20Footer%20Text&utm_campaign=WP
+        - text: verwendest
+      - paragraph [ref=e873]: Version 6.9.4
+  - generic:
+    - generic:
+      - generic: Verify auto-updates are enabled for Rank Math
+      - generic:
+        - img
+    - generic:
+      - generic: A list of keywords that appear frequently in the text of your content.
+      - generic:
+        - img
+    - generic:
+      - generic: SEO analysis of your page&#x27;s meta-description.
+      - generic:
+        - img
+    - generic:
+      - generic: SEO Analysis of the H1 Tags on your page.
+      - generic:
+        - img
+    - generic:
+      - generic: SEO analysis of the H2 headings on your page.
+      - generic:
+        - img
+    - generic:
+      - generic: SEO analysis of the &quot;alt&quot; attribute for image tags.
+      - generic:
+        - img
+    - generic:
+      - generic: SEO analysis of the HTML page&#x27;s Title and meta description content.
+      - generic:
+        - img
+    - generic:
+      - generic: SEO analysis of the ratio of internal links to external links.
+      - generic:
+        - img
+    - generic:
+      - generic: SEO analysis of the HTML title of the page.
+      - generic:
+        - img
+    - generic:
+      - generic: Our analysis of the use of CSS media queries in your content.
+      - generic:
+        - img
+    - generic:
+      - generic: Tests if your homepage is reachable by making an HTTP request.
+      - generic:
+        - img
+    - generic:
+      - generic: Confirm custom tagline is set for your site
+      - generic:
+        - img
+    - generic:
+      - generic: Check your site&#039;s visibility to search engines
+      - generic:
+        - img
+    - generic:
+      - generic: Check your site for SEO-friendly permalink structure
+      - generic:
+        - img
+    - generic:
+      - generic: Confirm focus keywords are set for all your posts
+      - generic:
+        - img
+    - generic:
+      - generic: Verify the presence of focus keywords in your post titles
+      - generic:
+        - img
+    - generic:
+      - generic: Does the content have a &quot;canonical&quot; URL?
+      - generic:
+        - img
+    - generic:
+      - generic: Does the content contain a noindex robots meta tag?
+      - generic:
+        - img
+    - generic:
+      - generic: A snapshot of how your content appears on a mobile device.
+      - generic:
+        - img
+    - generic:
+      - generic: Does the site appear on more than one URL?
+      - generic:
+        - img
+    - generic:
+      - generic: Does your site use OpenGraph meta tags?
+      - generic:
+        - img
+    - generic:
+      - generic: Does the content include relevant Schema.org metadata?
+      - generic:
+        - img
+    - generic:
+      - generic: Check the presence of sitemaps on your website
+      - generic:
+        - img
+    - generic:
+      - generic: Does your site have a valid robots.txt file
+      - generic:
+        - img
+    - generic:
+      - generic: Checks for recent content updates using available signals (XML sitemap, og:updated_time, or Last-Modified header).
+      - generic:
+        - img
+    - generic:
+      - generic: Detects broken or dead links (404/500 errors) in the website that may harm SEO and user trust.
+      - generic:
+        - img
+    - generic:
+      - generic: Confirm if Rank Math is connected to Search Console
+      - generic:
+        - img
+    - generic:
+      - generic: An analysis of the size of your HTML file.
+      - generic:
+        - img
+    - generic:
+      - generic: How fast does your server respond to requests?
+      - generic:
+        - img
+    - generic:
+      - generic: Do your images use &quot;expires&quot; headers?
+      - generic:
+        - img
+    - generic:
+      - generic: Are your CSS files properly minified?
+      - generic:
+        - img
+    - generic:
+      - generic: Analysis of the embedded objects in the pages.
+      - generic:
+        - img
+    - generic:
+      - generic: Does the site use minified JavaScript?
+      - generic:
+        - img
+    - generic:
+      - generic: How fast does your website respond to mobile users?
+      - generic:
+        - img
+    - generic:
+      - generic: Theme Visibility
+      - generic:
+        - img
+    - generic:
+      - generic: Visible Plugins
+      - generic:
+        - img
+    - generic:
+      - generic: Does your web server list the contents of the directories?
+      - generic:
+        - img
+    - generic:
+      - generic: Is your content served over a secure connection?
+      - generic:
+        - img
+  - generic [ref=e877]:
+    - heading "The Editor has a new home" [level=3] [ref=e878]
+    - paragraph [ref=e879]:
+      - text: Editor tools are now grouped together for quick access. Build and grow your site with everything you need in one place.
+      - link "Mehr erfahren" [ref=e880] [cursor=pointer]:
+        - /url: https://go.elementor.com/wp-dash-editor-one-learn-more/
+    - paragraph [ref=e881]:
+      - button "Verstanden" [ref=e882] [cursor=pointer]
+    - link "Verwerfen" [ref=e884] [cursor=pointer]:
+      - /url: "#"
