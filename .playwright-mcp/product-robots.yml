@@ -1,0 +1,41 @@
+- generic [ref=e2]:
+  - navigation "Hauptmenü":
+    - link "Zum Hauptinhalt springen" [ref=e3] [cursor=pointer]:
+      - /url: "#wpbody-content"
+    - link "Zur Werkzeugleiste springen" [ref=e4] [cursor=pointer]:
+      - /url: "#wp-toolbar"
+    - list [ref=e7]:
+      - listitem [ref=e8]
+      - listitem [ref=e12]
+      - listitem [ref=e25]
+      - listitem [ref=e34]
+      - listitem [ref=e43]
+      - listitem [ref=e64]
+      - listitem [ref=e81]
+      - listitem [ref=e94]
+      - listitem [ref=e105]
+      - listitem [ref=e109]
+      - listitem [ref=e122]
+      - listitem [ref=e133]
+      - listitem [ref=e146]
+      - listitem [ref=e157]
+      - text: 
+      - listitem [ref=e166]
+      - listitem [ref=e175]
+      - text: 
+      - listitem [ref=e184]
+      - listitem [ref=e203]
+      - listitem [ref=e229]
+      - listitem [ref=e256]
+      - listitem [ref=e260]
+      - listitem [ref=e264]
+      - listitem [ref=e283]
+  - generic [ref=e287]:
+    - generic [ref=e288]:
+      - navigation "Werkzeugleiste"
+    - main [ref=e316]:
+      - generic [ref=e318]
+  - contentinfo [ref=e632]:
+    - paragraph [ref=e633]:
+      - generic [ref=e635]
+    - paragraph [ref=e637]: Version 6.9.4

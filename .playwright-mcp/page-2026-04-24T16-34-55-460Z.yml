@@ -1,0 +1,782 @@
+- generic [ref=e2]:
+  - navigation "Hauptmenü":
+    - link "Zum Hauptinhalt springen" [ref=e3] [cursor=pointer]:
+      - /url: "#wpbody-content"
+    - link "Zur Werkzeugleiste springen" [ref=e4] [cursor=pointer]:
+      - /url: "#wp-toolbar"
+    - list [ref=e7]:
+      - listitem [ref=e8]:
+        - link "Dashboard" [ref=e9] [cursor=pointer]:
+          - /url: index.php
+          - generic [ref=e10]: 
+          - generic [ref=e11]: Dashboard
+      - listitem [ref=e12]:
+        - link "Blog" [ref=e13] [cursor=pointer]:
+          - /url: admin.php?page=ksm-blog-menu
+          - generic [ref=e14]: 
+          - generic [ref=e15]: Blog
+        - list [ref=e16]:
+          - listitem [ref=e17]:
+            - link "Blog" [ref=e18] [cursor=pointer]:
+              - /url: admin.php?page=ksm-blog-menu
+          - listitem [ref=e19]:
+            - link "Alle Beiträge" [ref=e20] [cursor=pointer]:
+              - /url: admin.php?page=ksm-blog-list
+          - listitem [ref=e21]:
+            - link "Neuer Beitrag" [ref=e22] [cursor=pointer]:
+              - /url: admin.php?page=ksm-blog-add
+          - listitem [ref=e23]:
+            - link "Kategorien" [ref=e24] [cursor=pointer]:
+              - /url: edit-tags.php?taxonomy=category
+      - listitem [ref=e25]:
+        - link "Produkte" [ref=e26] [cursor=pointer]:
+          - /url: edit.php?post_type=product
+          - generic [ref=e27]: 
+          - generic [ref=e28]: Produkte
+        - list [ref=e29]:
+          - listitem [ref=e30]:
+            - link "Alle Produkte" [ref=e31] [cursor=pointer]:
+              - /url: edit.php?post_type=product
+          - listitem [ref=e32]:
+            - link "Neues Produkt hinzufügen" [ref=e33] [cursor=pointer]:
+              - /url: post-new.php?post_type=product
+      - listitem [ref=e34]:
+        - link "Dozenten" [ref=e35] [cursor=pointer]:
+          - /url: admin.php?page=ksm-dozenten-list
+          - generic [ref=e36]: 
+          - generic [ref=e37]: Dozenten
+        - list [ref=e38]:
+          - listitem [ref=e39]:
+            - link "Alle Dozenten" [ref=e40] [cursor=pointer]:
+              - /url: admin.php?page=ksm-dozenten-list
+          - listitem [ref=e41]:
+            - link "Dozenten hinzufügen" [ref=e42] [cursor=pointer]:
+              - /url: admin.php?page=ksm-dozent-add
+      - listitem [ref=e43]:
+        - link "Newsletter" [ref=e44] [cursor=pointer]:
+          - /url: admin.php?page=fluentcrm-admin
+          - generic [ref=e46]: Newsletter
+        - list [ref=e47]:
+          - listitem [ref=e48]:
+            - link "Dashboard" [ref=e49] [cursor=pointer]:
+              - /url: admin.php?page=fluentcrm-admin
+          - listitem [ref=e50]:
+            - link "Kontakte" [ref=e51] [cursor=pointer]:
+              - /url: admin.php?page=fluentcrm-admin#/subscribers
+          - listitem [ref=e52]:
+            - link "Companies" [ref=e53] [cursor=pointer]:
+              - /url: admin.php?page=fluentcrm-admin#/contact-groups/companies
+          - listitem [ref=e54]:
+            - link "Listen" [ref=e55] [cursor=pointer]:
+              - /url: admin.php?page=fluentcrm-admin#/contact-groups/lists
+          - listitem [ref=e56]:
+            - link "Kampagnen" [ref=e57] [cursor=pointer]:
+              - /url: admin.php?page=fluentcrm-admin#/email/campaigns
+          - listitem [ref=e58]:
+            - link "E-Mail-Sequenzen" [ref=e59] [cursor=pointer]:
+              - /url: admin.php?page=fluentcrm-admin#/email/sequences
+          - listitem [ref=e60]:
+            - link "E-Mail-Vorlagen" [ref=e61] [cursor=pointer]:
+              - /url: admin.php?page=fluentcrm-admin#/email/templates
+          - listitem [ref=e62]:
+            - link "Formulare" [ref=e63] [cursor=pointer]:
+              - /url: admin.php?page=fluentcrm-admin#/forms
+      - listitem [ref=e64]:
+        - link "FooEvents" [ref=e65] [cursor=pointer]:
+          - /url: edit.php?post_type=event_magic_tickets
+          - generic [ref=e66]: 
+          - generic [ref=e67]: FooEvents
+        - list [ref=e68]:
+          - listitem [ref=e69]:
+            - link "Tickets" [ref=e70] [cursor=pointer]:
+              - /url: edit.php?post_type=event_magic_tickets
+          - listitem [ref=e71]:
+            - link "Erste Schritte" [ref=e72] [cursor=pointer]:
+              - /url: admin.php?page=fooevents-introduction
+          - listitem [ref=e73]:
+            - link "Check-ins importieren" [ref=e74] [cursor=pointer]:
+              - /url: admin.php?page=fooevents-checkins-import
+          - listitem [ref=e75]:
+            - link "Tickets importieren" [ref=e76] [cursor=pointer]:
+              - /url: admin.php?page=fooevents-import-tickets
+          - listitem [ref=e77]:
+            - link "Ticket-Themen" [ref=e78] [cursor=pointer]:
+              - /url: admin.php?page=fooevents-ticket-themes
+          - listitem [ref=e79]:
+            - link "Berichte" [ref=e80] [cursor=pointer]:
+              - /url: admin.php?page=fooevents-reports
+      - listitem [ref=e81]:
+        - link "Boards" [ref=e82] [cursor=pointer]:
+          - /url: admin.php?page=fluent-boards
+          - generic [ref=e84]: Boards
+        - list [ref=e85]:
+          - listitem [ref=e86]:
+            - link "Dashboard" [ref=e87] [cursor=pointer]:
+              - /url: admin.php?page=fluent-boards
+          - listitem [ref=e88]:
+            - link "Boards" [ref=e89] [cursor=pointer]:
+              - /url: admin.php?page=fluent-boards#/boards
+          - listitem [ref=e90]:
+            - link "Berichte" [ref=e91] [cursor=pointer]:
+              - /url: admin.php?page=fluent-boards#/reports
+          - listitem [ref=e92]:
+            - link "Einstellungen" [ref=e93] [cursor=pointer]:
+              - /url: admin.php?page=fluent-boards#/settings/members-role
+      - listitem [ref=e94]:
+        - link "Elementor" [ref=e95] [cursor=pointer]:
+          - /url: admin.php?page=elementor-home
+          - generic [ref=e97]: Elementor
+        - list [ref=e98]:
+          - listitem [ref=e99]:
+            - link "Home" [ref=e100] [cursor=pointer]:
+              - /url: admin.php?page=elementor-home
+          - listitem [ref=e101]:
+            - link "Editor" [ref=e102] [cursor=pointer]:
+              - /url: admin.php?page=elementor
+          - listitem [ref=e103]:
+            - link "Theme-Builder" [ref=e104] [cursor=pointer]:
+              - /url: https://kita-seminar-manufaktur.de/wp-admin/admin.php?page=elementor-app&ver=4.0.3&return_to=/wp-admin/admin.php?page=rank-math-options-titles&view=post-type-product#/site-editor
+      - listitem [ref=e105]:
+        - link "Traffic Analytics" [ref=e106] [cursor=pointer]:
+          - /url: admin.php?page=traffic-analytics
+          - generic [ref=e107]: 
+          - generic [ref=e108]: Traffic Analytics
+      - listitem [ref=e109]:
+        - link "Forms" [ref=e110] [cursor=pointer]:
+          - /url: admin.php?page=fluent_forms
+          - generic [ref=e112]: Forms
+        - list [ref=e113]:
+          - listitem [ref=e114]:
+            - link "Formulare" [ref=e115] [cursor=pointer]:
+              - /url: admin.php?page=fluent_forms
+          - listitem [ref=e116]:
+            - link "Neues Formular" [ref=e117] [cursor=pointer]:
+              - /url: admin.php?page=fluent_forms#add=1
+          - listitem [ref=e118]:
+            - link "Einträge" [ref=e119] [cursor=pointer]:
+              - /url: admin.php?page=fluent_forms_all_entries
+          - listitem [ref=e120]:
+            - link "Werkzeuge" [ref=e121] [cursor=pointer]:
+              - /url: admin.php?page=fluent_forms_transfer
+      - listitem [ref=e122]:
+        - link "Medien" [ref=e123] [cursor=pointer]:
+          - /url: upload.php
+          - generic [ref=e124]: 
+          - generic [ref=e125]: Medien
+        - list [ref=e126]:
+          - listitem [ref=e127]:
+            - link "Mediathek" [ref=e128] [cursor=pointer]:
+              - /url: upload.php
+          - listitem [ref=e129]:
+            - link "Mediendatei hinzufügen" [ref=e130] [cursor=pointer]:
+              - /url: media-new.php
+          - listitem [ref=e131]:
+            - link "Massenoptimierung" [ref=e132] [cursor=pointer]:
+              - /url: upload.php?page=ewww-image-optimizer-bulk
+      - listitem [ref=e133]:
+        - link "Databases" [ref=e134] [cursor=pointer]:
+          - /url: /wp-admin/edit-tags.php?taxonomy=zielgruppe
+          - generic [ref=e135]: 
+          - generic [ref=e136]: Databases
+        - list [ref=e137]:
+          - listitem [ref=e138]:
+            - link " Zielgruppe" [ref=e139] [cursor=pointer]:
+              - /url: /wp-admin/edit-tags.php?taxonomy=zielgruppe
+              - generic [ref=e141]: 
+              - text: Zielgruppe
+          - listitem [ref=e142]:
+            - link " Seminartyp" [ref=e143] [cursor=pointer]:
+              - /url: /wp-admin/edit-tags.php?taxonomy=seminar-type
+              - generic [ref=e145]: 
+              - text: Seminartyp
+      - listitem [ref=e146]:
+        - link "Benutzer" [ref=e147] [cursor=pointer]:
+          - /url: users.php
+          - generic [ref=e148]: 
+          - generic [ref=e149]: Benutzer
+        - list [ref=e150]:
+          - listitem [ref=e151]:
+            - link "Alle Benutzer" [ref=e152] [cursor=pointer]:
+              - /url: users.php
+          - listitem [ref=e153]:
+            - link "Benutzer hinzufügen" [ref=e154] [cursor=pointer]:
+              - /url: user-new.php
+          - listitem [ref=e155]:
+            - link "Profil" [ref=e156] [cursor=pointer]:
+              - /url: profile.php
+      - listitem [ref=e157]:
+        - link "Seiten" [ref=e158] [cursor=pointer]:
+          - /url: edit.php?post_type=page
+          - generic [ref=e159]: 
+          - generic [ref=e160]: Seiten
+        - list [ref=e161]:
+          - listitem [ref=e162]:
+            - link "Alle Seiten" [ref=e163] [cursor=pointer]:
+              - /url: edit.php?post_type=page
+          - listitem [ref=e164]:
+            - link "Seite hinzufügen" [ref=e165] [cursor=pointer]:
+              - /url: post-new.php?post_type=page
+      - text: 
+      - listitem [ref=e166]:
+        - link "Design" [ref=e167] [cursor=pointer]:
+          - /url: customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Drank-math-options-titles%26view%3Dpost-type-product
+          - generic [ref=e168]: 
+          - generic [ref=e169]: Design
+        - list [ref=e170]:
+          - listitem [ref=e171]:
+            - link "Customizer" [ref=e172] [cursor=pointer]:
+              - /url: customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Drank-math-options-titles%26view%3Dpost-type-product
+          - listitem [ref=e173]:
+            - link "Menüs" [ref=e174] [cursor=pointer]:
+              - /url: nav-menus.php
+      - listitem [ref=e175]:
+        - link "Plugins" [ref=e176] [cursor=pointer]:
+          - /url: plugins.php
+          - generic [ref=e177]: 
+          - generic [ref=e178]: Plugins
+        - list [ref=e179]:
+          - listitem [ref=e180]:
+            - link "Installierte Plugins" [ref=e181] [cursor=pointer]:
+              - /url: plugins.php
+          - listitem [ref=e182]:
+            - link "Plugin hinzufügen" [ref=e183] [cursor=pointer]:
+              - /url: plugin-install.php
+      - text: 
+      - listitem [ref=e184]:
+        - link "Einstellungen" [ref=e185] [cursor=pointer]:
+          - /url: admin.php?page=duplicate_page_settings
+          - generic [ref=e186]: 
+          - generic [ref=e187]: Einstellungen
+        - list [ref=e188]:
+          - listitem [ref=e189]:
+            - link "Duplicate Page" [ref=e190] [cursor=pointer]:
+              - /url: options-general.php?page=duplicate_page_settings
+          - listitem [ref=e191]:
+            - link "KI-Sichtbarkeit" [ref=e192] [cursor=pointer]:
+              - /url: options-general.php?page=ksm-ai-visibility
+          - listitem [ref=e193]:
+            - link "Two-Factor" [ref=e194] [cursor=pointer]:
+              - /url: options-general.php?page=two-factor-settings
+          - listitem [ref=e195]:
+            - link "EWWW Image Optimizer" [ref=e196] [cursor=pointer]:
+              - /url: options-general.php?page=ewww-image-optimizer-options
+          - listitem [ref=e197]:
+            - link "Object Cache" [ref=e198] [cursor=pointer]:
+              - /url: options-general.php?page=objectcache
+          - listitem [ref=e199]:
+            - link "Perfmatters" [ref=e200] [cursor=pointer]:
+              - /url: options-general.php?page=perfmatters
+          - listitem [ref=e201]:
+            - link "Security" [ref=e202] [cursor=pointer]:
+              - /url: options-general.php?page=patchstack
+      - listitem [ref=e203]:
+        - link "Rank Math SEO" [ref=e204] [cursor=pointer]:
+          - /url: admin.php?page=rank-math
+          - generic [ref=e206]: Rank Math SEO
+        - list [ref=e207]:
+          - listitem [ref=e208]:
+            - link "Dashboard" [ref=e209] [cursor=pointer]:
+              - /url: admin.php?page=rank-math
+          - listitem [ref=e210]:
+            - link "Analysen" [ref=e211] [cursor=pointer]:
+              - /url: admin.php?page=rank-math-analytics
+              - text: Analysen
+          - listitem [ref=e213]:
+            - link "Allgemeine Einstellungen" [ref=e214] [cursor=pointer]:
+              - /url: admin.php?page=rank-math-options-general
+          - listitem [ref=e215]:
+            - link "Titel & Meta" [ref=e216] [cursor=pointer]:
+              - /url: admin.php?page=rank-math-options-titles
+          - listitem [ref=e217]:
+            - link "Sitemap-Einstellungen" [ref=e218] [cursor=pointer]:
+              - /url: admin.php?page=rank-math-options-sitemap
+          - listitem [ref=e219]:
+            - link "Schema-Templates" [ref=e220] [cursor=pointer]:
+              - /url: edit.php?post_type=rank_math_schema
+          - listitem [ref=e221]:
+            - link "Sofortige Indexierung" [ref=e222] [cursor=pointer]:
+              - /url: admin.php?page=rank-math-options-instant-indexing
+          - listitem [ref=e223]:
+            - link "Rollenverwaltung" [ref=e224] [cursor=pointer]:
+              - /url: admin.php?page=rank-math-role-manager
+          - listitem [ref=e225]:
+            - link "SEO-Analysator" [ref=e226] [cursor=pointer]:
+              - /url: admin.php?page=rank-math-seo-analysis
+          - listitem [ref=e227]:
+            - link "Status & Werkzeuge" [ref=e228] [cursor=pointer]:
+              - /url: admin.php?page=rank-math-status
+      - listitem [ref=e229]:
+        - link "Statistiken" [ref=e230] [cursor=pointer]:
+          - /url: admin.php?page=wc-admin&path=/analytics/overview
+          - generic [ref=e231]: 
+          - generic [ref=e232]: Statistiken
+        - list [ref=e233]:
+          - listitem [ref=e234]:
+            - link "Übersicht" [ref=e235] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/overview
+          - listitem [ref=e236]:
+            - link "Produkte" [ref=e237] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/products
+          - listitem [ref=e238]:
+            - link "Umsatz" [ref=e239] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/revenue
+          - listitem [ref=e240]:
+            - link "Bestellungen" [ref=e241] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/orders
+          - listitem [ref=e242]:
+            - link "Varianten" [ref=e243] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/variations
+          - listitem [ref=e244]:
+            - link "Kategorien" [ref=e245] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/categories
+          - listitem [ref=e246]:
+            - link "Gutscheine" [ref=e247] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/coupons
+          - listitem [ref=e248]:
+            - link "Steuern" [ref=e249] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/taxes
+          - listitem [ref=e250]:
+            - link "Downloads" [ref=e251] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/downloads
+          - listitem [ref=e252]:
+            - link "Bestand" [ref=e253] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/stock
+          - listitem [ref=e254]:
+            - link "Einstellungen" [ref=e255] [cursor=pointer]:
+              - /url: admin.php?page=wc-admin&path=/analytics/settings
+      - listitem [ref=e256]:
+        - link "Optionsseiten" [ref=e257] [cursor=pointer]:
+          - /url: edit.php?post_type=acf-ui-options-page
+          - generic [ref=e258]: 
+          - generic [ref=e259]: Optionsseiten
+      - listitem [ref=e260]:
+        - link "Aktualisierungen" [ref=e261] [cursor=pointer]:
+          - /url: edit.php?post_type=acf-field-group&page=acf-settings-updates
+          - generic [ref=e262]: 
+          - generic [ref=e263]: Aktualisierungen
+      - listitem [ref=e264]:
+        - link "Wordfence" [ref=e265] [cursor=pointer]:
+          - /url: admin.php?page=Wordfence
+          - generic [ref=e267]: Wordfence
+        - list [ref=e268]:
+          - listitem [ref=e269]:
+            - link "Dashboard" [ref=e270] [cursor=pointer]:
+              - /url: admin.php?page=Wordfence
+          - listitem [ref=e271]:
+            - link "Firewall" [ref=e272] [cursor=pointer]:
+              - /url: admin.php?page=WordfenceWAF
+          - listitem [ref=e273]:
+            - link "Scan" [ref=e274] [cursor=pointer]:
+              - /url: admin.php?page=WordfenceScan
+          - listitem [ref=e275]:
+            - link "Tools" [ref=e276] [cursor=pointer]:
+              - /url: admin.php?page=WordfenceTools
+          - listitem [ref=e277]:
+            - link "Audit Log" [ref=e278] [cursor=pointer]:
+              - /url: admin.php?page=WordfenceAuditLog
+          - listitem [ref=e279]:
+            - link "Login Security" [ref=e280] [cursor=pointer]:
+              - /url: admin.php?page=WFLS
+          - listitem [ref=e281]:
+            - link "All Options" [ref=e282] [cursor=pointer]:
+              - /url: admin.php?page=WordfenceOptions
+      - listitem [ref=e283]:
+        - button "Hauptmenü reduzieren" [expanded] [ref=e284] [cursor=pointer]:
+          - generic [ref=e286]: Menü reduzieren
+  - generic [ref=e287]:
+    - generic [ref=e288]:
+      - navigation "Werkzeugleiste":
+        - menu:
+          - group [ref=e289]:
+            - menuitem "Über WordPress" [ref=e290] [cursor=pointer]:
+              - generic [ref=e292]: Über WordPress
+          - group [ref=e293]:
+            - menuitem "Kita Seminar Manufaktur" [ref=e294] [cursor=pointer]
+          - group [ref=e295]:
+            - menuitem "Neu" [ref=e296] [cursor=pointer]:
+              - generic [ref=e298]: Neu
+          - group [ref=e299]:
+            - menuitem "Rank Math SEO" [ref=e300] [cursor=pointer]:
+              - img [ref=e302]
+              - text: Rank Math SEO
+          - group [ref=e306]:
+            - menuitem "Nginx Cache" [ref=e307] [cursor=pointer]:
+              - img [ref=e308]
+              - text: Nginx Cache
+          - group [ref=e309]:
+            - menuitem "Perfmatters" [ref=e310] [cursor=pointer]
+        - menu [ref=e311]:
+          - group [ref=e312]:
+            - menuitem "Kontakte durchsuchen" [ref=e313] [cursor=pointer]
+          - group [ref=e314]:
+            - menuitem "Willkommen, Claude Ops" [ref=e315] [cursor=pointer]
+    - main [ref=e316]:
+      - generic [ref=e318]:
+        - generic [ref=e319]:
+          - link "" [ref=e321] [cursor=pointer]:
+            - /url: https://kita-seminar-manufaktur.de/wp-admin/admin.php?page=rank-math
+            - generic [ref=e322]: 
+          - heading "Rank Math SEObusiness" [level=1] [ref=e323]:
+            - text: Rank Math SEO
+            - generic [ref=e324]: business
+          - generic [ref=e328]:
+            - generic [ref=e329]: Suchen
+            - generic [ref=e330]:
+              - img [ref=e333]
+              - searchbox "Suchen" [ref=e335]
+          - link "" [ref=e336] [cursor=pointer]:
+            - /url: https://rankmath.com/kb/titles-and-meta/?utm_source=Plugin&utm_medium=Admin%20Bar%20Titles%20Meta&utm_campaign=WP
+            - generic [ref=e337]: 
+        - generic [ref=e339]: Dashboard/SEO-Titel & Meta
+        - generic [ref=e341]:
+          - tablist [ref=e342]:
+            - tab " Globales Meta" [ref=e343] [cursor=pointer]:
+              - generic [ref=e344]: 
+              - text: Globales Meta
+            - tab " Lokales SEO" [ref=e345] [cursor=pointer]:
+              - generic [ref=e346]: 
+              - text: Lokales SEO
+            - tab " Social-Meta" [ref=e347] [cursor=pointer]:
+              - generic [ref=e348]: 
+              - text: Social-Meta
+            - tab " Homepage" [ref=e349] [cursor=pointer]:
+              - generic [ref=e350]: 
+              - text: Homepage
+            - tab " Autoren" [ref=e351] [cursor=pointer]:
+              - generic [ref=e352]: 
+              - text: Autoren
+            - tab " Sonstige Seiten" [ref=e353] [cursor=pointer]:
+              - generic [ref=e354]: 
+              - text: Sonstige Seiten
+            - tab "Inhaltstypen:" [disabled] [ref=e355] [cursor=pointer]
+            - tab " Beiträge" [ref=e356] [cursor=pointer]:
+              - generic [ref=e357]: 
+              - text: Beiträge
+            - tab " Seiten" [ref=e358] [cursor=pointer]:
+              - generic [ref=e359]: 
+              - text: Seiten
+            - tab " Anhänge" [ref=e360] [cursor=pointer]:
+              - generic [ref=e361]: 
+              - text: Anhänge
+            - tab " Schwebende Elemente" [ref=e362] [cursor=pointer]:
+              - generic [ref=e363]: 
+              - text: Schwebende Elemente
+            - tab " Produkte" [selected] [ref=e364] [cursor=pointer]:
+              - generic [ref=e365]: 
+              - text: Produkte
+            - tab " Kurse" [ref=e366] [cursor=pointer]:
+              - generic [ref=e367]: 
+              - text: Kurse
+            - tab " Lektionen" [ref=e368] [cursor=pointer]:
+              - generic [ref=e369]: 
+              - text: Lektionen
+            - tab " Themen" [ref=e370] [cursor=pointer]:
+              - generic [ref=e371]: 
+              - text: Themen
+            - tab " Tests" [ref=e372] [cursor=pointer]:
+              - generic [ref=e373]: 
+              - text: Tests
+            - tab " Challenge Exams" [ref=e374] [cursor=pointer]:
+              - generic [ref=e375]: 
+              - text: Challenge Exams
+            - tab " Certificates" [ref=e376] [cursor=pointer]:
+              - generic [ref=e377]: 
+              - text: Certificates
+            - tab " Groups" [ref=e378] [cursor=pointer]:
+              - generic [ref=e379]: 
+              - text: Groups
+            - tab " Eingereichte Essays" [ref=e380] [cursor=pointer]:
+              - generic [ref=e381]: 
+              - text: Eingereichte Essays
+            - tab " Aufgaben" [ref=e382] [cursor=pointer]:
+              - generic [ref=e383]: 
+              - text: Aufgaben
+            - tab "post + groups:" [disabled] [ref=e384] [cursor=pointer]
+            - tab " Kategorien" [ref=e385] [cursor=pointer]:
+              - generic [ref=e386]: 
+              - text: Kategorien
+            - tab " Schlagwörter" [ref=e387] [cursor=pointer]:
+              - generic [ref=e388]: 
+              - text: Schlagwörter
+            - tab "sfwd-courses + product:" [disabled] [ref=e389] [cursor=pointer]
+            - tab " Seminartypen" [ref=e390] [cursor=pointer]:
+              - generic [ref=e391]: 
+              - text: Seminartypen
+            - tab "sfwd-courses + dozent:" [disabled] [ref=e392] [cursor=pointer]
+            - tab " Themen" [ref=e393] [cursor=pointer]:
+              - generic [ref=e394]: 
+              - text: Themen
+            - tab "sfwd-courses:" [disabled] [ref=e395] [cursor=pointer]
+            - tab " Zielgruppe" [ref=e396] [cursor=pointer]:
+              - generic [ref=e397]: 
+              - text: Zielgruppe
+            - tab "product:" [disabled] [ref=e398] [cursor=pointer]
+            - tab " Marken" [ref=e399] [cursor=pointer]:
+              - generic [ref=e400]: 
+              - text: Marken
+            - tab " Produkt-Kategorien" [ref=e401] [cursor=pointer]:
+              - generic [ref=e402]: 
+              - text: Produkt-Kategorien
+            - tab " Produkt-Schlagwörter" [ref=e403] [cursor=pointer]:
+              - generic [ref=e404]: 
+              - text: Produkt-Schlagwörter
+            - tab "sfwd-lessons:" [disabled] [ref=e405] [cursor=pointer]
+            - tab " Lektion Categories" [ref=e406] [cursor=pointer]:
+              - generic [ref=e407]: 
+              - text: Lektion Categories
+            - tab " Lektion Tags" [ref=e408] [cursor=pointer]:
+              - generic [ref=e409]: 
+              - text: Lektion Tags
+            - tab "sfwd-topic:" [disabled] [ref=e410] [cursor=pointer]
+            - tab " Thema Categories" [ref=e411] [cursor=pointer]:
+              - generic [ref=e412]: 
+              - text: Thema Categories
+            - tab " Thema Tags" [ref=e413] [cursor=pointer]:
+              - generic [ref=e414]: 
+              - text: Thema Tags
+            - tab "groups:" [disabled] [ref=e415] [cursor=pointer]
+            - tab " Group Categories" [ref=e416] [cursor=pointer]:
+              - generic [ref=e417]: 
+              - text: Group Categories
+            - tab " Group Tags" [ref=e418] [cursor=pointer]:
+              - generic [ref=e419]: 
+              - text: Group Tags
+          - tabpanel " Produkte" [ref=e420]:
+            - generic [ref=e421]:
+              - heading "Produkte" [level=2] [ref=e422]
+              - paragraph [ref=e423]:
+                - text: Ändere das globale SEO-, Schema- und andere Einstellungen für product pages.
+                - link "Mehr erfahren" [ref=e424] [cursor=pointer]:
+                  - /url: https://rankmath.com/kb/titles-and-meta/??utm_source=Plugin&utm_medium=Options%20Panel%20Meta%20Products%20Tab&utm_campaign=WP#products
+                - text: .
+            - generic [ref=e426]:
+              - generic [ref=e427]:
+                - generic [ref=e429]: Einzelne(r) Produkt Titel
+                - generic [ref=e430]:
+                  - generic [ref=e431]:
+                    - generic [ref=e432]:
+                      - textbox [ref=e435]: "%title% %sep% %sitename%"
+                      - button "" [ref=e436] [cursor=pointer]:
+                        - generic [ref=e437]: 
+                    - generic [ref=e438]: Example Fortbildung, die wirklich passt - Kita Seminar Manufaktur
+                  - paragraph [ref=e439]: Standard-Titel-Tag für einzelne Produkt-Seiten. Dies kann auf dem Bildschirm des Beitrag-Editors pro Beitrag geändert werden.
+              - generic [ref=e440]:
+                - generic [ref=e442]: Einzelne(r) Produkt Beschreibung
+                - generic [ref=e443]:
+                  - generic [ref=e444]:
+                    - generic [ref=e445]:
+                      - textbox [ref=e448]: "%excerpt%"
+                      - button "" [ref=e449] [cursor=pointer]:
+                        - generic [ref=e450]: 
+                    - generic [ref=e451]: Example %excerpt%
+                  - paragraph [ref=e452]: Standardbeschreibung für einzelne Produkt-Seiten. Dies kann auf dem Beitragsbildschirm pro Beitrag geändert werden.
+              - generic [ref=e453]:
+                - generic [ref=e455]: Produkt Archiv-Titel
+                - generic [ref=e456]:
+                  - generic [ref=e457]:
+                    - generic [ref=e458]:
+                      - textbox [ref=e461]: "%title% %page% %sep% %sitename%"
+                      - button "" [ref=e462] [cursor=pointer]:
+                        - generic [ref=e463]: 
+                    - generic [ref=e464]: Example Fortbildung, die wirklich passt page 2 of 4 - Kita Seminar ...
+                  - paragraph [ref=e465]: Titel für Produkt Archiv-Seiten.
+              - generic [ref=e466]:
+                - generic [ref=e468]: Produkt Archiv-Beschreibung
+                - generic [ref=e469]:
+                  - generic [ref=e471]:
+                    - textbox [ref=e474]
+                    - button "" [ref=e475] [cursor=pointer]:
+                      - generic [ref=e476]: 
+                  - paragraph [ref=e477]: Beschreibung für Produkt Archiv-Seiten.
+              - generic [ref=e478]:
+                - generic [ref=e480]: Schema-Typ
+                - generic [ref=e481]:
+                  - radiogroup [ref=e485]:
+                    - radio "Kein" [ref=e487] [cursor=pointer]:
+                      - generic [ref=e488]: Kein
+                    - radio "WooCommerce-Produkt" [checked] [ref=e490] [cursor=pointer]:
+                      - generic [ref=e491]: WooCommerce-Produkt
+                  - paragraph [ref=e492]: Standard Rich-Snippet, das beim Erstellen eines neuen Produkts ausgewählt wurde.
+              - generic [ref=e493]:
+                - generic [ref=e495]: Autodetect Video
+                - generic [ref=e496]:
+                  - checkbox [checked] [ref=e501] [cursor=pointer]
+                  - paragraph [ref=e504]: Populate automatic Video Schema by auto-detecting any video in the content.
+              - generic [ref=e505]:
+                - generic [ref=e507]: Autogenerate Image
+                - generic [ref=e508]:
+                  - checkbox [ref=e513] [cursor=pointer]
+                  - paragraph [ref=e516]: Auto-generate image for the auto detected video.
+              - generic [ref=e517]:
+                - generic [ref=e519]: Produkt Robots-Meta
+                - generic [ref=e520]:
+                  - checkbox [checked] [ref=e525] [cursor=pointer]
+                  - paragraph [ref=e528]:
+                    - text: Wähle individuelle Roboter-Metas, wie z.B.
+                    - code [ref=e529]: nofollow
+                    - text: ","
+                    - code [ref=e530]: noarchive
+                    - text: ", etc. für einzelne Produkt-Seiten. Andernfalls wird die Standard-Meta verwendet, wie auf der Registerkarte Globale Meta eingestellt."
+              - generic [ref=e531]:
+                - generic [ref=e533]: Produkt Robots-Meta
+                - generic [ref=e534]:
+                  - list [ref=e535]:
+                    - listitem [ref=e536]:
+                      - generic [ref=e539]:
+                        - checkbox "Index  Weist Suchmaschinen an, diese Seiten in den Suchergebnissen zu indizieren und anzuzeigen." [ref=e541] [cursor=pointer]
+                        - generic [ref=e543] [cursor=pointer]:
+                          - text: Index
+                          - generic [ref=e544]:
+                            - emphasis [ref=e545]: 
+                            - generic: Weist Suchmaschinen an, diese Seiten in den Suchergebnissen zu indizieren und anzuzeigen.
+                    - listitem [ref=e546]:
+                      - generic [ref=e549]:
+                        - checkbox "Kein Index  Verhindert, dass Seiten indiziert und in Suchmaschinen-Ergebnisseiten angezeigt werden" [checked] [ref=e551] [cursor=pointer]: 
+                        - generic [ref=e553] [cursor=pointer]:
+                          - text: Kein Index
+                          - generic [ref=e554]:
+                            - emphasis [ref=e555]: 
+                            - generic: Verhindert, dass Seiten indiziert und in Suchmaschinen-Ergebnisseiten angezeigt werden
+                    - listitem [ref=e556]:
+                      - generic [ref=e559]:
+                        - checkbox "Nicht folgen  Verhindert, dass Suchmaschinen folgenden Links auf den Seiten folgen" [checked] [ref=e561] [cursor=pointer]: 
+                        - generic [ref=e563] [cursor=pointer]:
+                          - text: Nicht folgen
+                          - generic [ref=e564]:
+                            - emphasis [ref=e565]: 
+                            - generic: Verhindert, dass Suchmaschinen folgenden Links auf den Seiten folgen
+                    - listitem [ref=e566]:
+                      - generic [ref=e569]:
+                        - checkbox "Kein Archiv  Verhindert, dass Suchmaschinen zwischengespeicherte Links für Seiten anzeigen" [ref=e571] [cursor=pointer]
+                        - generic [ref=e573] [cursor=pointer]:
+                          - text: Kein Archiv
+                          - generic [ref=e574]:
+                            - emphasis [ref=e575]: 
+                            - generic: Verhindert, dass Suchmaschinen zwischengespeicherte Links für Seiten anzeigen
+                    - listitem [ref=e576]:
+                      - generic [ref=e579]:
+                        - checkbox "Kein Bildverzeichnis  Diese Option verhindert, dass Bilder auf einer Seite von Google und anderen Suchmaschinen indiziert werden" [ref=e581] [cursor=pointer]
+                        - generic [ref=e583] [cursor=pointer]:
+                          - text: Kein Bildverzeichnis
+                          - generic [ref=e584]:
+                            - emphasis [ref=e585]: 
+                            - generic: Diese Option verhindert, dass Bilder auf einer Seite von Google und anderen Suchmaschinen indiziert werden
+                    - listitem [ref=e586]:
+                      - generic [ref=e589]:
+                        - checkbox "Kein Snippet  Verhindert, dass ein Snippet in den Suchergebnissen angezeigt wird" [ref=e591] [cursor=pointer]
+                        - generic [ref=e593] [cursor=pointer]:
+                          - text: Kein Snippet
+                          - generic [ref=e594]:
+                            - emphasis [ref=e595]: 
+                            - generic: Verhindert, dass ein Snippet in den Suchergebnissen angezeigt wird
+                  - paragraph [ref=e596]: Individuelle Werte für Robots-Meta-Tag auf Produkt.
+              - generic [ref=e597]:
+                - generic [ref=e599]: Produkt Erweiterte Roboter-Meta
+                - generic [ref=e600]:
+                  - generic [ref=e601]:
+                    - generic [ref=e604]:
+                      - checkbox "Snippet  Gebe eine maximale Textlänge in Zeichen für einen Ausschnitt der Seite an." [checked] [ref=e606] [cursor=pointer]
+                      - generic [ref=e608] [cursor=pointer]:
+                        - text: Snippet
+                        - generic [ref=e609]:
+                          - emphasis [ref=e610]: 
+                          - generic: Gebe eine maximale Textlänge in Zeichen für einen Ausschnitt der Seite an.
+                    - spinbutton [ref=e613]: "-1"
+                  - generic [ref=e614]:
+                    - generic [ref=e617]:
+                      - checkbox "Videovorschau  Gebe eine maximale Dauer in Sekunden für eine animierte Videovorschau an." [checked] [ref=e619] [cursor=pointer]
+                      - generic [ref=e621] [cursor=pointer]:
+                        - text: Videovorschau
+                        - generic [ref=e622]:
+                          - emphasis [ref=e623]: 
+                          - generic: Gebe eine maximale Dauer in Sekunden für eine animierte Videovorschau an.
+                    - spinbutton [ref=e626]: "-1"
+                  - generic [ref=e627]:
+                    - generic [ref=e630]:
+                      - checkbox "Bildvorschau  Gebe eine maximale Größe der Bildvorschau an, die für Bilder auf dieser Seite angezeigt werden soll." [checked] [ref=e632] [cursor=pointer]
+                      - generic [ref=e634] [cursor=pointer]:
+                        - text: Bildvorschau
+                        - generic [ref=e635]:
+                          - emphasis [ref=e636]: 
+                          - generic: Gebe eine maximale Größe der Bildvorschau an, die für Bilder auf dieser Seite angezeigt werden soll.
+                    - combobox [ref=e641] [cursor=pointer]:
+                      - option "Standard"
+                      - option "Groß" [selected]
+                      - option "Kein"
+              - generic [ref=e642]:
+                - generic [ref=e644]: Linkvorschläge
+                - generic [ref=e645]:
+                  - checkbox [checked] [ref=e650] [cursor=pointer]
+                  - paragraph [ref=e653]: Aktiviere das Metafeld Linkvorschläge für diesen Beitragstyp zusammen mit der Funktion Säuleninhalt.
+              - generic [ref=e654]:
+                - generic [ref=e656]: Linkvorschlag-Titel
+                - generic [ref=e657]:
+                  - radiogroup [ref=e661]:
+                    - radio "Titel" [checked] [ref=e663] [cursor=pointer]:
+                      - generic [ref=e664]: Titel
+                    - radio "Fokus-Schlüsselwörter" [ref=e666] [cursor=pointer]:
+                      - generic [ref=e667]: Fokus-Schlüsselwörter
+                  - paragraph [ref=e668]: Verwende das Fokus-Schlüsselwort als Standardtext für die Links anstelle der Beitrag-Titel.
+              - generic [ref=e669]:
+                - generic [ref=e671]: Primäre Taxonomie
+                - generic [ref=e672]:
+                  - combobox "Primäre Taxonomie" [ref=e677] [cursor=pointer]:
+                    - option "Kein"
+                    - option "Seminartypen"
+                    - option "Marken"
+                    - option "Produkt-Kategorien" [selected]
+                    - option "Produkt-Schlagwörter"
+                  - paragraph [ref=e678]: Wähle die Taxonomie, die du mit der Funktion "Primärer Begriff" verwenden möchtest. Dies wird auch die Taxonomie sein, die in den Breadcrumbs angezeigt wird, wenn ein einzelner Produkt angezeigt wird.
+              - generic [ref=e679]:
+                - generic [ref=e681]: Vorschaubild für Facebook
+                - generic [ref=e682]:
+                  - button "Datei hinzufügen oder hochladen" [ref=e683] [cursor=pointer]
+                  - paragraph [ref=e684]: Das Bild wird angezeigt, wenn deine Seite auf Facebook und anderen sozialen Netzwerken freigegeben wird. Verwende Bilder mit einer Auflösung von mindestens 1200x630px für die beste Darstellung auf hochauflösenden Geräten.
+              - generic [ref=e685]:
+                - generic [ref=e687]: Verbessertes Teilen auf Slack
+                - generic [ref=e688]:
+                  - checkbox [checked] [ref=e693] [cursor=pointer]
+                  - paragraph [ref=e696]: Wenn die Option aktiviert ist und ein Produkt auf Slack geteilt wird, werden zusätzliche Informationen angezeigt (Preis und Verfügbarkeit).
+              - generic [ref=e697]:
+                - generic [ref=e699]: SEO-Steuerelemente hinzufügen
+                - generic [ref=e700]:
+                  - checkbox [checked] [ref=e705] [cursor=pointer]
+                  - paragraph [ref=e708]: Füge SEO-Steuerelemente für den Editorbildschirm hinzu, um die SEO-Optionen für Beiträge in diesem Beitragstyp anzupassen.
+              - generic [ref=e709]:
+                - generic [ref=e711]: Mehrfachbearbeitung
+                - generic [ref=e712]:
+                  - radiogroup [ref=e716]:
+                    - radio "Deaktiviert" [ref=e718] [cursor=pointer]:
+                      - generic [ref=e719]: Deaktiviert
+                    - radio "Aktiviert" [checked] [ref=e721] [cursor=pointer]:
+                      - generic [ref=e722]: Aktiviert
+                    - radio "Schreibgeschützt" [ref=e724] [cursor=pointer]:
+                      - generic [ref=e725]: Schreibgeschützt
+                  - paragraph [ref=e726]: Füge dem Bildschirm für die Beitragsliste Spalten zur Massenbearbeitung hinzu.
+              - generic [ref=e727]:
+                - generic [ref=e729]: Individuelle Felder
+                - generic [ref=e730]:
+                  - textbox "Individuelle Felder" [ref=e733]
+                  - paragraph [ref=e734]: Liste der individuellen Feldnamen, die in die Seitenanalyse einbezogen werden sollen. Füge einen pro Zeile hinzu.
+              - generic [ref=e735]:
+                - generic [ref=e737]: Default Thumbnail Watermark
+                - generic [ref=e738]:
+                  - radiogroup [ref=e742]:
+                    - radio "Aus" [checked] [ref=e744] [cursor=pointer]:
+                      - generic [ref=e745]: Aus
+                    - radio "Wiedergabezeichen" [ref=e747] [cursor=pointer]:
+                      - generic [ref=e748]: Wiedergabezeichen
+                    - radio "GIF-Symbol" [ref=e750] [cursor=pointer]:
+                      - generic [ref=e751]: GIF-Symbol
+                  - paragraph [ref=e752]: Select the default watermark that will be applied if no specific watermark is selected.
+            - generic [ref=e753]:
+              - button "Einstellungen zurücksetzen" [ref=e754] [cursor=pointer]
+              - button "Änderungen speichern" [disabled]
+  - contentinfo [ref=e755]:
+    - paragraph [ref=e756]:
+      - generic [ref=e758]:
+        - text: Danke für dein Vertrauen in
+        - link "WordPress" [ref=e759] [cursor=pointer]:
+          - /url: https://de.wordpress.org/
+        - text: .
+    - paragraph [ref=e760]: Version 6.9.4
