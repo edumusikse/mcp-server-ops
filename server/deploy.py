@@ -261,6 +261,7 @@ def _server_config_install_shell(sudo: str, backup_ts: str) -> str:
         tmp_q = shlex.quote(f"/tmp/{basename}")
         dst_q = shlex.quote(dst)
         lines.append(
+            f"if [ -d {dst_q} ]; then {sudo}rm -rf {dst_q}; fi; "
             f"if cmp -s {tmp_q} {dst_q} 2>/dev/null; then "
             f"rm -f {tmp_q}; "
             f"else "
