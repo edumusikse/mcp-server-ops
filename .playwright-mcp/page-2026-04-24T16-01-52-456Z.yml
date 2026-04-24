@@ -1,0 +1,35 @@
+- generic [active] [ref=e1]:
+  - heading "Anmelden" [level=1] [ref=e2]
+  - generic [ref=e3]:
+    - link "Präsentiert von WordPress" [ref=e4] [cursor=pointer]:
+      - /url: https://de.wordpress.org/
+    - generic [ref=e5]:
+      - paragraph [ref=e6]:
+        - generic [ref=e7]: Benutzername oder E-Mail-Adresse
+        - textbox "Benutzername oder E-Mail-Adresse" [ref=e8]: claude-ops
+      - generic [ref=e9]:
+        - generic [ref=e10]: Passwort
+        - generic [ref=e11]:
+          - textbox "Passwort" [ref=e12]
+          - button "Passwort anzeigen" [ref=e13] [cursor=pointer]:
+            - generic [ref=e14]: 
+      - paragraph [ref=e15]:
+        - checkbox "Angemeldet bleiben" [ref=e16] [cursor=pointer]
+        - generic [ref=e17]: Angemeldet bleiben
+      - paragraph:
+        - button "Anmelden" [ref=e18] [cursor=pointer]
+    - paragraph [ref=e19]:
+      - link "Passwort vergessen?" [ref=e20] [cursor=pointer]:
+        - /url: https://kita-seminar-manufaktur.de/wp-login.php?action=lostpassword
+    - paragraph [ref=e21]:
+      - link "← Zu Kita Seminar Manufaktur" [ref=e22] [cursor=pointer]:
+        - /url: https://kita-seminar-manufaktur.de/
+  - generic [ref=e24]:
+    - generic [ref=e25]:
+      - generic [ref=e26]: 
+      - generic [ref=e27]: Sprache
+    - combobox "Sprache" [ref=e28] [cursor=pointer]:
+      - option "English (United States)"
+      - option "Deutsch" [selected]
+      - option "English (UK)"
+    - button "Wechseln" [ref=e29] [cursor=pointer]
