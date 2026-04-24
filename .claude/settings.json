@@ -2,6 +2,12 @@
   "enableAllProjectMcpServers": true,
   "permissions": {
     "allow": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
       "mcp__ops__*",
       "mcp__onyx-ops__*",
       "mcp__playwright__*"
