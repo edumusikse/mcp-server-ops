@@ -1,0 +1,226 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - navigation "Werkzeugleiste":
+      - menu:
+        - group [ref=e3]:
+          - menuitem "Über WordPress" [ref=e4] [cursor=pointer]:
+            - generic [ref=e6]: Über WordPress
+        - group [ref=e7]:
+          - menuitem "Kita Seminar Manufaktur" [ref=e8] [cursor=pointer]
+        - group [ref=e9]:
+          - menuitem "Customizer" [ref=e10] [cursor=pointer]
+        - group [ref=e11]:
+          - menuitem "Neu" [ref=e12] [cursor=pointer]:
+            - generic [ref=e14]: Neu
+        - group [ref=e15]:
+          - menuitem "Edit Kurs" [ref=e16] [cursor=pointer]
+        - listitem [ref=e17]:
+          - generic [ref=e18]:  Mit Elementor bearbeiten
+        - group [ref=e19]:
+          - menuitem "Rank Math SEO" [ref=e20] [cursor=pointer]:
+            - img [ref=e22]
+            - text: Rank Math SEO
+        - group [ref=e26]:
+          - menuitem "Nginx Cache" [ref=e27] [cursor=pointer]:
+            - img [ref=e28]
+            - text: Nginx Cache
+        - group [ref=e29]:
+          - menuitem " Notizen" [ref=e30] [cursor=pointer]
+        - group [ref=e31]:
+          - menuitem "Perfmatters" [ref=e32] [cursor=pointer]
+      - menu [ref=e33]:
+        - group [ref=e34]:
+          - menuitem "Willkommen, Claude Ops" [ref=e35] [cursor=pointer]
+        - group [ref=e36]:
+          - menuitem "Suchen" [ref=e37]:
+            - generic [ref=e38]:
+              - textbox "Suchen" [ref=e39] [cursor=pointer]
+              - generic [ref=e40]: Suchen
+  - link "Zum Inhalt springen" [ref=e41] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=e42]:
+    - generic [ref=e43]:
+      - link [ref=e46] [cursor=pointer]:
+        - /url: https://kita-seminar-manufaktur.de
+      - navigation "Menü" [ref=e49]:
+        - list [ref=e50]:
+          - listitem [ref=e51]:
+            - link "Über Uns" [ref=e52] [cursor=pointer]:
+              - /url: https://kita-seminar-manufaktur.de/ueberuns/
+              - text: Über Uns
+              - img [ref=e54]
+          - listitem [ref=e56]:
+            - link "Unser Angebot" [ref=e57] [cursor=pointer]:
+              - /url: "#"
+              - text: Unser Angebot
+              - img [ref=e59]
+          - listitem [ref=e61]:
+            - link "Blog" [ref=e62] [cursor=pointer]:
+              - /url: https://kita-seminar-manufaktur.de/blog/
+          - listitem [ref=e63]:
+            - link "Abmelden" [ref=e64] [cursor=pointer]:
+              - /url: https://kita-seminar-manufaktur.de/wp-login.php?action=logout&redirect_to=https%3A%2F%2Fkita-seminar-manufaktur.de%2Fmein_konto%2F&_wpnonce=392c830a3d
+  - generic [ref=e69]:
+    - generic [ref=e70]:
+      - generic [ref=e72]:
+        - heading "Abschied von der Windel" [level=2] [ref=e74]
+        - generic [ref=e75]: Kinder bindungs- und bedürfnisorientiert bei der Ausscheidungsautonomie begleiten
+      - list [ref=e79]:
+        - listitem [ref=e80]:
+          - img [ref=e82]
+          - generic [ref=e84]: Webinar
+    - generic [ref=e85]:
+      - generic [ref=e86]:
+        - generic [ref=e87]:
+          - heading "Das Seminar im Überblick" [level=2] [ref=e89]
+          - generic [ref=e91]:
+            - paragraph [ref=e92]:
+              - text: In vielen Kitas lässt sich beobachten, dass der Zeitpunkt des Trockenwerdens immer später einsetzt. Das führt zu neuen Anforderungen im pädagogischen Alltag – von organisatorischen Abläufen bis hin zur gemeinsamen Haltung im Team.
+              - text: "Der Schritt hin zur selbstständigen Regulation von Blasen- und Darmfunktion ist ein individueller Reifeprozess. Er ist eng mit verschiedenen Entwicklungsbereichen verknüpft und benötigt vor allem eines: ausreichend Zeit."
+            - paragraph [ref=e93]: "Das Webinar gibt pädagogischen Fachkräften Anregungen, Raum für Austausch und praktische Ideen für die tägliche Arbeit. Zudem liefert es Orientierung in der Frage: Wie können wir Kinder behutsam durch diese sensible Entwicklungsphase begleiten – ohne Druck, aber mit fachlicher Klarheit?"
+        - generic [ref=e94]:
+          - heading "Lernziele" [level=2] [ref=e96]
+          - list [ref=e99]:
+            - listitem [ref=e100]: Woran lässt sich erkennen, dass ein Kind bereit ist, den Übergang zu Töpfchen oder Toilette zu wagen?
+            - listitem [ref=e101]: Wie hängt das Thema mit dem wachsenden Autonomieverhalten von Kindern zusammen?
+            - listitem [ref=e102]: Welche Faktoren sollten berücksichtigt werden, um diese Phase unterstützend und respektvoll zu gestalten?
+            - listitem [ref=e103]: Und wie gelingt eine vertrauensvolle Zusammenarbeit zwischen Eltern und pädagogischem Personal?
+        - generic [ref=e104]:
+          - heading "Zielgruppe" [level=2] [ref=e106]
+          - generic [ref=e108]: Das Webinar richtet sich an pädagogische Fachkräfte aus Krippe, Kita und Kindertagespflege, die Kinder im Prozess des Trockenwerdens kompetent begleiten möchten und praktische Impulse für den Kita-Alltag suchen.
+      - generic [ref=e109]:
+        - generic [ref=e110]:
+          - heading "Kursdatum" [level=2] [ref=e112]
+          - generic [ref=e117]:
+            - generic [ref=e118]:
+              - generic [ref=e119]:
+                - generic [ref=e120]: Datum
+                - generic [ref=e121]: Zeit
+                - generic [ref=e122]: Preis
+              - generic [ref=e123]:
+                - radio [checked] [ref=e125]
+                - generic [ref=e127]: 10.06.2026
+                - generic [ref=e129]: 09:00 - 13:00
+                - generic [ref=e132]: 129 €
+              - generic [ref=e133]:
+                - radio [ref=e135]
+                - generic [ref=e137]: 25.11.2026
+                - generic [ref=e139]: 09:00 - 13:00
+                - generic [ref=e142]: 129 €
+            - generic [ref=e143]:
+              - generic [ref=e144]:
+                - generic [ref=e145]: Teilnehmer
+                - spinbutton "Teilnehmer" [ref=e146]: "1"
+              - button "Buchen" [ref=e147] [cursor=pointer]: Buchen
+        - generic [ref=e150]:
+          - heading "Deine Referentin" [level=2] [ref=e152]
+          - generic [ref=e158]:
+            - heading "Julia Beerschneider" [level=2] [ref=e163]
+            - paragraph [ref=e175]: Ich begleite pädagogische Fachkräfte und Familien dabei, Kinder von Anfang an bindungs- und bedürfnisorientiert zu begleiten. Besonders die frühen Lebensjahre liegen mir am Herzen, da sie die Grundlage für eine gesunde emotionale und soziale Entwicklung bilden.
+  - contentinfo [ref=e176]:
+    - generic [ref=e177]:
+      - generic [ref=e178]:
+        - heading "Nachricht senden" [level=5] [ref=e181]
+        - link "Kontakt" [ref=e184] [cursor=pointer]:
+          - /url: /kontakt-rueckfragen/
+          - generic [ref=e186]: Kontakt
+      - generic [ref=e187]:
+        - heading "Kontakt" [level=5] [ref=e190]
+        - paragraph [ref=e193]:
+          - link "+49 (0)172 2726096" [ref=e194] [cursor=pointer]:
+            - /url: tel:+491722726096
+          - link "weiterbildung@kita-seminar-manufaktur.de" [ref=e195] [cursor=pointer]:
+            - /url: mailto:weiterbildung@kita-seminar-manufaktur.de
+      - generic [ref=e196]:
+        - heading "Folge uns" [level=5] [ref=e199]
+        - list [ref=e202]:
+          - listitem [ref=e203]:
+            - link "Facebook" [ref=e204] [cursor=pointer]:
+              - /url: https://www.facebook.com/kitaseminarmanufaktur
+              - generic [ref=e205]: Facebook
+              - img [ref=e206]
+          - listitem [ref=e208]:
+            - link "Instagram" [ref=e209] [cursor=pointer]:
+              - /url: https://www.instagram.com/kita.seminar.manufaktur/
+              - generic [ref=e210]: Instagram
+              - img [ref=e211]
+          - listitem [ref=e213]:
+            - link "Envelope" [ref=e214] [cursor=pointer]:
+              - /url: "#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjgwMzQxIiwidG9nZ2xlIjpmYWxzZX0%3D"
+              - generic [ref=e215]: Envelope
+              - img [ref=e216]
+    - generic [ref=e218]:
+      - heading "Datenschutzerklärung" [level=5] [ref=e222]:
+        - link "Datenschutzerklärung" [ref=e223] [cursor=pointer]:
+          - /url: https://kita-seminar-manufaktur.de/datenschutzerklaerung/
+      - heading "Impressum" [level=5] [ref=e227]:
+        - link "Impressum" [ref=e228] [cursor=pointer]:
+          - /url: https://kita-seminar-manufaktur.de/impressum-2/
+      - heading "AGB" [level=5] [ref=e232]:
+        - link "AGB" [ref=e233] [cursor=pointer]:
+          - /url: https://kita-seminar-manufaktur.de/agb/
+    - paragraph [ref=e237]: © 2026 Kita-Seminar-Manufaktur
+  - generic [ref=e239]:
+    - button "Öffnen Sie Schwebendes Element" [ref=e240] [cursor=pointer]:
+      - img [ref=e241]
+    - text: 
+  - generic [ref=e243]: desktop
+  - status [ref=e244]
+  - generic [ref=e246]:
+    - generic [ref=e247]:
+      - button [ref=e248]:
+        - img [ref=e249]
+      - heading "Borlabs Cookie - Debug-Konsole" [level=1] [ref=e251]
+      - button [ref=e252] [cursor=pointer]:
+        - img [ref=e253]
+    - generic:
+      - paragraph [ref=e255]:
+        - text: Diese Debug-Konsole wird nur für Administratoren angezeigt und ist für Besucher nicht sichtbar.
+        - text: Um die Debug-Konsole zu deaktivieren, navigieren Sie zu Borlabs Cookie » Einstellungen » Admin- & Plugin-Einstellungen und deaktivieren Sie die Einstellung Debug-Konsole einschalten.
+      - generic [ref=e256]:
+        - button "Einträge umschalten" [ref=e257] [cursor=pointer]:
+          - text: Einträge
+          - img [ref=e258]
+          - text: umschalten
+        - button "Einträge umschalten" [ref=e260] [cursor=pointer]:
+          - text: Einträge
+          - img [ref=e261]
+          - text: umschalten
+      - table [ref=e263]:
+        - rowgroup [ref=e264]:
+          - row "Ergebnis Test Zusätzliche Informationen" [ref=e265]:
+            - columnheader "Ergebnis" [ref=e266]
+            - columnheader "Test" [ref=e267]
+            - columnheader "Zusätzliche Informationen" [ref=e268]
+        - rowgroup [ref=e269]:
+          - row "Borlabs Cookie ist installiert 3.4" [ref=e270]:
+            - cell [ref=e271]:
+              - img [ref=e272]
+            - cell "Borlabs Cookie ist installiert" [ref=e274]
+            - cell "3.4" [ref=e275]:
+              - generic [ref=e276]: "3.4"
+          - row "Konfiguration ist geladen -" [ref=e277]:
+            - cell [ref=e278]:
+              - img [ref=e279]
+            - cell "Konfiguration ist geladen" [ref=e281]
+            - cell "-" [ref=e282]
+          - row "Konfiguration ist korrekt platziert -" [ref=e283]:
+            - cell [ref=e284]:
+              - img [ref=e285]
+            - cell "Konfiguration ist korrekt platziert" [ref=e287]
+            - cell "-" [ref=e288]
+          - row "Plugin-URL ist richtig eingestellt -" [ref=e289]:
+            - cell [ref=e290]:
+              - img [ref=e291]
+            - cell "Plugin-URL ist richtig eingestellt" [ref=e293]
+            - cell "-" [ref=e294]
+          - row "Cookie Domain ist richtig eingestellt -" [ref=e295]:
+            - cell [ref=e296]:
+              - img [ref=e297]
+            - cell "Cookie Domain ist richtig eingestellt" [ref=e299]
+            - cell "-" [ref=e300]
+          - row "Cookie Secure-Attribut ist richtig eingestellt -" [ref=e301]:
+            - cell [ref=e302]:
+              - img [ref=e303]
+            - cell "Cookie Secure-Attribut ist richtig eingestellt" [ref=e305]
+            - cell "-" [ref=e306]
