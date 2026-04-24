@@ -16,6 +16,7 @@ from transport import mcp, run_on
 _READ_FILE_PREFIXES = (
     "/var/log/", "/srv/", "/opt/", "/usr/local/bin/",
     "/home/stephan/.ops-mcp/", "/var/lib/ai-agent/",
+    "/var/lib/docker/volumes/",   # WP site files (mu-plugins, themes, uploads)
 )
 
 _READ_FILE_BLOCKED = ("/etc/ssh/", "/root/", "/etc/sudoers")
@@ -32,6 +33,13 @@ _WRITE_FILE_PREFIXES = (
     "/usr/local/bin/probes/",  # alt probes location
     "/usr/local/bin/",         # ops scripts (inspec wrapper, etc.)
     "/etc/cron.d/",            # cron jobs (wrapper scripts, timeouts)
+    # WP mu-plugins deploy paths — requires sudo=True; covers all sites
+    "/var/lib/docker/volumes/ksm_wp-files/_data/wp-content/mu-plugins/",
+    "/var/lib/docker/volumes/edumusik-net_wp-files/_data/wp-content/mu-plugins/",
+    "/var/lib/docker/volumes/edumusik-com_wp-files/_data/wp-content/mu-plugins/",
+    "/var/lib/docker/volumes/frid_wp-files/_data/wp-content/mu-plugins/",
+    "/var/lib/docker/volumes/schafliebe_wp-files/_data/wp-content/mu-plugins/",
+    "/var/lib/docker/volumes/evabiallas_wp-files/_data/wp-content/mu-plugins/",
 )
 _WRITE_FILE_BLOCKED = (
     "/etc/ssh/", "/root/", "/etc/sudoers", "/etc/passwd", "/etc/shadow",
@@ -101,7 +109,9 @@ def write_file(host: str, path: str, content: str, sudo: bool = False) -> dict:
     and surface in the review queue.
 
     Allowed prefixes: /opt/ops-mcp/, /opt/validator/, /opt/inspec/,
-    /opt/security-audit/, /opt/wp-panel/, /usr/local/bin/, /etc/cron.d/.
+    /opt/security-audit/, /opt/wp-panel/, /usr/local/bin/, /etc/cron.d/,
+    /var/lib/docker/volumes/<site>_wp-files/_data/wp-content/mu-plugins/
+    (all six WP sites; use sudo=True for Docker volume paths).
     Blocked: /etc/ssh/, /root/, /etc/sudoers, /etc/passwd, /etc/shadow,
     /etc/nftables.conf, /etc/systemd/system/ssh*.
 
