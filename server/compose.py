@@ -9,6 +9,7 @@ from transport import mcp, run_on
 
 _COMPOSE_STACKS = {
     "edumusik-net", "edumusik-com", "frid", "schafliebe", "evabiallas", "ksm", "kimai",
+    "admin-panel",
 }
 
 
