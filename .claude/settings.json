@@ -1,8 +1,10 @@
 {
+  "enableAllProjectMcpServers": true,
   "permissions": {
     "allow": [
       "mcp__ops__*",
-      "mcp__onyx-ops__*"
+      "mcp__onyx-ops__*",
+      "mcp__playwright__*"
     ]
   },
   "hooks": {
