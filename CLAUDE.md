@@ -154,6 +154,17 @@ then `cd server-config && git remote set-url origin git@onyx:/opt/git/server-con
 | ops-agent (MCP digest + JSON) | 1,418 | 150 | $0.002168 | $1.56 |
 | **Saving** | **85% fewer** | **75% fewer** | **82% cheaper** | **$7.20/month** |
 
+## WP admin UI debugging — mandatory first step
+
+When a user reports that a UI element is visible but content is empty/not showing (applies to any WP admin screen, Rank Math, LearnDash, or plugin metabox):
+
+1. **Get the exact URL from the user's browser address bar** — do not construct a clean URL. Ask if they haven't provided it. Query parameters like `currentTab=`, `tab=`, `page=` change which CSS and JS load.
+2. **Load that exact URL** in Playwright before any other diagnosis.
+3. **Check computed CSS on the non-rendering element first**: `window.getComputedStyle(el).display`, `.height`, `.visibility` — before touching PHP, capabilities, or JS.
+4. **Find the CSS source** if height is 0 or display is none: iterate `document.styleSheets` for the rule.
+
+Do not form any PHP/capability/JS hypothesis until steps 1-4 show nothing wrong. The root cause is CSS from a third-party plugin (e.g. LearnDash) at least as often as it is PHP or React state.
+
 ## On-server paths (onyx)
 
 - MCP server: `/opt/ops-mcp/server.py`
