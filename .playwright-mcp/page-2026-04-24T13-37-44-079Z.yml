@@ -1,0 +1,1139 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - navigation "Hauptmenü":
+      - link "Zum Hauptinhalt springen" [ref=e3] [cursor=pointer]:
+        - /url: "#wpbody-content"
+      - link "Zur Werkzeugleiste springen" [ref=e4] [cursor=pointer]:
+        - /url: "#wp-toolbar"
+      - list [ref=e7]:
+        - listitem [ref=e8]:
+          - link "Dashboard" [ref=e9] [cursor=pointer]:
+            - /url: index.php
+            - generic [ref=e10]: 
+            - generic [ref=e11]: Dashboard
+        - listitem [ref=e12]:
+          - link "Blog" [ref=e13] [cursor=pointer]:
+            - /url: admin.php?page=ksm-blog-menu
+            - generic [ref=e14]: 
+            - generic [ref=e15]: Blog
+          - list [ref=e16]:
+            - listitem [ref=e17]:
+              - link "Blog" [ref=e18] [cursor=pointer]:
+                - /url: admin.php?page=ksm-blog-menu
+            - listitem [ref=e19]:
+              - link "Alle Beiträge" [ref=e20] [cursor=pointer]:
+                - /url: admin.php?page=ksm-blog-list
+            - listitem [ref=e21]:
+              - link "Neuer Beitrag" [ref=e22] [cursor=pointer]:
+                - /url: admin.php?page=ksm-blog-add
+            - listitem [ref=e23]:
+              - link "Kategorien" [ref=e24] [cursor=pointer]:
+                - /url: edit-tags.php?taxonomy=category
+        - listitem [ref=e25]:
+          - link "Produkte" [ref=e26] [cursor=pointer]:
+            - /url: edit.php?post_type=product
+            - generic [ref=e27]: 
+            - generic [ref=e28]: Produkte
+          - list [ref=e29]:
+            - listitem [ref=e30]:
+              - link "Alle Produkte" [ref=e31] [cursor=pointer]:
+                - /url: edit.php?post_type=product
+            - listitem [ref=e32]:
+              - link "Neues Produkt hinzufügen" [ref=e33] [cursor=pointer]:
+                - /url: post-new.php?post_type=product
+        - listitem [ref=e34]:
+          - link "Dozenten" [ref=e35] [cursor=pointer]:
+            - /url: admin.php?page=ksm-dozenten-list
+            - generic [ref=e36]: 
+            - generic [ref=e37]: Dozenten
+          - list [ref=e38]:
+            - listitem [ref=e39]:
+              - link "Alle Dozenten" [ref=e40] [cursor=pointer]:
+                - /url: admin.php?page=ksm-dozenten-list
+            - listitem [ref=e41]:
+              - link "Dozenten hinzufügen" [ref=e42] [cursor=pointer]:
+                - /url: admin.php?page=ksm-dozent-add
+        - listitem [ref=e43]:
+          - link "Newsletter" [ref=e44] [cursor=pointer]:
+            - /url: admin.php?page=fluentcrm-admin
+            - generic [ref=e46]: Newsletter
+          - list [ref=e47]:
+            - listitem [ref=e48]:
+              - link "Dashboard" [ref=e49] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin
+            - listitem [ref=e50]:
+              - link "Kontakte" [ref=e51] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/subscribers
+            - listitem [ref=e52]:
+              - link "Companies" [ref=e53] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/contact-groups/companies
+            - listitem [ref=e54]:
+              - link "Listen" [ref=e55] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/contact-groups/lists
+            - listitem [ref=e56]:
+              - link "Kampagnen" [ref=e57] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/email/campaigns
+            - listitem [ref=e58]:
+              - link "E-Mail-Sequenzen" [ref=e59] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/email/sequences
+            - listitem [ref=e60]:
+              - link "E-Mail-Vorlagen" [ref=e61] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/email/templates
+            - listitem [ref=e62]:
+              - link "Formulare" [ref=e63] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/forms
+        - listitem [ref=e64]:
+          - link "FooEvents" [ref=e65] [cursor=pointer]:
+            - /url: edit.php?post_type=event_magic_tickets
+            - generic [ref=e66]: 
+            - generic [ref=e67]: FooEvents
+          - list [ref=e68]:
+            - listitem [ref=e69]:
+              - link "Tickets" [ref=e70] [cursor=pointer]:
+                - /url: edit.php?post_type=event_magic_tickets
+            - listitem [ref=e71]:
+              - link "Erste Schritte" [ref=e72] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-introduction
+            - listitem [ref=e73]:
+              - link "Check-ins importieren" [ref=e74] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-checkins-import
+            - listitem [ref=e75]:
+              - link "Tickets importieren" [ref=e76] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-import-tickets
+            - listitem [ref=e77]:
+              - link "Ticket-Themen" [ref=e78] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-ticket-themes
+            - listitem [ref=e79]:
+              - link "Berichte" [ref=e80] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-reports
+        - listitem [ref=e81]:
+          - link "Boards" [ref=e82] [cursor=pointer]:
+            - /url: admin.php?page=fluent-boards
+            - generic [ref=e84]: Boards
+          - list [ref=e85]:
+            - listitem [ref=e86]:
+              - link "Dashboard" [ref=e87] [cursor=pointer]:
+                - /url: admin.php?page=fluent-boards
+            - listitem [ref=e88]:
+              - link "Boards" [ref=e89] [cursor=pointer]:
+                - /url: admin.php?page=fluent-boards#/boards
+            - listitem [ref=e90]:
+              - link "Berichte" [ref=e91] [cursor=pointer]:
+                - /url: admin.php?page=fluent-boards#/reports
+            - listitem [ref=e92]:
+              - link "Einstellungen" [ref=e93] [cursor=pointer]:
+                - /url: admin.php?page=fluent-boards#/settings/members-role
+        - listitem [ref=e94]:
+          - link "Elementor" [ref=e95] [cursor=pointer]:
+            - /url: admin.php?page=elementor-home
+            - generic [ref=e97]: Elementor
+          - list [ref=e98]:
+            - listitem [ref=e99]:
+              - link "Home" [ref=e100] [cursor=pointer]:
+                - /url: admin.php?page=elementor-home
+            - listitem [ref=e101]:
+              - link "Editor" [ref=e102] [cursor=pointer]:
+                - /url: admin.php?page=elementor
+            - listitem [ref=e103]:
+              - link "Theme-Builder" [ref=e104] [cursor=pointer]:
+                - /url: https://kita-seminar-manufaktur.de/wp-admin/admin.php?page=elementor-app&ver=4.0.3&return_to=/wp-admin/admin.php?page=rank-math-role-manager#/site-editor
+        - listitem [ref=e105]:
+          - link "Traffic Analytics" [ref=e106] [cursor=pointer]:
+            - /url: admin.php?page=traffic-analytics
+            - generic [ref=e107]: 
+            - generic [ref=e108]: Traffic Analytics
+        - listitem [ref=e109]:
+          - link "Forms" [ref=e110] [cursor=pointer]:
+            - /url: admin.php?page=fluent_forms
+            - generic [ref=e112]: Forms
+          - list [ref=e113]:
+            - listitem [ref=e114]:
+              - link "Formulare" [ref=e115] [cursor=pointer]:
+                - /url: admin.php?page=fluent_forms
+            - listitem [ref=e116]:
+              - link "Neues Formular" [ref=e117] [cursor=pointer]:
+                - /url: admin.php?page=fluent_forms#add=1
+            - listitem [ref=e118]:
+              - link "Einträge" [ref=e119] [cursor=pointer]:
+                - /url: admin.php?page=fluent_forms_all_entries
+            - listitem [ref=e120]:
+              - link "Werkzeuge" [ref=e121] [cursor=pointer]:
+                - /url: admin.php?page=fluent_forms_transfer
+        - listitem [ref=e122]:
+          - link "Medien" [ref=e123] [cursor=pointer]:
+            - /url: upload.php
+            - generic [ref=e124]: 
+            - generic [ref=e125]: Medien
+          - list [ref=e126]:
+            - listitem [ref=e127]:
+              - link "Mediathek" [ref=e128] [cursor=pointer]:
+                - /url: upload.php
+            - listitem [ref=e129]:
+              - link "Mediendatei hinzufügen" [ref=e130] [cursor=pointer]:
+                - /url: media-new.php
+            - listitem [ref=e131]:
+              - link "Massenoptimierung" [ref=e132] [cursor=pointer]:
+                - /url: upload.php?page=ewww-image-optimizer-bulk
+        - listitem [ref=e133]:
+          - link "Databases" [ref=e134] [cursor=pointer]:
+            - /url: /wp-admin/edit-tags.php?taxonomy=zielgruppe
+            - generic [ref=e135]: 
+            - generic [ref=e136]: Databases
+          - list [ref=e137]:
+            - listitem [ref=e138]:
+              - link " Zielgruppe" [ref=e139] [cursor=pointer]:
+                - /url: /wp-admin/edit-tags.php?taxonomy=zielgruppe
+                - generic [ref=e141]: 
+                - text: Zielgruppe
+            - listitem [ref=e142]:
+              - link " Seminartyp" [ref=e143] [cursor=pointer]:
+                - /url: /wp-admin/edit-tags.php?taxonomy=seminar-type
+                - generic [ref=e145]: 
+                - text: Seminartyp
+        - listitem [ref=e146]:
+          - link "Benutzer" [ref=e147] [cursor=pointer]:
+            - /url: users.php
+            - generic [ref=e148]: 
+            - generic [ref=e149]: Benutzer
+          - list [ref=e150]:
+            - listitem [ref=e151]:
+              - link "Alle Benutzer" [ref=e152] [cursor=pointer]:
+                - /url: users.php
+            - listitem [ref=e153]:
+              - link "Benutzer hinzufügen" [ref=e154] [cursor=pointer]:
+                - /url: user-new.php
+            - listitem [ref=e155]:
+              - link "Profil" [ref=e156] [cursor=pointer]:
+                - /url: profile.php
+        - listitem [ref=e157]:
+          - link "Seiten" [ref=e158] [cursor=pointer]:
+            - /url: edit.php?post_type=page
+            - generic [ref=e159]: 
+            - generic [ref=e160]: Seiten
+          - list [ref=e161]:
+            - listitem [ref=e162]:
+              - link "Alle Seiten" [ref=e163] [cursor=pointer]:
+                - /url: edit.php?post_type=page
+            - listitem [ref=e164]:
+              - link "Seite hinzufügen" [ref=e165] [cursor=pointer]:
+                - /url: post-new.php?post_type=page
+        - text: 
+        - listitem [ref=e166]:
+          - link "Design" [ref=e167] [cursor=pointer]:
+            - /url: customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Drank-math-role-manager
+            - generic [ref=e168]: 
+            - generic [ref=e169]: Design
+          - list [ref=e170]:
+            - listitem [ref=e171]:
+              - link "Customizer" [ref=e172] [cursor=pointer]:
+                - /url: customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Drank-math-role-manager
+            - listitem [ref=e173]:
+              - link "Menüs" [ref=e174] [cursor=pointer]:
+                - /url: nav-menus.php
+        - listitem [ref=e175]:
+          - link "Plugins" [ref=e176] [cursor=pointer]:
+            - /url: plugins.php
+            - generic [ref=e177]: 
+            - generic [ref=e178]: Plugins
+          - list [ref=e179]:
+            - listitem [ref=e180]:
+              - link "Installierte Plugins" [ref=e181] [cursor=pointer]:
+                - /url: plugins.php
+            - listitem [ref=e182]:
+              - link "Plugin hinzufügen" [ref=e183] [cursor=pointer]:
+                - /url: plugin-install.php
+        - text: 
+        - listitem [ref=e184]:
+          - link "Einstellungen" [ref=e185] [cursor=pointer]:
+            - /url: admin.php?page=duplicate_page_settings
+            - generic [ref=e186]: 
+            - generic [ref=e187]: Einstellungen
+          - list [ref=e188]:
+            - listitem [ref=e189]:
+              - link "Duplicate Page" [ref=e190] [cursor=pointer]:
+                - /url: options-general.php?page=duplicate_page_settings
+            - listitem [ref=e191]:
+              - link "KI-Sichtbarkeit" [ref=e192] [cursor=pointer]:
+                - /url: options-general.php?page=ksm-ai-visibility
+            - listitem [ref=e193]:
+              - link "Two-Factor" [ref=e194] [cursor=pointer]:
+                - /url: options-general.php?page=two-factor-settings
+            - listitem [ref=e195]:
+              - link "EWWW Image Optimizer" [ref=e196] [cursor=pointer]:
+                - /url: options-general.php?page=ewww-image-optimizer-options
+            - listitem [ref=e197]:
+              - link "Object Cache" [ref=e198] [cursor=pointer]:
+                - /url: options-general.php?page=objectcache
+            - listitem [ref=e199]:
+              - link "Perfmatters" [ref=e200] [cursor=pointer]:
+                - /url: options-general.php?page=perfmatters
+            - listitem [ref=e201]:
+              - link "Security" [ref=e202] [cursor=pointer]:
+                - /url: options-general.php?page=patchstack
+        - listitem [ref=e203]:
+          - link "Rank Math SEO" [ref=e204] [cursor=pointer]:
+            - /url: admin.php?page=rank-math
+            - generic [ref=e206]: Rank Math SEO
+          - list [ref=e207]:
+            - listitem [ref=e208]:
+              - link "Dashboard" [ref=e209] [cursor=pointer]:
+                - /url: admin.php?page=rank-math
+            - listitem [ref=e210]:
+              - link "Inhalt-KI" [ref=e211] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-content-ai-page
+            - listitem [ref=e212]:
+              - link "Link Genius Neu!" [ref=e213] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-links-page
+            - listitem [ref=e214]:
+              - link "Allgemeine Einstellungen" [ref=e215] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-options-general
+            - listitem [ref=e216]:
+              - link "Titel & Meta" [ref=e217] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-options-titles
+            - listitem [ref=e218]:
+              - link "Sitemap-Einstellungen" [ref=e219] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-options-sitemap
+            - listitem [ref=e220]:
+              - link "Sofortige Indexierung" [ref=e221] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-options-instant-indexing
+            - listitem [ref=e222]:
+              - link "Rollenverwaltung" [ref=e223] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-role-manager
+            - listitem [ref=e224]:
+              - link "SEO-Analysator" [ref=e225] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-seo-analysis
+            - listitem [ref=e226]:
+              - link "Status & Werkzeuge" [ref=e227] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-status
+            - listitem [ref=e228]:
+              - link "Hilfe und Support " [ref=e229] [cursor=pointer]:
+                - /url: https://rankmath.com/kb/?utm_source=Plugin&utm_medium=Sidebar%20Help%20Link&utm_campaign=WP
+                - text: Hilfe und Support
+                - generic [ref=e230]: 
+        - listitem [ref=e231]:
+          - link "Statistiken" [ref=e232] [cursor=pointer]:
+            - /url: admin.php?page=wc-admin&path=/analytics/overview
+            - generic [ref=e233]: 
+            - generic [ref=e234]: Statistiken
+          - list [ref=e235]:
+            - listitem [ref=e236]:
+              - link "Übersicht" [ref=e237] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/overview
+            - listitem [ref=e238]:
+              - link "Produkte" [ref=e239] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/products
+            - listitem [ref=e240]:
+              - link "Umsatz" [ref=e241] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/revenue
+            - listitem [ref=e242]:
+              - link "Bestellungen" [ref=e243] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/orders
+            - listitem [ref=e244]:
+              - link "Varianten" [ref=e245] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/variations
+            - listitem [ref=e246]:
+              - link "Kategorien" [ref=e247] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/categories
+            - listitem [ref=e248]:
+              - link "Gutscheine" [ref=e249] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/coupons
+            - listitem [ref=e250]:
+              - link "Steuern" [ref=e251] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/taxes
+            - listitem [ref=e252]:
+              - link "Downloads" [ref=e253] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/downloads
+            - listitem [ref=e254]:
+              - link "Bestand" [ref=e255] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/stock
+            - listitem [ref=e256]:
+              - link "Einstellungen" [ref=e257] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/settings
+        - listitem [ref=e258]:
+          - link "Optionsseiten" [ref=e259] [cursor=pointer]:
+            - /url: edit.php?post_type=acf-ui-options-page
+            - generic [ref=e260]: 
+            - generic [ref=e261]: Optionsseiten
+        - listitem [ref=e262]:
+          - link "Aktualisierungen" [ref=e263] [cursor=pointer]:
+            - /url: edit.php?post_type=acf-field-group&page=acf-settings-updates
+            - generic [ref=e264]: 
+            - generic [ref=e265]: Aktualisierungen
+        - listitem [ref=e266]:
+          - link "Wordfence" [ref=e267] [cursor=pointer]:
+            - /url: admin.php?page=Wordfence
+            - generic [ref=e269]: Wordfence
+          - list [ref=e270]:
+            - listitem [ref=e271]:
+              - link "Dashboard" [ref=e272] [cursor=pointer]:
+                - /url: admin.php?page=Wordfence
+            - listitem [ref=e273]:
+              - link "Firewall" [ref=e274] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceWAF
+            - listitem [ref=e275]:
+              - link "Scan" [ref=e276] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceScan
+            - listitem [ref=e277]:
+              - link "Tools" [ref=e278] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceTools
+            - listitem [ref=e279]:
+              - link "Audit Log" [ref=e280] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceAuditLog
+            - listitem [ref=e281]:
+              - link "Login Security" [ref=e282] [cursor=pointer]:
+                - /url: admin.php?page=WFLS
+            - listitem [ref=e283]:
+              - link "All Options" [ref=e284] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceOptions
+        - listitem [ref=e285]:
+          - button "Hauptmenü reduzieren" [expanded] [ref=e286] [cursor=pointer]:
+            - generic [ref=e288]: Menü reduzieren
+    - generic [ref=e289]:
+      - generic [ref=e290]:
+        - navigation "Werkzeugleiste":
+          - menu:
+            - group [ref=e291]:
+              - menuitem "Über WordPress" [ref=e292] [cursor=pointer]:
+                - generic [ref=e294]: Über WordPress
+            - group [ref=e295]:
+              - menuitem "Kita Seminar Manufaktur" [ref=e296] [cursor=pointer]
+            - group [ref=e297]:
+              - menuitem "Neu" [ref=e298] [cursor=pointer]:
+                - generic [ref=e300]: Neu
+            - group [ref=e301]:
+              - menuitem "Rank Math SEO" [ref=e302] [cursor=pointer]:
+                - img [ref=e304]
+                - text: Rank Math SEO
+            - group [ref=e308]:
+              - menuitem "Nginx Cache" [ref=e309] [cursor=pointer]:
+                - img [ref=e310]
+                - text: Nginx Cache
+            - group [ref=e311]:
+              - menuitem "Perfmatters" [ref=e312] [cursor=pointer]
+          - menu [ref=e313]:
+            - group [ref=e314]:
+              - menuitem "Kontakte durchsuchen" [ref=e315] [cursor=pointer]
+            - group [ref=e316]:
+              - menuitem "Willkommen, Claude Ops" [ref=e317] [cursor=pointer]
+      - main [ref=e318]:
+        - generic [ref=e322]:
+          - generic [ref=e323]:
+            - heading "Role Manager" [level=2] [ref=e324]
+            - paragraph [ref=e325]:
+              - text: Control which user has access to which options of Rank Math.
+              - link "Learn more" [ref=e326] [cursor=pointer]:
+                - /url: https://rankmath.com/kb/role-manager/?utm_source=Plugin&utm_medium=Role%20Manager%20Page&utm_campaign=WP
+              - text: .
+          - generic [ref=e328]:
+            - generic [ref=e329]:
+              - generic [ref=e331]: Administrator
+              - generic [ref=e332]:
+                - button "Toggle All" [ref=e333] [cursor=pointer]
+                - list:
+                  - listitem [ref=e334]:
+                    - generic [ref=e337]:
+                      - checkbox "Titel- und Meta-Einstellungen" [checked] [ref=e339] [cursor=pointer]: 
+                      - generic [ref=e341] [cursor=pointer]: Titel- und Meta-Einstellungen
+                  - listitem [ref=e342]:
+                    - generic [ref=e345]:
+                      - checkbox "Allgemeine Einstellungen" [checked] [ref=e347] [cursor=pointer]: 
+                      - generic [ref=e349] [cursor=pointer]: Allgemeine Einstellungen
+                  - listitem [ref=e350]:
+                    - generic [ref=e353]:
+                      - checkbox "Sitemap-Einstellungen" [checked] [ref=e355] [cursor=pointer]: 
+                      - generic [ref=e357] [cursor=pointer]: Sitemap-Einstellungen
+                  - listitem [ref=e358]:
+                    - generic [ref=e361]:
+                      - checkbox "404-Monitorprotokoll" [checked] [ref=e363] [cursor=pointer]: 
+                      - generic [ref=e365] [cursor=pointer]: 404-Monitorprotokoll
+                  - listitem [ref=e366]:
+                    - generic [ref=e369]:
+                      - checkbox "Link Builder" [checked] [ref=e371] [cursor=pointer]: 
+                      - generic [ref=e373] [cursor=pointer]: Link Builder
+                  - listitem [ref=e374]:
+                    - generic [ref=e377]:
+                      - checkbox "Weiterleitungen" [checked] [ref=e379] [cursor=pointer]: 
+                      - generic [ref=e381] [cursor=pointer]: Weiterleitungen
+                  - listitem [ref=e382]:
+                    - generic [ref=e385]:
+                      - generic [ref=e386]:
+                        - checkbox "Rollenverwaltung" [checked] [disabled]: 
+                      - generic:
+                        - generic: Rollenverwaltung
+                  - listitem [ref=e387]:
+                    - generic [ref=e390]:
+                      - checkbox "Analysen" [checked] [ref=e392] [cursor=pointer]: 
+                      - generic [ref=e394] [cursor=pointer]: Analysen
+                  - listitem [ref=e395]:
+                    - generic [ref=e398]:
+                      - checkbox "Standortübergreifende Analyse" [checked] [ref=e400] [cursor=pointer]: 
+                      - generic [ref=e402] [cursor=pointer]: Standortübergreifende Analyse
+                  - listitem [ref=e403]:
+                    - generic [ref=e406]:
+                      - checkbox "On-Page Analyse" [checked] [ref=e408] [cursor=pointer]: 
+                      - generic [ref=e410] [cursor=pointer]: On-Page Analyse
+                  - listitem [ref=e411]:
+                    - generic [ref=e414]:
+                      - checkbox "On-Page Allgemeine Einstellungen" [checked] [ref=e416] [cursor=pointer]: 
+                      - generic [ref=e418] [cursor=pointer]: On-Page Allgemeine Einstellungen
+                  - listitem [ref=e419]:
+                    - generic [ref=e422]:
+                      - checkbox "On-Page Erweiterte Einstellungen" [checked] [ref=e424] [cursor=pointer]: 
+                      - generic [ref=e426] [cursor=pointer]: On-Page Erweiterte Einstellungen
+                  - listitem [ref=e427]:
+                    - generic [ref=e430]:
+                      - checkbox "On-Page Schema Einstellungen" [checked] [ref=e432] [cursor=pointer]: 
+                      - generic [ref=e434] [cursor=pointer]: On-Page Schema Einstellungen
+                  - listitem [ref=e435]:
+                    - generic [ref=e438]:
+                      - checkbox "On-Page Soziale Einstellungen" [checked] [ref=e440] [cursor=pointer]: 
+                      - generic [ref=e442] [cursor=pointer]: On-Page Soziale Einstellungen
+                  - listitem [ref=e443]:
+                    - generic [ref=e446]:
+                      - checkbox "Inhalt-KI" [checked] [ref=e448] [cursor=pointer]: 
+                      - generic [ref=e450] [cursor=pointer]: Inhalt-KI
+                  - listitem [ref=e451]:
+                    - generic [ref=e454]:
+                      - checkbox "Obere Admin-Leiste" [checked] [ref=e456] [cursor=pointer]: 
+                      - generic [ref=e458] [cursor=pointer]: Obere Admin-Leiste
+            - generic [ref=e459]:
+              - generic [ref=e461]: Editor
+              - generic [ref=e462]:
+                - button "Toggle All" [ref=e463] [cursor=pointer]
+                - list:
+                  - listitem [ref=e464]:
+                    - generic [ref=e467]:
+                      - checkbox "Titel- und Meta-Einstellungen" [ref=e469] [cursor=pointer]
+                      - generic [ref=e471] [cursor=pointer]: Titel- und Meta-Einstellungen
+                  - listitem [ref=e472]:
+                    - generic [ref=e475]:
+                      - checkbox "Allgemeine Einstellungen" [ref=e477] [cursor=pointer]
+                      - generic [ref=e479] [cursor=pointer]: Allgemeine Einstellungen
+                  - listitem [ref=e480]:
+                    - generic [ref=e483]:
+                      - checkbox "Sitemap-Einstellungen" [ref=e485] [cursor=pointer]
+                      - generic [ref=e487] [cursor=pointer]: Sitemap-Einstellungen
+                  - listitem [ref=e488]:
+                    - generic [ref=e491]:
+                      - checkbox "404-Monitorprotokoll" [ref=e493] [cursor=pointer]
+                      - generic [ref=e495] [cursor=pointer]: 404-Monitorprotokoll
+                  - listitem [ref=e496]:
+                    - generic [ref=e499]:
+                      - checkbox "Link Builder" [ref=e501] [cursor=pointer]
+                      - generic [ref=e503] [cursor=pointer]: Link Builder
+                  - listitem [ref=e504]:
+                    - generic [ref=e507]:
+                      - checkbox "Weiterleitungen" [ref=e509] [cursor=pointer]
+                      - generic [ref=e511] [cursor=pointer]: Weiterleitungen
+                  - listitem [ref=e512]:
+                    - generic [ref=e515]:
+                      - checkbox "Rollenverwaltung" [ref=e517] [cursor=pointer]
+                      - generic [ref=e519] [cursor=pointer]: Rollenverwaltung
+                  - listitem [ref=e520]:
+                    - generic [ref=e523]:
+                      - checkbox "Analysen" [ref=e525] [cursor=pointer]
+                      - generic [ref=e527] [cursor=pointer]: Analysen
+                  - listitem [ref=e528]:
+                    - generic [ref=e531]:
+                      - checkbox "Standortübergreifende Analyse" [checked] [ref=e533] [cursor=pointer]: 
+                      - generic [ref=e535] [cursor=pointer]: Standortübergreifende Analyse
+                  - listitem [ref=e536]:
+                    - generic [ref=e539]:
+                      - checkbox "On-Page Analyse" [checked] [ref=e541] [cursor=pointer]: 
+                      - generic [ref=e543] [cursor=pointer]: On-Page Analyse
+                  - listitem [ref=e544]:
+                    - generic [ref=e547]:
+                      - checkbox "On-Page Allgemeine Einstellungen" [checked] [ref=e549] [cursor=pointer]: 
+                      - generic [ref=e551] [cursor=pointer]: On-Page Allgemeine Einstellungen
+                  - listitem [ref=e552]:
+                    - generic [ref=e555]:
+                      - checkbox "On-Page Erweiterte Einstellungen" [ref=e557] [cursor=pointer]
+                      - generic [ref=e559] [cursor=pointer]: On-Page Erweiterte Einstellungen
+                  - listitem [ref=e560]:
+                    - generic [ref=e563]:
+                      - checkbox "On-Page Schema Einstellungen" [checked] [ref=e565] [cursor=pointer]: 
+                      - generic [ref=e567] [cursor=pointer]: On-Page Schema Einstellungen
+                  - listitem [ref=e568]:
+                    - generic [ref=e571]:
+                      - checkbox "On-Page Soziale Einstellungen" [checked] [ref=e573] [cursor=pointer]: 
+                      - generic [ref=e575] [cursor=pointer]: On-Page Soziale Einstellungen
+                  - listitem [ref=e576]:
+                    - generic [ref=e579]:
+                      - checkbox "Inhalt-KI" [ref=e581] [cursor=pointer]
+                      - generic [ref=e583] [cursor=pointer]: Inhalt-KI
+                  - listitem [ref=e584]:
+                    - generic [ref=e587]:
+                      - checkbox "Obere Admin-Leiste" [ref=e589] [cursor=pointer]
+                      - generic [ref=e591] [cursor=pointer]: Obere Admin-Leiste
+            - generic [ref=e592]:
+              - generic [ref=e594]: Author
+              - generic [ref=e595]:
+                - button "Toggle All" [ref=e596] [cursor=pointer]
+                - list:
+                  - listitem [ref=e597]:
+                    - generic [ref=e600]:
+                      - checkbox "Titel- und Meta-Einstellungen" [ref=e602] [cursor=pointer]
+                      - generic [ref=e604] [cursor=pointer]: Titel- und Meta-Einstellungen
+                  - listitem [ref=e605]:
+                    - generic [ref=e608]:
+                      - checkbox "Allgemeine Einstellungen" [ref=e610] [cursor=pointer]
+                      - generic [ref=e612] [cursor=pointer]: Allgemeine Einstellungen
+                  - listitem [ref=e613]:
+                    - generic [ref=e616]:
+                      - checkbox "Sitemap-Einstellungen" [ref=e618] [cursor=pointer]
+                      - generic [ref=e620] [cursor=pointer]: Sitemap-Einstellungen
+                  - listitem [ref=e621]:
+                    - generic [ref=e624]:
+                      - checkbox "404-Monitorprotokoll" [ref=e626] [cursor=pointer]
+                      - generic [ref=e628] [cursor=pointer]: 404-Monitorprotokoll
+                  - listitem [ref=e629]:
+                    - generic [ref=e632]:
+                      - checkbox "Link Builder" [ref=e634] [cursor=pointer]
+                      - generic [ref=e636] [cursor=pointer]: Link Builder
+                  - listitem [ref=e637]:
+                    - generic [ref=e640]:
+                      - checkbox "Weiterleitungen" [ref=e642] [cursor=pointer]
+                      - generic [ref=e644] [cursor=pointer]: Weiterleitungen
+                  - listitem [ref=e645]:
+                    - generic [ref=e648]:
+                      - checkbox "Rollenverwaltung" [ref=e650] [cursor=pointer]
+                      - generic [ref=e652] [cursor=pointer]: Rollenverwaltung
+                  - listitem [ref=e653]:
+                    - generic [ref=e656]:
+                      - checkbox "Analysen" [ref=e658] [cursor=pointer]
+                      - generic [ref=e660] [cursor=pointer]: Analysen
+                  - listitem [ref=e661]:
+                    - generic [ref=e664]:
+                      - checkbox "Standortübergreifende Analyse" [ref=e666] [cursor=pointer]
+                      - generic [ref=e668] [cursor=pointer]: Standortübergreifende Analyse
+                  - listitem [ref=e669]:
+                    - generic [ref=e672]:
+                      - checkbox "On-Page Analyse" [checked] [ref=e674] [cursor=pointer]: 
+                      - generic [ref=e676] [cursor=pointer]: On-Page Analyse
+                  - listitem [ref=e677]:
+                    - generic [ref=e680]:
+                      - checkbox "On-Page Allgemeine Einstellungen" [checked] [ref=e682] [cursor=pointer]: 
+                      - generic [ref=e684] [cursor=pointer]: On-Page Allgemeine Einstellungen
+                  - listitem [ref=e685]:
+                    - generic [ref=e688]:
+                      - checkbox "On-Page Erweiterte Einstellungen" [ref=e690] [cursor=pointer]
+                      - generic [ref=e692] [cursor=pointer]: On-Page Erweiterte Einstellungen
+                  - listitem [ref=e693]:
+                    - generic [ref=e696]:
+                      - checkbox "On-Page Schema Einstellungen" [checked] [ref=e698] [cursor=pointer]: 
+                      - generic [ref=e700] [cursor=pointer]: On-Page Schema Einstellungen
+                  - listitem [ref=e701]:
+                    - generic [ref=e704]:
+                      - checkbox "On-Page Soziale Einstellungen" [checked] [ref=e706] [cursor=pointer]: 
+                      - generic [ref=e708] [cursor=pointer]: On-Page Soziale Einstellungen
+                  - listitem [ref=e709]:
+                    - generic [ref=e712]:
+                      - checkbox "Inhalt-KI" [ref=e714] [cursor=pointer]
+                      - generic [ref=e716] [cursor=pointer]: Inhalt-KI
+                  - listitem [ref=e717]:
+                    - generic [ref=e720]:
+                      - checkbox "Obere Admin-Leiste" [ref=e722] [cursor=pointer]
+                      - generic [ref=e724] [cursor=pointer]: Obere Admin-Leiste
+            - generic [ref=e725]:
+              - generic [ref=e727]: Contributor
+              - generic [ref=e728]:
+                - button "Toggle All" [ref=e729] [cursor=pointer]
+                - list:
+                  - listitem [ref=e730]:
+                    - generic [ref=e733]:
+                      - checkbox "Titel- und Meta-Einstellungen" [ref=e735] [cursor=pointer]
+                      - generic [ref=e737] [cursor=pointer]: Titel- und Meta-Einstellungen
+                  - listitem [ref=e738]:
+                    - generic [ref=e741]:
+                      - checkbox "Allgemeine Einstellungen" [ref=e743] [cursor=pointer]
+                      - generic [ref=e745] [cursor=pointer]: Allgemeine Einstellungen
+                  - listitem [ref=e746]:
+                    - generic [ref=e749]:
+                      - checkbox "Sitemap-Einstellungen" [ref=e751] [cursor=pointer]
+                      - generic [ref=e753] [cursor=pointer]: Sitemap-Einstellungen
+                  - listitem [ref=e754]:
+                    - generic [ref=e757]:
+                      - checkbox "404-Monitorprotokoll" [ref=e759] [cursor=pointer]
+                      - generic [ref=e761] [cursor=pointer]: 404-Monitorprotokoll
+                  - listitem [ref=e762]:
+                    - generic [ref=e765]:
+                      - checkbox "Link Builder" [ref=e767] [cursor=pointer]
+                      - generic [ref=e769] [cursor=pointer]: Link Builder
+                  - listitem [ref=e770]:
+                    - generic [ref=e773]:
+                      - checkbox "Weiterleitungen" [ref=e775] [cursor=pointer]
+                      - generic [ref=e777] [cursor=pointer]: Weiterleitungen
+                  - listitem [ref=e778]:
+                    - generic [ref=e781]:
+                      - checkbox "Rollenverwaltung" [ref=e783] [cursor=pointer]
+                      - generic [ref=e785] [cursor=pointer]: Rollenverwaltung
+                  - listitem [ref=e786]:
+                    - generic [ref=e789]:
+                      - checkbox "Analysen" [ref=e791] [cursor=pointer]
+                      - generic [ref=e793] [cursor=pointer]: Analysen
+                  - listitem [ref=e794]:
+                    - generic [ref=e797]:
+                      - checkbox "Standortübergreifende Analyse" [ref=e799] [cursor=pointer]
+                      - generic [ref=e801] [cursor=pointer]: Standortübergreifende Analyse
+                  - listitem [ref=e802]:
+                    - generic [ref=e805]:
+                      - checkbox "On-Page Analyse" [ref=e807] [cursor=pointer]
+                      - generic [ref=e809] [cursor=pointer]: On-Page Analyse
+                  - listitem [ref=e810]:
+                    - generic [ref=e813]:
+                      - checkbox "On-Page Allgemeine Einstellungen" [ref=e815] [cursor=pointer]
+                      - generic [ref=e817] [cursor=pointer]: On-Page Allgemeine Einstellungen
+                  - listitem [ref=e818]:
+                    - generic [ref=e821]:
+                      - checkbox "On-Page Erweiterte Einstellungen" [ref=e823] [cursor=pointer]
+                      - generic [ref=e825] [cursor=pointer]: On-Page Erweiterte Einstellungen
+                  - listitem [ref=e826]:
+                    - generic [ref=e829]:
+                      - checkbox "On-Page Schema Einstellungen" [ref=e831] [cursor=pointer]
+                      - generic [ref=e833] [cursor=pointer]: On-Page Schema Einstellungen
+                  - listitem [ref=e834]:
+                    - generic [ref=e837]:
+                      - checkbox "On-Page Soziale Einstellungen" [ref=e839] [cursor=pointer]
+                      - generic [ref=e841] [cursor=pointer]: On-Page Soziale Einstellungen
+                  - listitem [ref=e842]:
+                    - generic [ref=e845]:
+                      - checkbox "Inhalt-KI" [ref=e847] [cursor=pointer]
+                      - generic [ref=e849] [cursor=pointer]: Inhalt-KI
+                  - listitem [ref=e850]:
+                    - generic [ref=e853]:
+                      - checkbox "Obere Admin-Leiste" [ref=e855] [cursor=pointer]
+                      - generic [ref=e857] [cursor=pointer]: Obere Admin-Leiste
+            - generic [ref=e858]:
+              - generic [ref=e860]: Subscriber
+              - generic [ref=e861]:
+                - button "Toggle All" [ref=e862] [cursor=pointer]
+                - list:
+                  - listitem [ref=e863]:
+                    - generic [ref=e866]:
+                      - checkbox "Titel- und Meta-Einstellungen" [ref=e868] [cursor=pointer]
+                      - generic [ref=e870] [cursor=pointer]: Titel- und Meta-Einstellungen
+                  - listitem [ref=e871]:
+                    - generic [ref=e874]:
+                      - checkbox "Allgemeine Einstellungen" [ref=e876] [cursor=pointer]
+                      - generic [ref=e878] [cursor=pointer]: Allgemeine Einstellungen
+                  - listitem [ref=e879]:
+                    - generic [ref=e882]:
+                      - checkbox "Sitemap-Einstellungen" [ref=e884] [cursor=pointer]
+                      - generic [ref=e886] [cursor=pointer]: Sitemap-Einstellungen
+                  - listitem [ref=e887]:
+                    - generic [ref=e890]:
+                      - checkbox "404-Monitorprotokoll" [ref=e892] [cursor=pointer]
+                      - generic [ref=e894] [cursor=pointer]: 404-Monitorprotokoll
+                  - listitem [ref=e895]:
+                    - generic [ref=e898]:
+                      - checkbox "Link Builder" [ref=e900] [cursor=pointer]
+                      - generic [ref=e902] [cursor=pointer]: Link Builder
+                  - listitem [ref=e903]:
+                    - generic [ref=e906]:
+                      - checkbox "Weiterleitungen" [ref=e908] [cursor=pointer]
+                      - generic [ref=e910] [cursor=pointer]: Weiterleitungen
+                  - listitem [ref=e911]:
+                    - generic [ref=e914]:
+                      - checkbox "Rollenverwaltung" [ref=e916] [cursor=pointer]
+                      - generic [ref=e918] [cursor=pointer]: Rollenverwaltung
+                  - listitem [ref=e919]:
+                    - generic [ref=e922]:
+                      - checkbox "Analysen" [ref=e924] [cursor=pointer]
+                      - generic [ref=e926] [cursor=pointer]: Analysen
+                  - listitem [ref=e927]:
+                    - generic [ref=e930]:
+                      - checkbox "Standortübergreifende Analyse" [ref=e932] [cursor=pointer]
+                      - generic [ref=e934] [cursor=pointer]: Standortübergreifende Analyse
+                  - listitem [ref=e935]:
+                    - generic [ref=e938]:
+                      - checkbox "On-Page Analyse" [ref=e940] [cursor=pointer]
+                      - generic [ref=e942] [cursor=pointer]: On-Page Analyse
+                  - listitem [ref=e943]:
+                    - generic [ref=e946]:
+                      - checkbox "On-Page Allgemeine Einstellungen" [ref=e948] [cursor=pointer]
+                      - generic [ref=e950] [cursor=pointer]: On-Page Allgemeine Einstellungen
+                  - listitem [ref=e951]:
+                    - generic [ref=e954]:
+                      - checkbox "On-Page Erweiterte Einstellungen" [ref=e956] [cursor=pointer]
+                      - generic [ref=e958] [cursor=pointer]: On-Page Erweiterte Einstellungen
+                  - listitem [ref=e959]:
+                    - generic [ref=e962]:
+                      - checkbox "On-Page Schema Einstellungen" [ref=e964] [cursor=pointer]
+                      - generic [ref=e966] [cursor=pointer]: On-Page Schema Einstellungen
+                  - listitem [ref=e967]:
+                    - generic [ref=e970]:
+                      - checkbox "On-Page Soziale Einstellungen" [ref=e972] [cursor=pointer]
+                      - generic [ref=e974] [cursor=pointer]: On-Page Soziale Einstellungen
+                  - listitem [ref=e975]:
+                    - generic [ref=e978]:
+                      - checkbox "Inhalt-KI" [ref=e980] [cursor=pointer]
+                      - generic [ref=e982] [cursor=pointer]: Inhalt-KI
+                  - listitem [ref=e983]:
+                    - generic [ref=e986]:
+                      - checkbox "Obere Admin-Leiste" [ref=e988] [cursor=pointer]
+                      - generic [ref=e990] [cursor=pointer]: Obere Admin-Leiste
+            - generic [ref=e991]:
+              - generic [ref=e993]: Customer
+              - generic [ref=e994]:
+                - button "Toggle All" [ref=e995] [cursor=pointer]
+                - list:
+                  - listitem [ref=e996]:
+                    - generic [ref=e999]:
+                      - checkbox "Titel- und Meta-Einstellungen" [ref=e1001] [cursor=pointer]
+                      - generic [ref=e1003] [cursor=pointer]: Titel- und Meta-Einstellungen
+                  - listitem [ref=e1004]:
+                    - generic [ref=e1007]:
+                      - checkbox "Allgemeine Einstellungen" [ref=e1009] [cursor=pointer]
+                      - generic [ref=e1011] [cursor=pointer]: Allgemeine Einstellungen
+                  - listitem [ref=e1012]:
+                    - generic [ref=e1015]:
+                      - checkbox "Sitemap-Einstellungen" [ref=e1017] [cursor=pointer]
+                      - generic [ref=e1019] [cursor=pointer]: Sitemap-Einstellungen
+                  - listitem [ref=e1020]:
+                    - generic [ref=e1023]:
+                      - checkbox "404-Monitorprotokoll" [ref=e1025] [cursor=pointer]
+                      - generic [ref=e1027] [cursor=pointer]: 404-Monitorprotokoll
+                  - listitem [ref=e1028]:
+                    - generic [ref=e1031]:
+                      - checkbox "Link Builder" [ref=e1033] [cursor=pointer]
+                      - generic [ref=e1035] [cursor=pointer]: Link Builder
+                  - listitem [ref=e1036]:
+                    - generic [ref=e1039]:
+                      - checkbox "Weiterleitungen" [ref=e1041] [cursor=pointer]
+                      - generic [ref=e1043] [cursor=pointer]: Weiterleitungen
+                  - listitem [ref=e1044]:
+                    - generic [ref=e1047]:
+                      - checkbox "Rollenverwaltung" [ref=e1049] [cursor=pointer]
+                      - generic [ref=e1051] [cursor=pointer]: Rollenverwaltung
+                  - listitem [ref=e1052]:
+                    - generic [ref=e1055]:
+                      - checkbox "Analysen" [ref=e1057] [cursor=pointer]
+                      - generic [ref=e1059] [cursor=pointer]: Analysen
+                  - listitem [ref=e1060]:
+                    - generic [ref=e1063]:
+                      - checkbox "Standortübergreifende Analyse" [ref=e1065] [cursor=pointer]
+                      - generic [ref=e1067] [cursor=pointer]: Standortübergreifende Analyse
+                  - listitem [ref=e1068]:
+                    - generic [ref=e1071]:
+                      - checkbox "On-Page Analyse" [ref=e1073] [cursor=pointer]
+                      - generic [ref=e1075] [cursor=pointer]: On-Page Analyse
+                  - listitem [ref=e1076]:
+                    - generic [ref=e1079]:
+                      - checkbox "On-Page Allgemeine Einstellungen" [ref=e1081] [cursor=pointer]
+                      - generic [ref=e1083] [cursor=pointer]: On-Page Allgemeine Einstellungen
+                  - listitem [ref=e1084]:
+                    - generic [ref=e1087]:
+                      - checkbox "On-Page Erweiterte Einstellungen" [ref=e1089] [cursor=pointer]
+                      - generic [ref=e1091] [cursor=pointer]: On-Page Erweiterte Einstellungen
+                  - listitem [ref=e1092]:
+                    - generic [ref=e1095]:
+                      - checkbox "On-Page Schema Einstellungen" [ref=e1097] [cursor=pointer]
+                      - generic [ref=e1099] [cursor=pointer]: On-Page Schema Einstellungen
+                  - listitem [ref=e1100]:
+                    - generic [ref=e1103]:
+                      - checkbox "On-Page Soziale Einstellungen" [ref=e1105] [cursor=pointer]
+                      - generic [ref=e1107] [cursor=pointer]: On-Page Soziale Einstellungen
+                  - listitem [ref=e1108]:
+                    - generic [ref=e1111]:
+                      - checkbox "Inhalt-KI" [ref=e1113] [cursor=pointer]
+                      - generic [ref=e1115] [cursor=pointer]: Inhalt-KI
+                  - listitem [ref=e1116]:
+                    - generic [ref=e1119]:
+                      - checkbox "Obere Admin-Leiste" [ref=e1121] [cursor=pointer]
+                      - generic [ref=e1123] [cursor=pointer]: Obere Admin-Leiste
+            - generic [ref=e1124]:
+              - generic [ref=e1126]: Shop manager
+              - generic [ref=e1127]:
+                - button "Toggle All" [ref=e1128] [cursor=pointer]
+                - list:
+                  - listitem [ref=e1129]:
+                    - generic [ref=e1132]:
+                      - checkbox "Titel- und Meta-Einstellungen" [ref=e1134] [cursor=pointer]
+                      - generic [ref=e1136] [cursor=pointer]: Titel- und Meta-Einstellungen
+                  - listitem [ref=e1137]:
+                    - generic [ref=e1140]:
+                      - checkbox "Allgemeine Einstellungen" [ref=e1142] [cursor=pointer]
+                      - generic [ref=e1144] [cursor=pointer]: Allgemeine Einstellungen
+                  - listitem [ref=e1145]:
+                    - generic [ref=e1148]:
+                      - checkbox "Sitemap-Einstellungen" [ref=e1150] [cursor=pointer]
+                      - generic [ref=e1152] [cursor=pointer]: Sitemap-Einstellungen
+                  - listitem [ref=e1153]:
+                    - generic [ref=e1156]:
+                      - checkbox "404-Monitorprotokoll" [ref=e1158] [cursor=pointer]
+                      - generic [ref=e1160] [cursor=pointer]: 404-Monitorprotokoll
+                  - listitem [ref=e1161]:
+                    - generic [ref=e1164]:
+                      - checkbox "Link Builder" [ref=e1166] [cursor=pointer]
+                      - generic [ref=e1168] [cursor=pointer]: Link Builder
+                  - listitem [ref=e1169]:
+                    - generic [ref=e1172]:
+                      - checkbox "Weiterleitungen" [ref=e1174] [cursor=pointer]
+                      - generic [ref=e1176] [cursor=pointer]: Weiterleitungen
+                  - listitem [ref=e1177]:
+                    - generic [ref=e1180]:
+                      - checkbox "Rollenverwaltung" [ref=e1182] [cursor=pointer]
+                      - generic [ref=e1184] [cursor=pointer]: Rollenverwaltung
+                  - listitem [ref=e1185]:
+                    - generic [ref=e1188]:
+                      - checkbox "Analysen" [ref=e1190] [cursor=pointer]
+                      - generic [ref=e1192] [cursor=pointer]: Analysen
+                  - listitem [ref=e1193]:
+                    - generic [ref=e1196]:
+                      - checkbox "Standortübergreifende Analyse" [ref=e1198] [cursor=pointer]
+                      - generic [ref=e1200] [cursor=pointer]: Standortübergreifende Analyse
+                  - listitem [ref=e1201]:
+                    - generic [ref=e1204]:
+                      - checkbox "On-Page Analyse" [ref=e1206] [cursor=pointer]
+                      - generic [ref=e1208] [cursor=pointer]: On-Page Analyse
+                  - listitem [ref=e1209]:
+                    - generic [ref=e1212]:
+                      - checkbox "On-Page Allgemeine Einstellungen" [ref=e1214] [cursor=pointer]
+                      - generic [ref=e1216] [cursor=pointer]: On-Page Allgemeine Einstellungen
+                  - listitem [ref=e1217]:
+                    - generic [ref=e1220]:
+                      - checkbox "On-Page Erweiterte Einstellungen" [ref=e1222] [cursor=pointer]
+                      - generic [ref=e1224] [cursor=pointer]: On-Page Erweiterte Einstellungen
+                  - listitem [ref=e1225]:
+                    - generic [ref=e1228]:
+                      - checkbox "On-Page Schema Einstellungen" [ref=e1230] [cursor=pointer]
+                      - generic [ref=e1232] [cursor=pointer]: On-Page Schema Einstellungen
+                  - listitem [ref=e1233]:
+                    - generic [ref=e1236]:
+                      - checkbox "On-Page Soziale Einstellungen" [ref=e1238] [cursor=pointer]
+                      - generic [ref=e1240] [cursor=pointer]: On-Page Soziale Einstellungen
+                  - listitem [ref=e1241]:
+                    - generic [ref=e1244]:
+                      - checkbox "Inhalt-KI" [ref=e1246] [cursor=pointer]
+                      - generic [ref=e1248] [cursor=pointer]: Inhalt-KI
+                  - listitem [ref=e1249]:
+                    - generic [ref=e1252]:
+                      - checkbox "Obere Admin-Leiste" [ref=e1254] [cursor=pointer]
+                      - generic [ref=e1256] [cursor=pointer]: Obere Admin-Leiste
+            - generic [ref=e1257]:
+              - generic [ref=e1259]: Group Leader
+              - generic [ref=e1260]:
+                - button "Toggle All" [ref=e1261] [cursor=pointer]
+                - list:
+                  - listitem [ref=e1262]:
+                    - generic [ref=e1265]:
+                      - checkbox "Titel- und Meta-Einstellungen" [ref=e1267] [cursor=pointer]
+                      - generic [ref=e1269] [cursor=pointer]: Titel- und Meta-Einstellungen
+                  - listitem [ref=e1270]:
+                    - generic [ref=e1273]:
+                      - checkbox "Allgemeine Einstellungen" [ref=e1275] [cursor=pointer]
+                      - generic [ref=e1277] [cursor=pointer]: Allgemeine Einstellungen
+                  - listitem [ref=e1278]:
+                    - generic [ref=e1281]:
+                      - checkbox "Sitemap-Einstellungen" [ref=e1283] [cursor=pointer]
+                      - generic [ref=e1285] [cursor=pointer]: Sitemap-Einstellungen
+                  - listitem [ref=e1286]:
+                    - generic [ref=e1289]:
+                      - checkbox "404-Monitorprotokoll" [ref=e1291] [cursor=pointer]
+                      - generic [ref=e1293] [cursor=pointer]: 404-Monitorprotokoll
+                  - listitem [ref=e1294]:
+                    - generic [ref=e1297]:
+                      - checkbox "Link Builder" [ref=e1299] [cursor=pointer]
+                      - generic [ref=e1301] [cursor=pointer]: Link Builder
+                  - listitem [ref=e1302]:
+                    - generic [ref=e1305]:
+                      - checkbox "Weiterleitungen" [ref=e1307] [cursor=pointer]
+                      - generic [ref=e1309] [cursor=pointer]: Weiterleitungen
+                  - listitem [ref=e1310]:
+                    - generic [ref=e1313]:
+                      - checkbox "Rollenverwaltung" [ref=e1315] [cursor=pointer]
+                      - generic [ref=e1317] [cursor=pointer]: Rollenverwaltung
+                  - listitem [ref=e1318]:
+                    - generic [ref=e1321]:
+                      - checkbox "Analysen" [ref=e1323] [cursor=pointer]
+                      - generic [ref=e1325] [cursor=pointer]: Analysen
+                  - listitem [ref=e1326]:
+                    - generic [ref=e1329]:
+                      - checkbox "Standortübergreifende Analyse" [ref=e1331] [cursor=pointer]
+                      - generic [ref=e1333] [cursor=pointer]: Standortübergreifende Analyse
+                  - listitem [ref=e1334]:
+                    - generic [ref=e1337]:
+                      - checkbox "On-Page Analyse" [ref=e1339] [cursor=pointer]
+                      - generic [ref=e1341] [cursor=pointer]: On-Page Analyse
+                  - listitem [ref=e1342]:
+                    - generic [ref=e1345]:
+                      - checkbox "On-Page Allgemeine Einstellungen" [ref=e1347] [cursor=pointer]
+                      - generic [ref=e1349] [cursor=pointer]: On-Page Allgemeine Einstellungen
+                  - listitem [ref=e1350]:
+                    - generic [ref=e1353]:
+                      - checkbox "On-Page Erweiterte Einstellungen" [ref=e1355] [cursor=pointer]
+                      - generic [ref=e1357] [cursor=pointer]: On-Page Erweiterte Einstellungen
+                  - listitem [ref=e1358]:
+                    - generic [ref=e1361]:
+                      - checkbox "On-Page Schema Einstellungen" [ref=e1363] [cursor=pointer]
+                      - generic [ref=e1365] [cursor=pointer]: On-Page Schema Einstellungen
+                  - listitem [ref=e1366]:
+                    - generic [ref=e1369]:
+                      - checkbox "On-Page Soziale Einstellungen" [ref=e1371] [cursor=pointer]
+                      - generic [ref=e1373] [cursor=pointer]: On-Page Soziale Einstellungen
+                  - listitem [ref=e1374]:
+                    - generic [ref=e1377]:
+                      - checkbox "Inhalt-KI" [ref=e1379] [cursor=pointer]
+                      - generic [ref=e1381] [cursor=pointer]: Inhalt-KI
+                  - listitem [ref=e1382]:
+                    - generic [ref=e1385]:
+                      - checkbox "Obere Admin-Leiste" [ref=e1387] [cursor=pointer]
+                      - generic [ref=e1389] [cursor=pointer]: Obere Admin-Leiste
+            - generic [ref=e1390]:
+              - generic [ref=e1392]: Instructor
+              - generic [ref=e1393]:
+                - button "Toggle All" [ref=e1394] [cursor=pointer]
+                - list:
+                  - listitem [ref=e1395]:
+                    - generic [ref=e1398]:
+                      - checkbox "Titel- und Meta-Einstellungen" [ref=e1400] [cursor=pointer]
+                      - generic [ref=e1402] [cursor=pointer]: Titel- und Meta-Einstellungen
+                  - listitem [ref=e1403]:
+                    - generic [ref=e1406]:
+                      - checkbox "Allgemeine Einstellungen" [ref=e1408] [cursor=pointer]
+                      - generic [ref=e1410] [cursor=pointer]: Allgemeine Einstellungen
+                  - listitem [ref=e1411]:
+                    - generic [ref=e1414]:
+                      - checkbox "Sitemap-Einstellungen" [ref=e1416] [cursor=pointer]
+                      - generic [ref=e1418] [cursor=pointer]: Sitemap-Einstellungen
+                  - listitem [ref=e1419]:
+                    - generic [ref=e1422]:
+                      - checkbox "404-Monitorprotokoll" [ref=e1424] [cursor=pointer]
+                      - generic [ref=e1426] [cursor=pointer]: 404-Monitorprotokoll
+                  - listitem [ref=e1427]:
+                    - generic [ref=e1430]:
+                      - checkbox "Link Builder" [ref=e1432] [cursor=pointer]
+                      - generic [ref=e1434] [cursor=pointer]: Link Builder
+                  - listitem [ref=e1435]:
+                    - generic [ref=e1438]:
+                      - checkbox "Weiterleitungen" [ref=e1440] [cursor=pointer]
+                      - generic [ref=e1442] [cursor=pointer]: Weiterleitungen
+                  - listitem [ref=e1443]:
+                    - generic [ref=e1446]:
+                      - checkbox "Rollenverwaltung" [ref=e1448] [cursor=pointer]
+                      - generic [ref=e1450] [cursor=pointer]: Rollenverwaltung
+                  - listitem [ref=e1451]:
+                    - generic [ref=e1454]:
+                      - checkbox "Analysen" [ref=e1456] [cursor=pointer]
+                      - generic [ref=e1458] [cursor=pointer]: Analysen
+                  - listitem [ref=e1459]:
+                    - generic [ref=e1462]:
+                      - checkbox "Standortübergreifende Analyse" [ref=e1464] [cursor=pointer]
+                      - generic [ref=e1466] [cursor=pointer]: Standortübergreifende Analyse
+                  - listitem [ref=e1467]:
+                    - generic [ref=e1470]:
+                      - checkbox "On-Page Analyse" [ref=e1472] [cursor=pointer]
+                      - generic [ref=e1474] [cursor=pointer]: On-Page Analyse
+                  - listitem [ref=e1475]:
+                    - generic [ref=e1478]:
+                      - checkbox "On-Page Allgemeine Einstellungen" [ref=e1480] [cursor=pointer]
+                      - generic [ref=e1482] [cursor=pointer]: On-Page Allgemeine Einstellungen
+                  - listitem [ref=e1483]:
+                    - generic [ref=e1486]:
+                      - checkbox "On-Page Erweiterte Einstellungen" [ref=e1488] [cursor=pointer]
+                      - generic [ref=e1490] [cursor=pointer]: On-Page Erweiterte Einstellungen
+                  - listitem [ref=e1491]:
+                    - generic [ref=e1494]:
+                      - checkbox "On-Page Schema Einstellungen" [ref=e1496] [cursor=pointer]
+                      - generic [ref=e1498] [cursor=pointer]: On-Page Schema Einstellungen
+                  - listitem [ref=e1499]:
+                    - generic [ref=e1502]:
+                      - checkbox "On-Page Soziale Einstellungen" [ref=e1504] [cursor=pointer]
+                      - generic [ref=e1506] [cursor=pointer]: On-Page Soziale Einstellungen
+                  - listitem [ref=e1507]:
+                    - generic [ref=e1510]:
+                      - checkbox "Inhalt-KI" [ref=e1512] [cursor=pointer]
+                      - generic [ref=e1514] [cursor=pointer]: Inhalt-KI
+                  - listitem [ref=e1515]:
+                    - generic [ref=e1518]:
+                      - checkbox "Obere Admin-Leiste" [ref=e1520] [cursor=pointer]
+                      - generic [ref=e1522] [cursor=pointer]: Obere Admin-Leiste
+            - generic [ref=e1523]:
+              - generic [ref=e1525]: Translator
+              - generic [ref=e1526]:
+                - button "Toggle All" [ref=e1527] [cursor=pointer]
+                - list:
+                  - listitem [ref=e1528]:
+                    - generic [ref=e1531]:
+                      - checkbox "Titel- und Meta-Einstellungen" [ref=e1533] [cursor=pointer]
+                      - generic [ref=e1535] [cursor=pointer]: Titel- und Meta-Einstellungen
+                  - listitem [ref=e1536]:
+                    - generic [ref=e1539]:
+                      - checkbox "Allgemeine Einstellungen" [ref=e1541] [cursor=pointer]
+                      - generic [ref=e1543] [cursor=pointer]: Allgemeine Einstellungen
+                  - listitem [ref=e1544]:
+                    - generic [ref=e1547]:
+                      - checkbox "Sitemap-Einstellungen" [ref=e1549] [cursor=pointer]
+                      - generic [ref=e1551] [cursor=pointer]: Sitemap-Einstellungen
+                  - listitem [ref=e1552]:
+                    - generic [ref=e1555]:
+                      - checkbox "404-Monitorprotokoll" [ref=e1557] [cursor=pointer]
+                      - generic [ref=e1559] [cursor=pointer]: 404-Monitorprotokoll
+                  - listitem [ref=e1560]:
+                    - generic [ref=e1563]:
+                      - checkbox "Link Builder" [ref=e1565] [cursor=pointer]
+                      - generic [ref=e1567] [cursor=pointer]: Link Builder
+                  - listitem [ref=e1568]:
+                    - generic [ref=e1571]:
+                      - checkbox "Weiterleitungen" [ref=e1573] [cursor=pointer]
+                      - generic [ref=e1575] [cursor=pointer]: Weiterleitungen
+                  - listitem [ref=e1576]:
+                    - generic [ref=e1579]:
+                      - checkbox "Rollenverwaltung" [ref=e1581] [cursor=pointer]
+                      - generic [ref=e1583] [cursor=pointer]: Rollenverwaltung
+                  - listitem [ref=e1584]:
+                    - generic [ref=e1587]:
+                      - checkbox "Analysen" [ref=e1589] [cursor=pointer]
+                      - generic [ref=e1591] [cursor=pointer]: Analysen
+                  - listitem [ref=e1592]:
+                    - generic [ref=e1595]:
+                      - checkbox "Standortübergreifende Analyse" [ref=e1597] [cursor=pointer]
+                      - generic [ref=e1599] [cursor=pointer]: Standortübergreifende Analyse
+                  - listitem [ref=e1600]:
+                    - generic [ref=e1603]:
+                      - checkbox "On-Page Analyse" [ref=e1605] [cursor=pointer]
+                      - generic [ref=e1607] [cursor=pointer]: On-Page Analyse
+                  - listitem [ref=e1608]:
+                    - generic [ref=e1611]:
+                      - checkbox "On-Page Allgemeine Einstellungen" [ref=e1613] [cursor=pointer]
+                      - generic [ref=e1615] [cursor=pointer]: On-Page Allgemeine Einstellungen
+                  - listitem [ref=e1616]:
+                    - generic [ref=e1619]:
+                      - checkbox "On-Page Erweiterte Einstellungen" [ref=e1621] [cursor=pointer]
+                      - generic [ref=e1623] [cursor=pointer]: On-Page Erweiterte Einstellungen
+                  - listitem [ref=e1624]:
+                    - generic [ref=e1627]:
+                      - checkbox "On-Page Schema Einstellungen" [ref=e1629] [cursor=pointer]
+                      - generic [ref=e1631] [cursor=pointer]: On-Page Schema Einstellungen
+                  - listitem [ref=e1632]:
+                    - generic [ref=e1635]:
+                      - checkbox "On-Page Soziale Einstellungen" [ref=e1637] [cursor=pointer]
+                      - generic [ref=e1639] [cursor=pointer]: On-Page Soziale Einstellungen
+                  - listitem [ref=e1640]:
+                    - generic [ref=e1643]:
+                      - checkbox "Inhalt-KI" [ref=e1645] [cursor=pointer]
+                      - generic [ref=e1647] [cursor=pointer]: Inhalt-KI
+                  - listitem [ref=e1648]:
+                    - generic [ref=e1651]:
+                      - checkbox "Obere Admin-Leiste" [ref=e1653] [cursor=pointer]
+                      - generic [ref=e1655] [cursor=pointer]: Obere Admin-Leiste
+          - generic [ref=e1656]:
+            - button "Reset" [ref=e1657] [cursor=pointer]
+            - button "Update Capabilities" [disabled]
+    - contentinfo [ref=e1658]:
+      - paragraph [ref=e1659]:
+        - text: Vielen Dank, dass du
+        - link "Rank Math" [ref=e1660] [cursor=pointer]:
+          - /url: https://rankmath.com/?utm_source=Plugin&utm_medium=Admin%20Footer%20Text&utm_campaign=WP
+        - text: verwendest
+      - paragraph [ref=e1661]: Version 6.9.4
+  - generic [ref=e1665]:
+    - heading "The Editor has a new home" [level=3] [ref=e1666]
+    - paragraph [ref=e1667]:
+      - text: Editor tools are now grouped together for quick access. Build and grow your site with everything you need in one place.
+      - link "Mehr erfahren" [ref=e1668] [cursor=pointer]:
+        - /url: https://go.elementor.com/wp-dash-editor-one-learn-more/
+    - paragraph [ref=e1669]:
+      - button "Verstanden" [ref=e1670] [cursor=pointer]
+    - link "Verwerfen" [ref=e1672] [cursor=pointer]:
+      - /url: "#"
