@@ -228,6 +228,12 @@ SERVER_CONFIG_DEPLOY_MAP = [
     ("security-audit/dashboard.py",              "/opt/security-audit/dashboard.py"),
     ("security-audit/security-audit-report.py",  "/opt/security-audit/security-audit-report.py"),
     ("wp-panel/app.py",                          "/opt/wp-panel/app.py"),
+    # admin-panel container (nginx reverse proxy at admin.edumusik.net)
+    ("edumusik-1/srv/admin-panel/docker-compose.yml", "/srv/admin-panel/docker-compose.yml"),
+    ("edumusik-1/srv/admin-panel/nginx.conf",         "/srv/admin-panel/nginx.conf"),
+    ("edumusik-1/srv/admin-panel/index.html",         "/srv/admin-panel/index.html"),
+    # Traefik dynamic config (admin-auth + admin-ip middlewares)
+    ("edumusik-1/srv/traefik/dynamic/admin-panel.yml", "/srv/traefik/dynamic/admin-panel.yml"),
 ]
 
 
@@ -246,6 +252,10 @@ def _server_config_install_shell(sudo: str, backup_ts: str) -> str:
     Skips unchanged files. Backs up and installs changed ones.
     """
     lines = []
+    # Ensure all destination directories exist (safe no-op on existing dirs)
+    dst_dirs = sorted({os.path.dirname(dst) for _, dst in SERVER_CONFIG_DEPLOY_MAP})
+    for d in dst_dirs:
+        lines.append(f"{sudo}mkdir -p {shlex.quote(d)}")
     for _, dst in SERVER_CONFIG_DEPLOY_MAP:
         basename = os.path.basename(dst)
         tmp_q = shlex.quote(f"/tmp/{basename}")
@@ -331,6 +341,10 @@ def server_config_sync(host: str = "main", branch: str = "main", sudo: bool = Tr
       security-audit/dashboard.py    → /opt/security-audit/dashboard.py
       security-audit/security-audit-report.py → /opt/security-audit/security-audit-report.py
       wp-panel/app.py                → /opt/wp-panel/app.py
+      edumusik-1/srv/admin-panel/docker-compose.yml → /srv/admin-panel/docker-compose.yml
+      edumusik-1/srv/admin-panel/nginx.conf         → /srv/admin-panel/nginx.conf
+      edumusik-1/srv/admin-panel/index.html         → /srv/admin-panel/index.html
+      edumusik-1/srv/traefik/dynamic/admin-panel.yml → /srv/traefik/dynamic/admin-panel.yml
 
     Each changed file is backed up to <dst>.bak.<ts> before overwriting.
     Unchanged files are left alone. Run bootstrap_server_config first if
