@@ -54,6 +54,10 @@
           {
             "type": "command",
             "command": "python3 /Users/stephan/Documents/ops-agent/.claude/hooks/session_autocommit.py"
+          },
+          {
+            "type": "command",
+            "command": "python3 /Users/stephan/Documents/ops-agent/.claude/hooks/verify_before_done.py"
           }
         ]
       }
