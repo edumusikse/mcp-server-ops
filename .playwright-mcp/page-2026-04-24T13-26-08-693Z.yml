@@ -1,0 +1,1285 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - navigation "Hauptmenü":
+      - link "Zum Hauptinhalt springen" [ref=e3] [cursor=pointer]:
+        - /url: "#wpbody-content"
+      - link "Zur Werkzeugleiste springen" [ref=e4] [cursor=pointer]:
+        - /url: "#wp-toolbar"
+      - list [ref=e7]:
+        - listitem [ref=e8]:
+          - link "Dashboard" [ref=e9] [cursor=pointer]:
+            - /url: index.php
+            - generic [ref=e10]: 
+            - generic [ref=e11]: Dashboard
+        - listitem [ref=e12]:
+          - link "Blog" [ref=e13] [cursor=pointer]:
+            - /url: admin.php?page=ksm-blog-menu
+            - generic [ref=e14]: 
+            - generic [ref=e15]: Blog
+          - list [ref=e16]:
+            - listitem [ref=e17]:
+              - link "Blog" [ref=e18] [cursor=pointer]:
+                - /url: admin.php?page=ksm-blog-menu
+            - listitem [ref=e19]:
+              - link "Alle Beiträge" [ref=e20] [cursor=pointer]:
+                - /url: admin.php?page=ksm-blog-list
+            - listitem [ref=e21]:
+              - link "Neuer Beitrag" [ref=e22] [cursor=pointer]:
+                - /url: admin.php?page=ksm-blog-add
+            - listitem [ref=e23]:
+              - link "Kategorien" [ref=e24] [cursor=pointer]:
+                - /url: edit-tags.php?taxonomy=category
+        - listitem [ref=e25]:
+          - link "Produkte" [ref=e26] [cursor=pointer]:
+            - /url: edit.php?post_type=product
+            - generic [ref=e27]: 
+            - generic [ref=e28]: Produkte
+          - list [ref=e29]:
+            - listitem [ref=e30]:
+              - link "Alle Produkte" [ref=e31] [cursor=pointer]:
+                - /url: edit.php?post_type=product
+            - listitem [ref=e32]:
+              - link "Neues Produkt hinzufügen" [ref=e33] [cursor=pointer]:
+                - /url: post-new.php?post_type=product
+        - listitem [ref=e34]:
+          - link "Dozenten" [ref=e35] [cursor=pointer]:
+            - /url: admin.php?page=ksm-dozenten-list
+            - generic [ref=e36]: 
+            - generic [ref=e37]: Dozenten
+          - list [ref=e38]:
+            - listitem [ref=e39]:
+              - link "Alle Dozenten" [ref=e40] [cursor=pointer]:
+                - /url: admin.php?page=ksm-dozenten-list
+            - listitem [ref=e41]:
+              - link "Dozenten hinzufügen" [ref=e42] [cursor=pointer]:
+                - /url: admin.php?page=ksm-dozent-add
+        - listitem [ref=e43]:
+          - link "Newsletter" [ref=e44] [cursor=pointer]:
+            - /url: admin.php?page=fluentcrm-admin
+            - generic [ref=e46]: Newsletter
+          - list [ref=e47]:
+            - listitem [ref=e48]:
+              - link "Dashboard" [ref=e49] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin
+            - listitem [ref=e50]:
+              - link "Kontakte" [ref=e51] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/subscribers
+            - listitem [ref=e52]:
+              - link "Companies" [ref=e53] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/contact-groups/companies
+            - listitem [ref=e54]:
+              - link "Listen" [ref=e55] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/contact-groups/lists
+            - listitem [ref=e56]:
+              - link "Kampagnen" [ref=e57] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/email/campaigns
+            - listitem [ref=e58]:
+              - link "E-Mail-Sequenzen" [ref=e59] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/email/sequences
+            - listitem [ref=e60]:
+              - link "E-Mail-Vorlagen" [ref=e61] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/email/templates
+            - listitem [ref=e62]:
+              - link "Formulare" [ref=e63] [cursor=pointer]:
+                - /url: admin.php?page=fluentcrm-admin#/forms
+        - listitem [ref=e64]:
+          - link "FooEvents" [ref=e65] [cursor=pointer]:
+            - /url: edit.php?post_type=event_magic_tickets
+            - generic [ref=e66]: 
+            - generic [ref=e67]: FooEvents
+          - list [ref=e68]:
+            - listitem [ref=e69]:
+              - link "Tickets" [ref=e70] [cursor=pointer]:
+                - /url: edit.php?post_type=event_magic_tickets
+            - listitem [ref=e71]:
+              - link "Erste Schritte" [ref=e72] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-introduction
+            - listitem [ref=e73]:
+              - link "Check-ins importieren" [ref=e74] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-checkins-import
+            - listitem [ref=e75]:
+              - link "Tickets importieren" [ref=e76] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-import-tickets
+            - listitem [ref=e77]:
+              - link "Ticket-Themen" [ref=e78] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-ticket-themes
+            - listitem [ref=e79]:
+              - link "Berichte" [ref=e80] [cursor=pointer]:
+                - /url: admin.php?page=fooevents-reports
+        - listitem [ref=e81]:
+          - link "Boards" [ref=e82] [cursor=pointer]:
+            - /url: admin.php?page=fluent-boards
+            - generic [ref=e84]: Boards
+          - list [ref=e85]:
+            - listitem [ref=e86]:
+              - link "Dashboard" [ref=e87] [cursor=pointer]:
+                - /url: admin.php?page=fluent-boards
+            - listitem [ref=e88]:
+              - link "Boards" [ref=e89] [cursor=pointer]:
+                - /url: admin.php?page=fluent-boards#/boards
+            - listitem [ref=e90]:
+              - link "Berichte" [ref=e91] [cursor=pointer]:
+                - /url: admin.php?page=fluent-boards#/reports
+            - listitem [ref=e92]:
+              - link "Einstellungen" [ref=e93] [cursor=pointer]:
+                - /url: admin.php?page=fluent-boards#/settings/members-role
+        - listitem [ref=e94]:
+          - link "Elementor" [ref=e95] [cursor=pointer]:
+            - /url: admin.php?page=elementor-home
+            - generic [ref=e97]: Elementor
+          - list [ref=e98]:
+            - listitem [ref=e99]:
+              - link "Home" [ref=e100] [cursor=pointer]:
+                - /url: admin.php?page=elementor-home
+            - listitem [ref=e101]:
+              - link "Editor" [ref=e102] [cursor=pointer]:
+                - /url: admin.php?page=elementor
+            - listitem [ref=e103]:
+              - link "Theme-Builder" [ref=e104] [cursor=pointer]:
+                - /url: https://kita-seminar-manufaktur.de/wp-admin/admin.php?page=elementor-app&ver=4.0.3&return_to=/wp-admin/edit.php?post_type=sfwd-courses#/site-editor
+        - listitem [ref=e105]:
+          - link "Traffic Analytics" [ref=e106] [cursor=pointer]:
+            - /url: admin.php?page=traffic-analytics
+            - generic [ref=e107]: 
+            - generic [ref=e108]: Traffic Analytics
+        - listitem [ref=e109]:
+          - link "Forms" [ref=e110] [cursor=pointer]:
+            - /url: admin.php?page=fluent_forms
+            - generic [ref=e112]: Forms
+          - list [ref=e113]:
+            - listitem [ref=e114]:
+              - link "Formulare" [ref=e115] [cursor=pointer]:
+                - /url: admin.php?page=fluent_forms
+            - listitem [ref=e116]:
+              - link "Neues Formular" [ref=e117] [cursor=pointer]:
+                - /url: admin.php?page=fluent_forms#add=1
+            - listitem [ref=e118]:
+              - link "Einträge" [ref=e119] [cursor=pointer]:
+                - /url: admin.php?page=fluent_forms_all_entries
+            - listitem [ref=e120]:
+              - link "Werkzeuge" [ref=e121] [cursor=pointer]:
+                - /url: admin.php?page=fluent_forms_transfer
+        - listitem [ref=e122]:
+          - link "Medien" [ref=e123] [cursor=pointer]:
+            - /url: upload.php
+            - generic [ref=e124]: 
+            - generic [ref=e125]: Medien
+          - list [ref=e126]:
+            - listitem [ref=e127]:
+              - link "Mediathek" [ref=e128] [cursor=pointer]:
+                - /url: upload.php
+            - listitem [ref=e129]:
+              - link "Mediendatei hinzufügen" [ref=e130] [cursor=pointer]:
+                - /url: media-new.php
+            - listitem [ref=e131]:
+              - link "Massenoptimierung" [ref=e132] [cursor=pointer]:
+                - /url: upload.php?page=ewww-image-optimizer-bulk
+        - listitem [ref=e133]:
+          - link "Databases" [ref=e134] [cursor=pointer]:
+            - /url: /wp-admin/edit-tags.php?taxonomy=zielgruppe
+            - generic [ref=e135]: 
+            - generic [ref=e136]: Databases
+          - list [ref=e137]:
+            - listitem [ref=e138]:
+              - link " Zielgruppe" [ref=e139] [cursor=pointer]:
+                - /url: /wp-admin/edit-tags.php?taxonomy=zielgruppe
+                - generic [ref=e141]: 
+                - text: Zielgruppe
+            - listitem [ref=e142]:
+              - link " Seminartyp" [ref=e143] [cursor=pointer]:
+                - /url: /wp-admin/edit-tags.php?taxonomy=seminar-type
+                - generic [ref=e145]: 
+                - text: Seminartyp
+        - listitem [ref=e146]:
+          - link "Benutzer" [ref=e147] [cursor=pointer]:
+            - /url: users.php
+            - generic [ref=e148]: 
+            - generic [ref=e149]: Benutzer
+          - list [ref=e150]:
+            - listitem [ref=e151]:
+              - link "Alle Benutzer" [ref=e152] [cursor=pointer]:
+                - /url: users.php
+            - listitem [ref=e153]:
+              - link "Benutzer hinzufügen" [ref=e154] [cursor=pointer]:
+                - /url: user-new.php
+            - listitem [ref=e155]:
+              - link "Profil" [ref=e156] [cursor=pointer]:
+                - /url: profile.php
+        - listitem [ref=e157]:
+          - link "Seiten" [ref=e158] [cursor=pointer]:
+            - /url: edit.php?post_type=page
+            - generic [ref=e159]: 
+            - generic [ref=e160]: Seiten
+          - list [ref=e161]:
+            - listitem [ref=e162]:
+              - link "Alle Seiten" [ref=e163] [cursor=pointer]:
+                - /url: edit.php?post_type=page
+            - listitem [ref=e164]:
+              - link "Seite hinzufügen" [ref=e165] [cursor=pointer]:
+                - /url: post-new.php?post_type=page
+        - text: 
+        - listitem [ref=e166]:
+          - link "Design" [ref=e167] [cursor=pointer]:
+            - /url: customize.php?return=%2Fwp-admin%2Fedit.php%3Fpost_type%3Dsfwd-courses
+            - generic [ref=e168]: 
+            - generic [ref=e169]: Design
+          - list [ref=e170]:
+            - listitem [ref=e171]:
+              - link "Customizer" [ref=e172] [cursor=pointer]:
+                - /url: customize.php?return=%2Fwp-admin%2Fedit.php%3Fpost_type%3Dsfwd-courses
+            - listitem [ref=e173]:
+              - link "Menüs" [ref=e174] [cursor=pointer]:
+                - /url: nav-menus.php
+        - listitem [ref=e175]:
+          - link "Plugins" [ref=e176] [cursor=pointer]:
+            - /url: plugins.php
+            - generic [ref=e177]: 
+            - generic [ref=e178]: Plugins
+          - list [ref=e179]:
+            - listitem [ref=e180]:
+              - link "Installierte Plugins" [ref=e181] [cursor=pointer]:
+                - /url: plugins.php
+            - listitem [ref=e182]:
+              - link "Plugin hinzufügen" [ref=e183] [cursor=pointer]:
+                - /url: plugin-install.php
+        - text: 
+        - listitem [ref=e184]:
+          - link "Einstellungen" [ref=e185] [cursor=pointer]:
+            - /url: admin.php?page=duplicate_page_settings
+            - generic [ref=e186]: 
+            - generic [ref=e187]: Einstellungen
+          - list [ref=e188]:
+            - listitem [ref=e189]:
+              - link "Duplicate Page" [ref=e190] [cursor=pointer]:
+                - /url: options-general.php?page=duplicate_page_settings
+            - listitem [ref=e191]:
+              - link "KI-Sichtbarkeit" [ref=e192] [cursor=pointer]:
+                - /url: options-general.php?page=ksm-ai-visibility
+            - listitem [ref=e193]:
+              - link "Two-Factor" [ref=e194] [cursor=pointer]:
+                - /url: options-general.php?page=two-factor-settings
+            - listitem [ref=e195]:
+              - link "EWWW Image Optimizer" [ref=e196] [cursor=pointer]:
+                - /url: options-general.php?page=ewww-image-optimizer-options
+            - listitem [ref=e197]:
+              - link "Object Cache" [ref=e198] [cursor=pointer]:
+                - /url: options-general.php?page=objectcache
+            - listitem [ref=e199]:
+              - link "Perfmatters" [ref=e200] [cursor=pointer]:
+                - /url: options-general.php?page=perfmatters
+            - listitem [ref=e201]:
+              - link "Security" [ref=e202] [cursor=pointer]:
+                - /url: options-general.php?page=patchstack
+        - listitem [ref=e203]:
+          - link "Rank Math SEO" [ref=e204] [cursor=pointer]:
+            - /url: admin.php?page=rank-math
+            - generic [ref=e206]: Rank Math SEO
+          - list [ref=e207]:
+            - listitem [ref=e208]:
+              - link "Dashboard" [ref=e209] [cursor=pointer]:
+                - /url: admin.php?page=rank-math
+            - listitem [ref=e210]:
+              - link "Inhalt-KI" [ref=e211] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-content-ai-page
+            - listitem [ref=e212]:
+              - link "Link Genius Neu!" [ref=e213] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-links-page
+            - listitem [ref=e214]:
+              - link "Allgemeine Einstellungen" [ref=e215] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-options-general
+            - listitem [ref=e216]:
+              - link "Titel & Meta" [ref=e217] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-options-titles
+            - listitem [ref=e218]:
+              - link "Sitemap-Einstellungen" [ref=e219] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-options-sitemap
+            - listitem [ref=e220]:
+              - link "Sofortige Indexierung" [ref=e221] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-options-instant-indexing
+            - listitem [ref=e222]:
+              - link "Rollenverwaltung" [ref=e223] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-role-manager
+            - listitem [ref=e224]:
+              - link "SEO-Analysator" [ref=e225] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-seo-analysis
+            - listitem [ref=e226]:
+              - link "Status & Werkzeuge" [ref=e227] [cursor=pointer]:
+                - /url: admin.php?page=rank-math-status
+            - listitem [ref=e228]:
+              - link "Hilfe und Support " [ref=e229] [cursor=pointer]:
+                - /url: https://rankmath.com/kb/?utm_source=Plugin&utm_medium=Sidebar%20Help%20Link&utm_campaign=WP
+                - text: Hilfe und Support
+                - generic [ref=e230]: 
+        - listitem [ref=e231]:
+          - link "Statistiken" [ref=e232] [cursor=pointer]:
+            - /url: admin.php?page=wc-admin&path=/analytics/overview
+            - generic [ref=e233]: 
+            - generic [ref=e234]: Statistiken
+          - list [ref=e235]:
+            - listitem [ref=e236]:
+              - link "Übersicht" [ref=e237] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/overview
+            - listitem [ref=e238]:
+              - link "Produkte" [ref=e239] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/products
+            - listitem [ref=e240]:
+              - link "Umsatz" [ref=e241] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/revenue
+            - listitem [ref=e242]:
+              - link "Bestellungen" [ref=e243] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/orders
+            - listitem [ref=e244]:
+              - link "Varianten" [ref=e245] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/variations
+            - listitem [ref=e246]:
+              - link "Kategorien" [ref=e247] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/categories
+            - listitem [ref=e248]:
+              - link "Gutscheine" [ref=e249] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/coupons
+            - listitem [ref=e250]:
+              - link "Steuern" [ref=e251] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/taxes
+            - listitem [ref=e252]:
+              - link "Downloads" [ref=e253] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/downloads
+            - listitem [ref=e254]:
+              - link "Bestand" [ref=e255] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/stock
+            - listitem [ref=e256]:
+              - link "Einstellungen" [ref=e257] [cursor=pointer]:
+                - /url: admin.php?page=wc-admin&path=/analytics/settings
+        - listitem [ref=e258]:
+          - link "Optionsseiten" [ref=e259] [cursor=pointer]:
+            - /url: edit.php?post_type=acf-ui-options-page
+            - generic [ref=e260]: 
+            - generic [ref=e261]: Optionsseiten
+        - listitem [ref=e262]:
+          - link "Aktualisierungen" [ref=e263] [cursor=pointer]:
+            - /url: edit.php?post_type=acf-field-group&page=acf-settings-updates
+            - generic [ref=e264]: 
+            - generic [ref=e265]: Aktualisierungen
+        - listitem [ref=e266]:
+          - link "Wordfence" [ref=e267] [cursor=pointer]:
+            - /url: admin.php?page=Wordfence
+            - generic [ref=e269]: Wordfence
+          - list [ref=e270]:
+            - listitem [ref=e271]:
+              - link "Dashboard" [ref=e272] [cursor=pointer]:
+                - /url: admin.php?page=Wordfence
+            - listitem [ref=e273]:
+              - link "Firewall" [ref=e274] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceWAF
+            - listitem [ref=e275]:
+              - link "Scan" [ref=e276] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceScan
+            - listitem [ref=e277]:
+              - link "Tools" [ref=e278] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceTools
+            - listitem [ref=e279]:
+              - link "Audit Log" [ref=e280] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceAuditLog
+            - listitem [ref=e281]:
+              - link "Login Security" [ref=e282] [cursor=pointer]:
+                - /url: admin.php?page=WFLS
+            - listitem [ref=e283]:
+              - link "All Options" [ref=e284] [cursor=pointer]:
+                - /url: admin.php?page=WordfenceOptions
+        - listitem [ref=e285]:
+          - button "Hauptmenü reduzieren" [expanded] [ref=e286] [cursor=pointer]:
+            - generic [ref=e288]: Menü reduzieren
+    - generic [ref=e289]:
+      - generic [ref=e290]:
+        - navigation "Werkzeugleiste":
+          - menu:
+            - group [ref=e291]:
+              - menuitem "Über WordPress" [ref=e292] [cursor=pointer]:
+                - generic [ref=e294]: Über WordPress
+            - group [ref=e295]:
+              - menuitem "Kita Seminar Manufaktur" [ref=e296] [cursor=pointer]
+            - group [ref=e297]:
+              - menuitem "Neu" [ref=e298] [cursor=pointer]:
+                - generic [ref=e300]: Neu
+            - group [ref=e301]:
+              - menuitem "View Kurse" [ref=e302] [cursor=pointer]
+            - group [ref=e303]:
+              - menuitem "Rank Math SEO" [ref=e304] [cursor=pointer]:
+                - img [ref=e306]
+                - text: Rank Math SEO
+            - group [ref=e310]:
+              - menuitem "Nginx Cache" [ref=e311] [cursor=pointer]:
+                - img [ref=e312]
+                - text: Nginx Cache
+            - group [ref=e313]:
+              - menuitem "Perfmatters" [ref=e314] [cursor=pointer]
+            - group [ref=e315]:
+              - menuitem "Edit Columns" [ref=e316] [cursor=pointer]
+          - menu [ref=e317]:
+            - group [ref=e318]:
+              - menuitem "Kontakte durchsuchen" [ref=e319] [cursor=pointer]
+            - group [ref=e320]:
+              - menuitem "Willkommen, Claude Ops" [ref=e321] [cursor=pointer]
+      - main [ref=e322]:
+        - generic [ref=e323]:
+          - button "Ansicht anpassen" [ref=e326] [cursor=pointer]
+          - generic [ref=e327]:
+            - heading "Kurse" [level=1] [ref=e328]
+            - link "Add New Kurs" [ref=e329] [cursor=pointer]:
+              - /url: https://kita-seminar-manufaktur.de/wp-admin/post-new.php?post_type=sfwd-courses
+            - navigation [ref=e331]:
+              - menu [ref=e332]:
+                - link "Carousel" [ref=e333] [cursor=pointer]:
+                  - /url: https://kita-seminar-manufaktur.de/wp-admin/edit.php?post_type=sfwd-courses&layout=6942a78c552cf
+                - link "Kurse" [ref=e334] [cursor=pointer]:
+                  - /url: https://kita-seminar-manufaktur.de/wp-admin/edit.php?post_type=sfwd-courses&layout=68f4c08e85b26
+            - generic [ref=e335]:
+              - paragraph [ref=e336]:
+                - strong [ref=e337]: Course Grid is now part of LearnDash LMS.
+              - paragraph [ref=e338]:
+                - text: The Course Grid features have been added directly into LearnDash — no separate plugin needed.
+                - text: If the LearnDash LMS - Course Grid add-on was previously installed, it's no longer required and can be safely uninstalled.
+              - button "Diesen Hinweis verwerfen" [ref=e339] [cursor=pointer]:
+                - generic [ref=e340]: Diesen Hinweis verwerfen
+            - generic [ref=e341]:
+              - paragraph [ref=e342]:
+                - strong [ref=e343]: Course Reviews is now part of LearnDash LMS.
+              - paragraph [ref=e344]:
+                - text: The Course Reviews features have been added directly into LearnDash — no separate plugin needed.
+                - text: If the LearnDash Course Reviews add-on was previously installed, it's no longer required and can be safely uninstalled.
+              - button "Diesen Hinweis verwerfen" [ref=e345] [cursor=pointer]:
+                - generic [ref=e346]: Diesen Hinweis verwerfen
+            - generic [ref=e347]:
+              - paragraph [ref=e348]:
+                - text: We've added basic reporting to LearnDash! View your reports in your
+                - link "Admin Dashboard" [ref=e349] [cursor=pointer]:
+                  - /url: https://kita-seminar-manufaktur.de/wp-admin/
+                - text: .
+                - link "Learn more." [ref=e350] [cursor=pointer]:
+                  - /url: https://go.learndash.com/reportsmerge
+              - button "Diesen Hinweis verwerfen" [ref=e351] [cursor=pointer]:
+                - generic [ref=e352]: Diesen Hinweis verwerfen
+            - generic [ref=e353]:
+              - img "Dynamic Visibility for Elementor" [ref=e355]
+              - paragraph [ref=e356]:
+                - strong [ref=e357]: Dynamic Visibility for Elementor
+                - link "Buy now Dynamic.ooo - Dynamic Content for Elementor" [ref=e358] [cursor=pointer]:
+                  - /url: https://www.dynamic.ooo/upgrade/visibility-to-premium?utm_source=wp-plugins&utm_campaign=plugin-uri&utm_medium=wp-dash-promo
+                - text: and save 10% using promo code
+                - strong [ref=e359]: VISIBILITY
+                - text: .
+                - text: We give you
+                - strong [ref=e360]: over 150 features for Elementor
+                - text: that will save you time and money on achieving complex results. We support ACF Free and ACF Pro, JetEngine, Meta Box, WooCommerce, WPML, Search and Filter Pro, Pods and Toolset.
+              - button "Diesen Hinweis verwerfen" [ref=e361] [cursor=pointer]:
+                - generic [ref=e362]: Diesen Hinweis verwerfen
+            - generic [ref=e363]:
+              - paragraph [ref=e364]:
+                - text: WooCommerce appears to be installed, but the Wordfence Login Security WooCommerce integration is not currently enabled. Without this feature, WooCommerce forms will not support all functionality provided by Wordfence Login Security, including CAPTCHA for the login page and user registration.
+                - link "Manage Settings" [ref=e365] [cursor=pointer]:
+                  - /url: https://kita-seminar-manufaktur.de/wp-admin/admin.php?page=WFLS#top#settings
+              - button "Diesen Hinweis verwerfen" [ref=e366] [cursor=pointer]:
+                - generic [ref=e367]: Diesen Hinweis verwerfen
+            - generic [ref=e368]:
+              - paragraph [ref=e369]:
+                - text: Get a performance boost on your course by enabling shared steps in LearnDash LMS. Shared steps uses newer underlying architecture that really makes your course fly!
+                - link "Learn more about Shared Steps" [ref=e370] [cursor=pointer]:
+                  - /url: https://www.learndash.com/support/docs/core/courses/shared-course-steps/
+                - text: .
+              - button "Diesen Hinweis verwerfen" [ref=e371] [cursor=pointer]:
+                - generic [ref=e372]: Diesen Hinweis verwerfen
+            - heading "Beitragsliste filtern" [level=2] [ref=e373]
+            - list [ref=e374]:
+              - listitem [ref=e375]:
+                - link "Alle (111)" [ref=e376] [cursor=pointer]:
+                  - /url: edit.php?post_type=sfwd-courses
+                - text: "|"
+              - listitem [ref=e377]:
+                - link "Veröffentlicht (108)" [ref=e378] [cursor=pointer]:
+                  - /url: edit.php?post_status=publish&post_type=sfwd-courses
+                - text: "|"
+              - listitem [ref=e379]:
+                - link "Privat (3)" [ref=e380] [cursor=pointer]:
+                  - /url: edit.php?post_status=private&post_type=sfwd-courses
+                - text: "|"
+              - listitem [ref=e381]:
+                - link "Säulen-Inhalt (0)" [ref=e382] [cursor=pointer]:
+                  - /url: /wp-admin/edit.php?post_type=sfwd-courses&pillar_content=1
+            - generic [ref=e383]:
+              - paragraph [ref=e384]:
+                - generic [ref=e385]: "Search Kurse:"
+                - searchbox "Search Kurse:" [ref=e386]
+                - button "Search Kurse" [ref=e387] [cursor=pointer]
+              - generic [ref=e388]:
+                - generic [ref=e389]:
+                  - generic [ref=e391]:
+                    - button "Filter hinzufügen" [ref=e394]:
+                      - button "Filter hinzufügen" [ref=e395] [cursor=pointer]
+                    - button [ref=e396] [cursor=pointer]
+                  - generic [ref=e397]: Nach Datum filtern
+                  - combobox "Nach Datum filtern" [ref=e398] [cursor=pointer]:
+                    - option "Alle Daten" [selected]
+                    - option "Dezember 2025"
+                    - option "November 2025"
+                    - option "Oktober 2025"
+                  - combobox [ref=e399] [cursor=pointer]:
+                    - option "Rank Math" [selected]
+                    - 'option "SEO Score: Gut"'
+                    - 'option "SEO Score: In Ordnung"'
+                    - 'option "SEO Score: Schlecht"'
+                    - option "Fokus-Schlüsselwort nicht gesetzt"
+                    - option "Artikel ohne Indexierung"
+                  - generic [ref=e400]:
+                    - generic [ref=e401]: Irgendein Typ
+                    - generic [ref=e402]:
+                      - generic [ref=e404]:
+                        - generic [ref=e405] [cursor=pointer]: Inhouse
+                        - textbox [ref=e406] [cursor=pointer]
+                      - generic [ref=e407]:
+                        - button "" [ref=e408]:  
+                        - generic:  
+                  - combobox [ref=e409] [cursor=pointer]
+                  - combobox "All Price Types" [ref=e412] [cursor=pointer]:
+                    - textbox [ref=e413]
+                  - combobox [ref=e414] [cursor=pointer]
+                  - combobox "All Users" [ref=e417] [cursor=pointer]:
+                    - textbox [ref=e418]
+                  - generic [ref=e419]: Filter by Seminartyp
+                  - combobox [ref=e420] [cursor=pointer]
+                  - combobox "×Inhouse" [ref=e423] [cursor=pointer]:
+                    - textbox "Inhouse" [ref=e424]:
+                      - generic "Remove all items" [ref=e425]: ×
+                  - generic [ref=e426]: Filter by Theme
+                  - combobox [ref=e427] [cursor=pointer]
+                  - combobox "Themen" [ref=e430] [cursor=pointer]:
+                    - textbox [ref=e431]
+                  - link "Reset" [ref=e432] [cursor=pointer]:
+                    - /url: https://kita-seminar-manufaktur.de/wp-admin/edit.php?post_type=sfwd-courses
+                  - button "Filtern" [ref=e433] [cursor=pointer]
+                  - link "Clear filters" [ref=e434] [cursor=pointer]:
+                    - /url: "#"
+                - generic [ref=e436]:
+                  - link "Bearbeite Spalten" [ref=e437] [cursor=pointer]:
+                    - /url: https://kita-seminar-manufaktur.de/wp-admin/options-general.php?page=codepress-admin-columns&tab=columns&list_screen=sfwd-courses&layout_id=6942a78c552cf
+                  - generic [ref=e438] [cursor=pointer]:
+                    - text: Inline Edit
+                    - generic:
+                      - generic:
+                        - generic:
+                          - checkbox
+                - heading "Navigation der Beitragsliste" [level=2] [ref=e439]
+                - generic [ref=e440]:
+                  - text: 38 Einträge
+                  - generic [ref=e441]:
+                    - generic [ref=e442]: «
+                    - generic [ref=e443]: ‹
+                    - generic [ref=e444]:
+                      - generic [ref=e445]: Aktuelle Seite
+                      - textbox "Aktuelle Seite" [ref=e446]: "1"
+                      - generic [ref=e447]: von 2
+                    - link "Nächste Seite" [ref=e448] [cursor=pointer]:
+                      - /url: https://kita-seminar-manufaktur.de/wp-admin/edit.php?post_type=sfwd-courses&paged=2
+                      - generic [ref=e449]: Nächste Seite
+                      - text: ›
+                    - link "Letzte Seite" [ref=e450] [cursor=pointer]:
+                      - /url: https://kita-seminar-manufaktur.de/wp-admin/edit.php?post_type=sfwd-courses&paged=2
+                      - generic [ref=e451]: Letzte Seite
+                      - text: »
+              - heading "Beitragsliste" [level=2] [ref=e452]
+              - table [ref=e453]:
+                - rowgroup [ref=e454]:
+                  - row "Alle auswählen Titel Typ Carousel Aufsteigend sortieren." [ref=e455]:
+                    - cell "Alle auswählen" [ref=e456]:
+                      - checkbox "Alle auswählen" [ref=e457] [cursor=pointer]
+                      - generic [ref=e459]: Alle auswählen
+                    - columnheader "Titel" [ref=e460]: Titel
+                    - columnheader "Typ" [ref=e461]: Typ
+                    - columnheader "Carousel Aufsteigend sortieren." [ref=e462]:
+                      - link "Carousel Aufsteigend sortieren." [ref=e463] [cursor=pointer]:
+                        - /url: https://kita-seminar-manufaktur.de/wp-admin/edit.php?post_type=sfwd-courses&orderby=2a11fd0e666666&order=asc
+                        - generic [ref=e464]: Carousel
+                        - generic [ref=e468]: Aufsteigend sortieren.
+                - rowgroup [ref=e469]:
+                  - row "Psychologische Sicherheit als Grundlage für wertschätzende Teamkommunikation auswählen „Psychologische Sicherheit als Grundlage für wertschätzende Teamkommunikation“ (Bearbeiten) „Psychologische Sicherheit als Grundlage für wertschätzende Teamkommunikation“ bearbeiten | „Psychologische Sicherheit als Grundlage für wertschätzende Teamkommunikation“ in den Papierkorb verschieben | „Psychologische Sicherheit als Grundlage für wertschätzende Teamkommunikation“ anzeigen | Clone Inhouse " [ref=e470]:
+                    - rowheader "Psychologische Sicherheit als Grundlage für wertschätzende Teamkommunikation auswählen" [ref=e471]:
+                      - checkbox "Psychologische Sicherheit als Grundlage für wertschätzende Teamkommunikation auswählen" [ref=e472] [cursor=pointer]
+                      - generic [ref=e474]: Psychologische Sicherheit als Grundlage für wertschätzende Teamkommunikation auswählen
+                    - cell "„Psychologische Sicherheit als Grundlage für wertschätzende Teamkommunikation“ (Bearbeiten) „Psychologische Sicherheit als Grundlage für wertschätzende Teamkommunikation“ bearbeiten | „Psychologische Sicherheit als Grundlage für wertschätzende Teamkommunikation“ in den Papierkorb verschieben | „Psychologische Sicherheit als Grundlage für wertschätzende Teamkommunikation“ anzeigen | Clone" [ref=e475]:
+                      - strong [ref=e476]:
+                        - link "„Psychologische Sicherheit als Grundlage für wertschätzende Teamkommunikation“ (Bearbeiten)" [ref=e477] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=77403&action=edit&currentTab=learndash_sfwd-courses_dashboard
+                          - text: Psychologische Sicherheit als Grundlage für wertschätzende Teamkommunikation
+                      - generic [ref=e478]:
+                        - generic [ref=e479]:
+                          - link "„Psychologische Sicherheit als Grundlage für wertschätzende Teamkommunikation“ bearbeiten" [ref=e480] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=77403&action=edit&currentTab=post-body-content
+                            - text: Bearbeiten
+                          - text: "|"
+                        - generic [ref=e481]:
+                          - link "„Psychologische Sicherheit als Grundlage für wertschätzende Teamkommunikation“ in den Papierkorb verschieben" [ref=e482] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=77403&action=trash&_wpnonce=de8f037276
+                            - text: Papierkorb
+                          - text: "|"
+                        - generic [ref=e483]:
+                          - link "„Psychologische Sicherheit als Grundlage für wertschätzende Teamkommunikation“ anzeigen" [ref=e484] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/courses/psychologische-sicherheit-als-grundlage-fuer-wertschaetzende-teamkommunikation/
+                            - text: Anzeigen
+                          - text: "|"
+                        - link "Clone" [ref=e486] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/admin-post.php?action=learndash_cloning_action_course&object_id=77403&nonce=a967e388d8
+                    - cell "Inhouse" [ref=e487]:
+                      - link "Inhouse" [ref=e488] [cursor=pointer]:
+                        - /url: edit.php?taxonomy=seminar-type&term=inhouse
+                    - cell "" [ref=e489]:
+                      - generic "Ja" [ref=e490]: 
+                  - 'row "Sexualitätsbezogene Themen in der Ganztagsbetreuung: „Wie geht Sexen?“ auswählen „Sexualitätsbezogene Themen in der Ganztagsbetreuung: „Wie geht Sexen?““ (Bearbeiten) „Sexualitätsbezogene Themen in der Ganztagsbetreuung: „Wie geht Sexen?““ bearbeiten | „Sexualitätsbezogene Themen in der Ganztagsbetreuung: „Wie geht Sexen?““ in den Papierkorb verschieben | „Sexualitätsbezogene Themen in der Ganztagsbetreuung: „Wie geht Sexen?““ anzeigen | Clone Inhouse " [ref=e491]':
+                    - 'rowheader "Sexualitätsbezogene Themen in der Ganztagsbetreuung: „Wie geht Sexen?“ auswählen" [ref=e492]':
+                      - 'checkbox "Sexualitätsbezogene Themen in der Ganztagsbetreuung: „Wie geht Sexen?“ auswählen" [ref=e493] [cursor=pointer]'
+                      - generic [ref=e495]: "Sexualitätsbezogene Themen in der Ganztagsbetreuung: „Wie geht Sexen?“ auswählen"
+                    - 'cell "„Sexualitätsbezogene Themen in der Ganztagsbetreuung: „Wie geht Sexen?““ (Bearbeiten) „Sexualitätsbezogene Themen in der Ganztagsbetreuung: „Wie geht Sexen?““ bearbeiten | „Sexualitätsbezogene Themen in der Ganztagsbetreuung: „Wie geht Sexen?““ in den Papierkorb verschieben | „Sexualitätsbezogene Themen in der Ganztagsbetreuung: „Wie geht Sexen?““ anzeigen | Clone" [ref=e496]':
+                      - strong [ref=e497]:
+                        - 'link "„Sexualitätsbezogene Themen in der Ganztagsbetreuung: „Wie geht Sexen?““ (Bearbeiten)" [ref=e498] [cursor=pointer]':
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2750&action=edit&currentTab=learndash_sfwd-courses_dashboard
+                          - text: "Sexualitätsbezogene Themen in der Ganztagsbetreuung: „Wie geht Sexen?“"
+                      - generic [ref=e499]:
+                        - generic [ref=e500]:
+                          - 'link "„Sexualitätsbezogene Themen in der Ganztagsbetreuung: „Wie geht Sexen?““ bearbeiten" [ref=e501] [cursor=pointer]':
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2750&action=edit&currentTab=post-body-content
+                            - text: Bearbeiten
+                          - text: "|"
+                        - generic [ref=e502]:
+                          - 'link "„Sexualitätsbezogene Themen in der Ganztagsbetreuung: „Wie geht Sexen?““ in den Papierkorb verschieben" [ref=e503] [cursor=pointer]':
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2750&action=trash&_wpnonce=301a078226
+                            - text: Papierkorb
+                          - text: "|"
+                        - generic [ref=e504]:
+                          - 'link "„Sexualitätsbezogene Themen in der Ganztagsbetreuung: „Wie geht Sexen?““ anzeigen" [ref=e505] [cursor=pointer]':
+                            - /url: https://kita-seminar-manufaktur.de/courses/wie-geht-sexen/
+                            - text: Anzeigen
+                          - text: "|"
+                        - link "Clone" [ref=e507] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/admin-post.php?action=learndash_cloning_action_course&object_id=2750&nonce=99107da250
+                    - cell "Inhouse" [ref=e508]:
+                      - link "Inhouse" [ref=e509] [cursor=pointer]:
+                        - /url: edit.php?taxonomy=seminar-type&term=inhouse
+                    - cell "" [ref=e510]:
+                      - generic "Nein" [ref=e511]: 
+                  - row "Bewegtes Lernen. Schlaue Köpfe lernen in Bewegung auswählen „Bewegtes Lernen. Schlaue Köpfe lernen in Bewegung“ (Bearbeiten) „Bewegtes Lernen. Schlaue Köpfe lernen in Bewegung“ bearbeiten | „Bewegtes Lernen. Schlaue Köpfe lernen in Bewegung“ in den Papierkorb verschieben | „Bewegtes Lernen. Schlaue Köpfe lernen in Bewegung“ anzeigen | Clone Inhouse –" [ref=e512]:
+                    - rowheader "Bewegtes Lernen. Schlaue Köpfe lernen in Bewegung auswählen" [ref=e513]:
+                      - checkbox "Bewegtes Lernen. Schlaue Köpfe lernen in Bewegung auswählen" [ref=e514] [cursor=pointer]
+                      - generic [ref=e516]: Bewegtes Lernen. Schlaue Köpfe lernen in Bewegung auswählen
+                    - cell "„Bewegtes Lernen. Schlaue Köpfe lernen in Bewegung“ (Bearbeiten) „Bewegtes Lernen. Schlaue Köpfe lernen in Bewegung“ bearbeiten | „Bewegtes Lernen. Schlaue Köpfe lernen in Bewegung“ in den Papierkorb verschieben | „Bewegtes Lernen. Schlaue Köpfe lernen in Bewegung“ anzeigen | Clone" [ref=e517]:
+                      - strong [ref=e518]:
+                        - link "„Bewegtes Lernen. Schlaue Köpfe lernen in Bewegung“ (Bearbeiten)" [ref=e519] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2747&action=edit&currentTab=learndash_sfwd-courses_dashboard
+                          - text: Bewegtes Lernen. Schlaue Köpfe lernen in Bewegung
+                      - generic [ref=e520]:
+                        - generic [ref=e521]:
+                          - link "„Bewegtes Lernen. Schlaue Köpfe lernen in Bewegung“ bearbeiten" [ref=e522] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2747&action=edit&currentTab=post-body-content
+                            - text: Bearbeiten
+                          - text: "|"
+                        - generic [ref=e523]:
+                          - link "„Bewegtes Lernen. Schlaue Köpfe lernen in Bewegung“ in den Papierkorb verschieben" [ref=e524] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2747&action=trash&_wpnonce=e78406cb0e
+                            - text: Papierkorb
+                          - text: "|"
+                        - generic [ref=e525]:
+                          - link "„Bewegtes Lernen. Schlaue Köpfe lernen in Bewegung“ anzeigen" [ref=e526] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/courses/bewegtes-lernen-schlaue-koepfe-lernen-in-bewegung/
+                            - text: Anzeigen
+                          - text: "|"
+                        - link "Clone" [ref=e528] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/admin-post.php?action=learndash_cloning_action_course&object_id=2747&nonce=493f098d16
+                    - cell "Inhouse" [ref=e529]:
+                      - link "Inhouse" [ref=e530] [cursor=pointer]:
+                        - /url: edit.php?taxonomy=seminar-type&term=inhouse
+                    - cell "–" [ref=e531]
+                  - row "Viele Menschen, klare Haltung – Diversität konstruktiv nutzen auswählen „Viele Menschen, klare Haltung – Diversität konstruktiv nutzen“ (Bearbeiten) „Viele Menschen, klare Haltung – Diversität konstruktiv nutzen“ bearbeiten | „Viele Menschen, klare Haltung – Diversität konstruktiv nutzen“ in den Papierkorb verschieben | „Viele Menschen, klare Haltung – Diversität konstruktiv nutzen“ anzeigen | Clone Inhouse –" [ref=e532]:
+                    - rowheader "Viele Menschen, klare Haltung – Diversität konstruktiv nutzen auswählen" [ref=e533]:
+                      - checkbox "Viele Menschen, klare Haltung – Diversität konstruktiv nutzen auswählen" [ref=e534] [cursor=pointer]
+                      - generic [ref=e536]: Viele Menschen, klare Haltung – Diversität konstruktiv nutzen auswählen
+                    - cell "„Viele Menschen, klare Haltung – Diversität konstruktiv nutzen“ (Bearbeiten) „Viele Menschen, klare Haltung – Diversität konstruktiv nutzen“ bearbeiten | „Viele Menschen, klare Haltung – Diversität konstruktiv nutzen“ in den Papierkorb verschieben | „Viele Menschen, klare Haltung – Diversität konstruktiv nutzen“ anzeigen | Clone" [ref=e537]:
+                      - strong [ref=e538]:
+                        - link "„Viele Menschen, klare Haltung – Diversität konstruktiv nutzen“ (Bearbeiten)" [ref=e539] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2743&action=edit&currentTab=learndash_sfwd-courses_dashboard
+                          - text: Viele Menschen, klare Haltung – Diversität konstruktiv nutzen
+                      - generic [ref=e540]:
+                        - generic [ref=e541]:
+                          - link "„Viele Menschen, klare Haltung – Diversität konstruktiv nutzen“ bearbeiten" [ref=e542] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2743&action=edit&currentTab=post-body-content
+                            - text: Bearbeiten
+                          - text: "|"
+                        - generic [ref=e543]:
+                          - link "„Viele Menschen, klare Haltung – Diversität konstruktiv nutzen“ in den Papierkorb verschieben" [ref=e544] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2743&action=trash&_wpnonce=9ed52396c7
+                            - text: Papierkorb
+                          - text: "|"
+                        - generic [ref=e545]:
+                          - link "„Viele Menschen, klare Haltung – Diversität konstruktiv nutzen“ anzeigen" [ref=e546] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/courses/viele-menschen-klare-haltung-diversitaet-konstruktiv-nutzen-2/
+                            - text: Anzeigen
+                          - text: "|"
+                        - link "Clone" [ref=e548] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/admin-post.php?action=learndash_cloning_action_course&object_id=2743&nonce=54e50988a8
+                    - cell "Inhouse" [ref=e549]:
+                      - link "Inhouse" [ref=e550] [cursor=pointer]:
+                        - /url: edit.php?taxonomy=seminar-type&term=inhouse
+                    - cell "–" [ref=e551]
+                  - row "Traumasensibles Arbeiten in der Kita auswählen „Traumasensibles Arbeiten in der Kita“ (Bearbeiten) „Traumasensibles Arbeiten in der Kita“ bearbeiten | „Traumasensibles Arbeiten in der Kita“ in den Papierkorb verschieben | „Traumasensibles Arbeiten in der Kita“ anzeigen | Clone Inhouse " [ref=e552]:
+                    - rowheader "Traumasensibles Arbeiten in der Kita auswählen" [ref=e553]:
+                      - checkbox "Traumasensibles Arbeiten in der Kita auswählen" [ref=e554] [cursor=pointer]
+                      - generic [ref=e556]: Traumasensibles Arbeiten in der Kita auswählen
+                    - cell "„Traumasensibles Arbeiten in der Kita“ (Bearbeiten) „Traumasensibles Arbeiten in der Kita“ bearbeiten | „Traumasensibles Arbeiten in der Kita“ in den Papierkorb verschieben | „Traumasensibles Arbeiten in der Kita“ anzeigen | Clone" [ref=e557]:
+                      - strong [ref=e558]:
+                        - link "„Traumasensibles Arbeiten in der Kita“ (Bearbeiten)" [ref=e559] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2740&action=edit&currentTab=learndash_sfwd-courses_dashboard
+                          - text: Traumasensibles Arbeiten in der Kita
+                      - generic [ref=e560]:
+                        - generic [ref=e561]:
+                          - link "„Traumasensibles Arbeiten in der Kita“ bearbeiten" [ref=e562] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2740&action=edit&currentTab=post-body-content
+                            - text: Bearbeiten
+                          - text: "|"
+                        - generic [ref=e563]:
+                          - link "„Traumasensibles Arbeiten in der Kita“ in den Papierkorb verschieben" [ref=e564] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2740&action=trash&_wpnonce=1d6938b5ba
+                            - text: Papierkorb
+                          - text: "|"
+                        - generic [ref=e565]:
+                          - link "„Traumasensibles Arbeiten in der Kita“ anzeigen" [ref=e566] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/courses/traumasensibles-arbeiten-in-der-kita-2/
+                            - text: Anzeigen
+                          - text: "|"
+                        - link "Clone" [ref=e568] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/admin-post.php?action=learndash_cloning_action_course&object_id=2740&nonce=c6f6f9a5a5
+                    - cell "Inhouse" [ref=e569]:
+                      - link "Inhouse" [ref=e570] [cursor=pointer]:
+                        - /url: edit.php?taxonomy=seminar-type&term=inhouse
+                    - cell "" [ref=e571]:
+                      - generic "Ja" [ref=e572]: 
+                  - row "Bedürfnisorientiert begleiten – Ermutigend erziehen auswählen „Bedürfnisorientiert begleiten – Ermutigend erziehen“ (Bearbeiten) „Bedürfnisorientiert begleiten – Ermutigend erziehen“ bearbeiten | „Bedürfnisorientiert begleiten – Ermutigend erziehen“ in den Papierkorb verschieben | „Bedürfnisorientiert begleiten – Ermutigend erziehen“ anzeigen | Clone Inhouse " [ref=e573]:
+                    - rowheader "Bedürfnisorientiert begleiten – Ermutigend erziehen auswählen" [ref=e574]:
+                      - checkbox "Bedürfnisorientiert begleiten – Ermutigend erziehen auswählen" [ref=e575] [cursor=pointer]
+                      - generic [ref=e577]: Bedürfnisorientiert begleiten – Ermutigend erziehen auswählen
+                    - cell "„Bedürfnisorientiert begleiten – Ermutigend erziehen“ (Bearbeiten) „Bedürfnisorientiert begleiten – Ermutigend erziehen“ bearbeiten | „Bedürfnisorientiert begleiten – Ermutigend erziehen“ in den Papierkorb verschieben | „Bedürfnisorientiert begleiten – Ermutigend erziehen“ anzeigen | Clone" [ref=e578]:
+                      - strong [ref=e579]:
+                        - link "„Bedürfnisorientiert begleiten – Ermutigend erziehen“ (Bearbeiten)" [ref=e580] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2737&action=edit&currentTab=learndash_sfwd-courses_dashboard
+                          - text: Bedürfnisorientiert begleiten – Ermutigend erziehen
+                      - generic [ref=e581]:
+                        - generic [ref=e582]:
+                          - link "„Bedürfnisorientiert begleiten – Ermutigend erziehen“ bearbeiten" [ref=e583] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2737&action=edit&currentTab=post-body-content
+                            - text: Bearbeiten
+                          - text: "|"
+                        - generic [ref=e584]:
+                          - link "„Bedürfnisorientiert begleiten – Ermutigend erziehen“ in den Papierkorb verschieben" [ref=e585] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2737&action=trash&_wpnonce=87865692c6
+                            - text: Papierkorb
+                          - text: "|"
+                        - generic [ref=e586]:
+                          - link "„Bedürfnisorientiert begleiten – Ermutigend erziehen“ anzeigen" [ref=e587] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/courses/beduerfnisorientiert-begleiten-ermutigend-erziehen/
+                            - text: Anzeigen
+                          - text: "|"
+                        - link "Clone" [ref=e589] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/admin-post.php?action=learndash_cloning_action_course&object_id=2737&nonce=780eff4119
+                    - cell "Inhouse" [ref=e590]:
+                      - link "Inhouse" [ref=e591] [cursor=pointer]:
+                        - /url: edit.php?taxonomy=seminar-type&term=inhouse
+                    - cell "" [ref=e592]:
+                      - generic "Ja" [ref=e593]: 
+                  - row "Veränderung gemeinsam gestalten auswählen „Veränderung gemeinsam gestalten“ (Bearbeiten) „Veränderung gemeinsam gestalten“ bearbeiten | „Veränderung gemeinsam gestalten“ in den Papierkorb verschieben | „Veränderung gemeinsam gestalten“ anzeigen | Clone Inhouse " [ref=e594]:
+                    - rowheader "Veränderung gemeinsam gestalten auswählen" [ref=e595]:
+                      - checkbox "Veränderung gemeinsam gestalten auswählen" [ref=e596] [cursor=pointer]
+                      - generic [ref=e598]: Veränderung gemeinsam gestalten auswählen
+                    - cell "„Veränderung gemeinsam gestalten“ (Bearbeiten) „Veränderung gemeinsam gestalten“ bearbeiten | „Veränderung gemeinsam gestalten“ in den Papierkorb verschieben | „Veränderung gemeinsam gestalten“ anzeigen | Clone" [ref=e599]:
+                      - strong [ref=e600]:
+                        - link "„Veränderung gemeinsam gestalten“ (Bearbeiten)" [ref=e601] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2734&action=edit&currentTab=learndash_sfwd-courses_dashboard
+                          - text: Veränderung gemeinsam gestalten
+                      - generic [ref=e602]:
+                        - generic [ref=e603]:
+                          - link "„Veränderung gemeinsam gestalten“ bearbeiten" [ref=e604] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2734&action=edit&currentTab=post-body-content
+                            - text: Bearbeiten
+                          - text: "|"
+                        - generic [ref=e605]:
+                          - link "„Veränderung gemeinsam gestalten“ in den Papierkorb verschieben" [ref=e606] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2734&action=trash&_wpnonce=5a9dab3815
+                            - text: Papierkorb
+                          - text: "|"
+                        - generic [ref=e607]:
+                          - link "„Veränderung gemeinsam gestalten“ anzeigen" [ref=e608] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/courses/veraenderung-gemeinsam-gestalten/
+                            - text: Anzeigen
+                          - text: "|"
+                        - link "Clone" [ref=e610] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/admin-post.php?action=learndash_cloning_action_course&object_id=2734&nonce=de916683e4
+                    - cell "Inhouse" [ref=e611]:
+                      - link "Inhouse" [ref=e612] [cursor=pointer]:
+                        - /url: edit.php?taxonomy=seminar-type&term=inhouse
+                    - cell "" [ref=e613]:
+                      - generic "Ja" [ref=e614]: 
+                  - row "Konzeptarbeit, die lebt – gemeinsam Zukunft gestalten auswählen „Konzeptarbeit, die lebt – gemeinsam Zukunft gestalten“ (Bearbeiten) „Konzeptarbeit, die lebt – gemeinsam Zukunft gestalten“ bearbeiten | „Konzeptarbeit, die lebt – gemeinsam Zukunft gestalten“ in den Papierkorb verschieben | „Konzeptarbeit, die lebt – gemeinsam Zukunft gestalten“ anzeigen | Clone Inhouse " [ref=e615]:
+                    - rowheader "Konzeptarbeit, die lebt – gemeinsam Zukunft gestalten auswählen" [ref=e616]:
+                      - checkbox "Konzeptarbeit, die lebt – gemeinsam Zukunft gestalten auswählen" [ref=e617] [cursor=pointer]
+                      - generic [ref=e619]: Konzeptarbeit, die lebt – gemeinsam Zukunft gestalten auswählen
+                    - cell "„Konzeptarbeit, die lebt – gemeinsam Zukunft gestalten“ (Bearbeiten) „Konzeptarbeit, die lebt – gemeinsam Zukunft gestalten“ bearbeiten | „Konzeptarbeit, die lebt – gemeinsam Zukunft gestalten“ in den Papierkorb verschieben | „Konzeptarbeit, die lebt – gemeinsam Zukunft gestalten“ anzeigen | Clone" [ref=e620]:
+                      - strong [ref=e621]:
+                        - link "„Konzeptarbeit, die lebt – gemeinsam Zukunft gestalten“ (Bearbeiten)" [ref=e622] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2731&action=edit&currentTab=learndash_sfwd-courses_dashboard
+                          - text: Konzeptarbeit, die lebt – gemeinsam Zukunft gestalten
+                      - generic [ref=e623]:
+                        - generic [ref=e624]:
+                          - link "„Konzeptarbeit, die lebt – gemeinsam Zukunft gestalten“ bearbeiten" [ref=e625] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2731&action=edit&currentTab=post-body-content
+                            - text: Bearbeiten
+                          - text: "|"
+                        - generic [ref=e626]:
+                          - link "„Konzeptarbeit, die lebt – gemeinsam Zukunft gestalten“ in den Papierkorb verschieben" [ref=e627] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2731&action=trash&_wpnonce=6b818c37d0
+                            - text: Papierkorb
+                          - text: "|"
+                        - generic [ref=e628]:
+                          - link "„Konzeptarbeit, die lebt – gemeinsam Zukunft gestalten“ anzeigen" [ref=e629] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/courses/konzeptarbeit-die-lebt-gemeinsam-zukunft-gestalten/
+                            - text: Anzeigen
+                          - text: "|"
+                        - link "Clone" [ref=e631] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/admin-post.php?action=learndash_cloning_action_course&object_id=2731&nonce=781006ba22
+                    - cell "Inhouse" [ref=e632]:
+                      - link "Inhouse" [ref=e633] [cursor=pointer]:
+                        - /url: edit.php?taxonomy=seminar-type&term=inhouse
+                    - cell "" [ref=e634]:
+                      - generic "Nein" [ref=e635]: 
+                  - row "Gewalt an Schulen erkennen, verstehen und wirksam begegnen auswählen „Gewalt an Schulen erkennen, verstehen und wirksam begegnen“ (Bearbeiten) „Gewalt an Schulen erkennen, verstehen und wirksam begegnen“ bearbeiten | „Gewalt an Schulen erkennen, verstehen und wirksam begegnen“ in den Papierkorb verschieben | „Gewalt an Schulen erkennen, verstehen und wirksam begegnen“ anzeigen | Clone Inhouse " [ref=e636]:
+                    - rowheader "Gewalt an Schulen erkennen, verstehen und wirksam begegnen auswählen" [ref=e637]:
+                      - checkbox "Gewalt an Schulen erkennen, verstehen und wirksam begegnen auswählen" [ref=e638] [cursor=pointer]
+                      - generic [ref=e640]: Gewalt an Schulen erkennen, verstehen und wirksam begegnen auswählen
+                    - cell "„Gewalt an Schulen erkennen, verstehen und wirksam begegnen“ (Bearbeiten) „Gewalt an Schulen erkennen, verstehen und wirksam begegnen“ bearbeiten | „Gewalt an Schulen erkennen, verstehen und wirksam begegnen“ in den Papierkorb verschieben | „Gewalt an Schulen erkennen, verstehen und wirksam begegnen“ anzeigen | Clone" [ref=e641]:
+                      - strong [ref=e642]:
+                        - link "„Gewalt an Schulen erkennen, verstehen und wirksam begegnen“ (Bearbeiten)" [ref=e643] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2728&action=edit&currentTab=learndash_sfwd-courses_dashboard
+                          - text: Gewalt an Schulen erkennen, verstehen und wirksam begegnen
+                      - generic [ref=e644]:
+                        - generic [ref=e645]:
+                          - link "„Gewalt an Schulen erkennen, verstehen und wirksam begegnen“ bearbeiten" [ref=e646] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2728&action=edit&currentTab=post-body-content
+                            - text: Bearbeiten
+                          - text: "|"
+                        - generic [ref=e647]:
+                          - link "„Gewalt an Schulen erkennen, verstehen und wirksam begegnen“ in den Papierkorb verschieben" [ref=e648] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2728&action=trash&_wpnonce=5b04f36252
+                            - text: Papierkorb
+                          - text: "|"
+                        - generic [ref=e649]:
+                          - link "„Gewalt an Schulen erkennen, verstehen und wirksam begegnen“ anzeigen" [ref=e650] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/courses/gewalt-an-schulen-erkennen-verstehen-und-wirksam-begegnen/
+                            - text: Anzeigen
+                          - text: "|"
+                        - link "Clone" [ref=e652] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/admin-post.php?action=learndash_cloning_action_course&object_id=2728&nonce=cf4bfda663
+                    - cell "Inhouse" [ref=e653]:
+                      - link "Inhouse" [ref=e654] [cursor=pointer]:
+                        - /url: edit.php?taxonomy=seminar-type&term=inhouse
+                    - cell "" [ref=e655]:
+                      - generic "Ja" [ref=e656]: 
+                  - row "Kinder aus dem Autismus-Spektrum auswählen „Kinder aus dem Autismus-Spektrum“ (Bearbeiten) „Kinder aus dem Autismus-Spektrum“ bearbeiten | „Kinder aus dem Autismus-Spektrum“ in den Papierkorb verschieben | „Kinder aus dem Autismus-Spektrum“ anzeigen | Clone Inhouse " [ref=e657]:
+                    - rowheader "Kinder aus dem Autismus-Spektrum auswählen" [ref=e658]:
+                      - checkbox "Kinder aus dem Autismus-Spektrum auswählen" [ref=e659] [cursor=pointer]
+                      - generic [ref=e661]: Kinder aus dem Autismus-Spektrum auswählen
+                    - cell "„Kinder aus dem Autismus-Spektrum“ (Bearbeiten) „Kinder aus dem Autismus-Spektrum“ bearbeiten | „Kinder aus dem Autismus-Spektrum“ in den Papierkorb verschieben | „Kinder aus dem Autismus-Spektrum“ anzeigen | Clone" [ref=e662]:
+                      - strong [ref=e663]:
+                        - link "„Kinder aus dem Autismus-Spektrum“ (Bearbeiten)" [ref=e664] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2659&action=edit&currentTab=learndash_sfwd-courses_dashboard
+                          - text: Kinder aus dem Autismus-Spektrum
+                      - generic [ref=e665]:
+                        - generic [ref=e666]:
+                          - link "„Kinder aus dem Autismus-Spektrum“ bearbeiten" [ref=e667] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2659&action=edit&currentTab=post-body-content
+                            - text: Bearbeiten
+                          - text: "|"
+                        - generic [ref=e668]:
+                          - link "„Kinder aus dem Autismus-Spektrum“ in den Papierkorb verschieben" [ref=e669] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2659&action=trash&_wpnonce=e54eb3a429
+                            - text: Papierkorb
+                          - text: "|"
+                        - generic [ref=e670]:
+                          - link "„Kinder aus dem Autismus-Spektrum“ anzeigen" [ref=e671] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/courses/kinder-aus-dem-autismus-spektrum-in-der-kita/
+                            - text: Anzeigen
+                          - text: "|"
+                        - link "Clone" [ref=e673] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/admin-post.php?action=learndash_cloning_action_course&object_id=2659&nonce=af7db859c2
+                    - cell "Inhouse" [ref=e674]:
+                      - link "Inhouse" [ref=e675] [cursor=pointer]:
+                        - /url: edit.php?taxonomy=seminar-type&term=inhouse
+                    - cell "" [ref=e676]:
+                      - generic "Ja" [ref=e677]: 
+                  - row "Neue Autorität in der Kita auswählen „Neue Autorität in der Kita“ (Bearbeiten) „Neue Autorität in der Kita“ bearbeiten | „Neue Autorität in der Kita“ in den Papierkorb verschieben | „Neue Autorität in der Kita“ anzeigen | Clone Inhouse " [ref=e678]:
+                    - rowheader "Neue Autorität in der Kita auswählen" [ref=e679]:
+                      - checkbox "Neue Autorität in der Kita auswählen" [ref=e680] [cursor=pointer]
+                      - generic [ref=e682]: Neue Autorität in der Kita auswählen
+                    - cell "„Neue Autorität in der Kita“ (Bearbeiten) „Neue Autorität in der Kita“ bearbeiten | „Neue Autorität in der Kita“ in den Papierkorb verschieben | „Neue Autorität in der Kita“ anzeigen | Clone" [ref=e683]:
+                      - strong [ref=e684]:
+                        - link "„Neue Autorität in der Kita“ (Bearbeiten)" [ref=e685] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2653&action=edit&currentTab=learndash_sfwd-courses_dashboard
+                          - text: Neue Autorität in der Kita
+                      - generic [ref=e686]:
+                        - generic [ref=e687]:
+                          - link "„Neue Autorität in der Kita“ bearbeiten" [ref=e688] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2653&action=edit&currentTab=post-body-content
+                            - text: Bearbeiten
+                          - text: "|"
+                        - generic [ref=e689]:
+                          - link "„Neue Autorität in der Kita“ in den Papierkorb verschieben" [ref=e690] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2653&action=trash&_wpnonce=c2dd3a9b1d
+                            - text: Papierkorb
+                          - text: "|"
+                        - generic [ref=e691]:
+                          - link "„Neue Autorität in der Kita“ anzeigen" [ref=e692] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/courses/neue-autoritaet-in-der-kita/
+                            - text: Anzeigen
+                          - text: "|"
+                        - link "Clone" [ref=e694] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/admin-post.php?action=learndash_cloning_action_course&object_id=2653&nonce=0fe91eddf3
+                    - cell "Inhouse" [ref=e695]:
+                      - link "Inhouse" [ref=e696] [cursor=pointer]:
+                        - /url: edit.php?taxonomy=seminar-type&term=inhouse
+                    - cell "" [ref=e697]:
+                      - generic "Ja" [ref=e698]: 
+                  - row "Kinderschutz in der Kita – Verantwortung mit Sicherheit leben auswählen „Kinderschutz in der Kita – Verantwortung mit Sicherheit leben“ (Bearbeiten) „Kinderschutz in der Kita – Verantwortung mit Sicherheit leben“ bearbeiten | „Kinderschutz in der Kita – Verantwortung mit Sicherheit leben“ in den Papierkorb verschieben | „Kinderschutz in der Kita – Verantwortung mit Sicherheit leben“ anzeigen | Clone Inhouse –" [ref=e699]:
+                    - rowheader "Kinderschutz in der Kita – Verantwortung mit Sicherheit leben auswählen" [ref=e700]:
+                      - checkbox "Kinderschutz in der Kita – Verantwortung mit Sicherheit leben auswählen" [ref=e701] [cursor=pointer]
+                      - generic [ref=e703]: Kinderschutz in der Kita – Verantwortung mit Sicherheit leben auswählen
+                    - cell "„Kinderschutz in der Kita – Verantwortung mit Sicherheit leben“ (Bearbeiten) „Kinderschutz in der Kita – Verantwortung mit Sicherheit leben“ bearbeiten | „Kinderschutz in der Kita – Verantwortung mit Sicherheit leben“ in den Papierkorb verschieben | „Kinderschutz in der Kita – Verantwortung mit Sicherheit leben“ anzeigen | Clone" [ref=e704]:
+                      - strong [ref=e705]:
+                        - link "„Kinderschutz in der Kita – Verantwortung mit Sicherheit leben“ (Bearbeiten)" [ref=e706] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2649&action=edit&currentTab=learndash_sfwd-courses_dashboard
+                          - text: Kinderschutz in der Kita – Verantwortung mit Sicherheit leben
+                      - generic [ref=e707]:
+                        - generic [ref=e708]:
+                          - link "„Kinderschutz in der Kita – Verantwortung mit Sicherheit leben“ bearbeiten" [ref=e709] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2649&action=edit&currentTab=post-body-content
+                            - text: Bearbeiten
+                          - text: "|"
+                        - generic [ref=e710]:
+                          - link "„Kinderschutz in der Kita – Verantwortung mit Sicherheit leben“ in den Papierkorb verschieben" [ref=e711] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2649&action=trash&_wpnonce=5e262d68e3
+                            - text: Papierkorb
+                          - text: "|"
+                        - generic [ref=e712]:
+                          - link "„Kinderschutz in der Kita – Verantwortung mit Sicherheit leben“ anzeigen" [ref=e713] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/courses/kinderschutz-in-der-kita-verantwortung-mit-sicherheit-leben/
+                            - text: Anzeigen
+                          - text: "|"
+                        - link "Clone" [ref=e715] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/admin-post.php?action=learndash_cloning_action_course&object_id=2649&nonce=b7f274713c
+                    - cell "Inhouse" [ref=e716]:
+                      - link "Inhouse" [ref=e717] [cursor=pointer]:
+                        - /url: edit.php?taxonomy=seminar-type&term=inhouse
+                    - cell "–" [ref=e718]
+                  - row "Herausforderndes Verhalten verstehen und professionell begleiten auswählen „Herausforderndes Verhalten verstehen und professionell begleiten“ (Bearbeiten) „Herausforderndes Verhalten verstehen und professionell begleiten“ bearbeiten | „Herausforderndes Verhalten verstehen und professionell begleiten“ in den Papierkorb verschieben | „Herausforderndes Verhalten verstehen und professionell begleiten“ anzeigen | Clone Inhouse " [ref=e719]:
+                    - rowheader "Herausforderndes Verhalten verstehen und professionell begleiten auswählen" [ref=e720]:
+                      - checkbox "Herausforderndes Verhalten verstehen und professionell begleiten auswählen" [ref=e721] [cursor=pointer]
+                      - generic [ref=e723]: Herausforderndes Verhalten verstehen und professionell begleiten auswählen
+                    - cell "„Herausforderndes Verhalten verstehen und professionell begleiten“ (Bearbeiten) „Herausforderndes Verhalten verstehen und professionell begleiten“ bearbeiten | „Herausforderndes Verhalten verstehen und professionell begleiten“ in den Papierkorb verschieben | „Herausforderndes Verhalten verstehen und professionell begleiten“ anzeigen | Clone" [ref=e724]:
+                      - strong [ref=e725]:
+                        - link "„Herausforderndes Verhalten verstehen und professionell begleiten“ (Bearbeiten)" [ref=e726] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2645&action=edit&currentTab=learndash_sfwd-courses_dashboard
+                          - text: Herausforderndes Verhalten verstehen und professionell begleiten
+                      - generic [ref=e727]:
+                        - generic [ref=e728]:
+                          - link "„Herausforderndes Verhalten verstehen und professionell begleiten“ bearbeiten" [ref=e729] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2645&action=edit&currentTab=post-body-content
+                            - text: Bearbeiten
+                          - text: "|"
+                        - generic [ref=e730]:
+                          - link "„Herausforderndes Verhalten verstehen und professionell begleiten“ in den Papierkorb verschieben" [ref=e731] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2645&action=trash&_wpnonce=03c487978a
+                            - text: Papierkorb
+                          - text: "|"
+                        - generic [ref=e732]:
+                          - link "„Herausforderndes Verhalten verstehen und professionell begleiten“ anzeigen" [ref=e733] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/courses/herausforderndes-verhalten-verstehen-und-professionell-begleiten/
+                            - text: Anzeigen
+                          - text: "|"
+                        - link "Clone" [ref=e735] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/admin-post.php?action=learndash_cloning_action_course&object_id=2645&nonce=f83487aeef
+                    - cell "Inhouse" [ref=e736]:
+                      - link "Inhouse" [ref=e737] [cursor=pointer]:
+                        - /url: edit.php?taxonomy=seminar-type&term=inhouse
+                    - cell "" [ref=e738]:
+                      - generic "Ja" [ref=e739]: 
+                  - row "Wie viel weniger ist mehr? auswählen „Wie viel weniger ist mehr?“ (Bearbeiten) „Wie viel weniger ist mehr?“ bearbeiten | „Wie viel weniger ist mehr?“ in den Papierkorb verschieben | „Wie viel weniger ist mehr?“ anzeigen | Clone Inhouse " [ref=e740]:
+                    - rowheader "Wie viel weniger ist mehr? auswählen" [ref=e741]:
+                      - checkbox "Wie viel weniger ist mehr? auswählen" [ref=e742] [cursor=pointer]
+                      - generic [ref=e744]: Wie viel weniger ist mehr? auswählen
+                    - cell "„Wie viel weniger ist mehr?“ (Bearbeiten) „Wie viel weniger ist mehr?“ bearbeiten | „Wie viel weniger ist mehr?“ in den Papierkorb verschieben | „Wie viel weniger ist mehr?“ anzeigen | Clone" [ref=e745]:
+                      - strong [ref=e746]:
+                        - link "„Wie viel weniger ist mehr?“ (Bearbeiten)" [ref=e747] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2641&action=edit&currentTab=learndash_sfwd-courses_dashboard
+                          - text: Wie viel weniger ist mehr?
+                      - generic [ref=e748]:
+                        - generic [ref=e749]:
+                          - link "„Wie viel weniger ist mehr?“ bearbeiten" [ref=e750] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2641&action=edit&currentTab=post-body-content
+                            - text: Bearbeiten
+                          - text: "|"
+                        - generic [ref=e751]:
+                          - link "„Wie viel weniger ist mehr?“ in den Papierkorb verschieben" [ref=e752] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2641&action=trash&_wpnonce=fe858d2150
+                            - text: Papierkorb
+                          - text: "|"
+                        - generic [ref=e753]:
+                          - link "„Wie viel weniger ist mehr?“ anzeigen" [ref=e754] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/courses/wie-viel-weniger-ist-mehr-2/
+                            - text: Anzeigen
+                          - text: "|"
+                        - link "Clone" [ref=e756] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/admin-post.php?action=learndash_cloning_action_course&object_id=2641&nonce=849c1d1f47
+                    - cell "Inhouse" [ref=e757]:
+                      - link "Inhouse" [ref=e758] [cursor=pointer]:
+                        - /url: edit.php?taxonomy=seminar-type&term=inhouse
+                    - cell "" [ref=e759]:
+                      - generic "Ja" [ref=e760]: 
+                  - row "Achtsamkeit und Entspannung in der Kita auswählen „Achtsamkeit und Entspannung in der Kita“ (Bearbeiten) — Privat „Achtsamkeit und Entspannung in der Kita“ bearbeiten | „Achtsamkeit und Entspannung in der Kita“ in den Papierkorb verschieben | „Achtsamkeit und Entspannung in der Kita“ anzeigen | Clone Inhouse " [ref=e761]:
+                    - rowheader "Achtsamkeit und Entspannung in der Kita auswählen" [ref=e762]:
+                      - checkbox "Achtsamkeit und Entspannung in der Kita auswählen" [ref=e763] [cursor=pointer]
+                      - generic [ref=e765]: Achtsamkeit und Entspannung in der Kita auswählen
+                    - cell "„Achtsamkeit und Entspannung in der Kita“ (Bearbeiten) — Privat „Achtsamkeit und Entspannung in der Kita“ bearbeiten | „Achtsamkeit und Entspannung in der Kita“ in den Papierkorb verschieben | „Achtsamkeit und Entspannung in der Kita“ anzeigen | Clone" [ref=e766]:
+                      - strong [ref=e767]:
+                        - link "„Achtsamkeit und Entspannung in der Kita“ (Bearbeiten)" [ref=e768] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2638&action=edit&currentTab=learndash_sfwd-courses_dashboard
+                          - text: Achtsamkeit und Entspannung in der Kita
+                        - text: — Privat
+                      - generic [ref=e769]:
+                        - generic [ref=e770]:
+                          - link "„Achtsamkeit und Entspannung in der Kita“ bearbeiten" [ref=e771] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2638&action=edit&currentTab=post-body-content
+                            - text: Bearbeiten
+                          - text: "|"
+                        - generic [ref=e772]:
+                          - link "„Achtsamkeit und Entspannung in der Kita“ in den Papierkorb verschieben" [ref=e773] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2638&action=trash&_wpnonce=a6778cf2ca
+                            - text: Papierkorb
+                          - text: "|"
+                        - generic [ref=e774]:
+                          - link "„Achtsamkeit und Entspannung in der Kita“ anzeigen" [ref=e775] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/courses/achtsamkeit-und-entspannung-in-der-kita/
+                            - text: Anzeigen
+                          - text: "|"
+                        - link "Clone" [ref=e777] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/admin-post.php?action=learndash_cloning_action_course&object_id=2638&nonce=8b82c6b89b
+                    - cell "Inhouse" [ref=e778]:
+                      - link "Inhouse" [ref=e779] [cursor=pointer]:
+                        - /url: edit.php?taxonomy=seminar-type&term=inhouse
+                    - cell "" [ref=e780]:
+                      - generic "Nein" [ref=e781]: 
+                  - row "Offene Arbeit in der Kita auswählen „Offene Arbeit in der Kita“ (Bearbeiten) „Offene Arbeit in der Kita“ bearbeiten | „Offene Arbeit in der Kita“ in den Papierkorb verschieben | „Offene Arbeit in der Kita“ anzeigen | Clone Inhouse " [ref=e782]:
+                    - rowheader "Offene Arbeit in der Kita auswählen" [ref=e783]:
+                      - checkbox "Offene Arbeit in der Kita auswählen" [ref=e784] [cursor=pointer]
+                      - generic [ref=e786]: Offene Arbeit in der Kita auswählen
+                    - cell "„Offene Arbeit in der Kita“ (Bearbeiten) „Offene Arbeit in der Kita“ bearbeiten | „Offene Arbeit in der Kita“ in den Papierkorb verschieben | „Offene Arbeit in der Kita“ anzeigen | Clone" [ref=e787]:
+                      - strong [ref=e788]:
+                        - link "„Offene Arbeit in der Kita“ (Bearbeiten)" [ref=e789] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2621&action=edit&currentTab=learndash_sfwd-courses_dashboard
+                          - text: Offene Arbeit in der Kita
+                      - generic [ref=e790]:
+                        - generic [ref=e791]:
+                          - link "„Offene Arbeit in der Kita“ bearbeiten" [ref=e792] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2621&action=edit&currentTab=post-body-content
+                            - text: Bearbeiten
+                          - text: "|"
+                        - generic [ref=e793]:
+                          - link "„Offene Arbeit in der Kita“ in den Papierkorb verschieben" [ref=e794] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2621&action=trash&_wpnonce=f6ef7d6d3c
+                            - text: Papierkorb
+                          - text: "|"
+                        - generic [ref=e795]:
+                          - link "„Offene Arbeit in der Kita“ anzeigen" [ref=e796] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/courses/offene-arbeit-in-der-kita/
+                            - text: Anzeigen
+                          - text: "|"
+                        - link "Clone" [ref=e798] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/admin-post.php?action=learndash_cloning_action_course&object_id=2621&nonce=187d1adea3
+                    - cell "Inhouse" [ref=e799]:
+                      - link "Inhouse" [ref=e800] [cursor=pointer]:
+                        - /url: edit.php?taxonomy=seminar-type&term=inhouse
+                    - cell "" [ref=e801]:
+                      - generic "Nein" [ref=e802]: 
+                  - row "Sozial-emotionale Entwicklung auswählen „Sozial-emotionale Entwicklung“ (Bearbeiten) „Sozial-emotionale Entwicklung“ bearbeiten | „Sozial-emotionale Entwicklung“ in den Papierkorb verschieben | „Sozial-emotionale Entwicklung“ anzeigen | Clone Inhouse " [ref=e803]:
+                    - rowheader "Sozial-emotionale Entwicklung auswählen" [ref=e804]:
+                      - checkbox "Sozial-emotionale Entwicklung auswählen" [ref=e805] [cursor=pointer]
+                      - generic [ref=e807]: Sozial-emotionale Entwicklung auswählen
+                    - cell "„Sozial-emotionale Entwicklung“ (Bearbeiten) „Sozial-emotionale Entwicklung“ bearbeiten | „Sozial-emotionale Entwicklung“ in den Papierkorb verschieben | „Sozial-emotionale Entwicklung“ anzeigen | Clone" [ref=e808]:
+                      - strong [ref=e809]:
+                        - link "„Sozial-emotionale Entwicklung“ (Bearbeiten)" [ref=e810] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2618&action=edit&currentTab=learndash_sfwd-courses_dashboard
+                          - text: Sozial-emotionale Entwicklung
+                      - generic [ref=e811]:
+                        - generic [ref=e812]:
+                          - link "„Sozial-emotionale Entwicklung“ bearbeiten" [ref=e813] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2618&action=edit&currentTab=post-body-content
+                            - text: Bearbeiten
+                          - text: "|"
+                        - generic [ref=e814]:
+                          - link "„Sozial-emotionale Entwicklung“ in den Papierkorb verschieben" [ref=e815] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2618&action=trash&_wpnonce=ca98442a42
+                            - text: Papierkorb
+                          - text: "|"
+                        - generic [ref=e816]:
+                          - link "„Sozial-emotionale Entwicklung“ anzeigen" [ref=e817] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/courses/sozial-emotionale-entwicklung/
+                            - text: Anzeigen
+                          - text: "|"
+                        - link "Clone" [ref=e819] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/admin-post.php?action=learndash_cloning_action_course&object_id=2618&nonce=45bf186e2a
+                    - cell "Inhouse" [ref=e820]:
+                      - link "Inhouse" [ref=e821] [cursor=pointer]:
+                        - /url: edit.php?taxonomy=seminar-type&term=inhouse
+                    - cell "" [ref=e822]:
+                      - generic "Ja" [ref=e823]: 
+                  - row "Wege aus dem Adultismus auswählen „Wege aus dem Adultismus“ (Bearbeiten) „Wege aus dem Adultismus“ bearbeiten | „Wege aus dem Adultismus“ in den Papierkorb verschieben | „Wege aus dem Adultismus“ anzeigen | Clone Inhouse " [ref=e824]:
+                    - rowheader "Wege aus dem Adultismus auswählen" [ref=e825]:
+                      - checkbox "Wege aus dem Adultismus auswählen" [ref=e826] [cursor=pointer]
+                      - generic [ref=e828]: Wege aus dem Adultismus auswählen
+                    - cell "„Wege aus dem Adultismus“ (Bearbeiten) „Wege aus dem Adultismus“ bearbeiten | „Wege aus dem Adultismus“ in den Papierkorb verschieben | „Wege aus dem Adultismus“ anzeigen | Clone" [ref=e829]:
+                      - strong [ref=e830]:
+                        - link "„Wege aus dem Adultismus“ (Bearbeiten)" [ref=e831] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2615&action=edit&currentTab=learndash_sfwd-courses_dashboard
+                          - text: Wege aus dem Adultismus
+                      - generic [ref=e832]:
+                        - generic [ref=e833]:
+                          - link "„Wege aus dem Adultismus“ bearbeiten" [ref=e834] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2615&action=edit&currentTab=post-body-content
+                            - text: Bearbeiten
+                          - text: "|"
+                        - generic [ref=e835]:
+                          - link "„Wege aus dem Adultismus“ in den Papierkorb verschieben" [ref=e836] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2615&action=trash&_wpnonce=58a4a1967d
+                            - text: Papierkorb
+                          - text: "|"
+                        - generic [ref=e837]:
+                          - link "„Wege aus dem Adultismus“ anzeigen" [ref=e838] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/courses/wege-aus-dem-adultismus/
+                            - text: Anzeigen
+                          - text: "|"
+                        - link "Clone" [ref=e840] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/admin-post.php?action=learndash_cloning_action_course&object_id=2615&nonce=18d1e150bb
+                    - cell "Inhouse" [ref=e841]:
+                      - link "Inhouse" [ref=e842] [cursor=pointer]:
+                        - /url: edit.php?taxonomy=seminar-type&term=inhouse
+                    - cell "" [ref=e843]:
+                      - generic "Ja" [ref=e844]: 
+                  - row "Macht, Verantwortung und Gewaltprävention in der Kita auswählen „Macht, Verantwortung und Gewaltprävention in der Kita“ (Bearbeiten) „Macht, Verantwortung und Gewaltprävention in der Kita“ bearbeiten | „Macht, Verantwortung und Gewaltprävention in der Kita“ in den Papierkorb verschieben | „Macht, Verantwortung und Gewaltprävention in der Kita“ anzeigen | Clone Inhouse " [ref=e845]:
+                    - rowheader "Macht, Verantwortung und Gewaltprävention in der Kita auswählen" [ref=e846]:
+                      - checkbox "Macht, Verantwortung und Gewaltprävention in der Kita auswählen" [ref=e847] [cursor=pointer]
+                      - generic [ref=e849]: Macht, Verantwortung und Gewaltprävention in der Kita auswählen
+                    - cell "„Macht, Verantwortung und Gewaltprävention in der Kita“ (Bearbeiten) „Macht, Verantwortung und Gewaltprävention in der Kita“ bearbeiten | „Macht, Verantwortung und Gewaltprävention in der Kita“ in den Papierkorb verschieben | „Macht, Verantwortung und Gewaltprävention in der Kita“ anzeigen | Clone" [ref=e850]:
+                      - strong [ref=e851]:
+                        - link "„Macht, Verantwortung und Gewaltprävention in der Kita“ (Bearbeiten)" [ref=e852] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2612&action=edit&currentTab=learndash_sfwd-courses_dashboard
+                          - text: Macht, Verantwortung und Gewaltprävention in der Kita
+                      - generic [ref=e853]:
+                        - generic [ref=e854]:
+                          - link "„Macht, Verantwortung und Gewaltprävention in der Kita“ bearbeiten" [ref=e855] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2612&action=edit&currentTab=post-body-content
+                            - text: Bearbeiten
+                          - text: "|"
+                        - generic [ref=e856]:
+                          - link "„Macht, Verantwortung und Gewaltprävention in der Kita“ in den Papierkorb verschieben" [ref=e857] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2612&action=trash&_wpnonce=4d278e9e01
+                            - text: Papierkorb
+                          - text: "|"
+                        - generic [ref=e858]:
+                          - link "„Macht, Verantwortung und Gewaltprävention in der Kita“ anzeigen" [ref=e859] [cursor=pointer]:
+                            - /url: https://kita-seminar-manufaktur.de/courses/macht-verantwortung-und-gewaltpraevention-in-der-kita/
+                            - text: Anzeigen
+                          - text: "|"
+                        - link "Clone" [ref=e861] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/admin-post.php?action=learndash_cloning_action_course&object_id=2612&nonce=1eeaaa6f27
+                    - cell "Inhouse" [ref=e862]:
+                      - link "Inhouse" [ref=e863] [cursor=pointer]:
+                        - /url: edit.php?taxonomy=seminar-type&term=inhouse
+                    - cell "" [ref=e864]:
+                      - generic "Nein" [ref=e865]: 
+                  - 'row "Janusz Korczaks Vermächtnis: Würde, Vertrauen und Partizipation in der Kita auswählen „Janusz Korczaks Vermächtnis: Würde, Vertrauen und Partizipation in der Kita“ (Bearbeiten) „Janusz Korczaks Vermächtnis: Würde, Vertrauen und Partizipation in der Kita“ bearbeiten | „Janusz Korczaks Vermächtnis: Würde, Vertrauen und Partizipation in der Kita“ in den Papierkorb verschieben | „Janusz Korczaks Vermächtnis: Würde, Vertrauen und Partizipation in der Kita“ anzeigen | Clone Inhouse " [ref=e866]':
+                    - 'rowheader "Janusz Korczaks Vermächtnis: Würde, Vertrauen und Partizipation in der Kita auswählen" [ref=e867]':
+                      - 'checkbox "Janusz Korczaks Vermächtnis: Würde, Vertrauen und Partizipation in der Kita auswählen" [ref=e868] [cursor=pointer]'
+                      - generic [ref=e870]: "Janusz Korczaks Vermächtnis: Würde, Vertrauen und Partizipation in der Kita auswählen"
+                    - 'cell "„Janusz Korczaks Vermächtnis: Würde, Vertrauen und Partizipation in der Kita“ (Bearbeiten) „Janusz Korczaks Vermächtnis: Würde, Vertrauen und Partizipation in der Kita“ bearbeiten | „Janusz Korczaks Vermächtnis: Würde, Vertrauen und Partizipation in der Kita“ in den Papierkorb verschieben | „Janusz Korczaks Vermächtnis: Würde, Vertrauen und Partizipation in der Kita“ anzeigen | Clone" [ref=e871]':
+                      - strong [ref=e872]:
+                        - 'link "„Janusz Korczaks Vermächtnis: Würde, Vertrauen und Partizipation in der Kita“ (Bearbeiten)" [ref=e873] [cursor=pointer]':
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2606&action=edit&currentTab=learndash_sfwd-courses_dashboard
+                          - text: "Janusz Korczaks Vermächtnis: Würde, Vertrauen und Partizipation in der Kita"
+                      - generic [ref=e874]:
+                        - generic [ref=e875]:
+                          - 'link "„Janusz Korczaks Vermächtnis: Würde, Vertrauen und Partizipation in der Kita“ bearbeiten" [ref=e876] [cursor=pointer]':
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2606&action=edit&currentTab=post-body-content
+                            - text: Bearbeiten
+                          - text: "|"
+                        - generic [ref=e877]:
+                          - 'link "„Janusz Korczaks Vermächtnis: Würde, Vertrauen und Partizipation in der Kita“ in den Papierkorb verschieben" [ref=e878] [cursor=pointer]':
+                            - /url: https://kita-seminar-manufaktur.de/wp-admin/post.php?post=2606&action=trash&_wpnonce=6475bdb0d7
+                            - text: Papierkorb
+                          - text: "|"
+                        - generic [ref=e879]:
+                          - 'link "„Janusz Korczaks Vermächtnis: Würde, Vertrauen und Partizipation in der Kita“ anzeigen" [ref=e880] [cursor=pointer]':
+                            - /url: https://kita-seminar-manufaktur.de/courses/janusz-korczaks-vermaechtnis/
+                            - text: Anzeigen
+                          - text: "|"
+                        - link "Clone" [ref=e882] [cursor=pointer]:
+                          - /url: https://kita-seminar-manufaktur.de/wp-admin/admin-post.php?action=learndash_cloning_action_course&object_id=2606&nonce=37a701d021
+                    - cell "Inhouse" [ref=e883]:
+                      - link "Inhouse" [ref=e884] [cursor=pointer]:
+                        - /url: edit.php?taxonomy=seminar-type&term=inhouse
+                    - cell "" [ref=e885]:
+                      - generic "Nein" [ref=e886]: 
+                - rowgroup [ref=e887]:
+                  - row "Alle auswählen Titel Typ Carousel Aufsteigend sortieren." [ref=e888]:
+                    - cell "Alle auswählen" [ref=e889]:
+                      - checkbox "Alle auswählen" [ref=e890] [cursor=pointer]
+                      - generic [ref=e892]: Alle auswählen
+                    - columnheader "Titel" [ref=e893]
+                    - columnheader "Typ" [ref=e894]
+                    - columnheader "Carousel Aufsteigend sortieren." [ref=e895]:
+                      - link "Carousel Aufsteigend sortieren." [ref=e896] [cursor=pointer]:
+                        - /url: https://kita-seminar-manufaktur.de/wp-admin/edit.php?post_type=sfwd-courses&orderby=2a11fd0e666666&order=asc
+                        - generic [ref=e897]: Carousel
+                        - generic [ref=e901]: Aufsteigend sortieren.
+              - generic [ref=e903]:
+                - text: 38 Einträge
+                - generic [ref=e904]:
+                  - generic [ref=e905]: «
+                  - generic [ref=e906]: ‹
+                  - generic [ref=e907]: Aktuelle Seite
+                  - generic [ref=e909]: 1 von 2
+                  - link "Nächste Seite" [ref=e910] [cursor=pointer]:
+                    - /url: https://kita-seminar-manufaktur.de/wp-admin/edit.php?post_type=sfwd-courses&paged=2
+                    - generic [ref=e911]: Nächste Seite
+                    - text: ›
+                  - link "Letzte Seite" [ref=e912] [cursor=pointer]:
+                    - /url: https://kita-seminar-manufaktur.de/wp-admin/edit.php?post_type=sfwd-courses&paged=2
+                    - generic [ref=e913]: Letzte Seite
+                    - text: »
+    - contentinfo [ref=e914]:
+      - paragraph [ref=e915]:
+        - generic [ref=e917]:
+          - text: Danke für dein Vertrauen in
+          - link "WordPress" [ref=e918] [cursor=pointer]:
+            - /url: https://de.wordpress.org/
+          - text: .
+      - paragraph [ref=e919]: Version 6.9.4
+  - text:  
+  - generic [ref=e923]:
+    - heading "The Editor has a new home" [level=3] [ref=e924]
+    - paragraph [ref=e925]:
+      - text: Editor tools are now grouped together for quick access. Build and grow your site with everything you need in one place.
+      - link "Mehr erfahren" [ref=e926] [cursor=pointer]:
+        - /url: https://go.elementor.com/wp-dash-editor-one-learn-more/
+    - paragraph [ref=e927]:
+      - button "Verstanden" [ref=e928] [cursor=pointer]
+    - link "Verwerfen" [ref=e930] [cursor=pointer]:
+      - /url: "#"
