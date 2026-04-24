@@ -10,6 +10,12 @@ hosts.yaml
 **/.DS_Store
 .claude/handoffs/
 
+# Temporary files — use tmp/ for any scratch/diagnostic work
+tmp/
+
+# Playwright MCP cache
+.playwright-mcp/
+
 # Local dev Docker stacks — not ops tooling, has large data files
 local-dev/
 
