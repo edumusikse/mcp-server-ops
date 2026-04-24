@@ -21,14 +21,21 @@ PASS = []
 FAIL = []
 
 
-def check(name: str, result: dict, expect_key: str = "ok", expect_val=True):
-    val = result.get(expect_key)
-    if val == expect_val:
+def check(name: str, result, expect_key: str = "ok", expect_val=True):
+    if isinstance(result, bool):
+        val = result
+        ok = val == expect_val
+        err = ""
+    else:
+        val = result.get(expect_key)
+        ok = val == expect_val
+        err = result.get("error", "") if isinstance(result, dict) else ""
+    if ok:
         PASS.append(name)
         print(f"  PASS  {name}")
     else:
         FAIL.append(name)
-        print(f"  FAIL  {name} — got {expect_key}={val!r}, error={result.get('error', '')}")
+        print(f"  FAIL  {name} — got {val!r} (expected {expect_val!r}){(' — ' + err) if err else ''}")
 
 
 def run():
@@ -70,7 +77,7 @@ def run():
         # Read it back to confirm
         r2 = read_file(host="main", path=test_path, tail_lines=5, sudo=True)
         check("read back sentinel content", r2)
-        check("sentinel content correct", "integration-test-sentinel" in r2.get("content", ""), "ok", True)
+        check("sentinel content correct", "integration-test-sentinel" in r2.get("content", ""))
         # Clean up
         from transport import run_on
         run_on("main", ["sudo", "-n", "rm", "-f", test_path], timeout=10)
