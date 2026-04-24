@@ -67,9 +67,10 @@ BLOCK_MESSAGE = (
 )
 
 
-def get_last_assistant_text(transcript_path: str) -> str:
-    """Return the text content of the last assistant message in the transcript."""
+def get_last_assistant_turn(transcript_path: str) -> tuple[str, bool]:
+    """Return (text, had_tool_use) for the last assistant message in the transcript."""
     last_text = ""
+    last_had_tools = False
     try:
         with open(transcript_path) as f:
             for line in f:
@@ -87,16 +88,20 @@ def get_last_assistant_text(transcript_path: str) -> str:
                 if not isinstance(content, list):
                     continue
                 parts = []
+                had_tools = False
                 for block in content:
                     if not isinstance(block, dict):
                         continue
                     if block.get("type") == "text":
                         parts.append(block.get("text") or "")
+                    elif block.get("type") == "tool_use":
+                        had_tools = True
                 if parts:
                     last_text = " ".join(parts)
+                    last_had_tools = had_tools
     except (FileNotFoundError, PermissionError, OSError):
         pass
-    return last_text
+    return last_text, last_had_tools
 
 
 def has_trigger(text: str) -> bool:
@@ -122,8 +127,13 @@ def main() -> int:
         if not transcript_path:
             return 0
 
-        text = get_last_assistant_text(transcript_path)
+        text, had_tool_use = get_last_assistant_turn(transcript_path)
         if not text:
+            return 0
+
+        # Only check for completion language if operational work was done this turn.
+        # Pure conversational/editorial responses have nothing to verify.
+        if not had_tool_use:
             return 0
 
         if has_trigger(text) and not has_verification(text):
