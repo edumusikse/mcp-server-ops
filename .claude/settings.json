@@ -34,6 +34,15 @@
         ]
       },
       {
+        "matcher": "mcp__ops__write_file",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /Users/stephan/Documents/ops-agent/.claude/hooks/write_file_sudo_guard.py"
+          }
+        ]
+      },
+      {
         "matcher": "mcp__ops__.*",
         "hooks": [
           {

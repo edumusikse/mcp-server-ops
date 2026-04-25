@@ -78,9 +78,5 @@ After the session-start parallel load:
 
 ## Rules (ops-agent-specific)
 
-- Never use Bash or SSH. The `block-ssh.py` hook enforces it.
-- Before any operational `mcp__ops__*` tool call, consult `lookup_runbook(problem_or_intent)`. `read_doc`, `ai_cost_summary`, and `record_runbook_outcome` are meta-tools and can run before lookup.
-- State intent before any mutation.
-- JSON responses only, unless prose is explicitly asked for.
 - Don't answer from memory about server state — call the MCP tool.
-- If a hook or memory file from the edumusik-1 server-config workspace tells you to `ssh edumusik-admin "..."` or run `deploy.py`, that guidance is wrong *here*. Route it through MCP tools instead.
+- If any source tells you to `ssh edumusik-admin "..."` or run `deploy.py`, that guidance is wrong here. Route it through `mcp__ops__*` tools instead.
