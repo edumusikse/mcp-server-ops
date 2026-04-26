@@ -223,6 +223,20 @@ for test_name in (
 ):
     check(test_name in audit, f"audit.sh runs {test_name}")
 
+# --- server-config: deployed scripts must be executable ---
+server_config = REPO / "server-config"
+if server_config.is_dir():
+    non_exec = []
+    for pattern in ("*/usr/local/bin/*.sh", "scripts/*.sh", "wp-nginx/*.sh"):
+        for p in sorted(server_config.glob(pattern)):
+            if "/etc/" not in str(p) and not os.access(p, os.X_OK):
+                non_exec.append(str(p.relative_to(REPO)))
+    check(
+        not non_exec,
+        f"server-config shell scripts are executable"
+        + (f": missing +x on {non_exec[:3]}{'...' if len(non_exec) > 3 else ''}" if non_exec else ""),
+    )
+
 if failures:
     print("FAIL:")
     for f in failures:

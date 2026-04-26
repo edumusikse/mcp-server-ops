@@ -262,13 +262,14 @@ def _server_config_install_shell(sudo: str, backup_ts: str) -> str:
         basename = os.path.basename(dst)
         tmp_q = shlex.quote(f"/tmp/{basename}")
         dst_q = shlex.quote(dst)
+        mode = "0755" if dst.endswith(".sh") else "0644"
         lines.append(
             f"if [ -d {dst_q} ]; then {sudo}rm -rf {dst_q}; fi; "
             f"if cmp -s {tmp_q} {dst_q} 2>/dev/null; then "
             f"rm -f {tmp_q}; "
             f"else "
             f"{{ {sudo}test -e {dst_q} && {sudo}cp -p {dst_q} {dst_q}.bak.{backup_ts} || true; }}; "
-            f"{sudo}install -m 0644 {tmp_q} {dst_q}; "
+            f"{sudo}install -m {mode} {tmp_q} {dst_q}; "
             f"rm -f {tmp_q}; "
             f"echo UPDATED:{dst}; "
             f"fi"
