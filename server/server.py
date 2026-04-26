@@ -8,8 +8,10 @@ Tools take a `host` parameter; fleet_status() queries all hosts in parallel.
 Credentials: /opt/ops-mcp/.env (chmod 600, never in git)
 Fleet config: /opt/ops-mcp/hosts.yaml
 
-Transport: stdio
-Connect via: ssh control-server /opt/ops-mcp/.venv/bin/python3 /opt/ops-mcp/server.py
+Default transport: stdio
+Connect via stdio: ssh control-server /opt/ops-mcp/.venv/bin/python3 /opt/ops-mcp/server.py
+HTTP service mode: set OPS_MCP_TRANSPORT=streamable-http, OPS_MCP_HOST,
+OPS_MCP_PORT, and optional OPS_MCP_PATH.
 
 NEVER print to stdout — that is the JSON-RPC transport channel.
 
@@ -48,5 +50,11 @@ import deploy     # noqa: F401, E402
 
 if __name__ == "__main__":
     init_db()
-    logging.info("ops-mcp starting (fleet=%s, pid=%d)", list(FLEET), os.getpid())
-    mcp.run(transport="stdio")
+    transport = os.environ.get("OPS_MCP_TRANSPORT", "stdio")
+    logging.info(
+        "ops-mcp starting (fleet=%s, pid=%d, transport=%s)",
+        list(FLEET),
+        os.getpid(),
+        transport,
+    )
+    mcp.run(transport=transport)

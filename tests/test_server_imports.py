@@ -23,14 +23,14 @@ _STUB = tempfile.mkdtemp(prefix="mcp-stub-")
 (Path(_STUB) / "mcp" / "server" / "__init__.py").write_text("")
 (Path(_STUB) / "mcp" / "server" / "fastmcp.py").write_text(
     "class FastMCP:\n"
-    "    def __init__(self, name):\n"
+    "    def __init__(self, name, **kwargs):\n"
     "        self.name = name; self._tools = {}\n"
     "    def tool(self):\n"
     "        def deco(fn):\n"
     "            self._tools[fn.__name__] = fn\n"
     "            return fn\n"
     "        return deco\n"
-    "    def run(self, transport=None):\n"
+    "    def run(self, transport=None, mount_path=None):\n"
     "        pass\n"
 )
 

@@ -38,7 +38,15 @@ logging.basicConfig(
 from mcp.server.fastmcp import FastMCP  # noqa: E402
 
 _MCP_NAME = os.environ.get("OPS_MCP_NAME", "ops")
-mcp = FastMCP(_MCP_NAME)
+_MCP_HOST = os.environ.get("OPS_MCP_HOST", "127.0.0.1")
+_MCP_PORT = int(os.environ.get("OPS_MCP_PORT", "8000"))
+_MCP_PATH = os.environ.get("OPS_MCP_PATH", "/mcp")
+mcp = FastMCP(
+    _MCP_NAME,
+    host=_MCP_HOST,
+    port=_MCP_PORT,
+    streamable_http_path=_MCP_PATH,
+)
 
 # ── Fleet config ──────────────────────────────────────────────────────────────
 
