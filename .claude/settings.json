@@ -61,6 +61,17 @@
         ]
       }
     ],
+    "PostToolUse": [
+      {
+        "matcher": "mcp__ops__.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /Users/stephan/Documents/ops-agent/.claude/hooks/ops_fail_guard.py"
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "hooks": [
