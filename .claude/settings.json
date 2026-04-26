@@ -21,6 +21,10 @@
           {
             "type": "command",
             "command": "python3 /Users/stephan/Documents/ops-agent/.claude/hooks/find-guard.py"
+          },
+          {
+            "type": "command",
+            "command": "python3 /Users/stephan/Documents/ops-agent/.claude/hooks/plan_first_guard.py"
           }
         ]
       },

@@ -42,6 +42,7 @@ run_test "runbook_guard"   "tests/test_runbook_guard.py"
 run_test "server_imports"  "tests/test_server_imports.py"
 run_test "block_ssh"       "tests/test_block_ssh.py"
 run_test "workspace_health" "tests/test_workspace_health.py"
+run_test "plan_first_guard" "tests/test_plan_first_guard.py"
 
 # ─── Hook wiring (settings.json coherence) ─────────────────────────────────
 section "Hook wiring"
@@ -57,11 +58,12 @@ if [[ -f "$settings" ]]; then
     if grep -q "block-ssh.py" "$settings"; then ok "block-ssh.py referenced"; else ko "block-ssh.py NOT referenced"; fi
     if grep -q "budget_guard.py" "$settings"; then ok "budget_guard.py referenced"; else ko "budget_guard.py NOT referenced"; fi
     if grep -q "runbook_guard.py" "$settings"; then ok "runbook_guard.py referenced"; else ko "runbook_guard.py NOT referenced"; fi
+    if grep -q "plan_first_guard.py" "$settings"; then ok "plan_first_guard.py referenced"; else ko "plan_first_guard.py NOT referenced"; fi
 else
     ko "settings.json missing"
 fi
 
-for h in .claude/hooks/block-ssh.py .claude/hooks/budget_guard.py .claude/hooks/runbook_guard.py; do
+for h in .claude/hooks/block-ssh.py .claude/hooks/budget_guard.py .claude/hooks/runbook_guard.py .claude/hooks/plan_first_guard.py; do
     [[ -x "$h" ]] && ok "$h executable" || ko "$h not executable"
 done
 

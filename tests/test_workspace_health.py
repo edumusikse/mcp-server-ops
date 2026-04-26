@@ -69,6 +69,7 @@ for hook in (
     REPO / ".claude/hooks/block-ssh.py",
     REPO / ".claude/hooks/runbook_guard.py",
     REPO / ".claude/hooks/budget_guard.py",
+    REPO / ".claude/hooks/plan_first_guard.py",
 ):
     check(hook.exists(), f"{hook.name} exists")
     check(os.access(hook, os.X_OK), f"{hook.name} executable")
