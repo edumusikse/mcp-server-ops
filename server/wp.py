@@ -29,6 +29,10 @@ _WP_CLI_WRITE_VERBS = {
     "eval", "eval-file",
     "media regenerate",
     "role create", "cap add",
+    "action-scheduler action delete",
+    "action-scheduler clean",
+    "action-scheduler fix-schema",
+    "db query",
 }
 
 _WP_CLI_BLOCKED = {
