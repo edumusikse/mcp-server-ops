@@ -155,6 +155,9 @@ def write_file(host: str, path: str, content: str, sudo: bool = False) -> dict:
     encoded = base64.b64encode(content.encode("utf-8")).decode("ascii")
     sudo_prefix = "sudo -n " if sudo else ""
 
+    # /usr/local/bin/ scripts must be executable; everything else (config, cron, etc.) is 0644.
+    write_mode = "0755" if path.startswith("/usr/local/bin/") else "0644"
+
     # Heredoc avoids ARG_MAX and quoting issues for large base64 payloads.
     # chattr -i/+i: CIS hardening marks /usr/local/bin scripts immutable; strip
     # before write and restore after so security posture is preserved.
@@ -168,7 +171,7 @@ def write_file(host: str, path: str, content: str, sudo: bool = False) -> dict:
         f"  [ $IMMUTABLE -eq 1 ] && {sudo_prefix}chattr -i {shlex.quote(path)} || true; "
         f"  {sudo_prefix}cp -p {shlex.quote(path)} {shlex.quote(path)}.bak.{ts}; "
         f"fi; "
-        f"{sudo_prefix}install -m 0644 \"$tmp\" {shlex.quote(path)}; "
+        f"{sudo_prefix}install -m {write_mode} \"$tmp\" {shlex.quote(path)}; "
         f"[ $IMMUTABLE -eq 1 ] && {sudo_prefix}chattr +i {shlex.quote(path)} || true; "
         f"rm -f \"$tmp\"; "
         f"echo OK"
