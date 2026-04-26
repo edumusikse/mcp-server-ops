@@ -37,6 +37,7 @@ _WRITE_FILE_PREFIXES = (
     "/usr/local/bin/probes/",  # alt probes location
     "/usr/local/bin/",         # ops scripts (inspec wrapper, etc.)
     "/etc/cron.d/",            # cron jobs (wrapper scripts, timeouts)
+    "/var/lib/ai-agent/",      # AI agent runbook + state (agent self-writes)
     # WP mu-plugins deploy paths — requires sudo=True; covers all sites
     "/var/lib/docker/volumes/ksm_wp-files/_data/wp-content/mu-plugins/",
     "/var/lib/docker/volumes/edumusik-net_wp-files/_data/wp-content/mu-plugins/",
