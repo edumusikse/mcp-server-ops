@@ -17,6 +17,10 @@ _READ_FILE_PREFIXES = (
     "/var/log/", "/srv/", "/opt/", "/usr/local/bin/",
     "/home/stephan/.ops-mcp/", "/var/lib/ai-agent/",
     "/var/lib/docker/volumes/",   # WP site files (mu-plugins, themes, uploads)
+    "/var/lib/server-checks/",    # cron check state JSON (AI agent diagnostics)
+    "/var/lib/cron-heartbeats/",  # heartbeat timestamps (staleness detection)
+    "/var/lib/log-scanner/",      # log-scanner alert state (dedup / recovery)
+    "/etc/cron.d/",               # cron job definitions (audit)
 )
 
 _READ_FILE_BLOCKED = ("/etc/ssh/", "/root/", "/etc/sudoers")
